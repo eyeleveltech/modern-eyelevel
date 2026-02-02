@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import eyelevelLogo from "@/assets/eyelevel-logo-dark.png";
-import mascotGrowth from "@/assets/mascot-growth.png";
+import mascotGrowth from "@/assets/mascot/hide.png";
 const navLinks = [
   {
     href: "/",
@@ -320,13 +320,13 @@ const Header = ({ compact = false }: HeaderProps) => {
               >
                 {/* Dark green interior */}
                 <div
-                  className="rounded-2xl relative overflow-visible"
+                  className="rounded-2xl relative overflow-visible min-h-[42vh] md:min-h-[30vh]"
                   style={{
                     backgroundColor: "#1a3a2f",
                   }}
                 >
                   {/* Navigation links - centered */}
-                  <div className="flex flex-col items-center pt-5 md:justify-center min-h-[50vh] md:min-h-[64vh]">
+                  <div className="flex flex-col items-center pt-5 md:justify-center">
                     {navLinks.map((link, index) => (
                       <motion.div
                         key={link.href}
@@ -360,7 +360,7 @@ const Header = ({ compact = false }: HeaderProps) => {
                   <img
                     src={mascotGrowth}
                     alt="EyeLevel Mascot"
-                    className="absolute -bottom-[25px] md:-bottom-[45px] lg:-bottom-[50px] right-0 size-40 md:size-72 lg:w-80 lg:h-80 object-contain pointer-events-none"
+                    className="absolute -right-[52px] md:-right-[94px] lg:-right-[104px] bottom-5 md:bottom-5 lg:bottom-4 size-40 md:size-72 lg:w-80 lg:h-80 object-contain pointer-events-none"
                   />
                 </div>
               </div>

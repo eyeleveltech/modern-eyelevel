@@ -120,7 +120,7 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pb-20 px-4 relative min-h-screen flex flex-col items-center justify-center">
+      <section className="px-4 relative min-h-screen flex flex-col items-center justify-center">
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}

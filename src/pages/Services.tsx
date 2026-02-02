@@ -29,6 +29,8 @@ import web_1 from "@/assets/mockup/web_1.png";
 import web_2 from "@/assets/mockup/web_2.png";
 import web_3 from "@/assets/mockup/web_3.png";
 import web_4 from "@/assets/mockup/web_4.png";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import { useEffect, useRef, useState } from "react";
 
 const services = [
   {
@@ -263,12 +265,65 @@ const Star18 = ({ className }: { className?: string }) => {
   );
 };
 const ServicesPage = () => {
+  const ref = useRef(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/magic wand.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  const playAnimation = () => {
+    if (!lottieRef.current) return;
+    lottieRef.current.setSpeed(1.5);
+    lottieRef.current.goToAndPlay(0, true);
+  };
+  useEffect(() => {
+    if (animationData && !hasPlayedInitial.current) {
+      playAnimation();
+      hasPlayedInitial.current = true;
+    }
+  }, [animationData]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // User came BACK into hero
+          if (hasLeftHero.current) {
+            playAnimation();
+            hasLeftHero.current = false;
+          }
+        } else {
+          // User left hero
+          hasLeftHero.current = true;
+        }
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0D1F1A]">
       <Header />
 
       {/* Hero Section - Minimal */}
       <section
+        ref={ref}
         className="relative pt-32 pb-20 px-4 overflow-hidden md:min-h-screen"
         style={{ backgroundColor: "#0D1F1A" }}
       >
@@ -320,7 +375,23 @@ const ServicesPage = () => {
             className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-dela mb-6 leading-[1.1] uppercase"
             style={{ color: "#E2FEA5" }}
           >
-            GROWTH WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
+            <span className="relative flex items-end justify-center">
+              GR{" "}
+              <span className="">
+                {animationData && (
+                  <Lottie
+                    lottieRef={lottieRef}
+                    animationData={animationData}
+                    autoPlay={false}
+                    loop={true}
+                    className=" w-[80px] pointer-events-none"
+                  />
+                )}
+              </span>
+              <span> </span>
+              <span>WTH</span>
+            </span>{" "}
+            WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
           </motion.h1>
 
           <motion.p
