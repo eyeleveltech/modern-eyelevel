@@ -96,7 +96,7 @@ const Hero = () => {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none"
+        className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
       >
         <Star18 className="w-full h-full" />
       </motion.div>

@@ -15,12 +15,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import eyelevelLogoColor from "@/assets/eyelevel-logo-color-new.png";
 import WavyUnderline from "./WavyUnderline";
 import GreenButton from "./GreenButton";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 const footerLinks = [
   {
@@ -183,6 +184,64 @@ const EnhancedFooter = ({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const ref = useRef(null);
+  const lottieRef1 = useRef<LottieRefCurrentProps>(null);
+  const lottieRef2 = useRef<LottieRefCurrentProps>(null);
+  const lottieRef3 = useRef<LottieRefCurrentProps>(null);
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/photo click.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  const playSequence = () => {
+    if (!lottieRef1.current) return;
+
+    // reset all
+    lottieRef1.current.stop();
+    lottieRef2.current?.stop();
+    lottieRef3.current?.stop();
+
+    lottieRef1.current.setSpeed(0.7);
+    lottieRef2.current?.setSpeed(0.7);
+    lottieRef3.current?.setSpeed(0.7);
+
+    lottieRef1.current.goToAndPlay(0, true);
+  };
+
+  useEffect(() => {
+    if (animationData && !hasPlayedInitial.current) {
+      playSequence();
+      hasPlayedInitial.current = true;
+    }
+  }, [animationData]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (hasLeftHero.current) {
+            playSequence();
+            hasLeftHero.current = false;
+          }
+        } else {
+          hasLeftHero.current = true;
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -244,17 +303,17 @@ const EnhancedFooter = ({
   };
 
   return (
-    <footer className="relative overflow-hidden">
+    <footer className="relative">
       {/* Form Section - Only show when showCTA is true */}
       {showCTA && (
-        <section className="py-12 md:py-16 px-4 bg-[#0D1F1A] relative">
+        <section className="pt-12 md:pt-16 pb-[150px] md:pb-[200px] px-4 bg-[#0D1F1A]">
           {/* Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-lime/5 rounded-full blur-[150px]" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
           </div>
 
-          <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-5xl mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
               {/* Left Column - Content */}
               <motion.div
@@ -565,8 +624,9 @@ const EnhancedFooter = ({
       )}
 
       {/* Bottom Footer */}
+
       <div className="bg-[#173229] py-12 px-4 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Links Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
             {footerLinks.map((section, index) => (
@@ -649,7 +709,42 @@ const EnhancedFooter = ({
             </div>
           </div>
         </div>
+        
       </div>
+      {animationData && (
+          <div className="flex items-center z-50 justify-between w-full absolute bottom-[625px] md:bottom-[388px] lg:bottom-[365px]">
+            <Lottie
+              lottieRef={lottieRef1}
+              animationData={animationData}
+              autoPlay={false}
+              loop={false}
+              onComplete={() => {
+                lottieRef2.current?.goToAndPlay(0, true);
+              }}
+              className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            />
+            <Lottie
+              lottieRef={lottieRef2}
+              animationData={animationData}
+              autoPlay={false}
+              loop={false}
+              onComplete={() => {
+                lottieRef3.current?.goToAndPlay(0, true);
+              }}
+              className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            />
+            <Lottie
+              lottieRef={lottieRef3}
+              animationData={animationData}
+              autoPlay={false}
+              loop={false}
+              onComplete={() => {
+                setTimeout(playSequence, 800);
+              }}
+              className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            />
+          </div>
+        )}
     </footer>
   );
 };

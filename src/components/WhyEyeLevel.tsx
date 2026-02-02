@@ -56,7 +56,7 @@ const WhyEyeLevel = () => {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
           initial={{
@@ -398,7 +398,10 @@ const WhyEyeLevel = () => {
           <p className="text-white/60 font-bricolage text-lg mb-2">
             Ready to work with the team that checks every box?
           </p>
-          <p className="font-dela text-xl uppercase" style={{ color: "#d0e999" }}>
+          <p
+            className="font-dela text-xl uppercase"
+            style={{ color: "#d0e999" }}
+          >
             Let's talk about your growth.
           </p>
         </motion.div>

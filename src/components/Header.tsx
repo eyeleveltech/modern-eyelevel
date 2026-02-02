@@ -148,147 +148,140 @@ const Header = ({ compact = false }: HeaderProps) => {
         style={{
           pointerEvents: isHeaderVisible || isMenuOpen ? "auto" : "none",
         }}
-        className="absolute top-0 left-0 right-0 z-50 px-4 md:px-8 pt-6 pb-4 py-0"
+        className="absolute top-5 left-20 right-0 z-50 py-0 max-w-3xl mx-auto"
       >
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-4">
+        <nav className="max-w-full mx-auto flex items-center justify-between px-4">
           {/* Logo with floating flag background */}
-          <Link
-            to="/"
-            className="hover:opacity-90 transition-opacity z-50 relative group"
-          >
-            {/* Flag background extending from top */}
-            <div
-              className="absolute -top-[50px] md:-top-[50px] left-1/2 -translate-x-1/2 w-[calc(100%+32px)] h-[calc(100%+42px)] rounded-b-xl"
-              style={{
-                backgroundColor: "#f8ffe8",
-                border: "2px solid #0a0a0a",
-                borderTop: "none",
-                boxShadow: "0 4px 0 #0a0a0a",
-              }}
-            />
-            <img
-              src={eyelevelLogo}
-              alt="EyeLevel Studio"
-              className="h-[58px] md:h-[77px] bottom-4 w-auto relative z-10"
-            />
-          </Link>
 
           {/* Desktop Navigation - Compact mode: just menu button */}
-          {compact ? (
-            <div className="hidden md:flex items-center">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform hover:scale-105"
-                style={{
-                  backgroundColor: "#f8ffe8",
-                  border: "3px solid #0a0a0a",
-                  boxShadow: "0 4px 0 #0a0a0a",
-                  color: "#1a1a1a",
-                }}
-              >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            </div>
-          ) : (
-            <div
-              className="hidden md:flex items-center rounded-full px-4 py-3 relative font-bricolage z-50"
-              style={{
-                backgroundColor: "#f8ffe8",
-                border: "3px solid #0a0a0a",
-                boxShadow: "0 5px 0 #0a0a0a",
-              }}
-            >
-              {/* Social Icons */}
-              <div className="flex items-center gap-1 mr-3">
-                <a
-                  href="https://www.youtube.com/@theeyelevelstudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
-                  aria-label="YouTube"
-                >
-                  <SocialIcons.YouTube />
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/theeyelevelstudio/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <SocialIcons.LinkedIn />
-                </a>
-                <a
-                  href="https://www.facebook.com/share/1DN368ZHPh/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
-                  aria-label="Facebook"
-                >
-                  <SocialIcons.Facebook />
-                </a>
-                <a
-                  href="https://www.instagram.com/theeyelevelstudio/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <SocialIcons.Instagram />
-                </a>
-                <a
-                  href="https://x.com/Eye_Levelstudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
-                  aria-label="X"
-                >
-                  <SocialIcons.X />
-                </a>
-              </div>
-
-              {/* CTA Button */}
-              <Link to="/booking">
-                <Button
-                  size="sm"
-                  className="rounded-full px-6 font-semibold font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
-                  style={{
-                    backgroundColor: "#FCFAC2",
-                    color: "#0a0a0a",
-                    border: "3px solid #0a0a0a",
-                    boxShadow: "0 4px 0 #0a0a0a",
-                  }}
-                >
-                  Let's talk!
-                </Button>
-              </Link>
-
-              {/* Hamburger icon - toggle menu */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="w-10 h-10 rounded-full flex items-center justify-center ml-2 transition-transform hover:scale-105"
-                style={{
-                  backgroundColor: "#1a1a1a",
-                  color: "#f5f4e8",
-                }}
-              >
-                {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-              </button>
-            </div>
-          )}
-
-          {/* Mobile Hamburger */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden w-12 h-12 flex items-center justify-center rounded-full transition-colors z-50"
+          <div
+            className="absolute top-2 px-5 right-10 w-full transition-all rounded-full flex items-center justify-between"
             style={{
-              backgroundColor: "#f5f4e8",
-              border: "2px solid #1a1a1a",
-              color: "#1a1a1a",
+              backgroundColor: "#f8ffe8",
+              border: "2px solid #0a0a0a",
+              boxShadow: "0 4px 0 #0a0a0a",
             }}
           >
-            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+            <Link to="/" className="relative">
+              {/* Flag background extending from top */}
+              <img
+                src={eyelevelLogo}
+                alt="EyeLevel Studio"
+                className="h-[42px] md:h-[62px] relative top-0.5 w-auto z-50 "
+              />
+            </Link>
+            {compact ? (
+              <div className="hidden md:flex relative items-center">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="w-14 h-14 md:w-14 md:h-14 rounded-2xl relative transition-transform hover:scale-105"
+                  style={{
+                    backgroundColor: "#f8ffe8",
+                    border: "3px solid #0a0a0a",
+                    boxShadow: "0 4px 0 #0a0a0a",
+                    color: "#1a1a1a",
+                  }}
+                >
+                  {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
+              </div>
+            ) : (
+              <div className="hidden md:flex items-center rounded-full relative font-bricolage z-50">
+                {/* Social Icons */}
+                <div className="flex items-center gap-1 mr-3">
+                  <a
+                    href="https://www.youtube.com/@theeyelevelstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
+                    aria-label="YouTube"
+                  >
+                    <SocialIcons.YouTube />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/theeyelevelstudio/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
+                    aria-label="LinkedIn"
+                  >
+                    <SocialIcons.LinkedIn />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/share/1DN368ZHPh/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
+                    aria-label="Facebook"
+                  >
+                    <SocialIcons.Facebook />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/theeyelevelstudio/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
+                    aria-label="Instagram"
+                  >
+                    <SocialIcons.Instagram />
+                  </a>
+                  <a
+                    href="https://x.com/Eye_Levelstudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#1a1a1a]/10 transition-colors"
+                    aria-label="X"
+                  >
+                    <SocialIcons.X />
+                  </a>
+                </div>
+
+                {/* CTA Button */}
+                <Link to="/booking">
+                  <Button
+                    size="sm"
+                    className="rounded-full px-6 font-semibold font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
+                    style={{
+                      backgroundColor: "#FCFAC2",
+                      color: "#0a0a0a",
+                      border: "2px solid #0a0a0a",
+                      boxShadow: "0 2px 0 #0a0a0a",
+                    }}
+                  >
+                    Let's talk!
+                  </Button>
+                </Link>
+
+                {/* Hamburger icon - toggle menu */}
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="w-10 h-10 rounded-full flex items-center justify-center ml-2 transition-transform hover:scale-105"
+                  style={{
+                    backgroundColor: "#1a1a1a",
+                    color: "#f5f4e8",
+                  }}
+                >
+                  {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+                </button>
+              </div>
+            )}
+            {/* Mobile Hamburger */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden w-8 h-8 flex items-center justify-center rounded-full transition-colors z-50"
+              style={{
+                backgroundColor: "#f5f4e8",
+                border: "2px solid #1a1a1a",
+                color: "#1a1a1a",
+              }}
+            >
+              {isMenuOpen ? (
+                <X className="size-4" />
+              ) : (
+                <Menu className="size-4" />
+              )}
+            </button>
+          </div>
         </nav>
 
         {/* Expandable fullscreen navigation menu */}
@@ -311,28 +304,29 @@ const Header = ({ compact = false }: HeaderProps) => {
                 duration: 0.4,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="absolute top-0 left-4 right-4 md:left-8 md:right-8 mt-2 z-40"
+              className="absolute top-0 mt-2 z-40 right-10 w-full"
               style={{
                 overflow: "visible",
               }}
             >
               {/* Cream outer frame with dark green interior */}
               <div
-                className="rounded-2xl p-1.5 md:p-2"
+                className="rounded-2xl pt-[45px] md:pt-[65px] p-1.5 "
                 style={{
                   backgroundColor: "#f8ffe8",
-                  border: "3px solid #f8ffe8",
+                  border: "2px solid #0a0a0a",
+                  boxShadow: "0 4px 0 #0a0a0a",
                 }}
               >
                 {/* Dark green interior */}
                 <div
-                  className="rounded-xl relative overflow-visible"
+                  className="rounded-2xl relative overflow-visible"
                   style={{
                     backgroundColor: "#1a3a2f",
                   }}
                 >
                   {/* Navigation links - centered */}
-                  <div className="flex flex-col items-center justify-center min-h-[94vh]">
+                  <div className="flex flex-col items-center pt-5 md:justify-center min-h-[50vh] md:min-h-[64vh]">
                     {navLinks.map((link, index) => (
                       <motion.div
                         key={link.href}
@@ -351,7 +345,7 @@ const Header = ({ compact = false }: HeaderProps) => {
                         <Link
                           to={link.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className={`font-dela text-lg md:text-2xl lg:text-3xl tracking-[0.08em] transition-all duration-200 hover:scale-105 block py-2 md:py-3 text-center ${location.pathname === link.href ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
+                          className={`font-dela text-lg md:text-base lg:text-lg tracking-[0.08em] transition-all duration-200 hover:scale-105 block py-2 md:py-3 text-center ${location.pathname === link.href ? "opacity-100" : "opacity-80 hover:opacity-100"}`}
                           style={{
                             color: "#C8E35F",
                           }}

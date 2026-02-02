@@ -134,7 +134,7 @@ const About = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -205,7 +205,7 @@ const About = () => {
         className="py-20 px-4 relative"
         style={{ backgroundColor: "#173229" }}
       >
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -346,7 +346,7 @@ const About = () => {
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#667eea]/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -371,7 +371,9 @@ const About = () => {
               className="text-3xl md:text-5xl font-dela uppercase"
               style={{ color: "#E2FEA5" }}
             >
-              WHY WE STAND FOR <WavyUnderline>EXCELLENCE</WavyUnderline>
+              WHY WE STAND FOR
+              <br />
+              <WavyUnderline>EXCELLENCE</WavyUnderline>
             </h2>
           </motion.div>
 
@@ -572,7 +574,7 @@ const About = () => {
 
       {/* Author Profiles - Light Background */}
       <section
-        className="py-20 px-4 relative overflow-hidden border-t border-b"
+        className="py-20 max-w-4xl mx-auto relative overflow-hidden border-t border-b"
         style={{
           backgroundColor: "#253e35",
           borderColor: "rgba(248, 255, 232, 0.15)",
@@ -651,7 +653,7 @@ const About = () => {
         className="py-20 px-4 relative"
         style={{ backgroundColor: "#1e3c30" }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

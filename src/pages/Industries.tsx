@@ -18,7 +18,6 @@ import industryRealestate from "@/assets/industries/real_estate.png";
 import industryB2b from "@/assets/industries/b2b.png";
 import WavyUnderline from "@/components/WavyUnderline";
 
-
 const industries = [
   {
     id: "education",
@@ -172,7 +171,7 @@ const Industries = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[600px] md:w-[800px] lg:w-[1000px] h-[600px] md:h-[800px] lg:h-[1000px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -233,7 +232,7 @@ const Industries = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 md:gap-4"
+            className="flex flex-wrap justify-center gap-3 md:gap-4xl"
           >
             {industries.map((industry, index) => (
               <Link key={industry.id} to={industry.href}>
@@ -337,7 +336,7 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 w-full">
+      <div className="max-w-5xl mx-auto px-4 w-full">
         <div
           className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isEven ? "" : "lg:grid-flow-dense"}`}
         >

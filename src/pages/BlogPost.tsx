@@ -357,7 +357,7 @@ const BlogPost = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="max-w-4xl"
+                className="max-w-4xl mx-auto"
               >
                 <span
                   className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold font-bricolage mb-4"

@@ -61,7 +61,7 @@ const ProcessSection = () => {
     >
       {/* Sticky container */}
       <div className="sticky top-0 min-h-[100vh] flex items-center overflow-hidden pb-0">
-        <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
+        <div className="max-w-4xl mx-auto w-full px-4 md:px-8">
           {/* Header */}
           <motion.div
             initial={{
@@ -158,7 +158,7 @@ const MascotLottie = ({ index, activeIndex, animation }: MascotLottieProps) => {
       style={{ opacity, scale }}
       className="absolute inset-0 flex items-center justify-center"
     >
-      <div className="w-56 h-56 md:w-72 md:h-72 lg:w-78 lg:h-78 lg:ml-48">
+      <div className="w-56 h-56 md:w-72 md:h-72 lg:w-78 lg:h-78">
         <Lottie
           animationData={animation}
           loop

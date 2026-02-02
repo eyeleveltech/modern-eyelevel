@@ -42,9 +42,9 @@ const JoinTheLeague = () => {
       style={{
         backgroundColor: "#253e35",
       }}
-      className="relative pt-0 pb-2 md:pb-20 px-4 overflow-hidden py-[21px]"
+      className="relative pb-2 md:pb-20 px-4 overflow-hidden py-[21px] pt-10"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Pill-shaped container */}
         <motion.div
           initial={{
@@ -69,17 +69,16 @@ const JoinTheLeague = () => {
           }}
         >
           {/* Content layout */}
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+          <div className="flex flex-col lg:items-center lg:justify-between gap-8 lg:gap-12">
             {/* Left side - Title */}
             <div className="flex-shrink-0">
               <h2
-                className="font-dela text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight"
+                className="font-dela text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight uppercase"
                 style={{
                   color: "#0a0a0a",
                 }}
               >
-                <span className="block">Join</span>
-                <span className="block">the League</span>
+                <span className="block">Join the League</span>
               </h2>
             </div>
 
@@ -92,21 +91,24 @@ const JoinTheLeague = () => {
 
                 {/* Marquee track */}
                 <div className="overflow-hidden w-full">
-                  <div className="flex w-max animate-marquee-reverse items-center">
-                    {[...clientLogo, ...clientLogo, ...clientLogo].map(
-                      (client, index) => (
-                        <div
-                          key={index}
-                          className="flex-shrink-0 px-6 flex items-center justify-center"
-                        >
-                          <img
-                            src={client}
-                            alt="Client logo"
-                            className="h-12 md:h-16 w-auto object-contain"
-                          />
-                        </div>
-                      ),
-                    )}
+                  <div className="flex gap-20 w-max animate-marquee-reverse items-center animate-in">
+                    {[
+                      ...clientLogo,
+                      ...clientLogo,
+                      ...clientLogo,
+                      ...clientLogo,
+                    ].map((client, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 px-6 flex items-center justify-center"
+                      >
+                        <img
+                          src={client}
+                          alt="Client logo"
+                          className="h-12 md:h-16 w-auto object-contain"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

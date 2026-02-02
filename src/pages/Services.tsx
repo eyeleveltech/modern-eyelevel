@@ -276,7 +276,7 @@ const ServicesPage = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -294,7 +294,7 @@ const ServicesPage = () => {
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#E2FEA5]/10 rounded-full blur-[100px]" />
         </div> */}
 
-        <div className="max-w-5xl mx-auto text-center relative z-10">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -352,7 +352,7 @@ const ServicesPage = () => {
             )}
           </div>
 
-          <div className="max-w-7xl mx-auto relative z-10">
+          <div className="max-w-5xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -384,21 +384,21 @@ const ServicesPage = () => {
                   className="space-y-6"
                 >
                   <h2
-                    className="text-3xl md:text-4xl lg:text-5xl font-dela leading-tight uppercase"
+                    className="text-2xl md:text-3xl lg:text-4xl font-dela leading-tight uppercase"
                     style={{ color: "#F8FFE8" }}
                   >
                     {service.title}
                   </h2>
 
                   <p
-                    className="text-xl md:text-2xl font-semibold font-bricolage"
+                    className="text-lg md:text-xl font-semibold font-bricolage"
                     style={{ color: "#E2FEA5" }}
                   >
                     {service.tagline}
                   </p>
 
                   <p
-                    className="text-base md:text-lg leading-relaxed font-bricolage"
+                    className="text-sm md:text-base leading-relaxed font-bricolage"
                     style={{ color: "rgba(248, 255, 232, 0.75)" }}
                   >
                     {service.description}
