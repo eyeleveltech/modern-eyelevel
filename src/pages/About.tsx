@@ -574,7 +574,7 @@ const About = () => {
 
       {/* Author Profiles - Light Background */}
       <section
-        className="py-20 max-w-4xl mx-auto relative overflow-hidden border-t border-b"
+        className="py-20 max-w-4xl px-4 mx-auto relative overflow-hidden border-t border-b"
         style={{
           backgroundColor: "#253e35",
           borderColor: "rgba(248, 255, 232, 0.15)",

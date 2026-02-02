@@ -268,11 +268,9 @@ const Header = ({ compact = false }: HeaderProps) => {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden w-8 h-8 flex items-center justify-center rounded-full transition-colors z-50"
+              className="md:hidden bg-black text-white w-8 h-8 flex items-center justify-center rounded-full transition-colors z-50"
               style={{
-                backgroundColor: "#f5f4e8",
                 border: "2px solid #1a1a1a",
-                color: "#1a1a1a",
               }}
             >
               {isMenuOpen ? (
@@ -320,13 +318,13 @@ const Header = ({ compact = false }: HeaderProps) => {
               >
                 {/* Dark green interior */}
                 <div
-                  className="rounded-2xl relative overflow-visible min-h-[44vh] md:min-h-[30vh]"
+                  className="rounded-2xl relative overflow-visible min-h-[45vh] md:min-h-[30vh]"
                   style={{
                     backgroundColor: "#1a3a2f",
                   }}
                 >
                   {/* Navigation links - centered */}
-                  <div className="flex flex-col items-center pt-5 md:justify-center">
+                  <div className="flex flex-col items-center py-5 md:justify-center">
                     {navLinks.map((link, index) => (
                       <motion.div
                         key={link.href}

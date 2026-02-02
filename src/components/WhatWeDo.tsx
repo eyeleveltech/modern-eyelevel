@@ -38,7 +38,7 @@ const WhatWeDo = () => {
       }}
       className="py-20 px-4 md:px-6 overflow-hidden relative md:py-[28px]"
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Main Headline with Eye Animation */}
         <div className="text-center mb-16 md:mb-24">
           <motion.div
@@ -159,7 +159,7 @@ const WhatWeDo = () => {
 
               {/* The Eye */}
               <div className="absolute inset-[25%] flex items-center justify-center">
-                <Eyeball/>
+                <Eyeball />
               </div>
 
               {/* Floating icons around the eye */}

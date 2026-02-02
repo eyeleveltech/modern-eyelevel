@@ -89,7 +89,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-[90vh] lg:min-h-[95vh] flex items-center justify-center pt-40 md:pt-48 pb-4 px-4 overflow-hidden"
+      className="relative min-h-[65vh] lg:min-h-[95vh] flex items-center justify-center pt-40 md:pt-48 pb-4 px-4 overflow-hidden"
       style={{ backgroundColor: "#253e35" }}
     >
       {/* Rotating 32-pointed star - centered upper area */}
@@ -110,7 +110,7 @@ const Hero = () => {
       </div>
 
       <div className="w-full relative z-10">
-        <div className="max-w-6xl mx-auto text-center px-4 overflow-visible">
+        <div className="max-w-5xl mx-auto text-center overflow-visible">
           {/* Main headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -119,7 +119,7 @@ const Hero = () => {
             className="font-dela mb-8 leading-[1.05] tracking-tight text-center overflow-visible"
             style={{ color: "#E2FEA5" }}
           >
-            <span className=" relative inline-flex items-center gap-2 md:gap-4">
+            <span className=" relative inline-flex items-center px-4 gap-2 md:gap-4">
               <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]">
                 FIRE
               </span>
@@ -133,7 +133,7 @@ const Hero = () => {
                 />
               )}
             </span>
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-2 whitespace-nowrap">
+            <span className="block text-2xl md:text-5xl lg:text-6xl xl:text-7xl mt-2 whitespace-nowrap">
               YOUR <WavyUnderline>AD AGENCY!</WavyUnderline>
             </span>
           </motion.h1>
