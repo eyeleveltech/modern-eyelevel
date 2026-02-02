@@ -384,7 +384,7 @@ const ServicesPage = () => {
                     animationData={animationData}
                     autoPlay={false}
                     loop={true}
-                    className=" w-[80px] pointer-events-none"
+                    className=" w-[30px] md:w-[50px] lg:w-[80px] pointer-events-none"
                   />
                 )}
               </span>
