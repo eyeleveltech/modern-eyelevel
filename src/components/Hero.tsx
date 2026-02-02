@@ -96,7 +96,7 @@ const Hero = () => {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+        className="absolute inset-0 m-auto w-[400px] md:w-[600px] lg:w-[750px] h-[400px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
       >
         <Star18 className="w-full h-full" />
       </motion.div>
@@ -110,7 +110,7 @@ const Hero = () => {
       </div>
 
       <div className="w-full relative z-10">
-        <div className=" max-w-6xl mx-auto text-center px-4 overflow-visible">
+        <div className="max-w-6xl mx-auto text-center px-4 overflow-visible">
           {/* Main headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

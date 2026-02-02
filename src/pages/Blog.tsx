@@ -176,7 +176,7 @@ const Blog = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[400px] md:w-[600px] lg:w-[750px] h-[400px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -406,7 +406,7 @@ const Blog = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter showCTA={false} mascotBgColor="#1E3C30" />
     </div>
   );
 };

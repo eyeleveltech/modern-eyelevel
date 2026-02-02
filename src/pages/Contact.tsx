@@ -336,7 +336,7 @@ const Contact = () => {
         </div>
       </main>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter showCTA={false} mascotBgColor="#253E35" />
     </div>
   );
 };

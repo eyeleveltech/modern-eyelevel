@@ -45,10 +45,10 @@ const footerLinks = [
   {
     title: "Industries",
     links: [
-      { label: "Edu-Marketing", href: "/industries/education" },
-      { label: "Sports Marketing", href: "/industries/sports" },
-      { label: "Real Estate", href: "/industries/real-estate" },
-      { label: "B2B Marketing", href: "/industries/b2b" },
+      { label: "Edu-Marketing", href: "#" },
+      { label: "Sports Marketing", href: "#" },
+      { label: "Real Estate", href: "#" },
+      { label: "B2B Marketing", href: "#" },
     ],
   },
 ];
@@ -166,11 +166,13 @@ const formSchema = z.object({
 interface EnhancedFooterProps {
   showCTA?: boolean;
   accentColor?: string;
+  mascotBgColor?: string;
 }
 
 const EnhancedFooter = ({
   showCTA = true,
   accentColor = "#E2FEA5",
+  mascotBgColor = "#0D1F1A",
 }: EnhancedFooterProps) => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -303,10 +305,10 @@ const EnhancedFooter = ({
   };
 
   return (
-    <footer className="relative overflow-x-clip">
+    <footer className="overflow-hidden relative">
       {/* Form Section - Only show when showCTA is true */}
       {showCTA && (
-        <section className="pt-12 md:pt-16 pb-[150px] md:pb-[200px] px-4 bg-[#0D1F1A]">
+        <section className="pt-12 md:pt-16 pb-[150px] md:pb-[200px] px-4 bg-[#0D1F1A] border-0 border-transparent">
           {/* Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-lime/5 rounded-full blur-[150px]" />
@@ -623,6 +625,44 @@ const EnhancedFooter = ({
         </section>
       )}
 
+      {animationData && (
+        <div
+          style={{ backgroundColor: mascotBgColor }}
+          className="flex items-center border-0 outline-none justify-between w-full"
+        >
+          <Lottie
+            lottieRef={lottieRef1}
+            animationData={animationData}
+            autoPlay={false}
+            loop={false}
+            onComplete={() => {
+              lottieRef2.current?.goToAndPlay(0, true);
+            }}
+            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+          />
+          <Lottie
+            lottieRef={lottieRef2}
+            animationData={animationData}
+            autoPlay={false}
+            loop={false}
+            onComplete={() => {
+              lottieRef3.current?.goToAndPlay(0, true);
+            }}
+            className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+          />
+          <Lottie
+            lottieRef={lottieRef3}
+            animationData={animationData}
+            autoPlay={false}
+            loop={false}
+            onComplete={() => {
+              setTimeout(playSequence, 800);
+            }}
+            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+          />
+        </div>
+      )}
+
       {/* Bottom Footer */}
 
       <div className="bg-[#173229] py-12 px-4 border-t border-white/5">
@@ -682,7 +722,7 @@ const EnhancedFooter = ({
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-center relative justify-between gap-4 pt-8 border-t border-white/10">
             <div className="flex items-center gap-3">
               <img
                 src={eyelevelLogoColor}
@@ -690,7 +730,7 @@ const EnhancedFooter = ({
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-white/40 text-sm font-bricolage">
+            <p className="text-white/40 text-xs md:text-sm font-bricolage">
               © 2026, EyeLevel Growth Studio. All Rights Reserved.
             </p>
             <div className="flex gap-6">
@@ -709,42 +749,7 @@ const EnhancedFooter = ({
             </div>
           </div>
         </div>
-        
       </div>
-      {animationData && (
-          <div className="flex items-center z-50 justify-between w-full absolute bottom-[625px] md:bottom-[388px] lg:bottom-[365px]">
-            <Lottie
-              lottieRef={lottieRef1}
-              animationData={animationData}
-              autoPlay={false}
-              loop={false}
-              onComplete={() => {
-                lottieRef2.current?.goToAndPlay(0, true);
-              }}
-              className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
-            />
-            <Lottie
-              lottieRef={lottieRef2}
-              animationData={animationData}
-              autoPlay={false}
-              loop={false}
-              onComplete={() => {
-                lottieRef3.current?.goToAndPlay(0, true);
-              }}
-              className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
-            />
-            <Lottie
-              lottieRef={lottieRef3}
-              animationData={animationData}
-              autoPlay={false}
-              loop={false}
-              onComplete={() => {
-                setTimeout(playSequence, 800);
-              }}
-              className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
-            />
-          </div>
-        )}
     </footer>
   );
 };

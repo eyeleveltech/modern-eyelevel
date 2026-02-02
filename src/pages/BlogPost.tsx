@@ -668,7 +668,7 @@ const BlogPost = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter showCTA={false} mascotBgColor="#1E3C30" />
     </div>
   );
 };

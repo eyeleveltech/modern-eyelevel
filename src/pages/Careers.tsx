@@ -120,12 +120,12 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 relative md:min-h-screen">
+      <section className="pb-20 px-4 relative min-h-screen flex flex-col items-center justify-center">
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[500px] md:w-[600px] lg:w-[750px] h-[500px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[400px] md:w-[600px] lg:w-[750px] h-[400px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -360,14 +360,14 @@ const Careers = () => {
         style={{ backgroundColor: "#1e3c30" }}
       >
         {/* Mascot */}
-        <motion.img
+        {/* <motion.img
           src={career_mascot}
           alt="EyeLevel Mascot"
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="absolute -bottom-8 right-0 md:right-12 w-40 h-40 md:w-56 md:h-56 object-contain pointer-events-none opacity-90"
-        />
+        /> */}
 
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
@@ -408,7 +408,7 @@ const Careers = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter showCTA={false} mascotBgColor="#1E3C30" />
     </div>
   );
 };
