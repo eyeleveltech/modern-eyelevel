@@ -303,7 +303,7 @@ const EnhancedFooter = ({
   };
 
   return (
-    <footer className="relative">
+    <footer className="relative overflow-x-clip">
       {/* Form Section - Only show when showCTA is true */}
       {showCTA && (
         <section className="pt-12 md:pt-16 pb-[150px] md:pb-[200px] px-4 bg-[#0D1F1A]">
