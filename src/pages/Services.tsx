@@ -324,7 +324,7 @@ const ServicesPage = () => {
       {/* Hero Section - Minimal */}
       <section
         ref={ref}
-        className="relative pt-32 pb-20 px-4 overflow-hidden md:min-h-screen"
+        className="relative pt-[110px] flex justify-center items-center pb-20 px-4 overflow-hidden lg:min-h-screen"
         style={{ backgroundColor: "#0D1F1A" }}
       >
         {/* Rotating 32-pointed star - centered upper area */}
@@ -372,26 +372,30 @@ const ServicesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-dela mb-6 leading-[1.1] uppercase"
+            className="font-dela uppercase text-center leading-[1.05] mb-5"
             style={{ color: "#E2FEA5" }}
           >
-            <span className="relative flex items-end justify-center">
-              GR{" "}
+            {/* BIG TITLE */}
+            <span className="relative flex items-end justify-center text-5xl md:text-8xl lg:text-9xl">
+              GR
               <span className="">
                 {animationData && (
                   <Lottie
                     lottieRef={lottieRef}
                     animationData={animationData}
                     autoPlay={false}
-                    loop={true}
-                    className=" w-[30px] md:w-[50px] lg:w-[80px] pointer-events-none"
+                    loop
+                    className="w-[40px] md:w-[80px] lg:w-[100px] pointer-events-none"
                   />
                 )}
               </span>
-              <span> </span>
-              <span>WTH</span>
-            </span>{" "}
-            WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
+              WTH
+            </span>
+
+            {/* SUBTITLE – ONE LINE, SMALLER */}
+            <span className="mt-3 block text-2xl md:text-4xl lg:text-5xl tracking-wide">
+              WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
+            </span>
           </motion.h1>
 
           <motion.p

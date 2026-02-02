@@ -320,7 +320,7 @@ const Header = ({ compact = false }: HeaderProps) => {
               >
                 {/* Dark green interior */}
                 <div
-                  className="rounded-2xl relative overflow-visible min-h-[42vh] md:min-h-[30vh]"
+                  className="rounded-2xl relative overflow-visible min-h-[44vh] md:min-h-[30vh]"
                   style={{
                     backgroundColor: "#1a3a2f",
                   }}
