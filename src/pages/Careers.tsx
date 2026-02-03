@@ -200,7 +200,7 @@ const Careers = () => {
 
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Gradient orbs */}
+          {/* Gradi ent orbs */}
           <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl" />
           <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-2xl" />
           <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
@@ -215,13 +215,49 @@ const Careers = () => {
             className="text-4xl md:text-6xl lg:text-8xl font-dela mb-6 uppercase"
             style={{ color: "#E2FEA5" }}
           >
-            BUILD YOUR
-            <br />
+            <span className="relative inline-block">
+              {/* BUILD */}
+              BUIL
+              <span className="relative inline-block">
+                D{/* Animation 1 pinned to D */}
+                {anim1 && (
+                  <Lottie
+                    lottieRef={lottieRef1}
+                    animationData={anim1}
+                    autoplay={false}
+                    loop={false}
+                    onComplete={() => {
+                      lottieRef2.current?.setSpeed(1);
+                      lottieRef2.current?.goToAndPlay(0, true);
+                    }}
+                    className="pointer-events-none absolute top-[8%] right-[30px] w-[75px] md:top-[8%] md:right-[51px] md:w-[120px] lg:top-[8%] lg:right-20 lg:w-[190px]"
+                  />
+                )}
+              </span>
+            </span>
+
+            {/* YOUR */}
+            <span className="relative inline-block">
+              YOU
+              <span className="relative inline-block">
+                R{/* Animation 2 pinned to last R */}
+                {anim2 && (
+                  <Lottie
+                    lottieRef={lottieRef2}
+                    animationData={anim2}
+                    autoplay={false}
+                    loop={false}
+                    className="
+            pointer-events-none absolute top-[5%] left-0 w-[55px] md:top-[5%] md:left-0 md:w-[85px] lg:top-[5%] lg:left-0 lg:w-[135px]"
+                  />
+                )}
+              </span>
+            </span>
             <span className="text-4xl md:text-6xl lg:text-7xl">
               CAREER <WavyUnderline>WITH US</WavyUnderline>
             </span>
           </motion.h1>
-          {/* animation */}
+          {/* animation
           {anim1 && (
             <Lottie
               lottieRef={lottieRef1}
@@ -245,7 +281,7 @@ const Careers = () => {
               loop={false}
               className="absolute top-[65px] right-[30px] w-[55px] md:top-[64px] md:right-[100px] md:w-[90px] lg:-right-[60px] lg:w-[170px] lg:top-[48px] pointer-events-none"
             />
-          )}
+          )} */}
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
