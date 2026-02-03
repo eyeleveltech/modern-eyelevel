@@ -16,6 +16,9 @@ import WavyUnderline from "@/components/WavyUnderline";
 import mascotWave from "@/assets/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
 import career_mascot from "@/assets/career_mascot.png";
+import { useEffect, useRef, useState } from "react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+
 const benefits = [
   {
     icon: TrendingUp,
@@ -107,6 +110,68 @@ const Star18 = ({ className }: { className?: string }) => {
 const Careers = () => {
   const navigate = useNavigate();
 
+  const lottieRef1 = useRef<LottieRefCurrentProps>(null);
+  const lottieRef2 = useRef<LottieRefCurrentProps>(null);
+
+  const [anim1, setAnim1] = useState<any>(null);
+  const [anim2, setAnim2] = useState<any>(null);
+
+  useEffect(() => {
+    Promise.all([
+      fetch("/animations/walk 01.json").then((r) => r.json()),
+      fetch("/animations/walk 02.json").then((r) => r.json()),
+    ])
+      .then(([a1, a2]) => {
+        setAnim1(a1);
+        setAnim2(a2);
+      })
+      .catch((err) => console.error("Failed to load animations:", err));
+  }, []);
+
+  const playSequence = () => {
+    // reset both
+    lottieRef1.current?.stop();
+    lottieRef2.current?.stop();
+    lottieRef1.current?.goToAndStop(0, true);
+    lottieRef2.current?.goToAndStop(0, true);
+
+    // play first
+    lottieRef1.current?.setSpeed(1.5);
+    lottieRef1.current?.goToAndPlay(0, true);
+  };
+
+  const heroRef = useRef<HTMLElement | null>(null);
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  useEffect(() => {
+    if (anim1 && anim2 && !hasPlayedInitial.current) {
+      playSequence();
+      hasPlayedInitial.current = true;
+    }
+  }, [anim1, anim2]);
+
+  useEffect(() => {
+    if (!heroRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (hasLeftHero.current && anim1 && anim2) {
+            playSequence(); // restart A then B
+            hasLeftHero.current = false;
+          }
+        } else {
+          hasLeftHero.current = true;
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, [anim1, anim2]);
+
   const handleInterested = (positionTitle: string) => {
     const slug = titleToSlug(positionTitle);
     navigate(`/careers/${slug}`);
@@ -120,7 +185,10 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="px-4 relative py-28 lg:min-h-screen flex flex-col items-center justify-center">
+      <section
+        ref={heroRef}
+        className="px-4 relative py-28 lg:min-h-screen flex flex-col items-center justify-center"
+      >
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}
@@ -144,11 +212,40 @@ const Careers = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-dela mb-6 uppercase"
+            className="text-4xl md:text-6xl lg:text-8xl font-dela mb-6 uppercase"
             style={{ color: "#E2FEA5" }}
           >
-            BUILD YOUR CAREER <WavyUnderline>WITH US</WavyUnderline>
+            BUILD YOUR
+            <br />
+            <span className="text-4xl md:text-6xl lg:text-7xl">
+              CAREER <WavyUnderline>WITH US</WavyUnderline>
+            </span>
           </motion.h1>
+          {/* animation */}
+          {anim1 && (
+            <Lottie
+              lottieRef={lottieRef1}
+              animationData={anim1}
+              autoplay={false}
+              loop={false}
+              onComplete={() => {
+                // when first ends, start second
+                lottieRef2.current?.setSpeed(1);
+                lottieRef2.current?.goToAndPlay(0, true);
+              }}
+              className="absolute top-[68px] left-[96px] w-[70px] md:top-[67px] md:left-[246px] md:w-[120px] lg:left-[97px] lg:w-[240px] lg:top-[47px] pointer-events-none"
+            />
+          )}
+
+          {anim2 && (
+            <Lottie
+              lottieRef={lottieRef2}
+              animationData={anim2}
+              autoplay={false}
+              loop={false}
+              className="absolute top-[65px] right-[30px] w-[55px] md:top-[64px] md:right-[100px] md:w-[90px] lg:-right-[60px] lg:w-[170px] lg:top-[48px] pointer-events-none"
+            />
+          )}
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import GreenButton from "@/components/GreenButton";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 import WavyUnderline from "@/components/WavyUnderline";
 
@@ -166,6 +167,58 @@ const Blog = () => {
     );
   };
 
+  const ref = useRef(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/read.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  const playAnimation = () => {
+    if (!lottieRef.current) return;
+    lottieRef.current.setSpeed(1.5);
+    lottieRef.current.goToAndPlay(0, true);
+  };
+  useEffect(() => {
+    if (animationData && !hasPlayedInitial.current) {
+      playAnimation();
+      hasPlayedInitial.current = true;
+    }
+  }, [animationData]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // User came BACK into hero
+          if (hasLeftHero.current) {
+            playAnimation();
+            hasLeftHero.current = false;
+          }
+        } else {
+          // User left hero
+          hasLeftHero.current = true;
+        }
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
       <Header />
@@ -203,6 +256,15 @@ const Blog = () => {
               <WavyUnderline>Blog</WavyUnderline> Highlights & More
             </span>
           </motion.h1>
+          {animationData && (
+            <Lottie
+              lottieRef={lottieRef}
+              animationData={animationData}
+              autoPlay={false}
+              loop
+              className="absolute -top-0 left-[55px] w-[70px] md:-top-[48px] md:left-[32px] md:w-[120px] lg:-left-[10px] lg:-top-[76px] lg:w-[150px] pointer-events-none"
+            />
+          )}
 
           {/* Search Bar */}
           <motion.div
