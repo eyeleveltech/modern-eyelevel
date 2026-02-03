@@ -171,7 +171,7 @@ const Blog = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 relative min-h-screen overflow-hidden">
+      <section className="pt-32 pb-16 px-4 relative md:min-h-screen overflow-hidden flex flex-col items-center justify-center">
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}

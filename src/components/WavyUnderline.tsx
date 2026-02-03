@@ -13,10 +13,14 @@ const WavyUnderline = ({
 }: WavyUnderlineProps) => {
   return (
     <span className={`relative inline-block ${className}`}>
+      {/* Text */}
       <span style={{ color }}>{children}</span>
+
+      {/* Underline */}
       <motion.svg
-        className="absolute -bottom-3 w-full"
-        height="8"
+        className="absolute left-1/2 -bottom-2 -translate-x-1/2"
+        width="80%"
+        height="8"                 // ✅ static height
         viewBox="0 0 200 8"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}

@@ -289,7 +289,7 @@ const WhyEyeLevel = () => {
             className="rounded-3xl p-6 shadow-xl relative overflow-hidden"
             style={{ backgroundColor: "#d0e999" }}
           >
-            <div className="absolute top-4 right-4">
+            <div className="absolute top-1 md:top-4 right-4">
               <div
                 className="px-3 py-1 rounded-full font-dela text-xs flex items-center gap-1"
                 style={{ backgroundColor: "#173229", color: "#d0e999" }}

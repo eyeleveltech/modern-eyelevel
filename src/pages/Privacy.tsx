@@ -218,7 +218,7 @@ const Privacy = () => {
         </div>
       </main>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
     </div>
   );
 };

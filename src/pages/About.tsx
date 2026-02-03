@@ -206,7 +206,7 @@ const About = () => {
         style={{ backgroundColor: "#173229" }}
       >
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -263,7 +263,7 @@ const About = () => {
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-5xl font-dela"
+                    className="text-3xl md:text-3xl font-dela"
                     style={{ color: "#E2FEA5" }}
                   >
                     50+
@@ -280,7 +280,7 @@ const About = () => {
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-5xl font-dela"
+                    className="text-3xl md:text-3xl font-dela"
                     style={{ color: "#E2FEA5" }}
                   >
                     3x
@@ -297,7 +297,7 @@ const About = () => {
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-5xl font-dela"
+                    className="text-3xl md:text-3xl font-dela"
                     style={{ color: "#E2FEA5" }}
                   >
                     15+
@@ -314,7 +314,7 @@ const About = () => {
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-5xl font-dela"
+                    className="text-3xl md:text-3xl font-dela"
                     style={{ color: "#E2FEA5" }}
                   >
                     100%

@@ -4,7 +4,7 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mascotTrophy from "@/assets/mascot-trophy-new.png";
+import mascotTrophy from "@/assets/mascot/tankyou1.png";
 
 type ThankYouType = "application" | "contact" | "booking" | "general";
 
@@ -131,7 +131,7 @@ const ThankYou = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 object-contain"
+            className="w-32 h-32 md:w-40 md:h-60 mx-auto object-contain"
           />
 
           {/* Content */}
@@ -235,7 +235,7 @@ const ThankYou = () => {
         </div>
       </main>
 
-      <EnhancedFooter showCTA={false} />
+      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
     </div>
   );
 };
