@@ -331,7 +331,7 @@ const ServicesPage = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[400px] md:w-[600px] lg:w-[750px] h-[400px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -393,7 +393,7 @@ const ServicesPage = () => {
             </span>
 
             {/* SUBTITLE – ONE LINE, SMALLER */}
-            <span className="mt-3 block text-2xl md:text-4xl lg:text-5xl tracking-wide">
+            <span className="block text-2xl md:text-4xl lg:text-5xl tracking-wide">
               WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
             </span>
           </motion.h1>

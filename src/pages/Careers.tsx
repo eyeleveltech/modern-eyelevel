@@ -120,12 +120,12 @@ const Careers = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="px-4 relative min-h-screen flex flex-col items-center justify-center">
+      <section className="px-4 relative py-28 lg:min-h-screen flex flex-col items-center justify-center">
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[400px] md:w-[600px] lg:w-[750px] h-[400px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -175,7 +175,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <GreenButton>Why Jion Us</GreenButton>
+            <GreenButton>Why Join Us</GreenButton>
             <h2
               className="text-3xl md:text-5xl font-dela uppercase"
               style={{ color: "#E2FEA5" }}

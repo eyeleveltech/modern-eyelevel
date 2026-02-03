@@ -308,7 +308,7 @@ const EnhancedFooter = ({
     <footer className="overflow-hidden relative">
       {/* Form Section - Only show when showCTA is true */}
       {showCTA && (
-        <section className="pt-12 md:pt-16 pb-[150px] md:pb-[200px] px-4 bg-[#0D1F1A] border-0 border-transparent">
+        <section className="pt-12 md:pt-16 pb-[50px] md:pb-[60px] px-4 bg-[#0D1F1A] border-0 border-transparent">
           {/* Background Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-lime/5 rounded-full blur-[150px]" />
