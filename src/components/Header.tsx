@@ -148,7 +148,7 @@ const Header = ({ compact = false }: HeaderProps) => {
         style={{
           pointerEvents: isHeaderVisible || isMenuOpen ? "auto" : "none",
         }}
-        className="absolute top-5 left-20 right-0 z-50 py-0 max-w-3xl mx-auto"
+        className="absolute top-5 left-20 right-0 z-50 py-0 max-w-4xl mx-auto"
       >
         <nav className="max-w-full mx-auto flex items-center justify-between px-4">
           {/* Logo with floating flag background */}
