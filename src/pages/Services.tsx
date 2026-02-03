@@ -376,7 +376,7 @@ const ServicesPage = () => {
             style={{ color: "#E2FEA5" }}
           >
             {/* BIG TITLE */}
-            <span className="relative flex items-end justify-center text-5xl md:text-8xl lg:text-9xl">
+            <span className="relative flex items-end justify-center text-4xl md:text-6xl lg:text-7xl">
               GR
               <span className="">
                 {animationData && (
@@ -385,7 +385,7 @@ const ServicesPage = () => {
                     animationData={animationData}
                     autoPlay={false}
                     loop
-                    className="w-[40px] md:w-[80px] lg:w-[100px] pointer-events-none"
+                    className="w-[35px] md:w-[50px] lg:w-[60px] pointer-events-none"
                   />
                 )}
               </span>
@@ -393,7 +393,7 @@ const ServicesPage = () => {
             </span>
 
             {/* SUBTITLE – ONE LINE, SMALLER */}
-            <span className="block text-2xl md:text-4xl lg:text-5xl tracking-wide">
+            <span className="block text-4xl md:text-6xl lg:text-7xl tracking-wide">
               WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
             </span>
           </motion.h1>
