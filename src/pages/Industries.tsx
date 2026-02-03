@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import {
@@ -17,6 +17,8 @@ import industrySports from "@/assets/industries/pickleball.png";
 import industryRealestate from "@/assets/industries/real_estate.png";
 import industryB2b from "@/assets/industries/b2b.png";
 import WavyUnderline from "@/components/WavyUnderline";
+
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 const industries = [
   {
@@ -157,6 +159,58 @@ const Industries = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const ref = useRef(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/expert.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  const playAnimation = () => {
+    if (!lottieRef.current) return;
+    lottieRef.current.setSpeed(1.5);
+    lottieRef.current.goToAndPlay(0, true);
+  };
+  useEffect(() => {
+    if (animationData && !hasPlayedInitial.current) {
+      playAnimation();
+      hasPlayedInitial.current = true;
+    }
+  }, [animationData]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // User came BACK into hero
+          if (hasLeftHero.current) {
+            playAnimation();
+            hasLeftHero.current = false;
+          }
+        } else {
+          // User left hero
+          hasLeftHero.current = true;
+        }
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -202,7 +256,15 @@ const Industries = () => {
               Our Verticals
             </span>
           </motion.div>
-
+          {animationData && (
+            <Lottie
+              lottieRef={lottieRef}
+              animationData={animationData}
+              autoPlay={false}
+              loop
+              className="absolute right-0 md:right-[100px] lg:right-[66px] -top-[13px] w-[130px] md:-top-[42px] md:w-[180px] lg:-top-[66px] lg:w-[220px] pointer-events-none"
+            />
+          )}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

@@ -358,11 +358,9 @@ const Blog = () => {
             className="text-3xl md:text-4xl font-dela mb-4 uppercase"
           >
             <span style={{ color: "#E2FEA5" }}>
-              Stay In The Loop And Keep Up With
+              Stay in the loop - Be the first to
             </span>{" "}
-            <span style={{ color: "#E2FEA5" }}>
-              All Our News And <WavyUnderline>Updates</WavyUnderline>
-            </span>
+            <WavyUnderline>know.</WavyUnderline>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

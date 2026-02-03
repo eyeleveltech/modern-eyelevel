@@ -328,7 +328,8 @@ const EnhancedFooter = ({
                   className="font-dela text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight uppercase"
                   style={{ color: accentColor }}
                 >
-                  Get the audit Know what to <WavyUnderline>fix</WavyUnderline>
+                  Get the audit— Find what needs{" "}
+                  <WavyUnderline>fixing</WavyUnderline>
                 </h2>
                 <p className="text-white/60 font-bricolage text-lg md:text-xl mb-12 max-w-lg">
                   You provide the target; we provide the weapon. We'll analyze

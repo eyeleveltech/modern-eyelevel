@@ -231,7 +231,7 @@ const About = () => {
                 animationData={animationData}
                 autoPlay={false}
                 loop
-                className="absolute -top-[50px] lg:-top-[125px] w-[300px] sm:w-[450px] md:w-[520px] lg:w-[700px] pointer-events-none"
+                className="absolute -top-[46px] md:-top-[92px] lg:-top-[125px] w-[280px] sm:w-[450px] md:w-[520px] lg:w-[700px] pointer-events-none"
               />
             )}
 

@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How much does this cost?",
     answer:
-      "It depends on how fast you want to grow. We don't do \"cookie-cutter\" pricing because we don't do cookie-cutter strategy. Let us run a Growth Audit first - if we can't make you money, we don't deserve yours.",
+      "It depends on how fast you want to grow. Since we design unique solutions to fit your unique demands, we don't employ cookie-cutter pricing patterns. Let us run a Growth Audit first - if we can't make you money, we don't deserve yours.",
     tag: "Investment",
   },
 ];
