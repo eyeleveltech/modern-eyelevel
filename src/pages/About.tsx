@@ -20,6 +20,8 @@ import akmal from "@/assets/akmal.jpeg";
 import jameel from "@/assets/jameel.jpeg";
 import jahangeer from "@/assets/Jahangeer.jpeg";
 import { Linkedin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 const values = [
   {
@@ -92,6 +94,58 @@ const videoMap: Record<number, string> = {
   2: video, // 3rd item
 };
 const About = () => {
+  const ref = useRef(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/teamwork.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  const hasPlayedInitial = useRef(false);
+  const hasLeftHero = useRef(false);
+
+  const playAnimation = () => {
+    if (!lottieRef.current) return;
+    lottieRef.current.setSpeed(1.5);
+    lottieRef.current.goToAndPlay(0, true);
+  };
+  useEffect(() => {
+    if (animationData && !hasPlayedInitial.current) {
+      playAnimation();
+      hasPlayedInitial.current = true;
+    }
+  }, [animationData]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // User came BACK into hero
+          if (hasLeftHero.current) {
+            playAnimation();
+            hasLeftHero.current = false;
+          }
+        } else {
+          // User left hero
+          hasLeftHero.current = true;
+        }
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   const authors = [
     {
       name: "Mohammad Jameel",
@@ -169,8 +223,18 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="flex items-center justify-center gap-4 mb-10"
+            className="flex items-center justify-center gap-4 mb-10 relative"
           >
+            {animationData && (
+              <Lottie
+                lottieRef={lottieRef}
+                animationData={animationData}
+                autoPlay={false}
+                loop
+                className="absolute -top-[50px] lg:-top-[125px] w-[300px] sm:w-[450px] md:w-[520px] lg:w-[700px] pointer-events-none"
+              />
+            )}
+
             <h1
               className="text-4xl md:text-6xl lg:text-7xl font-dela uppercase"
               style={{ color: "#E2FEA5" }}
@@ -213,7 +277,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <div
-                className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6 relative top-0"
                 style={{
                   backgroundColor: "rgba(226, 254, 165, 0.1)",
                   border: "1px solid rgba(226, 254, 165, 0.2)",

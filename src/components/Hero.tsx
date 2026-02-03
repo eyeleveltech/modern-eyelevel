@@ -119,7 +119,7 @@ const Hero = () => {
             className="font-dela mb-8 leading-[1.05] tracking-tight text-center overflow-visible"
             style={{ color: "#E2FEA5" }}
           >
-            <span className=" relative inline-flex items-center px-4 gap-2 md:gap-4">
+            <span className="relative inline-flex items-center px-4 gap-2 md:gap-4">
               <span className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem]">
                 FIRE
               </span>
