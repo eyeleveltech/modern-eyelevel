@@ -329,10 +329,19 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
       }}
     >
       {/* Background accent */}
+      {/* Background accent (Desktop: left/right) */}
       <div
-        className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none"
+        className="hidden lg:block absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none"
         style={{
           background: `radial-gradient(circle at ${isEven ? "right" : "left"} center, ${industry.accentColor}, transparent 70%)`,
+        }}
+      />
+
+      {/* Background accent (Mobile: top/bottom) */}
+      <div
+        className="lg:hidden absolute left-0 top-0 w-full h-full opacity-5 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at center ${isEven ? "bottom" : "top"}, ${industry.accentColor}, transparent 70%)`,
         }}
       />
 

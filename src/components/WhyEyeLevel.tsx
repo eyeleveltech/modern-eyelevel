@@ -102,8 +102,8 @@ const WhyEyeLevel = () => {
             WHY We are <WavyUnderline>DIFFERENT</WavyUnderline>
           </h2>
           <p className="text-white/60 font-bricolage text-lg max-w-2xl mx-auto">
-            See how we stack up against the competition. Spoiler: we check all
-            the boxes.
+            See how we stack up against the competition. (Spoiler alert : We are
+            a 10/10)
           </p>
         </motion.div>
 

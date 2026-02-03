@@ -21,13 +21,13 @@ const faqs = [
   {
     question: "What results can I actually expect?",
     answer:
-      'If you want "likes" and "brand love," hire a poet. If you want bankable growth, hire us. We ignore vanity metrics in favor of the only stats that matter: Leads. Sales. Profit.',
+      'If you want "likes" and "brand love," hire a poet. If you want bankable growth, hire us. Our focus extends beyond vanity metrics like shares and follows to include what matters most: Leads, Sales, Profits.',
     tag: "Show Me Money",
   },
   {
     question: "Do you know my industry?",
     answer:
-      "We specialize in Edu-Marketing, Sports, Real Estate, and B2B. But frankly, growth is a discipline, not a niche. We carry a Shape-Shifting Toolkit (Strategy, AI, Automation) that works regardless - selling condos or courses.",
+      "We specialize in Edu-Marketing, Sports, Real Estate, and B2B. But frankly, growth is a discipline, not a niche. We carry a Shape-Shifting Toolkit (Strategy, AI, Automation) that works regardless - selling Anything from a Pin to a Plane !",
     tag: "Industry",
   },
   {

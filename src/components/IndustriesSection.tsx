@@ -12,7 +12,7 @@ const industries = [
     title: "Edu-Marketing",
     tagline: "Enroll More.",
     description:
-      "Partner with us to streamline your admissions funnel and attract students who are the perfect fit for your campus.",
+      "Partner with us to streamline your admissions funnel and Draw in students who are a perfect fit for your campus.",
     href: "/industries/education",
     accentColor: "#B8D4BE",
     stats: ["3x Enrollment Growth", "45% Lower CAC"],
