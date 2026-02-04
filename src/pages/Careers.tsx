@@ -247,8 +247,7 @@ const Careers = () => {
                     animationData={anim2}
                     autoplay={false}
                     loop={false}
-                    className="
-            pointer-events-none absolute top-[5%] left-0 w-[55px] md:top-[5%] md:left-0 md:w-[85px] lg:top-[5%] lg:left-0 lg:w-[135px]"
+                    className="pointer-events-none absolute top-[5%] left-0 w-[55px] md:top-[5%] md:left-0 md:w-[85px] lg:top-[5%] lg:left-0 lg:w-[135px]"
                   />
                 )}
               </span>
