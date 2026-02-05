@@ -4,7 +4,7 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mascotTrophy from "@/assets/mascot/tankyou1.png";
+import mascotTrophy from "@/assets/mascot/mascot_transparent.png";
 
 type ThankYouType = "application" | "contact" | "booking" | "general";
 

@@ -8,6 +8,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import GreenButton from "@/components/GreenButton";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import blogImage1 from "@/assets/blogImages/blog1.jpg";
+import blogImage2 from "@/assets/blogImages/blog2.jpg";
+import blogImage3 from "@/assets/blogImages/blog3.jpg";
+import blogImage4 from "@/assets/blogImages/blog4.jpg";
+import blogImage5 from "@/assets/blogImages/blog5.jpg";
+import blogImage6 from "@/assets/blogImages/blog6.jpg";
 
 import WavyUnderline from "@/components/WavyUnderline";
 
@@ -62,8 +68,7 @@ const blogPosts = [
     excerpt:
       "Discover the latest AI tools and strategies that are revolutionizing how brands connect with their audiences.",
     category: "AI",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+    image: blogImage1,
     date: "Jan 5, 2026",
     readTime: "5 min read",
   },
@@ -74,8 +79,7 @@ const blogPosts = [
     excerpt:
       "Learn how color choices impact consumer perception and brand recognition in the digital age.",
     category: "Branding",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    image: blogImage2,
     date: "Jan 3, 2026",
     readTime: "7 min read",
   },
@@ -86,8 +90,7 @@ const blogPosts = [
     excerpt:
       "A comprehensive guide to creating design systems that grow with your organization.",
     category: "Design Process",
-    image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+    image: blogImage3,
     date: "Dec 28, 2025",
     readTime: "10 min read",
   },
@@ -98,8 +101,7 @@ const blogPosts = [
     excerpt:
       "Explore emerging trends and technologies shaping the future of data-driven marketing.",
     category: "Design Strategies",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    image: blogImage4,
     date: "Dec 22, 2025",
     readTime: "6 min read",
   },
@@ -110,8 +112,7 @@ const blogPosts = [
     excerpt:
       "Master the art of storytelling to create emotional connections with your target audience.",
     category: "Branding",
-    image:
-      "https://images.unsplash.com/photo-1493612276216-ee3925520721?w=600&h=400&fit=crop",
+    image: blogImage5,
     date: "Dec 18, 2025",
     readTime: "8 min read",
   },
@@ -122,8 +123,7 @@ const blogPosts = [
     excerpt:
       "Apply proven design principles to increase your website's conversion rates.",
     category: "Design Principles",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+    image: blogImage6,
     date: "Dec 15, 2025",
     readTime: "9 min read",
   },
