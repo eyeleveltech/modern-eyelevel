@@ -55,7 +55,7 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     // Simulate API call - in production, send to backend
     const response = await fetch(
-      "https://automate.eyelevelstudio.in/webhook-test/contact-form-eyelevel",
+      "https://automate.eyelevelstudio.in/webhook/contact-form-eyelevel",
       {
         method: "POST",
         headers: {
