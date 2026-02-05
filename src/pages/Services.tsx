@@ -568,7 +568,7 @@ const ServicesPage = () => {
                 </Button>
               </Link>
 
-              <Link to="/contact">
+              <Link to="/contact-us">
                 <Button
                   size="lg"
                   variant="outline"

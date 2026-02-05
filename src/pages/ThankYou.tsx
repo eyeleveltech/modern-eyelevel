@@ -53,7 +53,7 @@ const thankYouContent: Record<
     icon: <CheckCircle className="w-8 h-8" />,
     primaryAction: {
       label: "Learn About Us",
-      path: "/about",
+      path: "/about-us",
       icon: <ArrowRight className="w-5 h-5" />,
     },
     secondaryAction: { label: "Back to Home", path: "/" },

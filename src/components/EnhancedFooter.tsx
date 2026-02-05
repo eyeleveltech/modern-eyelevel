@@ -27,8 +27,8 @@ const footerLinks = [
   {
     title: "Important Links",
     links: [
-      { label: "Contact Us", href: "/contact" },
-      { label: "About Us", href: "/about" },
+      { label: "Contact Us", href: "/contact-us" },
+      { label: "About Us", href: "/about-us" },
       { label: "Industry", href: "/industries" },
       { label: "Blogs", href: "/blog" },
     ],

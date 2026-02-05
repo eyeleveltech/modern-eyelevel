@@ -39,12 +39,12 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route
             path="/how-we-work"
-            element={<Navigate to="/about" replace />}
+            element={<Navigate to="/about-us" replace />}
           />
           <Route path="/industries" element={<Industries />} />
           {/* <Route path="/industries/education" element={<EduMarketing />} /> */}
@@ -55,7 +55,7 @@ const App = () => (
           /> */}
           {/* <Route path="/industries/b2b" element={<B2BMarketing />} /> */}
           {/* <Route path="/industries/:slug" element={<IndustryDetail />} /> */}
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/booking" element={<Booking />} />

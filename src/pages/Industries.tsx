@@ -13,9 +13,10 @@ import { Button } from "@/components/ui/button";
 
 // Import industry images
 import industryEducation from "@/assets/industries/edu.jpg";
-import industrySports from "@/assets/industries/pickleball.png";
-import industryRealestate from "@/assets/industries/real_estate.png";
-import industryB2b from "@/assets/industries/b2b.png";
+import industrySports from "@/assets/industries/pickleball.jpg";
+import industryRealestate from "@/assets/industries/real_estate.jpg";
+import industryB2b from "@/assets/industries/b2b.jpg";
+import finTech from "@/assets/industries/fintch.jpg";
 import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -132,7 +133,7 @@ const industries = [
     longDescription:
       "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
     href: "#",
-    image: industryB2b,
+    image: finTech,
     accentColor: "#FCFAC2",
     stats: [
       { value: "5x", label: "Pipeline Growth" },

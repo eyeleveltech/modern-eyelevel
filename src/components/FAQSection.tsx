@@ -209,7 +209,7 @@ const FAQSection = () => {
           className="mt-16 text-center"
         >
           <Link
-            to="/contact"
+            to="/contact-us"
             className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3 hover:bg-white/10 hover:border-lime/30 transition-all duration-300 group"
           >
             <span className="text-white/60 font-bricolage text-sm">

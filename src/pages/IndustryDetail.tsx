@@ -283,7 +283,7 @@ const IndustryDetail = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-card-foreground mb-6">
                 {industry.cta.headline}
               </h2>
-              <Link to="/contact">
+              <Link to="/contact-us">
                 <Button size="lg" className="group rounded-full px-8">
                   {industry.cta.button}
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
