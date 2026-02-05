@@ -121,6 +121,31 @@ const industries = [
       "Lead Scoring",
     ],
   },
+  {
+    id: "fintech-gaming-web-3",
+    number: "05",
+    title: "FinTech, Gaming & Web 3",
+    tagline: "From Users to Believers",
+    shortTagline: "Close Sooner.",
+    description:
+      "We help FinTech startups, gaming studios, and Web3 projects build passionate communities that drive sustainable growth in decentralized ecosystems",
+    longDescription:
+      "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
+    href: "#",
+    image: industryB2b,
+    accentColor: "#FCFAC2",
+    stats: [
+      { value: "5x", label: "Pipeline Growth" },
+      { value: "30%", label: "Shorter Cycle" },
+      { value: "100+", label: "Enterprise Clients" },
+    ],
+    capabilities: [
+      "Community Building",
+      "KOL Partnerships",
+      "Token Launches",
+      "Growth Hacking",
+    ],
+  },
 ];
 
 // 18-pointed star SVG component (reused from Hero)
@@ -355,7 +380,7 @@ const Industries = () => {
         />
       ))}
 
-      <EnhancedFooter mascotBgColor="#1E3C30" showCTA={false} />
+      <EnhancedFooter mascotBgColor="#173229" showCTA={false} />
     </div>
   );
 };

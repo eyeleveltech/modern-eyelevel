@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import logo_1 from "@/assets/logos/logo_1.png";
-import logo_2 from "@/assets/logos/logo_2.png";
-import logo_3 from "@/assets/logos/logo_3.png";
-import logo_4 from "@/assets/logos/logo_4.png";
-import logo_5 from "@/assets/logos/logo_5.png";
-import logo_6 from "@/assets/logos/logo_6.png";
-import logo_7 from "@/assets/logos/logo_7.png";
-import logo_8 from "@/assets/logos/logo_8.png";
-import logo_9 from "@/assets/logos/logo_9.png";
+import logo_1 from "@/assets/logos/logo_01.png";
+import logo_2 from "@/assets/logos/logo_02.png";
+import logo_3 from "@/assets/logos/logo_03.png";
+import logo_4 from "@/assets/logos/logo_04.png";
+import logo_5 from "@/assets/logos/logo_05.png";
+import logo_6 from "@/assets/logos/logo_06.png";
+import logo_7 from "@/assets/logos/logo_07.png";
+import logo_8 from "@/assets/logos/logo_08.png";
+import logo_9 from "@/assets/logos/logo_09.png";
 import logo_10 from "@/assets/logos/logo_10.png";
 
 const clients = [
