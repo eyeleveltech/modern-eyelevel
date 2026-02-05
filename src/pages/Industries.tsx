@@ -12,11 +12,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 // Import industry images
-import industryEducation from "@/assets/industries/edu.jpg";
-import industrySports from "@/assets/industries/pickleball.jpg";
-import industryRealestate from "@/assets/industries/real_estate.jpg";
-import industryB2b from "@/assets/industries/b2b.jpg";
-import finTech from "@/assets/industries/fintch.jpg";
+import industryEducation from "@/assets/industries/edu.jpeg";
+import industrySports from "@/assets/industries/sport.jpeg";
+import industryRealestate from "@/assets/industries/realestate.jpeg";
+import industryB2b from "@/assets/industries/b2b.jpeg";
+import finTech from "@/assets/industries/fintech.jpeg";
 import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -288,7 +288,7 @@ const Industries = () => {
               animationData={animationData}
               autoPlay={false}
               loop
-              className="absolute right-0 md:right-[100px] lg:right-[66px] -top-[13px] w-[130px] md:-top-[42px] md:w-[180px] lg:-top-[66px] lg:w-[220px] pointer-events-none"
+              className="absolute right-0 md:right-[100px] lg:right-[160px] -top-[13px] w-[130px] md:-top-[42px] md:w-[180px] lg:-top-[66px] lg:w-[220px] pointer-events-none"
             />
           )}
           <motion.h1
