@@ -711,6 +711,7 @@ const EnhancedFooter = ({
                   <a
                     key={index}
                     href={social.href}
+                    rel="noopener noreferrer"
                     target="_blank"
                     aria-label={social.label}
                     className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:bg-lime hover:text-[#173229] transition-all duration-300"
