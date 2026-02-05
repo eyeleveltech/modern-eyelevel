@@ -770,7 +770,7 @@ const RealEstateMarketing = () => {
         </div>
       </section>
 
-      <EnhancedFooter accentColor="#E2FEA5" />
+      <EnhancedFooter showCTA={false} accentColor="#E2FEA5" />
     </div>
   );
 };

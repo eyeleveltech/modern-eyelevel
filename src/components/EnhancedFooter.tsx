@@ -170,9 +170,9 @@ interface EnhancedFooterProps {
 }
 
 const EnhancedFooter = ({
-  showCTA = true,
+  showCTA,
   accentColor = "#E2FEA5",
-  mascotBgColor = "#0D1F1A",
+  mascotBgColor = "#173229",
 }: EnhancedFooterProps) => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -265,7 +265,7 @@ const EnhancedFooter = ({
       // Here you would typically send the data to your backend
 
       const response = await fetch(
-        "https://automate.eyelevelstudio.in/webhook/fa30713f-f07b-4f1a-a560-d9409df62413",
+        "https://automate.eyelevelstudio.in/webhook-test/fa30713f-f07b-4f1a-a560-d9409df62413",
         {
           method: "POST",
           headers: {
@@ -639,7 +639,7 @@ const EnhancedFooter = ({
             onComplete={() => {
               lottieRef2.current?.goToAndPlay(0, true);
             }}
-            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-40"
           />
           <Lottie
             lottieRef={lottieRef2}
@@ -649,7 +649,7 @@ const EnhancedFooter = ({
             onComplete={() => {
               lottieRef3.current?.goToAndPlay(0, true);
             }}
-            className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-40"
           />
           <Lottie
             lottieRef={lottieRef3}
@@ -659,7 +659,7 @@ const EnhancedFooter = ({
             onComplete={() => {
               setTimeout(playSequence, 800);
             }}
-            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-50"
+            className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-40"
           />
         </div>
       )}

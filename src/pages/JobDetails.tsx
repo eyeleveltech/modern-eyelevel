@@ -278,7 +278,7 @@ const JobDetails = () => {
             Back to Careers
           </Button>
         </div>
-        <EnhancedFooter />
+        <EnhancedFooter showCTA={false} />
       </div>
     );
   }

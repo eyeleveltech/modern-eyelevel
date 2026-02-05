@@ -21,7 +21,7 @@ const Index = () => {
       <TextTestimonials />
       <WhyEyeLevel />
       <FAQSection />
-      <EnhancedFooter />
+      <EnhancedFooter showCTA={false} />
     </div>
   );
 };

@@ -776,7 +776,7 @@ const SportsMarketing = () => {
         </div>
       </section>
 
-      <EnhancedFooter accentColor="#FFB4B4" />
+      <EnhancedFooter showCTA={false} accentColor="#FFB4B4" />
     </div>
   );
 };

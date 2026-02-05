@@ -761,7 +761,7 @@ const B2BMarketing = () => {
         </div>
       </section>
 
-      <EnhancedFooter accentColor="#FCFAC2" />
+      <EnhancedFooter showCTA={false} accentColor="#FCFAC2" />
     </div>
   );
 };

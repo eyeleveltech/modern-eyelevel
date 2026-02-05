@@ -788,7 +788,7 @@ const EduMarketing = () => {
         </div>
       </section>
 
-      <EnhancedFooter accentColor="#B8D4BE" />
+      <EnhancedFooter showCTA={false} accentColor="#B8D4BE" />
     </div>
   );
 };

@@ -150,7 +150,7 @@ const IndustryDetail = () => {
             </Button>
           </Link>
         </div>
-        <EnhancedFooter />
+        <EnhancedFooter showCTA={false} />
       </div>
     );
   }
@@ -294,7 +294,7 @@ const IndustryDetail = () => {
         </div>
       </section>
 
-      <EnhancedFooter />
+      <EnhancedFooter showCTA={false}/>
     </div>
   );
 };

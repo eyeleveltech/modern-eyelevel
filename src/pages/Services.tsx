@@ -525,9 +525,9 @@ const ServicesPage = () => {
         style={{ backgroundColor: "#0D1F1A" }}
       >
         {/* Background Elements */}
-        <div className="absolute inset-0">
+        {/* <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#E2FEA5]/5 rounded-full blur-[180px]" />
-        </div>
+        </div> */}
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -587,7 +587,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <EnhancedFooter />
+      <EnhancedFooter mascotBgColor="#0D1F1A" showCTA={false} />
     </div>
   );
 };

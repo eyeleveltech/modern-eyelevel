@@ -355,7 +355,7 @@ const Industries = () => {
         />
       ))}
 
-      <EnhancedFooter />
+      <EnhancedFooter mascotBgColor="#1E3C30" showCTA={false} />
     </div>
   );
 };
@@ -392,20 +392,20 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
     >
       {/* Background accent */}
       {/* Background accent (Desktop: left/right) */}
-      <div
+      {/* <div
         className="hidden lg:block absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none"
         style={{
           background: `radial-gradient(circle at ${isEven ? "right" : "left"} center, ${industry.accentColor}, transparent 70%)`,
         }}
-      />
+      /> */}
 
       {/* Background accent (Mobile: top/bottom) */}
-      <div
+      {/* <div
         className="lg:hidden absolute left-0 top-0 w-full h-full opacity-5 pointer-events-none"
         style={{
           background: `radial-gradient(circle at center ${isEven ? "bottom" : "top"}, ${industry.accentColor}, transparent 70%)`,
         }}
-      />
+      /> */}
 
       <div className="max-w-5xl mx-auto px-4 w-full">
         <div
@@ -605,7 +605,7 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
 
       {/* Decorative line */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-px"
+        className="absolute top-0 left-0 right-0 h-px"
         style={{ backgroundColor: "rgba(248, 255, 232, 0.1)" }}
       />
     </section>

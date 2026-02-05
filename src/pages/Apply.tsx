@@ -181,7 +181,7 @@ const Apply = () => {
     if (!resumeFile) {
       toast({
         title: "Resume required",
-        description: "Please upload your resume to continue",
+        description: "Please upload your resume",
         variant: "destructive",
       });
       return;
@@ -189,15 +189,58 @@ const Apply = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission - in production, send to backend
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const formData = new FormData();
 
-    setIsSubmitting(false);
+      formData.append(
+        "payload",
+        JSON.stringify({
+          ...data,
+          position,
+          education,
+          experience,
+        }),
+      );
 
-    // Navigate to thank you page
-    navigate(
-      `/thank-you?type=application&position=${encodeURIComponent(position)}`,
-    );
+      formData.append("resume", resumeFile);
+      if (photoFile) formData.append("photo", photoFile);
+
+      const response = await fetch(
+        "https://automate.eyelevelstudio.in/webhook/apply",
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.message || "Failed");
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later",
+          variant: "destructive",
+        });
+      }
+
+      toast({
+        title: "Application submitted successfully",
+        description: `Thank you for applying to ${result.position}. Our HR team will get in touch with you soon.`,
+      });
+      navigate(
+        `/thank-you?type=application&position=${encodeURIComponent(position)}`,
+      );
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false); // ✅ ALWAYS stops loader
+    }
   };
 
   return (

@@ -44,9 +44,9 @@ const FAQSection = () => {
   return (
     <section className="py-12 md:py-16 px-4 bg-[#173229] relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-lime/5 rounded-full blur-[100px]" />
-      </div>
+      </div> */}
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header */}
