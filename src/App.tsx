@@ -26,6 +26,7 @@ import ThankYou from "./pages/ThankYou";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
+import HigherEducationMarketing from "./pages/HigherEducationMarketing";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,11 @@ const App = () => (
           /> */}
           {/* <Route path="/industries/b2b" element={<B2BMarketing />} /> */}
           {/* <Route path="/industries/:slug" element={<IndustryDetail />} /> */}
+          <Route
+            path="/industries/higher-education"
+            element={<HigherEducationMarketing />}
+          />
+
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
