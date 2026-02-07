@@ -27,6 +27,8 @@ import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import HigherEducationMarketing from "./pages/HigherEducationMarketing";
+import HigherEducation2 from "./pages/HigherEducation2";
+import HigherEducationMarketingV2 from "./pages/HigherEducationMarketingV2";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,14 @@ const App = () => (
           <Route
             path="/industries/higher-education"
             element={<HigherEducationMarketing />}
+          />
+          <Route
+            path="/industries/higher-education-v2"
+            element={<HigherEducationMarketingV2 />}
+          />
+          <Route
+            path="/industries/higher-education-2"
+            element={<HigherEducation2 />}
           />
 
           <Route path="/contact-us" element={<Contact />} />

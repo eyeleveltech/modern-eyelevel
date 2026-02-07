@@ -27,6 +27,7 @@ import blogImage3 from "@/assets/blogImages/blog3.jpg";
 import blogImage4 from "@/assets/blogImages/blog4.jpg";
 import blogImage5 from "@/assets/blogImages/blog5.jpg";
 import blogImage6 from "@/assets/blogImages/blog6.jpg";
+import SEO from "@/components/SEO";
 
 // Blog posts data - in production, this would come from an API/CMS
 const blogPostsData: Record<
@@ -39,6 +40,8 @@ const blogPostsData: Record<
     date: string;
     readTime: string;
     author: { name: string; role: string; image?: string };
+    seoTitle: string;
+    seoDescription: string;
     content: string[];
     tags: string[];
   }
@@ -56,6 +59,9 @@ const blogPostsData: Record<
       role: "Co-Founder and Chief Growth Architect",
       image: akmal,
     },
+    seoTitle: "How AI Is Transforming Marketing in 2026",
+    seoDescription:
+      "Discover how AI is reshaping marketing in 2026 — from automation and personalization to predictive, data-driven growth strategies.",
     content: [
       "Artificial Intelligence has moved beyond buzzword status to become the backbone of modern marketing strategies. In 2026, we're witnessing an unprecedented integration of AI tools that are fundamentally changing how brands understand, reach, and engage their audiences.",
       "## The Rise of Predictive Analytics",
@@ -93,6 +99,9 @@ const blogPostsData: Record<
       role: "Co-Founder and Chief Growth Architect",
       image: akmal,
     },
+    seoTitle: "The Psychology of Color in Branding Explained",
+    seoDescription:
+      "Learn how color psychology influences brand perception, emotions, and conversions across digital and physical brand experiences.",
     content: [
       "Color is one of the most powerful tools in a brand's arsenal. It communicates emotions, builds recognition, and influences purchasing decisions—often before a customer even reads a single word of your message.",
       "## The Science Behind Color Psychology",
@@ -125,6 +134,9 @@ const blogPostsData: Record<
       role: "Junior Graphics Designer",
       image: janani,
     },
+    seoTitle: "Building a Scalable Design System for Growth",
+    seoDescription:
+      "A practical guide to creating scalable design systems that improve consistency, efficiency, and brand growth across teams.",
     content: [
       "A design system is more than a collection of components—it's a living ecosystem that enables teams to build consistent, high-quality products at scale. But building one that actually works requires careful planning, clear governance, and a commitment to evolution.",
       "## Start With Principles, Not Components",
@@ -160,6 +172,9 @@ const blogPostsData: Record<
       role: "Digital Marketing Manager",
       image: mohan,
     },
+    seoTitle: "The Future of Performance Marketing Strategies",
+    seoDescription:
+      "Explore emerging performance marketing trends, data-driven tactics, and how brands can stay competitive in a changing landscape.",
     content: [
       "Performance marketing stands at an inflection point. Privacy regulations, the death of third-party cookies, and evolving consumer expectations are forcing a fundamental rethinking of data-driven strategies.",
       "## The Privacy-First Reality",
@@ -198,6 +213,9 @@ const blogPostsData: Record<
       name: "Thanujaa G",
       role: "Brand Marketing Specialist",
     },
+    seoTitle: "Crafting Compelling Brand Stories That Convert",
+    seoDescription:
+      "Learn how to craft authentic brand stories that connect emotionally, strengthen identity, and drive meaningful conversions.",
     content: [
       "In a world saturated with content, brands that tell compelling stories rise above the noise. Story isn't just a marketing tactic—it's how humans make sense of the world and form emotional connections.",
       "## Why Stories Work",
@@ -234,6 +252,9 @@ const blogPostsData: Record<
       role: "Senior Graphics Designer",
       image: charles,
     },
+    seoTitle: "Design Principles for Conversion Optimization",
+    seoDescription:
+      "Discover proven design principles that improve user experience, engagement, and conversion rates across platforms.",
     content: [
       "Conversion optimization isn't about tricks or manipulation—it's about removing friction and clearly communicating value. The best-converting designs are often the clearest and most user-focused.",
       "## Clarity Above All",
@@ -342,6 +363,7 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <SEO title={post.seoTitle} description={post.seoDescription} />
       <Header />
 
       {/* Hero Banner */}

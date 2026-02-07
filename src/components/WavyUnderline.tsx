@@ -18,7 +18,7 @@ const WavyUnderline = ({
 
       {/* Underline */}
       <motion.svg
-        className="absolute left-1/2 -bottom-3 -translate-x-1/2"
+        className="absolute left-1/2 -bottom-2 md:-bottom-3 -translate-x-1/2"
         width="80%" // Changed to 100% to match container width better
         height="12" // Increased slightly to prevent clipping of thick strokes
         viewBox="0 0 200 9"
@@ -38,7 +38,7 @@ const WavyUnderline = ({
           whileInView={{ pathLength: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{
-            delay: 0.5,
+            delay: 0.4,
             duration: 0.8,
             ease: "easeInOut",
           }}

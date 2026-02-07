@@ -13,6 +13,7 @@ import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import WavyUnderline from "@/components/WavyUnderline";
 import GreenButton from "@/components/GreenButton";
+import SEO from "@/components/SEO";
 
 const contactSchema = z.object({
   name: z
@@ -77,6 +78,10 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-10" style={{ backgroundColor: "#253e35" }}>
+      <SEO
+        title="Contact The Eye Level Studio | Start Your Growth Journey"
+        description="Get in touch with The Eye Level Studio to discuss marketing strategy, branding, performance marketing, AI, or growth solutions."
+      />
       <Header />
 
       <main className="pt-32 pb-24 px-4">

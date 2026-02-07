@@ -22,6 +22,7 @@ import jahangeer from "@/assets/Jahangeer.jpeg";
 import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import SEO from "@/components/SEO";
 
 const values = [
   {
@@ -180,6 +181,10 @@ const About = () => {
       className="min-h-screen overflow-hidden"
       style={{ backgroundColor: "#253e35" }}
     >
+      <SEO
+        title="About The Eye Level Studio | Growth-Driven Marketing Agency"
+        description="Learn about The Eye Level Studio — a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
+      />
       <Header />
 
       {/* Hero Section */}

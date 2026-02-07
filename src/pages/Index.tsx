@@ -8,21 +8,28 @@ import TextTestimonials from "@/components/TextTestimonials";
 import WhyEyeLevel from "@/components/WhyEyeLevel";
 import FAQSection from "@/components/FAQSection";
 import EnhancedFooter from "@/components/EnhancedFooter";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <Hero />
-      <JoinTheLeague />
-      <WhatWeDo />
-      <IndustriesSection />
-      <ProcessSection />
-      <TextTestimonials />
-      <WhyEyeLevel />
-      <FAQSection />
-      <EnhancedFooter showCTA={false} />
-    </div>
+    <>
+      <SEO
+        title="Marketing & Growth Agency for Global Brands | The Eye Level Studio"
+        description="The Eye Level Studio is a global marketing agency driving growth through strategy, performance marketing, AI, automation, and creative branding."
+      />
+      <div className="min-h-screen bg-background">
+        <Header />
+        <Hero />
+        <JoinTheLeague />
+        <WhatWeDo />
+        <IndustriesSection />
+        <ProcessSection />
+        <TextTestimonials />
+        <WhyEyeLevel />
+        <FAQSection />
+        <EnhancedFooter showCTA={false} />
+      </div>
+    </>
   );
 };
 

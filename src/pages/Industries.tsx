@@ -20,6 +20,7 @@ import finTech from "@/assets/industries/fintech.jpeg";
 import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import SEO from "@/components/SEO";
 
 const industries = [
   {
@@ -239,6 +240,10 @@ const Industries = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Marketing Solutions Across Industries & Web3 | The Eye Level Studio"
+        description="We deliver tailored marketing solutions for education, sports, real estate, B2B, and Web3 brands across global markets."
+      />
       <Header />
 
       {/* Hero Section - Matching home page style */}

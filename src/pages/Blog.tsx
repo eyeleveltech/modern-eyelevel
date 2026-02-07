@@ -16,6 +16,7 @@ import blogImage5 from "@/assets/blogImages/blog5.jpg";
 import blogImage6 from "@/assets/blogImages/blog6.jpg";
 
 import WavyUnderline from "@/components/WavyUnderline";
+import SEO from "@/components/SEO";
 
 // Decorative star
 const Star4 = ({ className }: { className?: string }) => (
@@ -221,6 +222,10 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <SEO
+        title="Marketing Insights, Growth & AI Trends | The Eye Level Studio Blog"
+        description="Read expert insights on marketing, branding, performance, AI, Web3, and growth strategies shaping the future of business."
+      />
       <Header />
 
       {/* Hero Section */}

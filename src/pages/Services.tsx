@@ -31,6 +31,7 @@ import web_3 from "@/assets/mockup/web_3.png";
 import web_4 from "@/assets/mockup/web_4.png";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import { useEffect, useRef, useState } from "react";
+import SEO from "@/components/SEO";
 
 const services = [
   {
@@ -319,6 +320,10 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-[#0D1F1A]">
+      <SEO
+        title="Marketing Services for Growth, Performance & Branding | The Eye Level Studio"
+        description="Explore our marketing services covering growth strategy, performance marketing, AI & automation, creative branding, and Web3-driven solutions."
+      />
       <Header />
 
       {/* Hero Section - Minimal */}

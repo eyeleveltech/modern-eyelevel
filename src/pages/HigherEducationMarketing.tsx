@@ -21,6 +21,11 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import WavyUnderline from "@/components/WavyUnderline";
+import GreenButton from "@/components/GreenButton";
+
+import emptyClass from "@/assets/Edu-marketing/empty-class.png";
+import bgImage from "@/assets/Edu-marketing/edu-bg.png";
 
 // Service categories data
 const serviceCategories = [
@@ -230,14 +235,36 @@ const HigherEducationMarketing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen relative overflow-hidden"
+      style={{ backgroundColor: "#253e35" }}
+    >
       <Header />
 
       {/* ===== HERO SECTION ===== */}
-      <section
-        className="relative min-h-[100svh] flex items-center pt-24 pb-32 md:pt-32 md:pb-24 px-4 overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
-      >
+      <section className="relative min-h-screen flex items-center pt-24 pb-32 md:pt-32 md:pb-24 px-4 overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            opacity: 0.35, // increase to see it
+            zIndex: 0,
+          }}
+        />
+
+        {/* HERO TINT OVERLAY */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "#253e35",
+            opacity: 0.55,
+            zIndex: 1,
+          }}
+        />
+
         {/* Background gradient orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
@@ -258,34 +285,16 @@ const HigherEducationMarketing = () => {
 
         <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
           {/* Pill badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 md:mb-8"
-          >
-            <span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full font-bricolage text-sm"
-              style={{
-                backgroundColor: "rgba(184, 212, 190, 0.15)",
-                border: "1px solid rgba(184, 212, 190, 0.3)",
-                color: "#B8D4BE",
-              }}
-            >
-              <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
-              Higher Education Marketing
-            </span>
-          </motion.div>
+          <GreenButton>Higher Education Marketing</GreenButton>
 
           {/* Main Headline - Unified size */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 md:mb-8 leading-[1.1]"
-            style={{ color: "#F8FFE8" }}
+            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 md:mb-8 leading-[1.1] text-[#E2FEA5] uppercase"
           >
-            From Visibility to Admissions—Fast and Simple.
+            From Visibility to <WavyUnderline>Admissions</WavyUnderline>
           </motion.h1>
 
           {/* Subheadline */}
@@ -312,7 +321,7 @@ const HigherEducationMarketing = () => {
                 size="lg"
                 className="w-full sm:w-auto group rounded-full px-8 md:px-12 min-h-[56px] md:min-h-[64px] text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
                 style={{
-                  backgroundColor: "#B8D4BE",
+                  backgroundColor: "#FCFAC2",
                   color: "#0a0a0a",
                   border: "3px solid #0a0a0a",
                   boxShadow: "0 4px 0 #0a0a0a",
@@ -323,7 +332,7 @@ const HigherEducationMarketing = () => {
               </Button>
             </a>
 
-            <div
+            {/* <div
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full"
               style={{
                 backgroundColor: "rgba(226, 254, 165, 0.1)",
@@ -340,7 +349,7 @@ const HigherEducationMarketing = () => {
               >
                 One Goal: Your Admissions.
               </span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Proof Stats Row */}
@@ -422,140 +431,148 @@ const HigherEducationMarketing = () => {
           />
         </div>
 
-        <div className="max-w-4xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            {/* Icon badge */}
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* ✅ Fixed layout: left content + right image */}
+
+          <div className="text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-6 md:mb-8"
             >
-              <div
-                className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl mx-auto"
-                style={{
-                  backgroundColor: "rgba(255, 180, 180, 0.15)",
-                  border: "2px solid rgba(255, 180, 180, 0.3)",
-                }}
+              <h2
+                className="font-dela text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-8 md:mb-10 uppercase"
+                style={{ color: "#E2FEA5" }}
               >
-                <GraduationCap
-                  className="w-8 h-8 md:w-10 md:h-10"
-                  style={{ color: "#FFB4B4" }}
-                />
-              </div>
-            </motion.div>
+                Is your campus <WavyUnderline>quiet?</WavyUnderline>
+              </h2>
+              <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-14">
+                {/* LEFT: content */}
+                <div className="w-full lg:flex-1">
+                  {/* Pain points */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-10 max-w-2xl lg:max-w-none mx-auto lg:mx-0">
+                    {[
+                      { text: "Empty seats cost more than just revenue." },
+                      { text: "They cost reputation." },
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="rounded-2xl p-5 md:p-6 text-left"
+                        style={{
+                          backgroundColor: "rgba(248, 255, 232, 0.03)",
+                          border: "1px solid rgba(248, 255, 232, 0.1)",
+                        }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div
+                            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                            style={{
+                              backgroundColor: "rgba(255, 180, 180, 0.2)",
+                            }}
+                          >
+                            <TrendingDown
+                              className="w-4 h-4"
+                              style={{ color: "#E2FEA5" }}
+                            />
+                          </div>
+                          <p
+                            className="font-bricolage text-base md:text-lg"
+                            style={{ color: "#F8FFE8" }}
+                          >
+                            {item.text}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
 
-            <h2
-              className="font-dela text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-10 md:mb-12"
-              style={{ color: "#FFB4B4" }}
-            >
-              Is your campus quiet?
-            </h2>
-
-            {/* Pain points as cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-10 md:mb-12 max-w-2xl mx-auto">
-              {[
-                {
-                  text: "Empty seats cost more than just revenue.",
-                  highlight: false,
-                },
-                { text: "They cost reputation.", highlight: false },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="rounded-2xl p-5 md:p-6 text-left"
-                  style={{
-                    backgroundColor: "rgba(248, 255, 232, 0.03)",
-                    border: "1px solid rgba(248, 255, 232, 0.1)",
-                  }}
-                >
-                  <div className="flex items-start gap-3">
+                  {/* Contrast */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-10"
+                  >
                     <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ backgroundColor: "rgba(255, 180, 180, 0.2)" }}
+                      className="inline-block rounded-2xl p-6 md:p-8 relative overflow-hidden"
+                      style={{
+                        backgroundColor: "rgba(184, 212, 190, 0.08)",
+                        border: "2px solid rgba(184, 212, 190, 0.25)",
+                      }}
                     >
-                      <TrendingDown
-                        className="w-4 h-4"
-                        style={{ color: "#FFB4B4" }}
+                      <p
+                        className="font-bricolage text-sm md:text-base mb-3 opacity-60"
+                        style={{ color: "#F8FFE8" }}
+                      >
+                        Generic agencies give you "synergy."
+                      </p>
+                      <p
+                        className="font-dela text-2xl md:text-3xl lg:text-4xl uppercase"
+                        style={{ color: "#B8D4BE" }}
+                      >
+                        We give you students.
+                      </p>
+                      <div
+                        className="absolute -top-4 -right-4 w-16 h-16 rounded-full opacity-20"
+                        style={{ backgroundColor: "#B8D4BE" }}
                       />
                     </div>
-                    <p
-                      className="font-bricolage text-base md:text-lg"
-                      style={{ color: "#F8FFE8" }}
-                    >
-                      {item.text}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                  </motion.div>
 
-            {/* Contrast statement */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-10 md:mb-12"
-            >
-              <div
-                className="inline-block rounded-2xl p-6 md:p-8 relative overflow-hidden"
-                style={{
-                  backgroundColor: "rgba(184, 212, 190, 0.08)",
-                  border: "2px solid rgba(184, 212, 190, 0.25)",
-                }}
-              >
-                <p
-                  className="font-bricolage text-sm md:text-base mb-3 opacity-60"
-                  style={{ color: "#F8FFE8" }}
-                >
-                  Generic agencies give you "synergy."
-                </p>
-                <p
-                  className="font-dela text-2xl md:text-3xl lg:text-4xl"
-                  style={{ color: "#B8D4BE" }}
-                >
-                  We give you students.
-                </p>
-                {/* Decorative corner */}
-                <div
-                  className="absolute -top-4 -right-4 w-16 h-16 rounded-full opacity-20"
-                  style={{ backgroundColor: "#B8D4BE" }}
-                />
+                  {/* CTA */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="flex justify-center lg:justify-start"
+                  >
+                    <a href="#cta-form" className="inline-block">
+                      <Button
+                        size="lg"
+                        className="group rounded-full px-8 md:px-10 min-h-[56px] md:min-h-[60px] text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all"
+                        style={{
+                          backgroundColor: "#FCFAC2",
+                          color: "#0a0a0a",
+                          border: "3px solid #0a0a0a",
+                          boxShadow: "0 4px 0 #0a0a0a",
+                        }}
+                      >
+                        Secure your enrollment
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                      </Button>
+                    </a>
+                  </motion.div>
+                </div>
+
+                {/* RIGHT: image */}
+                <div className="w-full lg:w-[480px] xl:w-[560px]">
+                  <div
+                    className="relative overflow-hidden rounded-3xl border"
+                    style={{ borderColor: "rgba(248, 255, 232, 0.12)" }}
+                  >
+                    <img
+                      src={emptyClass}
+                      alt=""
+                      className="w-full h-[260px] sm:h-[320px] lg:h-[460px] object-cover"
+                    />
+                    {/* optional premium overlay */}
+                    <div
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(23,50,41,0.55), transparent 60%)",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <a href="#cta-form" className="inline-block">
-                <Button
-                  size="lg"
-                  className="group rounded-full px-8 md:px-10 min-h-[56px] md:min-h-[60px] text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all"
-                  style={{
-                    backgroundColor: "#B8D4BE",
-                    color: "#0a0a0a",
-                    border: "3px solid #0a0a0a",
-                    boxShadow: "0 4px 0 #0a0a0a",
-                  }}
-                >
-                  Secure your enrollment
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                </Button>
-              </a>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -572,21 +589,12 @@ const HigherEducationMarketing = () => {
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <span
-              className="inline-block font-bricolage text-sm md:text-base mb-4 tracking-[0.15em] uppercase px-4 py-1.5 rounded-full"
-              style={{
-                color: "#E2FEA5",
-                backgroundColor: "rgba(226, 254, 165, 0.1)",
-                border: "1px solid rgba(226, 254, 165, 0.2)",
-              }}
-            >
-              What You Get
-            </span>
+            <GreenButton>What You Get</GreenButton>
             <h2
-              className="font-dela text-3xl md:text-4xl lg:text-5xl"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-3xl md:text-4xl lg:text-5xl uppercase"
+              style={{ color: "#E2FEA5" }}
             >
-              360° Growth Services
+              360° <WavyUnderline>Growth</WavyUnderline> Services
             </h2>
           </motion.div>
 
@@ -640,7 +648,7 @@ const HigherEducationMarketing = () => {
                     {/* Title & Outcome */}
                     <div className="flex-1 min-w-0">
                       <h3
-                        className="font-dela text-base md:text-lg lg:text-xl transition-colors duration-300"
+                        className="font-dela uppercase text-base md:text-lg lg:text-xl transition-colors duration-300"
                         style={{
                           color:
                             openCategory === category.id
@@ -753,32 +761,17 @@ const HigherEducationMarketing = () => {
             viewport={{ once: true }}
             className="text-center mb-12 md:mb-16"
           >
-            <span
-              className="inline-block font-bricolage text-sm md:text-base mb-4 tracking-[0.15em] uppercase px-4 py-1.5 rounded-full"
-              style={{
-                color: "#E2FEA5",
-                backgroundColor: "rgba(226, 254, 165, 0.1)",
-                border: "1px solid rgba(226, 254, 165, 0.2)",
-              }}
-            >
-              How It Works
-            </span>
+            <GreenButton>How It Works</GreenButton>
             <h2
-              className="font-dela text-3xl md:text-4xl lg:text-5xl"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-3xl md:text-4xl lg:text-5xl uppercase"
+              style={{ color: "#E2FEA5" }}
             >
-              Three steps to more admissions.
+              Three steps to more <WavyUnderline>admissions.</WavyUnderline>
             </h2>
           </motion.div>
 
           {/* Steps with connecting line */}
           <div className="relative">
-            {/* Connecting line - desktop */}
-            <div
-              className="hidden md:block absolute top-[60px] left-[16.67%] right-[16.67%] h-0.5"
-              style={{ backgroundColor: "rgba(226, 254, 165, 0.2)" }}
-            />
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
               {processSteps.map((step, index) => (
                 <motion.div
@@ -789,6 +782,7 @@ const HigherEducationMarketing = () => {
                   transition={{ delay: index * 0.15 }}
                   className="relative"
                 >
+                  {/* CARD */}
                   <div
                     className="rounded-3xl p-6 md:p-8 text-center h-full relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300"
                     style={{
@@ -796,7 +790,6 @@ const HigherEducationMarketing = () => {
                       border: "2px solid rgba(226, 254, 165, 0.15)",
                     }}
                   >
-                    {/* Hover glow */}
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{
@@ -845,17 +838,28 @@ const HigherEducationMarketing = () => {
                     >
                       {step.desc}
                     </p>
+                  </div>
 
-                    {/* Arrow to next - mobile */}
-                    {index < processSteps.length - 1 && (
-                      <div className="md:hidden flex justify-center mt-6">
+                  {/* 🔁 ARROW BETWEEN CARDS */}
+                  {index < processSteps.length - 1 && (
+                    <>
+                      {/* Desktop → horizontal arrow */}
+                      <div className="hidden md:flex absolute top-1/2 -right-4 translate-x-full -translate-y-1/2 pointer-events-none">
                         <ArrowRight
-                          className="w-5 h-5 rotate-90"
-                          style={{ color: "rgba(226, 254, 165, 0.3)" }}
+                          className="w-6 h-6"
+                          style={{ color: "rgba(226, 254, 165, 0.35)" }}
                         />
                       </div>
-                    )}
-                  </div>
+
+                      {/* Mobile → vertical arrow */}
+                      <div className="md:hidden absolute left-1/2 -bottom-4 translate-y-full -translate-x-1/2 pointer-events-none">
+                        <ArrowRight
+                          className="w-5 h-5 rotate-90"
+                          style={{ color: "rgba(226, 254, 165, 0.35)" }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -873,7 +877,7 @@ const HigherEducationMarketing = () => {
                 size="lg"
                 className="group rounded-full px-8 md:px-10 min-h-[56px] md:min-h-[60px] text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all"
                 style={{
-                  backgroundColor: "#E2FEA5",
+                  backgroundColor: "#FCFAC2",
                   color: "#0a0a0a",
                   border: "3px solid #0a0a0a",
                   boxShadow: "0 4px 0 #0a0a0a",
@@ -893,7 +897,7 @@ const HigherEducationMarketing = () => {
         className="py-16 md:py-24 lg:py-32 px-4 scroll-mt-20"
         style={{ backgroundColor: "#173229" }}
       >
-        <div className="max-w-md mx-auto">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -901,10 +905,10 @@ const HigherEducationMarketing = () => {
             className="text-center mb-8 md:mb-10"
           >
             <h2
-              className="font-dela text-3xl md:text-4xl lg:text-5xl mb-3"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-3xl md:text-4xl lg:text-5xl mb-3 uppercase"
+              style={{ color: "#E2FEA5" }}
             >
-              Stop guessing. Start growing.
+              Stop guessing. <WavyUnderline>Start</WavyUnderline> growing.
             </h2>
             <p
               className="font-bricolage text-base md:text-lg"
@@ -922,7 +926,7 @@ const HigherEducationMarketing = () => {
             transition={{ delay: 0.1 }}
           >
             <div
-              className="rounded-2xl p-6 md:p-8"
+              className="rounded-2xl p-6 md:p-8 max-w-lg mx-auto"
               style={{
                 backgroundColor: "rgba(248, 255, 232, 0.05)",
                 border: "2px solid rgba(248, 255, 232, 0.1)",
@@ -1034,7 +1038,7 @@ const HigherEducationMarketing = () => {
                 disabled={isSubmitting}
                 className="w-full rounded-full min-h-[56px] text-base font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all disabled:opacity-70"
                 style={{
-                  backgroundColor: "#B8D4BE",
+                  backgroundColor: "#FCFAC2",
                   color: "#0a0a0a",
                   border: "3px solid #0a0a0a",
                   boxShadow: "0 4px 0 #0a0a0a",

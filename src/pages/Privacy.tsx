@@ -1,10 +1,15 @@
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const Privacy = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <SEO
+        title="Terms & Conditions | The Eye Level Studio"
+        description="Review the terms and conditions governing the use of The Eye Level Studio website, services, and marketing solutions."
+      />
       <Header />
 
       <main className="pt-32 pb-20 px-4">

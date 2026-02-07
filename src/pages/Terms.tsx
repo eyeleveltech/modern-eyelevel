@@ -1,10 +1,15 @@
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const Terms = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <SEO
+        title="Privacy Policy | The Eye Level Studio"
+        description="Learn how The Eye Level Studio collects, uses, and protects your personal data across our website and services."
+      />
       <Header />
 
       <main className="pt-32 pb-20 px-4">
@@ -181,7 +186,7 @@ const Terms = () => {
         </div>
       </main>
 
-      <EnhancedFooter  mascotBgColor="#253E35" showCTA={false} />
+      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
     </div>
   );
 };

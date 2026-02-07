@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import WavyUnderline from "@/components/WavyUnderline";
+import SEO from "@/components/SEO";
 
 const Booking = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <SEO
+        title="Book a Marketing Consultation | The Eye Level Studio"
+        description="Schedule a consultation with our marketing experts to unlock growth through strategy, performance marketing, AI, and branding."
+      />
       <Header />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-36 pb-10 sm:pb-14">
