@@ -33,7 +33,7 @@ const industries = [
       "We help schools, universities, and EdTech companies build powerful brands and create a predictable pipeline of qualified student applications.",
     longDescription:
       "Partner with us to streamline your admissions funnel and attract students who are the perfect fit for your campus. Our data-driven approach ensures every marketing dollar translates into quality enrollments.",
-    href: "#",
+    href: "/industries/higher-education",
     image: industryEducation,
     accentColor: "#B8D4BE",
     stats: [
