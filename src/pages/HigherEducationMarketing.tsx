@@ -200,6 +200,28 @@ const processSteps = [
   },
 ];
 
+const proff_stat = [
+  {
+    value: "5%",
+    title: "Boost enrollment fast.",
+    description: "Targeted Campaigns.",
+  },
+  {
+    value: "40%",
+    title: "Elevate branding authority.",
+    description: "Stand out now.",
+  },
+  {
+    value: "45%",
+    title: "Slash CAC costs.",
+    description: "Smarter admissions.",
+  },
+  {
+    value: "50%",
+    title: "Cut consultant reliance.",
+    description: "Own admissions now.",
+  },
+];
 const HigherEducationMarketing = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
@@ -283,7 +305,7 @@ const HigherEducationMarketing = () => {
           />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto w-full text-center">
+        <div className="relative z-10 max-w-6xl mx-auto w-full text-center">
           {/* Pill badge */}
           <GreenButton>Higher Education Marketing</GreenButton>
 
@@ -292,7 +314,7 @@ const HigherEducationMarketing = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 md:mb-8 leading-[1.1] text-[#E2FEA5] uppercase"
+            className="font-dela text-4xl sm:text-5xl md:text-6xl max-w-4xl mx-auto lg:text-7xl mb-6 md:mb-8 leading-[1.1] text-[#E2FEA5] uppercase"
           >
             From Visibility to <WavyUnderline>Admissions</WavyUnderline>
           </motion.h1>
@@ -305,8 +327,8 @@ const HigherEducationMarketing = () => {
             className="font-bricolage text-lg md:text-xl lg:text-2xl mb-8 md:mb-10 leading-relaxed max-w-2xl mx-auto"
             style={{ color: "rgba(248, 255, 232, 0.85)" }}
           >
-            We help higher education institutes boost enrollment and build brand
-            authority with zero confusion.
+            "Fill Your Seats with Top-Tier Students – Proven +25% Enrollment
+            Growth."
           </motion.p>
 
           {/* CTA + Clarity Signal */}
@@ -327,7 +349,7 @@ const HigherEducationMarketing = () => {
                   boxShadow: "0 4px 0 #0a0a0a",
                 }}
               >
-                Secure your enrollment
+                Boost Admissions Now
                 <ArrowRight className="ml-2 md:ml-3 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
               </Button>
             </a>
@@ -357,26 +379,59 @@ const HigherEducationMarketing = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12 md:mt-16 grid grid-cols-3 gap-4 md:gap-8 max-w-lg mx-auto"
+            className="mt-12 md:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto"
           >
-            {[
-              { value: "+25%", label: "Enrollment" },
-              { value: "45%", label: "Lower CAC" },
-              { value: "150+", label: "Institutions" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <span
-                  className="font-dela text-2xl md:text-3xl lg:text-4xl block"
-                  style={{ color: "#E2FEA5" }}
-                >
-                  {stat.value}
-                </span>
-                <span
-                  className="font-bricolage text-xs md:text-sm"
-                  style={{ color: "rgba(248, 255, 232, 0.6)" }}
-                >
-                  {stat.label}
-                </span>
+            {proff_stat.map((stat, i) => (
+              <div
+                key={`${stat.title}-${i}`}
+                className="group relative rounded-3xl p-5 md:p-6 overflow-hidden border transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  backgroundColor: "rgba(248, 255, 232, 0.03)",
+                  borderColor: "rgba(226, 254, 165, 0.15)",
+                }}
+              >
+                {/* hover glow */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 30% 20%, rgba(226, 254, 165, 0.10), transparent 60%)",
+                  }}
+                />
+
+                {/* subtle top highlight line */}
+                <div
+                  className="absolute left-6 right-6 top-0 h-px opacity-40"
+                  style={{ backgroundColor: "rgba(226, 254, 165, 0.25)" }}
+                />
+
+                <div className="relative z-10 flex flex-col justify-between text-start gap-4">
+                  {/* value row */}
+                  <div className="flex items-baseline gap-2">
+                    <span
+                      className="font-dela text-2xl sm:text-3xl lg:text-4xl leading-none tracking-tight"
+                      style={{ color: "#E2FEA5" }}
+                    >
+                      {stat.value}
+                    </span>
+                  </div>
+
+                  {/* text */}
+                  <div className="space-y-1">
+                    <p
+                      className="font-bricolage text-sm md:text-base leading-snug"
+                      style={{ color: "rgba(248, 255, 232, 0.9)" }}
+                    >
+                      {stat.title}
+                    </p>
+                    <p
+                      className="font-bricolage text-xs md:text-sm leading-relaxed"
+                      style={{ color: "rgba(248, 255, 232, 0.55)" }}
+                    >
+                      {stat.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </motion.div>
