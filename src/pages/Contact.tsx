@@ -14,6 +14,11 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import WavyUnderline from "@/components/WavyUnderline";
 import GreenButton from "@/components/GreenButton";
 import SEO from "@/components/SEO";
+import {
+  contactPageSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/hooks/schemas";
 
 const contactSchema = z.object({
   name: z
@@ -56,7 +61,7 @@ const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     // Simulate API call - in production, send to backend
     const response = await fetch(
-      "https://automate.eyelevelstudio.in/webhook/contact-form-eyelevel",
+      "https://automate.eyelevelstudio.in/webhook/contact-form",
       {
         method: "POST",
         headers: {
@@ -81,6 +86,7 @@ const Contact = () => {
       <SEO
         title="Contact The Eye Level Studio | Start Your Growth Journey"
         description="Get in touch with The Eye Level Studio to discuss marketing strategy, branding, performance marketing, AI, or growth solutions."
+        schema={[organizationSchema, websiteSchema, contactPageSchema]}
       />
       <Header />
 

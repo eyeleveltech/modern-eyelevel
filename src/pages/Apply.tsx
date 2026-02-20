@@ -206,7 +206,7 @@ const Apply = () => {
       if (photoFile) formData.append("photo", photoFile);
 
       const response = await fetch(
-        "https://automate.eyelevelstudio.in/webhook/apply",
+        "https://automate.eyelevelstudio.in/webhook/job-apply",
         {
           method: "POST",
           body: formData,

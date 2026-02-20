@@ -28,6 +28,7 @@ import blogImage4 from "@/assets/blogImages/blog4.jpg";
 import blogImage5 from "@/assets/blogImages/blog5.jpg";
 import blogImage6 from "@/assets/blogImages/blog6.jpg";
 import SEO from "@/components/SEO";
+import { organizationSchema, websiteSchema } from "@/hooks/schemas";
 
 // Blog posts data - in production, this would come from an API/CMS
 const blogPostsData: Record<
@@ -361,9 +362,47 @@ const BlogPost = () => {
     }
   };
 
+  const ORG_ID = "https://theeyelevelstudio.com/#organization";
+
+  const toISODate = (input: string) => {
+    // input example: "Jan 5, 2026"
+    const d = new Date(input);
+    if (Number.isNaN(d.getTime())) return undefined;
+    return d.toISOString().split("T")[0]; // "2026-01-05"
+  };
+
+  const baseUrl = "https://theeyelevelstudio.com";
+  const postUrl = slug ? `${baseUrl}/blog/${slug}` : `${baseUrl}/blog`;
+
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#post`,
+    headline: post.seoTitle || post.title,
+    description: post.seoDescription || post.excerpt,
+    datePublished: toISODate(post.date),
+    dateModified: toISODate(post.date),
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+    },
+    publisher: {
+      "@id": ORG_ID,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    image: post.image ? [`${baseUrl}${post.image}`] : undefined, // if image is a public URL
+  };
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
-      <SEO title={post.seoTitle} description={post.seoDescription} />
+      <SEO
+        title={post.seoTitle}
+        description={post.seoDescription}
+        schema={[organizationSchema, websiteSchema, blogPostingSchema]}
+      />
       <Header />
 
       {/* Hero Banner */}

@@ -9,6 +9,12 @@ import WhyEyeLevel from "@/components/WhyEyeLevel";
 import FAQSection from "@/components/FAQSection";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import SEO from "@/components/SEO";
+import {
+  faqSchema,
+  homePageSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/hooks/schemas";
 
 const Index = () => {
   return (
@@ -16,6 +22,7 @@ const Index = () => {
       <SEO
         title="Marketing & Growth Agency for Global Brands | The Eye Level Studio"
         description="The Eye Level Studio is a global marketing agency driving growth through strategy, performance marketing, AI, automation, and creative branding."
+        schema={[organizationSchema, websiteSchema, homePageSchema, faqSchema]}
       />
       <div className="min-h-screen bg-background">
         <Header />

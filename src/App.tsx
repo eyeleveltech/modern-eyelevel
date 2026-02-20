@@ -11,11 +11,6 @@ import About from "./pages/About";
 import Careers from "./pages/Careers";
 import ServicesPage from "./pages/Services";
 import Industries from "./pages/Industries";
-import IndustryDetail from "./pages/IndustryDetail";
-import EduMarketing from "./pages/EduMarketing";
-import SportsMarketing from "./pages/SportsMarketing";
-import RealEstateMarketing from "./pages/RealEstateMarketing";
-import B2BMarketing from "./pages/B2BMarketing";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -26,9 +21,6 @@ import ThankYou from "./pages/ThankYou";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
-import HigherEducationMarketing from "./pages/HigherEducationMarketing";
-import HigherEducation2 from "./pages/HigherEducation2";
-import HigherEducationMarketingV2 from "./pages/HigherEducationMarketingV2";
 
 const queryClient = new QueryClient();
 
@@ -58,7 +50,7 @@ const App = () => (
           /> */}
           {/* <Route path="/industries/b2b" element={<B2BMarketing />} /> */}
           {/* <Route path="/industries/:slug" element={<IndustryDetail />} /> */}
-          <Route
+          {/* <Route
             path="/industries/higher-education"
             element={<HigherEducationMarketing />}
           />
@@ -69,7 +61,7 @@ const App = () => (
           <Route
             path="/industries/higher-education-2"
             element={<HigherEducation2 />}
-          />
+          /> */}
 
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
