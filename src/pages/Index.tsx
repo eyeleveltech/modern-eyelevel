@@ -35,6 +35,10 @@ const Index = () => {
         <WhyEyeLevel />
         <FAQSection />
         <EnhancedFooter showCTA={false} />
+        <h1 className="sr-only">
+          {" "}
+          Marketing & Growth Agency for Global Brands
+        </h1>
       </div>
     </>
   );

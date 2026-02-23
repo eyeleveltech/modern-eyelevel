@@ -157,7 +157,7 @@ const About = () => {
     },
     {
       name: "Akmal Rahman",
-      role: "Co-Founder and Chief Growth Architect",
+      role: "Co-Founder",
       image: akmal,
       dec: "A senior marketing leader with 15+ years of experience driving scalable growth, building powerful brands, and executing high-impact go-to-market strategies.",
       socials: "https://www.linkedin.com/in/akmalbillekar/",
@@ -643,7 +643,7 @@ const About = () => {
 
       {/* Author Profiles - Light Background */}
       <section
-        className="py-20 max-w-4xl px-4 mx-auto relative overflow-hidden border-t border-b"
+        className="py-20 max-w-5xl px-4 mx-auto relative overflow-hidden border-t border-b"
         style={{
           backgroundColor: "#253e35",
           borderColor: "rgba(248, 255, 232, 0.15)",
@@ -670,8 +670,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="text-center group flex flex-col justify-evenly items-center rounded-2xl p-4 md:p-6 cursor-pointer"
+                className="text-center group flex flex-col justify-evenly items-center rounded-2xl p-4 md:p-6"
                 style={{
                   backgroundColor: "#F8FFE8",
                   border: "3px solid #0a0a0a",
@@ -689,15 +688,17 @@ const About = () => {
                     loading="lazy"
                   />
                 </div>
-                <h3
-                  className="font-dela text-lg uppercase"
-                  style={{ color: "#253E35" }}
-                >
-                  {author.name}
-                </h3>
-                <p className="text-sm font-bricolage text-[#E2FEA5] mt-1 px-3 py-0.5 rounded-full bg-[#253E35]">
-                  {author.role}
-                </p>
+                <div className="flex flex-col items-center justify-center">
+                  <h3
+                    className="font-dela text-lg uppercase"
+                    style={{ color: "#253E35" }}
+                  >
+                    {author.name}
+                  </h3>
+                  <p className="text-sm font-bricolage text-[#E2FEA5] mt-1 px-3 py-0.5 rounded-full bg-[#253E35]">
+                    {author.role}
+                  </p>
+                </div>
                 <p className="text-sm font-bricolage mt-3 mx-4 text-[#253E35]/70">
                   {author?.dec}
                 </p>
