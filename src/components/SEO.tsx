@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-type JsonLd = Record<string, any>;
+type JsonLd = Record<string, unknown>;
 
 interface SeoTypes {
   title?: string;
@@ -9,7 +9,7 @@ interface SeoTypes {
 }
 
 const SEO = ({
-  title = "EyeLevel Growth Studio — Digital Marketing & Creative Studio",
+  title = "EyeLevel Growth Studio - Digital Marketing & Creative Studio",
   description = "Chennai-based growth studio for digital marketing, branding, events, photography and video production. Helping startups, luxury & tech brands scale globally.",
   schema,
 }: SeoTypes) => {
@@ -39,3 +39,4 @@ const SEO = ({
 };
 
 export default SEO;
+

@@ -20,7 +20,7 @@
 // import { Button } from "@/components/ui/button";
 // import { Input } from "@/components/ui/input";
 // import { useToast } from "@/hooks/use-toast";
-// import eventsVideo1 from "@/assets/events-video-1.mp4";
+// import eventsVideo1 from "@/assets/videos/events-video-1.mp4";
 // import GreenButton from "@/components/GreenButton";
 // import WavyUnderline from "@/components/WavyUnderline";
 

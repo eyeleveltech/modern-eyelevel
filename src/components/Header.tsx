@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import eyelevelLogo from "@/assets/eyelevelstudio-logo.png";
+import eyelevelLogo from "@/assets/branding/eyelevelstudio-logo.png";
 import mascotGrowth from "@/assets/mascot/hide.png";
 const navLinks = [
   {

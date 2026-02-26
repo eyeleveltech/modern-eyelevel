@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import partnershipImage from "@/assets/partnership.png";
-import communityImage from "@/assets/community.png";
-import growthImage from "@/assets/growth.png";
+import partnershipImage from "@/assets/foundation/partnership.png";
+import communityImage from "@/assets/foundation/community.png";
+import growthImage from "@/assets/foundation/growth.png";
 
 const foundations = [
   {

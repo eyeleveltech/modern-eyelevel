@@ -1,37 +1,50 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  useMotionValueEvent,
+} from "framer-motion";
 import WavyUnderline from "@/components/WavyUnderline";
 import Lottie from "lottie-react";
-import stare from "@/assets/stackingCardsAnimation/stare.json";
-import blocks from "@/assets/stackingCardsAnimation/blocks.json";
-import gun from "@/assets/stackingCardsAnimation/gun.json";
-import scatt from "@/assets/stackingCardsAnimation/scatt.json";
 import GreenButton from "./GreenButton";
+
+type AnimationKey = "stare" | "scatt" | "blocks" | "gun";
+type AnimationMap = Partial<Record<AnimationKey, unknown>>;
+const animationOrder: AnimationKey[] = ["stare", "scatt", "blocks", "gun"];
+const animationLoaders: Record<AnimationKey, () => Promise<{ default: unknown }>> =
+  {
+    stare: () => import("@/assets/stackingCardsAnimation/stare.json"),
+    scatt: () => import("@/assets/stackingCardsAnimation/scatt.json"),
+    blocks: () => import("@/assets/stackingCardsAnimation/blocks.json"),
+    gun: () => import("@/assets/stackingCardsAnimation/gun.json"),
+  };
 
 const processSteps = [
   {
-    animationPath: stare,
+    animationKey: "stare" as AnimationKey,
     number: "1",
     title: "We Stare.",
     description:
       "Most agencies blink; we don't. We find the leaks in your funnel that others miss.",
   },
   {
-    animationPath: scatt,
+    animationKey: "scatt" as AnimationKey,
     number: "2",
     title: "We Guide.",
     description:
       "You don't need options; you need a decision. We chart the straightest route to profit.",
   },
   {
-    animationPath: blocks,
+    animationKey: "blocks" as AnimationKey,
     number: "3",
     title: "We Build.",
     description:
       "Strategy without tactics is just an illusion. We build the systems that print results.",
   },
   {
-    animationPath: gun,
+    animationKey: "gun" as AnimationKey,
     number: "4",
     title: "We Enforce.",
     description:
@@ -40,6 +53,10 @@ const processSteps = [
 ];
 const ProcessSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [animations, setAnimations] = useState<AnimationMap>({});
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const loadedAnimationsRef = useRef<Set<AnimationKey>>(new Set());
+  const loadingAnimationsRef = useRef<Set<AnimationKey>>(new Set());
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -48,6 +65,44 @@ const ProcessSection = () => {
   // Transform scroll progress to active step index (0-3)
   // const activeIndex = useTransform(scrollYProgress, [0, 1], [0, 3.99]);
   const activeIndex = useTransform(scrollYProgress, [0, 1], [0, 3]);
+
+  const loadAnimation = useCallback((key: AnimationKey) => {
+    if (
+      loadedAnimationsRef.current.has(key) ||
+      loadingAnimationsRef.current.has(key)
+    ) {
+      return;
+    }
+    loadingAnimationsRef.current.add(key);
+    animationLoaders[key]()
+      .then((mod) => {
+        loadedAnimationsRef.current.add(key);
+        setAnimations((prev) => ({ ...prev, [key]: mod.default }));
+      })
+      .finally(() => {
+        loadingAnimationsRef.current.delete(key);
+      });
+  }, []);
+
+  useMotionValueEvent(activeIndex, "change", (latest) => {
+    const nextIndex = Math.max(
+      0,
+      Math.min(animationOrder.length - 1, Math.round(latest)),
+    );
+    setActiveStepIndex(nextIndex);
+  });
+
+  useEffect(() => {
+    loadAnimation(animationOrder[0]);
+    loadAnimation(animationOrder[1]);
+  }, [loadAnimation]);
+
+  useEffect(() => {
+    loadAnimation(animationOrder[activeStepIndex]);
+    if (activeStepIndex + 1 < animationOrder.length) {
+      loadAnimation(animationOrder[activeStepIndex + 1]);
+    }
+  }, [activeStepIndex, loadAnimation]);
 
   return (
     <section
@@ -98,7 +153,7 @@ const ProcessSection = () => {
                 <MascotLottie
                   index={index}
                   activeIndex={activeIndex}
-                  animation={step.animationPath}
+                  animation={animations[step.animationKey]}
                 />
               ))}
             </div>
@@ -135,7 +190,7 @@ const ProcessSection = () => {
 type MascotLottieProps = {
   index: number;
   activeIndex: MotionValue<number>;
-  animation: any; // Lottie JSON
+  animation: unknown;
 };
 
 const MascotLottie = ({ index, activeIndex, animation }: MascotLottieProps) => {
@@ -159,12 +214,14 @@ const MascotLottie = ({ index, activeIndex, animation }: MascotLottieProps) => {
       className="absolute inset-0 flex items-center justify-center"
     >
       <div className="w-56 h-56 md:w-72 md:h-72 lg:w-78 lg:h-78">
-        <Lottie
-          animationData={animation}
-          loop
-          autoplay
-          style={{ width: "100%", height: "100%" }}
-        />
+        {animation ? (
+          <Lottie
+            animationData={animation as object}
+            loop
+            autoplay
+            style={{ width: "100%", height: "100%" }}
+          />
+        ) : null}
       </div>
     </motion.div>
   );

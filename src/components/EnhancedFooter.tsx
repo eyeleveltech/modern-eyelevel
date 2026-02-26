@@ -18,7 +18,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-import eyelevelLogoColor from "@/assets/eyelevel-logo-color-new.png";
+import eyelevelLogoColor from "@/assets/branding/eyelevel-logo-color-new.png";
 import WavyUnderline from "./WavyUnderline";
 import GreenButton from "./GreenButton";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -328,7 +328,7 @@ const EnhancedFooter = ({
                   className="font-dela text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight uppercase"
                   style={{ color: accentColor }}
                 >
-                  Get the audit— Find what needs{" "}
+                  Get the audit- Find what needs{" "}
                   <WavyUnderline>fixing</WavyUnderline>
                 </h2>
                 <p className="text-white/60 font-bricolage text-lg md:text-xl mb-12 max-w-lg">
@@ -733,7 +733,7 @@ const EnhancedFooter = ({
               />
             </div>
             <p className="text-white/40 text-xs md:text-sm font-bricolage">
-              © 2026, EyeLevel Growth Studio. All Rights Reserved.
+              (c) 2026, EyeLevel Growth Studio. All Rights Reserved.
             </p>
             <div className="flex gap-6">
               <Link
@@ -757,3 +757,4 @@ const EnhancedFooter = ({
 };
 
 export default EnhancedFooter;
+

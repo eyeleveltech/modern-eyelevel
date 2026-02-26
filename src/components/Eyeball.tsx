@@ -2,14 +2,14 @@ import { useEffect, useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const Eyeball = () => {
-  const eyeRef = useRef(null);
+  const eyeRef = useRef<HTMLDivElement | null>(null);
 
   // Motion values for pupil
   const pupilX = useMotionValue(0);
   const pupilY = useMotionValue(0);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!eyeRef.current) return;
 
       const rect = eyeRef.current.getBoundingClientRect();
@@ -28,7 +28,7 @@ const Eyeball = () => {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [pupilX, pupilY]);
 
   return (
     <motion.div

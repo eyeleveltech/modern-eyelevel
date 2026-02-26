@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import WavyUnderline from "@/components/WavyUnderline";
-import mascotWave from "@/assets/mascot-wave.png";
+import mascotWave from "@/assets/mascot/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
-import career_mascot from "@/assets/career_mascot.png";
+import career_mascot from "@/assets/mascot/career_mascot.png";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
@@ -113,8 +113,8 @@ const Careers = () => {
   const lottieRef1 = useRef<LottieRefCurrentProps>(null);
   const lottieRef2 = useRef<LottieRefCurrentProps>(null);
 
-  const [anim1, setAnim1] = useState<any>(null);
-  const [anim2, setAnim2] = useState<any>(null);
+  const [anim1, setAnim1] = useState<unknown>(null);
+  const [anim2, setAnim2] = useState<unknown>(null);
 
   useEffect(() => {
     Promise.all([

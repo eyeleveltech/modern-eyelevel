@@ -6,19 +6,19 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import WavyUnderline from "@/components/WavyUnderline";
 // Team gallery images - placeholder for now
-import teamImage1 from "@/assets/aboutImage1.jpeg";
-import teamImage2 from "@/assets/aboutImg2.jpg";
-import teamImage3 from "@/assets/aboutImg3.jpeg";
-import teamImage4 from "@/assets/aboutImg4.jpg";
-import teamImage5 from "@/assets/edu-gallery-2.jpg";
-import teamImage6 from "@/assets/sports-gallery-2.jpg";
-import mascotWave from "@/assets/mascot-wave.png";
+import teamImage1 from "@/assets/galleries/about/aboutImage1.jpeg";
+import teamImage2 from "@/assets/galleries/about/aboutImg2.jpg";
+import teamImage3 from "@/assets/galleries/about/aboutImg3.jpeg";
+import teamImage4 from "@/assets/galleries/about/aboutImg4.jpg";
+import teamImage5 from "@/assets/galleries/education/edu-gallery-2.jpg";
+import teamImage6 from "@/assets/galleries/sports/sports-gallery-2.jpg";
+import mascotWave from "@/assets/mascot/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
-import video from "@/assets/videogallery.mp4";
-import video1 from "@/assets/videogallery2.mp4";
-import akmal from "@/assets/akmal.jpeg";
-import jameel from "@/assets/jameel.jpeg";
-import jahangeer from "@/assets/Jahangeer.jpeg";
+import video from "@/assets/videos/videogallery.mp4";
+import video1 from "@/assets/videos/videogallery2.mp4";
+import akmal from "@/assets/people/akmal.jpeg";
+import jameel from "@/assets/people/jameel.jpeg";
+import jahangeer from "@/assets/people/jahangeer.jpeg";
 import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -28,7 +28,7 @@ const values = [
   {
     title: "Strategic Clarity",
     description:
-      "Clear strategy is the foundation of all successful marketing. We don't guess—we plan with precision.",
+      "Clear strategy is the foundation of all successful marketing. We don't guess - we plan with precision.",
     gradient: "from-[#E2FEA5] to-[#a8e063]",
   },
   {
@@ -40,7 +40,7 @@ const values = [
   {
     title: "Data-Driven",
     description:
-      "We use data to make informed decisions and measure success. No vanity metrics—only what moves the needle.",
+      "We use data to make informed decisions and measure success. No vanity metrics - only what moves the needle.",
     gradient: "from-[#667eea] to-[#764ba2]",
   },
   {
@@ -183,7 +183,7 @@ const About = () => {
     >
       <SEO
         title="About The Eye Level Studio | Growth-Driven Marketing Agency"
-        description="Learn about The Eye Level Studio — a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
+        description="Learn about The Eye Level Studio - a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
       />
       <Header />
 
@@ -315,7 +315,7 @@ const About = () => {
                 className="text-lg leading-relaxed font-bricolage"
                 style={{ color: "rgba(248, 255, 232, 0.7)" }}
               >
-                So we built a new kind of agency—a growth studio that combines
+                So we built a new kind of agency - a growth studio that combines
                 strategic clarity with precision execution.
               </p>
             </motion.div>
@@ -686,6 +686,7 @@ const About = () => {
                     alt={author.name}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="flex flex-col items-center justify-center">
@@ -706,6 +707,7 @@ const About = () => {
                   className="text-sm flex justify-center gap-2 font-bricolage mt-2 mx-4 text-[#E2FEA5] bg-[#253E35] px-4 py-2 rounded-full border-2 border-[#E2FEA5] hover:bg-[#253E35]/90 transition-colors"
                   href={author.socials}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span>
                     <Linkedin className="size-5 pb-1" />
@@ -767,7 +769,7 @@ const About = () => {
                     index === 0 ? "md:col-span-2 md:row-span-2" : ""
                   }`}
                 >
-                  {/* 🎥 VIDEO OR IMAGE */}
+                  {/* VIDEO OR IMAGE */}
                   {videoSrc ? (
                     <video
                       src={videoSrc}
@@ -775,6 +777,7 @@ const About = () => {
                       loop
                       muted
                       playsInline
+                      preload="none"
                       className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (
@@ -782,6 +785,7 @@ const About = () => {
                       src={image.src}
                       alt={image.alt}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
                     />
                   )}
@@ -866,3 +870,4 @@ const About = () => {
 };
 
 export default About;
+

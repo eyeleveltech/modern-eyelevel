@@ -16,10 +16,10 @@ import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import akmal from "@/assets/akmal.jpeg";
-import charles from "@/assets/charles.png";
-import janani from "@/assets/janani.png";
-import mohan from "@/assets/mohan.png";
+import akmal from "@/assets/people/akmal.jpeg";
+import charles from "@/assets/people/charles.png";
+import janani from "@/assets/people/janani.png";
+import mohan from "@/assets/people/mohan.png";
 
 import blogImage1 from "@/assets/blogImages/blog1.jpg";
 import blogImage2 from "@/assets/blogImages/blog2.jpg";

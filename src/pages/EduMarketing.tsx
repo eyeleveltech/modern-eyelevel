@@ -21,10 +21,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import WavyUnderline from "@/components/WavyUnderline";
-import eduGallery1 from "@/assets/edu-gallery-1.jpg";
-import eduGallery2 from "@/assets/edu-gallery-2.jpg";
-import eduGallery3 from "@/assets/edu-gallery-3.jpg";
-import mascotTrophy from "@/assets/mascot-trophy-new.png";
+import eduGallery1 from "@/assets/galleries/education/edu-gallery-1.jpg";
+import eduGallery2 from "@/assets/galleries/education/edu-gallery-2.jpg";
+import eduGallery3 from "@/assets/galleries/education/edu-gallery-3.jpg";
+import mascotTrophy from "@/assets/mascot/mascot-trophy-new.png";
 import {
   ImageGallerySection,
   TestimonialsSection,

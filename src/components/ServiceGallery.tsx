@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -32,6 +32,7 @@ const ServiceGallery = ({
   const [isInView, setIsInView] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const manualPauseRef = useRef(false);
 
   const currentItem = media[currentIndex];
   const isCurrentVideo = currentItem?.type === "video";
@@ -43,11 +44,13 @@ const ServiceGallery = ({
 
   const prevSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
+    manualPauseRef.current = false;
     setIsVideoPlaying(false);
   }, [media.length]);
 
   const handleNextClick = () => {
     setCurrentIndex((prev) => (prev + 1) % media.length);
+    manualPauseRef.current = false;
     setIsVideoPlaying(false);
   };
 
@@ -67,12 +70,21 @@ const ServiceGallery = ({
     return () => observer.disconnect();
   }, []);
 
-  // Auto-play video when in view
+  // Keep current video muted state in sync with the element.
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted;
+    }
+  }, [isMuted, currentIndex]);
+
+  // Auto-play video when visible unless user manually paused it.
   useEffect(() => {
     if (isCurrentVideo && videoRef.current) {
-      if (isInView) {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
+      if (isInView && !manualPauseRef.current) {
+        videoRef.current
+          .play()
+          .then(() => setIsVideoPlaying(true))
+          .catch(() => setIsVideoPlaying(false));
       } else {
         videoRef.current.pause();
         setIsVideoPlaying(false);
@@ -103,6 +115,7 @@ const ServiceGallery = ({
 
     if (video.paused) {
       try {
+        manualPauseRef.current = false;
         await video.play();
         setIsVideoPlaying(true);
       } catch {
@@ -110,34 +123,25 @@ const ServiceGallery = ({
       }
     } else {
       video.pause();
+      manualPauseRef.current = true;
       setIsVideoPlaying(false);
     }
   };
 
   // Handle mute toggle
   const toggleMute = () => {
-    if (isMuted) {
-      setIsMuted(false);
-    } else {
-      setIsMuted(true);
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    if (videoRef.current) {
+      videoRef.current.muted = nextMuted;
     }
   };
 
-  // Reset video state when changing slides
+  // Reset manual pause on slide change so new media starts clean.
   useEffect(() => {
+    manualPauseRef.current = false;
     setIsVideoPlaying(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-    // Auto-play if coming to a video slide while in view
-    if (isCurrentVideo && isInView && videoRef.current) {
-      setTimeout(() => {
-        videoRef.current?.play();
-        setIsVideoPlaying(true);
-      }, 100);
-    }
-  }, [currentIndex, isCurrentVideo, isInView]);
+  }, [currentIndex]);
 
   if (media.length === 0) return null;
 
@@ -152,25 +156,29 @@ const ServiceGallery = ({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Media Content - Cross dissolve effect */}
-      <AnimatePresence initial={false}>
+      {/* Media Content - Instant switch (no fade) */}
+      <div className="absolute inset-0 w-full h-full">
         {isCurrentVideo ? (
-          <motion.div
-            key={`video-${currentIndex}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full"
-          >
+          <div className="absolute inset-0 w-full h-full">
             <video
+              key={`video-${currentIndex}`}
               ref={videoRef}
               src={currentItem.src}
               className="w-full h-full object-cover"
               loop
               muted={isMuted}
               playsInline
-              onClick={toggleVideoPlay}
+              preload="none"
+              onLoadedData={() => {
+                if (isInView && !manualPauseRef.current) {
+                  videoRef.current
+                    ?.play()
+                    .then(() => setIsVideoPlaying(true))
+                    .catch(() => setIsVideoPlaying(false));
+                }
+              }}
+              onPlay={() => setIsVideoPlaying(true)}
+              onPause={() => setIsVideoPlaying(false)}
             />
             {/* Video Controls Overlay */}
             <div
@@ -186,7 +194,10 @@ const ServiceGallery = ({
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={toggleVideoPlay}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleVideoPlay();
+                }}
                 className="w-20 h-20 rounded-full flex items-center justify-center backdrop-blur-md"
                 style={{
                   backgroundColor: "rgba(226, 254, 165, 0.3)",
@@ -222,21 +233,18 @@ const ServiceGallery = ({
                 <Volume2 className="w-5 h-5" style={{ color: "#E2FEA5" }} />
               )}
             </motion.button>
-          </motion.div>
+          </div>
         ) : (
-          <motion.img
+          <img
             key={`image-${currentIndex}`}
             src={currentItem.src}
             alt={`${title} - Image ${currentIndex + 1}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
+            decoding="async"
           />
         )}
-      </AnimatePresence>
+      </div>
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0D1F1A] via-[#0D1F1A]/20 to-transparent opacity-70 pointer-events-none" />
@@ -254,8 +262,9 @@ const ServiceGallery = ({
               e.stopPropagation();
               prevSlide();
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
+            className="absolute left-4 top-1/2 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
             style={{
+              y: "-50%",
               backgroundColor: "rgba(226, 254, 165, 0.2)",
               border: "1px solid rgba(226, 254, 165, 0.3)",
             }}
@@ -273,8 +282,9 @@ const ServiceGallery = ({
               e.stopPropagation();
               handleNextClick();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
+            className="absolute right-4 top-1/2 w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
             style={{
+              y: "-50%",
               backgroundColor: "rgba(226, 254, 165, 0.2)",
               border: "1px solid rgba(226, 254, 165, 0.3)",
             }}
@@ -290,6 +300,7 @@ const ServiceGallery = ({
                 onClick={(e) => {
                   e.stopPropagation();
                   setCurrentIndex(index);
+                  manualPauseRef.current = false;
                   setIsVideoPlaying(false);
                 }}
                 className="transition-all duration-300"
