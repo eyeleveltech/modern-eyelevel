@@ -184,6 +184,8 @@ const About = () => {
       <SEO
         title="About The Eye Level Studio | Growth-Driven Marketing Agency"
         description="Learn about The Eye Level Studio - a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
+        canonical="https://theeyelevelstudio.com/about-us"
+        url="https://theeyelevelstudio.com/about-us"
       />
       <Header />
 

@@ -9,6 +9,8 @@ const Booking = () => {
       <SEO
         title="Book a Marketing Consultation | The Eye Level Studio"
         description="Schedule a consultation with our marketing experts to unlock growth through strategy, performance marketing, AI, and branding."
+        canonical="https://theeyelevelstudio.com/booking"
+        url="https://theeyelevelstudio.com/booking"
       />
       <Header />
 

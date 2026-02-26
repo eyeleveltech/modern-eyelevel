@@ -9,6 +9,8 @@ const Terms = () => {
       <SEO
         title="Privacy Policy | The Eye Level Studio"
         description="Learn how The Eye Level Studio collects, uses, and protects your personal data across our website and services."
+        canonical="https://theeyelevelstudio.com/terms-and-condition"
+        url="https://theeyelevelstudio.com/terms-and-condition"
       />
       <Header />
 

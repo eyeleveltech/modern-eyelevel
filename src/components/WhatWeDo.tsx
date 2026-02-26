@@ -268,9 +268,9 @@ const WhatWeDo = () => {
                 <div className="absolute top-3 right-3 text-red-500/30 text-4xl font-bold">
                   ✕
                 </div>
-                <h4 className="text-sm font-semibold font-bricolage text-red-400 mb-2">
+                <h3 className="text-sm font-semibold font-bricolage text-red-400 mb-2">
                   Marketing "Wizards"
-                </h4>
+                </h3>
                 <p
                   className="text-xs font-bricolage"
                   style={{
@@ -307,14 +307,14 @@ const WhatWeDo = () => {
                 >
                   ✓
                 </div>
-                <h4
+                <h3
                   className="text-sm font-semibold font-bricolage mb-2"
                   style={{
                     color: "#E2FEA5",
                   }}
                 >
                   EyeLevel
-                </h4>
+                </h3>
                 <p
                   className="text-xs font-bricolage"
                   style={{

@@ -280,7 +280,7 @@ const MascotImage = ({
       }}
       className="absolute inset-0 flex lg:pl-42 items-center justify-center"
     >
-      <img
+      <img loading="lazy"
         src={image}
         className="w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain drop-shadow-2xl"
         alt=""
@@ -393,3 +393,4 @@ const ProgressDot = ({
   );
 };
 export default ProcessSection;
+

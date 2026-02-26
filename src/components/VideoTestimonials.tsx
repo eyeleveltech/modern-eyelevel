@@ -165,7 +165,7 @@ const VideoTestimonials = () => {
                   <div className="bg-[#1A2F28] rounded-3xl overflow-hidden h-full flex flex-col border border-white/5 hover:border-lime/20 transition-all duration-500 group">
                     {/* Video Thumbnail */}
                     <div className="relative aspect-video overflow-hidden">
-                      <img
+                      <img loading="lazy"
                         src={testimonial.thumbnail}
                         alt={testimonial.author}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -215,7 +215,7 @@ const VideoTestimonials = () => {
 
                       <div className="flex items-center gap-3 pt-4 border-t border-white/10">
                         <div className="w-10 h-10 rounded-full bg-lime/20 overflow-hidden">
-                          <img
+                          <img loading="lazy"
                             src={testimonial.thumbnail}
                             alt={testimonial.author}
                             className="w-full h-full object-cover"
@@ -273,7 +273,7 @@ const VideoTestimonials = () => {
                 <div className="p-4 md:p-6 bg-[#1A2F28] flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-lime/30">
-                      <img
+                      <img loading="lazy"
                         src={selectedVideo.thumbnail}
                         alt={selectedVideo.author}
                         className="w-full h-full object-cover"
@@ -302,3 +302,4 @@ const VideoTestimonials = () => {
 };
 
 export default VideoTestimonials;
+

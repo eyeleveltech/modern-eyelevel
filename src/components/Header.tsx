@@ -164,7 +164,7 @@ const Header = ({ compact = false }: HeaderProps) => {
           >
             <Link to="/" className="relative">
               {/* Flag background extending from top */}
-              <img
+              <img loading="lazy"
                 src={eyelevelLogo}
                 alt="EyeLevel Studio"
                 className="h-[42px] md:h-[62px] relative top-0.5 w-auto z-50 "
@@ -355,7 +355,7 @@ const Header = ({ compact = false }: HeaderProps) => {
                   </div>
 
                   {/* Mascot inside bottom right corner */}
-                  <img
+                  <img loading="lazy"
                     src={mascotGrowth}
                     alt="EyeLevel Mascot"
                     className="absolute -right-[52px] md:-right-[94px] lg:-right-[104px] bottom-5 md:bottom-5 lg:bottom-4 size-40 md:size-72 lg:w-80 lg:h-80 object-contain pointer-events-none"
@@ -475,3 +475,4 @@ const Header = ({ compact = false }: HeaderProps) => {
   );
 };
 export default Header;
+

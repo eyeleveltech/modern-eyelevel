@@ -29,6 +29,7 @@ import {
   Trash2,
 } from "lucide-react";
 import GreenButton from "@/components/GreenButton";
+import SEO from "@/components/SEO";
 
 const applicationSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -245,6 +246,12 @@ const Apply = () => {
 
   return (
     <div className="min-h-screen bg-[#253e35] py-10">
+      <SEO
+        title="Apply for Careers | The Eye Level Studio"
+        description="Submit your application to join The Eye Level Studio team."
+        canonical="https://theeyelevelstudio.com/apply"
+        url="https://theeyelevelstudio.com/apply"
+      />
       <Header />
 
       <main className="pt-32 pb-20">

@@ -87,6 +87,8 @@ const Contact = () => {
         title="Contact The Eye Level Studio | Start Your Growth Journey"
         description="Get in touch with The Eye Level Studio to discuss marketing strategy, branding, performance marketing, AI, or growth solutions."
         schema={[organizationSchema, websiteSchema, contactPageSchema]}
+        canonical="https://theeyelevelstudio.com/contact-us"
+        url="https://theeyelevelstudio.com/contact-us"
       />
       <Header />
 

@@ -71,9 +71,30 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/apply" element={<Apply />} />
+            <Route
+              path="/careers/head-of-creative--strategy"
+              element={<Navigate to="/careers/head-of-creative-strategy" replace />}
+            />
+            <Route
+              path="/careers/visualizer--senior-graphic-designer"
+              element={
+                <Navigate
+                  to="/careers/visualizer-senior-graphic-designer"
+                  replace
+                />
+              }
+            />
+            <Route
+              path="/careers/django--devops-engineer"
+              element={<Navigate to="/careers/django-devops-engineer" replace />}
+            />
             <Route path="/careers/:slug" element={<JobDetails />} />
             <Route path="/thank-you" element={<ThankYou />} />
-            <Route path="/terms-conditions" element={<Terms />} />
+            <Route
+              path="/terms-conditions"
+              element={<Navigate to="/terms-and-condition" replace />}
+            />
+            <Route path="/terms-and-condition" element={<Terms />} />
             <Route path="/privacy-policy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

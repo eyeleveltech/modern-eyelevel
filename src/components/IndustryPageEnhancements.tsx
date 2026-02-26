@@ -180,7 +180,7 @@ export const ImageGallerySection = ({
               viewport={{ once: true }}
               className="relative h-full rounded-3xl overflow-hidden group"
             >
-              <img
+              <img loading="lazy"
                 src={images[0]?.src}
                 alt={images[0]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -202,7 +202,7 @@ export const ImageGallerySection = ({
               transition={{ delay: 0.1 }}
               className="relative h-full rounded-3xl overflow-hidden group"
             >
-              <img
+              <img loading="lazy"
                 src={images[1]?.src}
                 alt={images[1]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -224,7 +224,7 @@ export const ImageGallerySection = ({
               transition={{ delay: 0.2 }}
               className="relative aspect-square rounded-3xl overflow-hidden group"
             >
-              <img
+              <img loading="lazy"
                 src={images[2]?.src}
                 alt={images[2]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -532,3 +532,4 @@ export const ProcessTimeline = ({
     </section>
   );
 };
+

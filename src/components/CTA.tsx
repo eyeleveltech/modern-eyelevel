@@ -18,7 +18,7 @@ const CTA = () => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-forest/10 rounded-full blur-3xl" />
           
           {/* Mascot */}
-          <img 
+          <img loading="lazy" 
             src={mascotThumbsup} 
             alt="Mascot giving thumbs up" 
             className="absolute -bottom-4 -right-4 w-24 h-24 md:w-32 md:h-32 animate-float hidden sm:block"
@@ -92,3 +92,4 @@ const CTA = () => {
 };
 
 export default CTA;
+

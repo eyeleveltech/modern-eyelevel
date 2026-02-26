@@ -1,66 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home -->
+  <!-- Core Pages -->
   <url>
     <loc>https://theeyelevelstudio.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Static Pages -->
   <url>
     <loc>https://theeyelevelstudio.com/about-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://theeyelevelstudio.com/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <url>
-    <loc>https://theeyelevelstudio.com/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <url>
     <loc>https://theeyelevelstudio.com/contact-us</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-<url>
+  <url>
     <loc>https://theeyelevelstudio.com/industries</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-<url>
+  <url>
     <loc>https://theeyelevelstudio.com/careers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
-
-<url>
+  <url>
     <loc>https://theeyelevelstudio.com/booking</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-<url>
+  <url>
     <loc>https://theeyelevelstudio.com/privacy-policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/terms-and-condition</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://theeyelevelstudio.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/how-ai-is-transforming-marketing-in-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/the-psychology-of-color-in-branding</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/building-a-design-system-that-scales</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/the-future-of-performance-marketing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/crafting-compelling-brand-stories</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/design-principles-for-conversion-optimization</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Career Detail Pages -->
+  <url>
+    <loc>https://theeyelevelstudio.com/careers/real-estate-sales-manager</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-<url>
-    <loc>https://theeyelevelstudio.com/terms-and-conditions</loc>
+  <url>
+    <loc>https://theeyelevelstudio.com/careers/head-of-creative-strategy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/careers/visualizer-senior-graphic-designer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/careers/django-devops-engineer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/careers/general-application</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

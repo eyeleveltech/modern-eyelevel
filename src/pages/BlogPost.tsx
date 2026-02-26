@@ -402,6 +402,12 @@ const BlogPost = () => {
         title={post.seoTitle}
         description={post.seoDescription}
         schema={[organizationSchema, websiteSchema, blogPostingSchema]}
+        canonical={postUrl}
+        url={postUrl}
+        image={post.image ? `${baseUrl}${post.image}` : undefined}
+        imageAlt={post.title}
+        type="article"
+        twitterCreator="@Eye_Levelstudio"
       />
       <Header />
 
@@ -409,7 +415,7 @@ const BlogPost = () => {
       <section className="pt-24 relative">
         <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#253e35]/50 via-transparent to-[#253e35]" />
-          <img
+          <img loading="lazy"
             src={post.image}
             alt={post.title}
             className="w-full h-full object-cover"
@@ -594,7 +600,7 @@ const BlogPost = () => {
                     </p>
                     <div className="flex items-center justify-center gap-3">
                       {post.author.image ? (
-                        <img
+                        <img loading="lazy"
                           src={post.author.image}
                           alt={post.author.name}
                           className="size-12 rounded-full object-cover"
@@ -666,7 +672,7 @@ const BlogPost = () => {
                         }}
                       >
                         <div className="relative aspect-[16/10] overflow-hidden">
-                          <img
+                          <img loading="lazy"
                             src={relatedPost.image}
                             alt={relatedPost.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -736,3 +742,4 @@ const BlogPost = () => {
 };
 
 export default BlogPost;
+

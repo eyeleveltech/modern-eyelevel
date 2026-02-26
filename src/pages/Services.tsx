@@ -324,7 +324,9 @@ const ServicesPage = () => {
       <SEO
         title="Marketing Services for Growth, Performance & Branding | The Eye Level Studio"
         description="Explore our marketing services covering growth strategy, performance marketing, AI & automation, creative branding, and Web3-driven solutions."
-         schema={[organizationSchema, websiteSchema, servicesSchema]}
+        schema={[organizationSchema, websiteSchema, servicesSchema]}
+        canonical="https://theeyelevelstudio.com/services"
+        url="https://theeyelevelstudio.com/services"
       />
       <Header />
 

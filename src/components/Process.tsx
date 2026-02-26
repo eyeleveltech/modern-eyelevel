@@ -102,7 +102,7 @@ const Process = () => {
 
             {/* Mascot */}
             <div className="hidden lg:block w-48 animate-float">
-              <img 
+              <img loading="lazy" 
                 src={mascotTrophy} 
                 alt="Success Mascot" 
                 className="w-full h-auto rounded-2xl"
@@ -116,3 +116,4 @@ const Process = () => {
 };
 
 export default Process;
+

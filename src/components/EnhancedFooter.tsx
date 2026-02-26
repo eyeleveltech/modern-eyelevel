@@ -726,7 +726,7 @@ const EnhancedFooter = ({
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row items-center relative justify-between gap-4 pt-8 border-t border-white/10">
             <div className="flex items-center gap-3">
-              <img
+              <img loading="lazy"
                 src={eyelevelLogoColor}
                 alt="EyeLevel"
                 className="h-8 w-auto"
@@ -737,7 +737,7 @@ const EnhancedFooter = ({
             </p>
             <div className="flex gap-6">
               <Link
-                to="/terms-conditions"
+                to="/terms-and-condition"
                 className="text-white/40 hover:text-lime transition-colors text-sm font-bricolage"
               >
                 Terms & Conditions
@@ -757,4 +757,5 @@ const EnhancedFooter = ({
 };
 
 export default EnhancedFooter;
+
 

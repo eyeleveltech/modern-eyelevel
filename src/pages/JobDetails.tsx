@@ -14,6 +14,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 // Job data for EyeLevel Growth Studio
 const jobListings: Record<
@@ -79,7 +80,7 @@ Our promise is simple: Serious attention. Clear timelines. No confusion. We don'
       "Opportunity to grow alongside the business",
     ],
   },
-  "head-of-creative--strategy": {
+  "head-of-creative-strategy": {
     title: "Head of Creative & Strategy",
     department: "Creative & Strategy",
     type: "Full-time",
@@ -126,7 +127,7 @@ Our promise is simple: Serious attention. Clear timelines. No confusion. We don'
       "A team that values clarity, speed, and execution",
     ],
   },
-  "visualizer--senior-graphic-designer": {
+  "visualizer-senior-graphic-designer": {
     title: "Visualizer / Senior Graphic Designer",
     department: "Creative",
     type: "Full-time",
@@ -171,7 +172,7 @@ Our promise is simple: Serious attention. Clear timelines. No confusion. We don'
       "A team that values output over noise",
     ],
   },
-  "django--devops-engineer": {
+  "django-devops-engineer": {
     title: "Django + DevOps Engineer",
     department: "Backend",
     type: "On-site / Hybrid",
@@ -257,12 +258,20 @@ EyeLevel is a Google Premier Partner, Facebook Business Partner, and works close
 const JobDetails = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
+  const baseUrl = "https://theeyelevelstudio.com";
+  const jobUrl = slug ? `${baseUrl}/careers/${slug}` : `${baseUrl}/careers`;
 
   const job = slug ? jobListings[slug] : null;
 
   if (!job) {
     return (
       <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+        <SEO
+          title="Job Not Found | The Eye Level Studio"
+          description="The requested career listing could not be found."
+          canonical={jobUrl}
+          url={jobUrl}
+        />
         <Header />
         <div className="pt-32 pb-20 text-center">
           <h1 className="font-dela text-4xl text-[#F8FFE8] mb-4">
@@ -304,6 +313,12 @@ const JobDetails = () => {
       className="min-h-screen overflow-hidden"
       style={{ backgroundColor: "#253e35" }}
     >
+      <SEO
+        title={`${job.title} | Careers at The Eye Level Studio`}
+        description={job.shortDescription}
+        canonical={jobUrl}
+        url={jobUrl}
+      />
       <Header />
 
       <main className="pt-32 pb-20 px-4">

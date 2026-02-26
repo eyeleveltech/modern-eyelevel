@@ -102,7 +102,7 @@ const JoinTheLeague = () => {
                         key={index}
                         className="flex-shrink-0 px-6 flex items-center justify-center"
                       >
-                        <img
+                        <img loading="lazy"
                           src={client}
                           alt="Client logo"
                           className="h-12 md:h-16 w-auto object-contain"
@@ -120,3 +120,4 @@ const JoinTheLeague = () => {
   );
 };
 export default JoinTheLeague;
+

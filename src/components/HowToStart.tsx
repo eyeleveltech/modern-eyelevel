@@ -45,7 +45,7 @@ const HowToStart = () => {
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            <img 
+            <img loading="lazy" 
               src={mascotWave} 
               alt="Friendly mascot waving"
               className="mt-8 w-24 h-24 animate-float hidden md:block"
@@ -80,3 +80,4 @@ const HowToStart = () => {
 };
 
 export default HowToStart;
+

@@ -225,6 +225,8 @@ const Blog = () => {
       <SEO
         title="Marketing Insights, Growth & AI Trends | The Eye Level Studio Blog"
         description="Read expert insights on marketing, branding, performance, AI, Web3, and growth strategies shaping the future of business."
+        canonical="https://theeyelevelstudio.com/blog"
+        url="https://theeyelevelstudio.com/blog"
       />
       <Header />
 
@@ -358,7 +360,7 @@ const Blog = () => {
                     }}
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <img
+                      <img loading="lazy"
                         src={post.image}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
@@ -477,3 +479,4 @@ const Blog = () => {
 };
 
 export default Blog;
+

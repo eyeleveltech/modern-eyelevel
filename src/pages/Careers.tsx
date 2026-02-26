@@ -18,6 +18,7 @@ import GreenButton from "@/components/GreenButton";
 import career_mascot from "@/assets/mascot/career_mascot.png";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import SEO from "@/components/SEO";
 
 const benefits = [
   {
@@ -80,7 +81,9 @@ const titleToSlug = (title: string) => {
   return title
     .toLowerCase()
     .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "");
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
 };
 
 const Star18 = ({ className }: { className?: string }) => {
@@ -182,6 +185,12 @@ const Careers = () => {
       className="min-h-screen overflow-hidden"
       style={{ backgroundColor: "#253e35" }}
     >
+      <SEO
+        title="Careers at The Eye Level Studio | Join Our Growth Team"
+        description="Explore open roles at The Eye Level Studio and build your career with a growth-focused marketing and creative team."
+        canonical="https://theeyelevelstudio.com/careers"
+        url="https://theeyelevelstudio.com/careers"
+      />
       <Header />
 
       {/* Hero Section */}

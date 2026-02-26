@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const NotFound = () => {
   const location = useLocation();
+  const canonicalUrl = `https://theeyelevelstudio.com${location.pathname}`;
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -14,6 +16,12 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#253e35' }}>
+      <SEO
+        title="404 Page Not Found | The Eye Level Studio"
+        description="The page you are looking for does not exist."
+        canonical={canonicalUrl}
+        url={canonicalUrl}
+      />
       <Header />
       
       <div className="flex min-h-screen items-center justify-center px-4 pt-20">

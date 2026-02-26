@@ -610,7 +610,7 @@ const HigherEducationMarketing = () => {
                     className="relative overflow-hidden rounded-3xl border"
                     style={{ borderColor: "rgba(248, 255, 232, 0.12)" }}
                   >
-                    <img
+                    <img loading="lazy"
                       src={emptyClass}
                       alt=""
                       className="w-full h-[260px] sm:h-[320px] lg:h-[460px] object-cover"
@@ -1137,3 +1137,4 @@ const HigherEducationMarketing = () => {
 };
 
 export default HigherEducationMarketing;
+

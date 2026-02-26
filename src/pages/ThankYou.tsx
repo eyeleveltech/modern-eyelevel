@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import mascotTrophy from "@/assets/mascot/mascot_transparent.png";
+import SEO from "@/components/SEO";
 
 type ThankYouType = "application" | "contact" | "booking" | "general";
 
@@ -87,6 +88,12 @@ const ThankYou = () => {
       className="min-h-screen overflow-hidden"
       style={{ backgroundColor: "#253e35" }}
     >
+      <SEO
+        title="Thank You | The Eye Level Studio"
+        description="Your submission has been received by The Eye Level Studio."
+        canonical="https://theeyelevelstudio.com/thank-you"
+        url="https://theeyelevelstudio.com/thank-you"
+      />
       <Header />
 
       <main className="pt-32 pb-20 px-4 relative">

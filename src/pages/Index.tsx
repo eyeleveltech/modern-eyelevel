@@ -23,6 +23,8 @@ const Index = () => {
         title="Marketing & Growth Agency for Global Brands | The Eye Level Studio"
         description="The Eye Level Studio is a global marketing agency driving growth through strategy, performance marketing, AI, automation, and creative branding."
         schema={[organizationSchema, websiteSchema, homePageSchema, faqSchema]}
+        canonical="https://theeyelevelstudio.com/"
+        url="https://theeyelevelstudio.com/"
       />
       <div className="min-h-screen bg-background">
         <Header />
@@ -35,10 +37,6 @@ const Index = () => {
         <WhyEyeLevel />
         <FAQSection />
         <EnhancedFooter showCTA={false} />
-        <h1 className="sr-only">
-          {" "}
-          Marketing & Growth Agency for Global Brands
-        </h1>
       </div>
     </>
   );
