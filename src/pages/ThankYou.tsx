@@ -93,6 +93,7 @@ const ThankYou = () => {
         description="Your submission has been received by The Eye Level Studio."
         canonical="https://theeyelevelstudio.com/thank-you"
         url="https://theeyelevelstudio.com/thank-you"
+        noindex
       />
       <Header />
 

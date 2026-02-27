@@ -91,7 +91,7 @@ const App = () => (
             <Route path="/careers/:slug" element={<JobDetails />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route
-              path="/terms-conditions"
+              path="/terms-and-conditions"
               element={<Navigate to="/terms-and-condition" replace />}
             />
             <Route path="/terms-and-condition" element={<Terms />} />

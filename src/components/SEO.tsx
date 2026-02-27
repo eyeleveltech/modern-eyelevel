@@ -31,7 +31,30 @@ const SEO = ({
   twitterCreator,
   noindex = false,
 }: SeoTypes) => {
-  const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+  const resolvedUrl = url || canonical;
+  const canonicalHref = canonical || resolvedUrl;
+  const fallbackWebPageSchema =
+    resolvedUrl && !schema
+      ? {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": `${resolvedUrl}#webpage`,
+          url: resolvedUrl,
+          name: title,
+          description,
+          publisher: {
+            "@id": "https://theeyelevelstudio.com/#organization",
+          },
+          inLanguage: "en",
+        }
+      : null;
+  const schemas = schema
+    ? Array.isArray(schema)
+      ? schema
+      : [schema]
+    : fallbackWebPageSchema
+      ? [fallbackWebPageSchema]
+      : [];
   const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
   const defaultImage =
     "https://theeyelevelstudio.com/eyelevel_favicon_512_512.png";
@@ -51,7 +74,7 @@ const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content={robotsContent} />
-      {canonical ? <link rel="canonical" href={canonical} /> : null}
+      {canonicalHref ? <link rel="canonical" href={canonicalHref} /> : null}
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />

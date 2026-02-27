@@ -21,6 +21,7 @@ import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
+import { industriesSchema, organizationSchema, websiteSchema } from "@/hooks/schemas";
 
 const industries = [
   {
@@ -243,6 +244,7 @@ const Industries = () => {
       <SEO
         title="Marketing Solutions Across Industries & Web3 | The Eye Level Studio"
         description="We deliver tailored marketing solutions for education, sports, real estate, B2B, and Web3 brands across global markets."
+        schema={[organizationSchema, websiteSchema, industriesSchema]}
         canonical="https://theeyelevelstudio.com/industries"
         url="https://theeyelevelstudio.com/industries"
       />

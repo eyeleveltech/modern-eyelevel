@@ -2,9 +2,26 @@
   RewriteEngine On
   RewriteBase /
 
+  # Block junk query strings like ?161df1950567902.html (not real pages)
+  RewriteCond %{QUERY_STRING} ^[0-9a-f]{8,}\.html=?$ [NC]
+  RewriteRule ^ - [R=410,L]
+
+  # Optionally block query strings containing ".html" with no key=value params
+  RewriteCond %{QUERY_STRING} \.html [NC]
+  RewriteCond %{QUERY_STRING} ![=&] [NC]
+  RewriteRule ^ - [R=410,L]
+
+  # Server-side redirects (avoid client-only SPA redirects)
+  RewriteRule ^how-we-work/?$ /about-us [R=301,L]
+  RewriteRule ^terms-conditions/?$ /terms-and-condition [R=301,L]
+
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
+
+  # Return a real 404 for unknown routes instead of serving SPA shell for everything.
+  RewriteCond %{REQUEST_URI} !^/(?:$|about-us/?$|careers/?$|careers/[^/]+/?$|services/?$|industries/?$|contact-us/?$|blog/?$|blog/[^/]+/?$|booking/?$|apply/?$|thank-you/?$|terms-and-condition/?$|privacy-policy/?$) [NC]
+  RewriteRule ^ - [R=404,L]
 
   RewriteRule ^ index.html [L]
 </IfModule>

@@ -21,6 +21,7 @@ const NotFound = () => {
         description="The page you are looking for does not exist."
         canonical={canonicalUrl}
         url={canonicalUrl}
+        noindex
       />
       <Header />
       

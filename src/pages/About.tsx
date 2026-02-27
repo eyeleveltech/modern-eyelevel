@@ -780,6 +780,15 @@ const About = () => {
                       muted
                       playsInline
                       preload="none"
+                      onLoadedMetadata={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.defaultMuted = true;
+                        e.currentTarget.volume = 0;
+                      }}
+                      onPlay={(e) => {
+                        e.currentTarget.muted = true;
+                        e.currentTarget.volume = 0;
+                      }}
                       className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
                     />
                   ) : (

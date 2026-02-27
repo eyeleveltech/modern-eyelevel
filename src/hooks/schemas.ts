@@ -6,7 +6,7 @@ export const organizationSchema = {
   "@id": ORG_ID,
   name: "The Eye Level Studio",
   url: "https://theeyelevelstudio.com/",
-  logo: "https://www.theeyelevelstudio.com/assets/eyelevelstudio-logo.png",
+  logo: "https://theeyelevelstudio.com/logo_eyelevel.png",
   description:
     "The Eye Level Studio is a global marketing agency delivering growth strategy, performance marketing, AI automation, creative branding, and Web3 marketing solutions.",
   sameAs: [
@@ -45,7 +45,7 @@ export const homePageSchema = {
   about: { "@id": ORG_ID },
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: "https://theeyelevelstudio.com/wp-content/uploads/hero-image.jpg",
+    url: "https://theeyelevelstudio.com/logo_eyelevel.png",
   },
 };
 
@@ -130,7 +130,7 @@ export const faqSchema = {
       name: "How much does this cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It depends on how fast you want to grow. We design unique solutions for unique demands and do not use cookie-cutter pricing. We start with a Growth Audit—if we can't make you money, we don't deserve yours.",
+        text: "It depends on how fast you want to grow. We design unique solutions for unique demands and do not use cookie-cutter pricing. We start with a Growth Audit - if we can't make you money, we don't deserve yours.",
       },
     },
   ],

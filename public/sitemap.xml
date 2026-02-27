@@ -1,115 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
   <!-- Core Pages -->
   <url>
     <loc>https://theeyelevelstudio.com/</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/about-us</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/services</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/contact-us</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/industries</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/careers</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/booking</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/privacy-policy</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/terms-and-condition</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
 
   <!-- Blog -->
   <url>
     <loc>https://theeyelevelstudio.com/blog</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/how-ai-is-transforming-marketing-in-2026</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/the-psychology-of-color-in-branding</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/building-a-design-system-that-scales</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/the-future-of-performance-marketing</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/crafting-compelling-brand-stories</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/design-principles-for-conversion-optimization</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
 
   <!-- Career Detail Pages -->
   <url>
     <loc>https://theeyelevelstudio.com/careers/real-estate-sales-manager</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/careers/head-of-creative-strategy</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/careers/visualizer-senior-graphic-designer</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/careers/django-devops-engineer</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/careers/general-application</loc>
+    <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
   </url>
-
 </urlset>

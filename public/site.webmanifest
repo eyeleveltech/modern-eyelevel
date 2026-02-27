@@ -1,0 +1,20 @@
+{
+  "name": "The Eye Level Studio",
+  "short_name": "Eye Level",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/eyelevel_favicon_192_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/eyelevel_favicon_512_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

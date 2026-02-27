@@ -55,6 +55,7 @@ const ProcessSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [animations, setAnimations] = useState<AnimationMap>({});
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [shouldLoadAnimations, setShouldLoadAnimations] = useState(false);
   const loadedAnimationsRef = useRef<Set<AnimationKey>>(new Set());
   const loadingAnimationsRef = useRef<Set<AnimationKey>>(new Set());
   const { scrollYProgress } = useScroll({
@@ -93,16 +94,29 @@ const ProcessSection = () => {
   });
 
   useEffect(() => {
-    loadAnimation(animationOrder[0]);
-    loadAnimation(animationOrder[1]);
-  }, [loadAnimation]);
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadAnimations(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "400px 0px",
+        threshold: 0,
+      },
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!shouldLoadAnimations) return;
     loadAnimation(animationOrder[activeStepIndex]);
-    if (activeStepIndex + 1 < animationOrder.length) {
-      loadAnimation(animationOrder[activeStepIndex + 1]);
-    }
-  }, [activeStepIndex, loadAnimation]);
+  }, [activeStepIndex, loadAnimation, shouldLoadAnimations]);
 
   return (
     <section
