@@ -39,7 +39,7 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="py-12 md:py-16 px-4 bg-[#173229] relative overflow-hidden">

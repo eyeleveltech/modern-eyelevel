@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import {
   motion,
   useScroll,
@@ -85,6 +85,19 @@ const ProcessSection = () => {
       });
   }, []);
 
+  const preloadAround = useCallback(
+    (index: number) => {
+      const keysToLoad = [
+        animationOrder[index],
+        animationOrder[index + 1],
+        animationOrder[index - 1],
+      ].filter(Boolean) as AnimationKey[];
+
+      keysToLoad.forEach((key) => loadAnimation(key));
+    },
+    [loadAnimation],
+  );
+
   useMotionValueEvent(activeIndex, "change", (latest) => {
     const nextIndex = Math.max(
       0,
@@ -115,8 +128,40 @@ const ProcessSection = () => {
 
   useEffect(() => {
     if (!shouldLoadAnimations) return;
-    loadAnimation(animationOrder[activeStepIndex]);
-  }, [activeStepIndex, loadAnimation, shouldLoadAnimations]);
+    preloadAround(activeStepIndex);
+
+    const idleCb = (
+      window as Window & {
+        requestIdleCallback?: (
+          cb: () => void,
+          opts?: { timeout: number },
+        ) => number;
+        cancelIdleCallback?: (id: number) => void;
+      }
+    ).requestIdleCallback;
+
+    if (idleCb) {
+      const id = idleCb(
+        () => {
+          animationOrder.forEach((key) => loadAnimation(key));
+        },
+        { timeout: 1200 },
+      );
+
+      return () => {
+        const cancelIdleCb = (
+          window as Window & { cancelIdleCallback?: (id: number) => void }
+        ).cancelIdleCallback;
+        if (cancelIdleCb) cancelIdleCb(id);
+      };
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      animationOrder.forEach((key) => loadAnimation(key));
+    }, 600);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [activeStepIndex, loadAnimation, preloadAround, shouldLoadAnimations]);
 
   return (
     <section
@@ -165,6 +210,7 @@ const ProcessSection = () => {
                 //   image={step.image}
                 // />
                 <MascotLottie
+                  key={step.animationKey}
                   index={index}
                   activeIndex={activeIndex}
                   animation={animations[step.animationKey]}
@@ -207,7 +253,7 @@ type MascotLottieProps = {
   animation: unknown;
 };
 
-const MascotLottie = ({ index, activeIndex, animation }: MascotLottieProps) => {
+const MascotLottie = memo(({ index, activeIndex, animation }: MascotLottieProps) => {
   const opacity = useTransform(activeIndex, (latest: number) => {
     const d = Math.abs(latest - index);
     if (d < 0.3) return 1;
@@ -239,7 +285,7 @@ const MascotLottie = ({ index, activeIndex, animation }: MascotLottieProps) => {
       </div>
     </motion.div>
   );
-};
+});
 
 // Mascot image component with scroll-based opacity and parallax
 const MascotImage = ({

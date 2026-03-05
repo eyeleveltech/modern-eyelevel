@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Accordion,
@@ -34,6 +34,7 @@ const faqs = [
 
 const FAQ = () => {
   const ref = useRef(null);
+  const [openItem, setOpenItem] = useState("");
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -96,7 +97,13 @@ const FAQ = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion
+            type="single"
+            collapsible
+            value={openItem}
+            onValueChange={setOpenItem}
+            className="space-y-4"
+          >
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
