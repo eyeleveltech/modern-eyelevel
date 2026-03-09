@@ -183,6 +183,7 @@ export const ImageGallerySection = ({
               <img loading="lazy"
                 src={images[0]?.src}
                 alt={images[0]?.alt}
+                title={images[0]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div
@@ -205,6 +206,7 @@ export const ImageGallerySection = ({
               <img loading="lazy"
                 src={images[1]?.src}
                 alt={images[1]?.alt}
+                title={images[1]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div
@@ -227,6 +229,7 @@ export const ImageGallerySection = ({
               <img loading="lazy"
                 src={images[2]?.src}
                 alt={images[2]?.alt}
+                title={images[2]?.alt}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div

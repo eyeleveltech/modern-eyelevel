@@ -612,7 +612,8 @@ const HigherEducationMarketing = () => {
                   >
                     <img loading="lazy"
                       src={emptyClass}
-                      alt=""
+                      alt="Empty classroom"
+                      title="Empty classroom"
                       className="w-full h-[260px] sm:h-[320px] lg:h-[460px] object-cover"
                     />
                     {/* optional premium overlay */}

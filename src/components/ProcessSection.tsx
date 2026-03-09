@@ -343,7 +343,8 @@ const MascotImage = ({
       <img loading="lazy"
         src={image}
         className="w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain drop-shadow-2xl"
-        alt=""
+        alt="Process step illustration"
+        title="Process step illustration"
       />
     </motion.div>
   );

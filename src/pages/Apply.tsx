@@ -65,6 +65,9 @@ interface Experience {
   title: string;
   duration: string;
 }
+const JOB_APPLY_WEBHOOK_URL =
+  import.meta.env.VITE_JOB_APPLY_WEBHOOK_URL ??
+  "https://automate.eyelevelstudio.in/webhook/job-apply";
 
 const Apply = () => {
   const [searchParams] = useSearchParams();
@@ -206,41 +209,32 @@ const Apply = () => {
       formData.append("resume", resumeFile);
       if (photoFile) formData.append("photo", photoFile);
 
-      const response = await fetch(
-        "https://automate.eyelevelstudio.in/webhook/job-apply",
-        {
-          method: "POST",
-          body: formData,
-        },
-      );
+      const response = await fetch(JOB_APPLY_WEBHOOK_URL, {
+        method: "POST",
+        body: formData,
+      });
 
       const result = await response.json().catch(() => null);
 
-      if (!response.ok || !result?.ok) {
+      if (!response.ok || (result && result.ok === false)) {
         throw new Error(result?.message || "Failed");
-        toast({
-          title: "Something went wrong",
-          description: "Please try again later",
-          variant: "destructive",
-        });
       }
 
       toast({
         title: "Application submitted successfully",
-        description: `Thank you for applying to ${result.position}. Our HR team will get in touch with you soon.`,
+        description: `Thank you for applying to ${position}. Our HR team will get in touch with you soon.`,
       });
       navigate(
         `/thank-you?type=application&position=${encodeURIComponent(position)}`,
       );
-    } catch (error) {
-      console.log(error);
+    } catch {
       toast({
         title: "Something went wrong",
         description: "Please try again later",
         variant: "destructive",
       });
     } finally {
-      setIsSubmitting(false); // ✅ ALWAYS stops loader
+      setIsSubmitting(false);
     }
   };
 
@@ -249,6 +243,13 @@ const Apply = () => {
       <SEO
         title="Apply for Careers | The Eye Level Studio"
         description="Submit your application to join The Eye Level Studio team."
+        keywords={[
+          "apply for marketing job",
+          "career application",
+          "eye level studio application",
+          "creative agency application",
+          "job application form",
+        ]}
         canonical="https://theeyelevelstudio.com/apply"
         url="https://theeyelevelstudio.com/apply"
       />
@@ -906,7 +907,7 @@ const Apply = () => {
                     </Label>
                     <p className="text-[rgba(248,255,232,0.5)] text-sm font-bricolage">
                       {resumeFile
-                        ? `✓ ${resumeFile.name}`
+                        ? `Uploaded: ${resumeFile.name}`
                         : "Please upload your resume above"}
                     </p>
                   </div>

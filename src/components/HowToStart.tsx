@@ -48,6 +48,7 @@ const HowToStart = () => {
             <img loading="lazy" 
               src={mascotWave} 
               alt="Friendly mascot waving"
+              title="Friendly mascot waving"
               className="mt-8 w-24 h-24 animate-float hidden md:block"
             />
           </div>

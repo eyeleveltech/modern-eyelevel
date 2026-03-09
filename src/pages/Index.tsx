@@ -22,6 +22,13 @@ const Index = () => {
       <SEO
         title="Marketing & Growth Agency for Global Brands | The Eye Level Studio"
         description="The Eye Level Studio is a global marketing agency driving growth through strategy, performance marketing, AI, automation, and creative branding."
+        keywords={[
+          "marketing agency",
+          "growth agency",
+          "performance marketing",
+          "AI automation agency",
+          "creative branding agency",
+        ]}
         schema={[organizationSchema, websiteSchema, homePageSchema, faqSchema]}
         canonical="https://theeyelevelstudio.com/"
         url="https://theeyelevelstudio.com/"

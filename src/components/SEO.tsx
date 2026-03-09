@@ -5,6 +5,7 @@ type JsonLd = Record<string, unknown>;
 interface SeoTypes {
   title?: string;
   description?: string;
+  keywords?: string[] | string;
   schema?: JsonLd | JsonLd[];
   canonical?: string;
   image?: string;
@@ -20,6 +21,7 @@ interface SeoTypes {
 const SEO = ({
   title = "EyeLevel Growth Studio - Digital Marketing & Creative Studio",
   description = "Chennai-based growth studio for digital marketing, branding, events, photography and video production. Helping startups, luxury & tech brands scale globally.",
+  keywords,
   schema,
   canonical,
   image,
@@ -60,6 +62,9 @@ const SEO = ({
     "https://theeyelevelstudio.com/eyelevel_favicon_512_512.png";
   const resolvedImage = image || defaultImage;
   const resolvedImageAlt = imageAlt || title;
+  const resolvedKeywords = Array.isArray(keywords)
+    ? keywords.join(", ")
+    : keywords;
   const imageType = resolvedImage.toLowerCase().endsWith(".png")
     ? "image/png"
     : resolvedImage.toLowerCase().endsWith(".webp")
@@ -73,6 +78,9 @@ const SEO = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {resolvedKeywords ? (
+        <meta name="keywords" content={resolvedKeywords} />
+      ) : null}
       <meta name="robots" content={robotsContent} />
       {canonicalHref ? <link rel="canonical" href={canonicalHref} /> : null}
 

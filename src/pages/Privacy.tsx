@@ -9,6 +9,13 @@ const Privacy = () => {
       <SEO
         title="Terms & Conditions | The Eye Level Studio"
         description="Review the terms and conditions governing the use of The Eye Level Studio website, services, and marketing solutions."
+        keywords={[
+          "privacy policy",
+          "data privacy",
+          "eye level studio privacy",
+          "website privacy policy",
+          "personal data policy",
+        ]}
         canonical="https://theeyelevelstudio.com/privacy-policy"
         url="https://theeyelevelstudio.com/privacy-policy"
       />

@@ -12,6 +12,7 @@ import {
   Phone,
   Calendar,
   ArrowRight,
+  Facebook,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -63,6 +64,11 @@ const socialLinks = [
     icon: Instagram,
     label: "Instagram",
     href: "https://www.instagram.com/theeyelevelstudio/",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1DN368ZHPh/",
   },
   { icon: Twitter, label: "Twitter", href: "https://x.com/Eye_Levelstudio" },
   {
@@ -168,6 +174,9 @@ interface EnhancedFooterProps {
   accentColor?: string;
   mascotBgColor?: string;
 }
+const FOOTER_LEAD_WEBHOOK_URL =
+  import.meta.env.VITE_FOOTER_LEAD_WEBHOOK_URL ??
+  "https://automate.eyelevelstudio.in/webhook-test/fa30713f-f07b-4f1a-a560-d9409df62413";
 
 const EnhancedFooter = ({
   showCTA,
@@ -264,16 +273,18 @@ const EnhancedFooter = ({
 
       // Here you would typically send the data to your backend
 
-      const response = await fetch(
-        "https://automate.eyelevelstudio.in/webhook-test/fa30713f-f07b-4f1a-a560-d9409df62413",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(validated),
+      const response = await fetch(FOOTER_LEAD_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(validated),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || (result && result.ok === false)) {
+        throw new Error(result?.message || "Failed to submit");
+      }
 
       toast({
         title: "Request Submitted!",
@@ -298,6 +309,12 @@ const EnhancedFooter = ({
           }
         });
         setErrors(newErrors);
+      } else {
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
       }
     } finally {
       setIsSubmitting(false);
@@ -714,7 +731,7 @@ const EnhancedFooter = ({
                     rel="noopener noreferrer"
                     target="_blank"
                     aria-label={social.label}
-                    className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white/60 hover:bg-lime hover:text-[#173229] transition-all duration-300"
+                    className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/5 text-white/60 hover:bg-lime hover:text-[#173229] transition-all duration-300"
                   >
                     <social.icon size={18} />
                   </a>
@@ -729,6 +746,7 @@ const EnhancedFooter = ({
               <img loading="lazy"
                 src={eyelevelLogoColor}
                 alt="EyeLevel"
+                title="EyeLevel"
                 className="h-8 w-auto"
               />
             </div>

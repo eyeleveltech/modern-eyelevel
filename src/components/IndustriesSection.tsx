@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowDown, ArrowRight, ArrowUp } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import WavyUnderline from "@/components/WavyUnderline";
 import GreenButton from "./GreenButton";
 
@@ -13,7 +12,6 @@ const industries = [
     tagline: "Enroll More.",
     description:
       "Partner with us to streamline your admissions funnel and Draw in students who are a perfect fit for your campus.",
-    href: "/industries/education",
     accentColor: "#B8D4BE",
     stats: ["3x Enrollment Growth", "45% Lower CAC"],
   },
@@ -24,7 +22,6 @@ const industries = [
     tagline: "Win Bigger.",
     description:
       "Go beyond the game with brand strategies that maximize your reach and monetize your global fanbase.",
-    href: "/industries/sports",
     accentColor: "#FFB4B4",
     stats: ["10M+ Fan Reach", "200% ROI"],
   },
@@ -35,7 +32,6 @@ const industries = [
     tagline: "Sell Faster.",
     description:
       "Leverage high-performance digital systems built specifically to move real estate inventory in competitive markets.",
-    href: "/industries/real-estate",
     accentColor: "#E2FEA5",
     stats: ["50% Faster Sales", "8x Lead Quality"],
   },
@@ -46,7 +42,6 @@ const industries = [
     tagline: "Close Sooner.",
     description:
       "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle.",
-    href: "/industries/b2b",
     accentColor: "#FCFAC2",
     stats: ["5x Pipeline Growth", "30% Shorter Cycle"],
   },

@@ -168,6 +168,7 @@ const VideoTestimonials = () => {
                       <img loading="lazy"
                         src={testimonial.thumbnail}
                         alt={testimonial.author}
+                        title={testimonial.author}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       {/* Overlay */}
@@ -218,6 +219,7 @@ const VideoTestimonials = () => {
                           <img loading="lazy"
                             src={testimonial.thumbnail}
                             alt={testimonial.author}
+                            title={testimonial.author}
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -276,6 +278,7 @@ const VideoTestimonials = () => {
                       <img loading="lazy"
                         src={selectedVideo.thumbnail}
                         alt={selectedVideo.author}
+                        title={selectedVideo.author}
                         className="w-full h-full object-cover"
                       />
                     </div>

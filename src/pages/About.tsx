@@ -184,6 +184,13 @@ const About = () => {
       <SEO
         title="About The Eye Level Studio | Growth-Driven Marketing Agency"
         description="Learn about The Eye Level Studio - a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
+        keywords={[
+          "about eye level studio",
+          "growth marketing agency",
+          "creative agency",
+          "AI marketing agency",
+          "branding and strategy team",
+        ]}
         canonical="https://theeyelevelstudio.com/about-us"
         url="https://theeyelevelstudio.com/about-us"
       />
@@ -686,6 +693,7 @@ const About = () => {
                   <img
                     src={author.image}
                     alt={author.name}
+                    title={author.name}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     decoding="async"
@@ -795,6 +803,7 @@ const About = () => {
                     <img
                       src={image.src}
                       alt={image.alt}
+                      title={image.alt}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"

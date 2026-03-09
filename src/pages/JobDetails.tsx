@@ -269,6 +269,7 @@ const JobDetails = () => {
         <SEO
           title="Job Not Found | The Eye Level Studio"
           description="The requested career listing could not be found."
+          keywords={["job not found", "career listing", "marketing jobs"]}
           canonical={jobUrl}
           url={jobUrl}
         />
@@ -316,6 +317,13 @@ const JobDetails = () => {
       <SEO
         title={`${job.title} | Careers at The Eye Level Studio`}
         description={job.shortDescription}
+        keywords={[
+          job.title,
+          `${job.department} jobs`,
+          `${job.location} jobs`,
+          "marketing careers",
+          "creative agency jobs",
+        ]}
         canonical={jobUrl}
         url={jobUrl}
       />

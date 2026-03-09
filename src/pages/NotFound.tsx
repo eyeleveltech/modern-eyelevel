@@ -19,6 +19,7 @@ const NotFound = () => {
       <SEO
         title="404 Page Not Found | The Eye Level Studio"
         description="The page you are looking for does not exist."
+        keywords={["404 page", "page not found", "broken link"]}
         canonical={canonicalUrl}
         url={canonicalUrl}
         noindex

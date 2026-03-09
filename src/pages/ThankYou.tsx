@@ -91,6 +91,12 @@ const ThankYou = () => {
       <SEO
         title="Thank You | The Eye Level Studio"
         description="Your submission has been received by The Eye Level Studio."
+        keywords={[
+          "thank you page",
+          "submission received",
+          "consultation submitted",
+          "lead form submitted",
+        ]}
         canonical="https://theeyelevelstudio.com/thank-you"
         url="https://theeyelevelstudio.com/thank-you"
         noindex

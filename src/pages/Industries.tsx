@@ -244,6 +244,13 @@ const Industries = () => {
       <SEO
         title="Marketing Solutions Across Industries & Web3 | The Eye Level Studio"
         description="We deliver tailored marketing solutions for education, sports, real estate, B2B, and Web3 brands across global markets."
+        keywords={[
+          "industry marketing solutions",
+          "education marketing",
+          "sports marketing",
+          "real estate marketing",
+          "B2B marketing",
+        ]}
         schema={[organizationSchema, websiteSchema, industriesSchema]}
         canonical="https://theeyelevelstudio.com/industries"
         url="https://theeyelevelstudio.com/industries"
@@ -463,6 +470,7 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
                 <img loading="lazy"
                   src={industry.image}
                   alt={industry.title}
+                  title={industry.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </motion.div>

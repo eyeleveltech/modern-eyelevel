@@ -105,6 +105,7 @@ const JoinTheLeague = () => {
                         <img loading="lazy"
                           src={client}
                           alt="Client logo"
+                          title="Client logo"
                           className="h-12 md:h-16 w-auto object-contain"
                         />
                       </div>

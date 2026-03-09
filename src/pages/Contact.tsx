@@ -44,6 +44,9 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+const CONTACT_FORM_WEBHOOK_URL =
+  import.meta.env.VITE_CONTACT_FORM_WEBHOOK_URL ??
+  "https://automate.eyelevelstudio.in/webhook/contact-form";
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -59,26 +62,33 @@ const Contact = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate API call - in production, send to backend
-    const response = await fetch(
-      "https://automate.eyelevelstudio.in/webhook/contact-form",
-      {
+    try {
+      const response = await fetch(CONTACT_FORM_WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      },
-    );
+      });
+      const result = await response.json().catch(() => null);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!response.ok || (result && result.ok === false)) {
+        throw new Error(result?.message || "Failed to send message");
+      }
 
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    reset();
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      reset();
+    } catch {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -86,6 +96,13 @@ const Contact = () => {
       <SEO
         title="Contact The Eye Level Studio | Start Your Growth Journey"
         description="Get in touch with The Eye Level Studio to discuss marketing strategy, branding, performance marketing, AI, or growth solutions."
+        keywords={[
+          "contact marketing agency",
+          "growth consultation",
+          "contact eye level studio",
+          "marketing strategy consultation",
+          "branding consultation",
+        ]}
         schema={[organizationSchema, websiteSchema, contactPageSchema]}
         canonical="https://theeyelevelstudio.com/contact-us"
         url="https://theeyelevelstudio.com/contact-us"
@@ -162,6 +179,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
+
               </div>
             </motion.div>
 

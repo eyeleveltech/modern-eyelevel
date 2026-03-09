@@ -188,6 +188,13 @@ const Careers = () => {
       <SEO
         title="Careers at The Eye Level Studio | Join Our Growth Team"
         description="Explore open roles at The Eye Level Studio and build your career with a growth-focused marketing and creative team."
+        keywords={[
+          "marketing jobs",
+          "creative agency careers",
+          "growth marketing careers",
+          "eye level studio jobs",
+          "performance marketing jobs",
+        ]}
         canonical="https://theeyelevelstudio.com/careers"
         url="https://theeyelevelstudio.com/careers"
       />

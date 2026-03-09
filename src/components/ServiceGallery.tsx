@@ -239,6 +239,7 @@ const ServiceGallery = ({
             key={`image-${currentIndex}`}
             src={currentItem.src}
             alt={`${title} - Image ${currentIndex + 1}`}
+            title={`${title} - Image ${currentIndex + 1}`}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
             decoding="async"

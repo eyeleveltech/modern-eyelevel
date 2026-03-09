@@ -105,6 +105,7 @@ const Process = () => {
               <img loading="lazy" 
                 src={mascotTrophy} 
                 alt="Success Mascot" 
+                title="Success Mascot"
                 className="w-full h-auto rounded-2xl"
               />
             </div>
