@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -358,7 +359,14 @@ const Contact = () => {
                     className="text-sm text-center font-bricolage"
                     style={{ color: "rgba(23, 50, 41, 0.5)" }}
                   >
-                    By submitting, you agree to our privacy policy.
+                    By submitting, you agree to our{" "}
+                    <Link
+                      to="/privacy-policy"
+                      className="underline underline-offset-2"
+                    >
+                      privacy policy
+                    </Link>
+                    .
                   </p>
                 </form>
               )}

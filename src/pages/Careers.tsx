@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ import career_mascot from "@/assets/mascot/career_mascot.png";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
+import { openPositions } from "@/data/careers";
 
 const benefits = [
   {
@@ -42,49 +43,6 @@ const benefits = [
     description: "Work on projects that drive real business results.",
   },
 ];
-
-const openPositions = [
-  {
-    title: "Real Estate Sales Manager",
-    department: "Sales ",
-    type: "on-site",
-    location: "Chennai, India",
-    description:
-      "Build lasting client relationships and deliver consistent closures.",
-  },
-  {
-    title: "Head of Creative & Strategy",
-    department: "Creative & Strategy",
-    type: "On-site",
-    location: "Chennai, India",
-    description: "Lead ideas, shape strategy, and turn creativity into growth.",
-  },
-  {
-    title: "Visualizer / Senior Graphic Designer",
-    department: "Creative",
-    type: "On-site",
-    location: "Chennai, India",
-    description:
-      "Turn ideas into visuals that perform across brands and campaigns.",
-  },
-  {
-    title: "Django + DevOps Engineer",
-    department: "Backend",
-    type: "On-site / Hybrid",
-    location: "Chennai, India",
-    description: "Build backend systems that stay up and scale.",
-  },
-];
-
-// Convert position title to URL slug
-const titleToSlug = (title: string) => {
-  return title
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "")
-    .replace(/-+/g, "-")
-    .replace(/^-+|-+$/g, "");
-};
 
 const Star18 = ({ className }: { className?: string }) => {
   const points = 18;
@@ -111,8 +69,6 @@ const Star18 = ({ className }: { className?: string }) => {
 };
 
 const Careers = () => {
-  const navigate = useNavigate();
-
   const lottieRef1 = useRef<LottieRefCurrentProps>(null);
   const lottieRef2 = useRef<LottieRefCurrentProps>(null);
 
@@ -174,11 +130,6 @@ const Careers = () => {
     observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, [anim1, anim2]);
-
-  const handleInterested = (positionTitle: string) => {
-    const slug = titleToSlug(positionTitle);
-    navigate(`/careers/${slug}`);
-  };
 
   return (
     <div
@@ -453,12 +404,17 @@ const Careers = () => {
                             {position.department}
                           </span>
                         </div>
-                        <h3
-                          className="text-xl font-dela mb-2 transition-colors uppercase"
-                          style={{ color: "#0a0a0a" }}
+                        <Link
+                          to={`/careers/${position.slug}`}
+                          className="inline-block"
                         >
-                          {position.title}
-                        </h3>
+                          <h3
+                            className="text-xl font-dela mb-2 transition-colors uppercase hover:text-[#173229]"
+                            style={{ color: "#0a0a0a" }}
+                          >
+                            {position.title}
+                          </h3>
+                        </Link>
                         <p
                           className="text-sm mb-3 font-bricolage"
                           style={{ color: "rgba(10, 10, 10, 0.7)" }}
@@ -481,6 +437,7 @@ const Careers = () => {
                       </div>
 
                       <Button
+                        asChild
                         className="rounded-full group/btn shrink-0 font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
                         style={{
                           backgroundColor: "#173229",
@@ -488,10 +445,11 @@ const Careers = () => {
                           border: "2px solid #0a0a0a",
                           boxShadow: "0 3px 0 #0a0a0a",
                         }}
-                        onClick={() => handleInterested(position.title)}
                       >
-                        I'm Interested
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                        <Link to={`/careers/${position.slug}`}>
+                          I'm Interested
+                          <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -539,6 +497,7 @@ const Careers = () => {
             </p>
 
             <Button
+              asChild
               size="lg"
               className="group rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
               style={{
@@ -547,10 +506,11 @@ const Careers = () => {
                 border: "3px solid #0a0a0a",
                 boxShadow: "0 4px 0 #0a0a0a",
               }}
-              onClick={() => handleInterested("General Application")}
             >
-              Send Your Resume
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <Link to="/careers/general-application">
+                Send Your Resume
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </motion.div>
         </div>

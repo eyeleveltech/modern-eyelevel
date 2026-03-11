@@ -185,7 +185,6 @@ const Industries = () => {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const ref = useRef(null);
   const lottieRef = useRef<LottieRefCurrentProps>(null);
@@ -282,12 +281,11 @@ const Industries = () => {
         </motion.div>
 
         <motion.div
-          style={{ opacity: textOpacity }}
           className="relative z-10 max-w-5xl mx-auto text-center"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ scale: 0.8 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 rounded-full border border-[#E2FEA5]/30 bg-[#E2FEA5]/5"
           >
@@ -308,8 +306,8 @@ const Industries = () => {
             />
           )}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 30 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-dela text-4xl md:text-6xl lg:text-7xl uppercase mb-8 leading-[1.05]"
             style={{ color: "#E2FEA5" }}
@@ -320,8 +318,8 @@ const Industries = () => {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-bricolage text-base md:text-lg lg:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed"
             style={{ color: "#F8FFE8" }}
@@ -333,8 +331,8 @@ const Industries = () => {
 
           {/* Industry quick links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 20 }}
+            animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-3 md:gap-4xl"
           >
@@ -349,8 +347,8 @@ const Industries = () => {
                   whileHover={{
                     borderColor: industry.accentColor,
                   }}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
                 >
                   <span className="text-xs opacity-50">{industry.number}</span>
@@ -364,8 +362,8 @@ const Industries = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={false}
+          animate={{}}
           transition={{ delay: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >

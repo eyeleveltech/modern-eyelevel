@@ -155,13 +155,13 @@ const BlogArchive = ({
           <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-4xl mx-auto text-center relative z-10 ">
           <GreenButton>{heroLabel}</GreenButton>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-dela mb-6 uppercase"
+            className="text-3xl md:text-5xl relative lg:text-6xl font-dela mb-6 uppercase"
             style={{ color: "#E2FEA5" }}
           >
             {heroTitle.includes("Blog") ? (
@@ -182,7 +182,7 @@ const BlogArchive = ({
               animationData={animationData}
               autoPlay={false}
               loop
-              className="absolute -top-0 left-[55px] w-[70px] md:-top-[48px] md:left-[32px] md:w-[120px] lg:-left-[10px] lg:-top-[76px] lg:w-[150px] pointer-events-none"
+              className="absolute -top-0 right-[50%] w-[70px] md:-top-[48px] md:left-[20%] md:w-[120px] lg:left-[20%] lg:-top-[76px] lg:w-[150px] pointer-events-none"
             />
           )}
 
@@ -194,20 +194,14 @@ const BlogArchive = ({
           >
             <div className="relative">
               <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5"
-                style={{ color: "rgba(248, 255, 232, 0.5)" }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[rgba(248,255,232,0.5)]"
               />
               <Input
                 type="text"
                 placeholder="Search any blog..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 py-6 text-lg rounded-2xl font-bricolage"
-                style={{
-                  backgroundColor: "rgba(248, 255, 232, 0.05)",
-                  borderColor: "rgba(226, 254, 165, 0.2)",
-                  color: "#F8FFE8",
-                }}
+                className="pl-12 py-6 text-lg rounded-2xl font-bricolage bg-[rgba(248,255,232,0.06)] border-[rgba(226,254,165,0.25)] text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.45)] focus-visible:ring-2 focus-visible:ring-[#E2FEA5]/35 focus-visible:border-[#E2FEA5]/60"
               />
             </div>
           </motion.div>
@@ -266,13 +260,12 @@ const BlogArchive = ({
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <Link to={`/blog/${post.slug}`}>
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="block rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E2FEA5]/40 focus-visible:ring-offset-0"
+                >
                   <div
-                    className="rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                    style={{
-                      backgroundColor: "rgba(248, 255, 232, 0.03)",
-                      border: "1px solid rgba(226, 254, 165, 0.1)",
-                    }}
+                    className="rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)] bg-[rgba(248,255,232,0.03)] border border-[rgba(226,254,165,0.12)] hover:border-[rgba(226,254,165,0.28)]"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
@@ -280,10 +273,11 @@ const BlogArchive = ({
                         src={post.image}
                         alt={post.title}
                         title={post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-[1.06] transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-70" />
                       <span
-                        className="absolute top-4 left-4 text-xs font-semibold px-3 py-1.5 rounded-full font-bricolage"
+                        className="absolute top-4 left-4 text-xs font-semibold px-3 py-1.5 rounded-full font-bricolage z-10"
                         style={{ backgroundColor: "#E2FEA5", color: "#0a0a0a" }}
                       >
                         {post.category}
@@ -299,13 +293,13 @@ const BlogArchive = ({
                         <span>{post.readTime}</span>
                       </div>
                       <h3
-                        className="text-xl font-dela mb-3 transition-colors uppercase group-hover:text-[#E2FEA5]"
+                        className="text-xl font-dela mb-3 transition-colors uppercase group-hover:text-[#E2FEA5] line-clamp-2"
                         style={{ color: "#F8FFE8" }}
                       >
                         {post.title}
                       </h3>
                       <p
-                        className="leading-relaxed font-bricolage mb-4"
+                        className="leading-relaxed font-bricolage mb-4 line-clamp-3"
                         style={{ color: "rgba(248, 255, 232, 0.7)" }}
                       >
                         {post.excerpt}

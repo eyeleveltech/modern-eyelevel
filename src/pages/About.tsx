@@ -10,9 +10,6 @@ import teamImage1 from "@/assets/galleries/about/aboutImage1.jpeg";
 import teamImage2 from "@/assets/galleries/about/aboutImg2.jpg";
 import teamImage3 from "@/assets/galleries/about/aboutImg3.jpeg";
 import teamImage4 from "@/assets/galleries/about/aboutImg4.jpg";
-import teamImage5 from "@/assets/galleries/education/edu-gallery-2.jpg";
-import teamImage6 from "@/assets/galleries/sports/sports-gallery-2.jpg";
-import mascotWave from "@/assets/mascot/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
 import video from "@/assets/videos/videogallery.mp4";
 import video1 from "@/assets/videos/videogallery2.mp4";
@@ -197,7 +194,10 @@ const About = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 relative md:min-h-screen flex items-center justify-center flex-col overflow-hidden">
+      <section
+        ref={ref}
+        className="pt-32 pb-20 px-4 relative md:min-h-screen flex items-center justify-center flex-col overflow-hidden"
+      >
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}

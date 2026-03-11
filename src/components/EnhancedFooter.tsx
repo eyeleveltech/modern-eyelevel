@@ -46,10 +46,10 @@ const footerLinks = [
   {
     title: "Industries",
     links: [
-      { label: "Edu-Marketing", href: "#" },
-      { label: "Sports Marketing", href: "#" },
-      { label: "Real Estate", href: "#" },
-      { label: "B2B Marketing", href: "#" },
+      { label: "Edu-Marketing", href: "/industries" },
+      { label: "Sports Marketing", href: "/industries" },
+      { label: "Real Estate", href: "/industries" },
+      { label: "B2B Marketing", href: "/industries" },
     ],
   },
 ];

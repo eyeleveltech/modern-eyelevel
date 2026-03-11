@@ -25,6 +25,7 @@ import {
   getBlogPostingSchema,
   getBlogCategoryUrl,
 } from "@/data/blogs";
+import ReactMarkdown from "react-markdown";
 
 const getRelatedPosts = (currentSlug: string, currentCategory: string) => {
   return blogPosts
@@ -34,16 +35,75 @@ const getRelatedPosts = (currentSlug: string, currentCategory: string) => {
     .slice(0, 3);
 };
 
+type BlogContentBlock =
+  | { type: "h2"; text: string }
+  | { type: "h3"; text: string }
+  | { type: "p"; text: string }
+  | { type: "ul"; items: string[] };
+
+const toBlogContentBlocks = (content: string[]): BlogContentBlock[] => {
+  const blocks: BlogContentBlock[] = [];
+  let pendingList: string[] = [];
+
+  const flushList = () => {
+    if (pendingList.length === 0) return;
+    blocks.push({ type: "ul", items: pendingList });
+    pendingList = [];
+  };
+
+  for (const raw of content) {
+    const paragraph = raw.trim();
+    if (!paragraph) continue;
+
+    if (paragraph.startsWith("## ")) {
+      flushList();
+      blocks.push({ type: "h2", text: paragraph.slice(3) });
+      continue;
+    }
+
+    if (paragraph.startsWith("### ")) {
+      flushList();
+      blocks.push({ type: "h3", text: paragraph.slice(4) });
+      continue;
+    }
+
+    const bulletMatch = paragraph.match(/^(-|•)\s+(.*)$/);
+    if (bulletMatch) {
+      pendingList.push(bulletMatch[2]);
+      continue;
+    }
+
+    flushList();
+    blocks.push({ type: "p", text: paragraph });
+  }
+
+  flushList();
+  return blocks;
+};
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const baseUrl = "https://theeyelevelstudio.com";
 
   const post = slug ? blogPostsData[slug] : null;
 
   if (!post) {
     return (
       <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+        <SEO
+          title="Post Not Found | The Eye Level Studio"
+          description="The requested blog article could not be found."
+          keywords={[
+            "blog post not found",
+            "marketing blog",
+            "eye level studio",
+          ]}
+          canonical={`${baseUrl}/blog`}
+          url={slug ? `${baseUrl}/blog/${slug}` : `${baseUrl}/blog`}
+          noindex
+        />
         <Header />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4 text-center">
@@ -67,6 +127,7 @@ const BlogPost = () => {
   }
 
   const relatedPosts = getRelatedPosts(slug!, post.category);
+  const contentBlocks = toBlogContentBlocks(post.content);
 
   const handleShare = (platform: string) => {
     const url = window.location.href;
@@ -97,7 +158,6 @@ const BlogPost = () => {
     }
   };
 
-  const baseUrl = "https://theeyelevelstudio.com";
   const postUrl = slug ? `${baseUrl}/blog/${slug}` : `${baseUrl}/blog`;
 
   return (
@@ -105,12 +165,8 @@ const BlogPost = () => {
       <SEO
         title={post.seoTitle}
         description={post.seoDescription}
-        keywords={[post.category, ...post.tags]}
-        schema={[
-          organizationSchema,
-          websiteSchema,
-          getBlogPostingSchema(post),
-        ]}
+        keywords={post.keywords}
+        schema={[organizationSchema, websiteSchema, getBlogPostingSchema(post)]}
         canonical={postUrl}
         url={postUrl}
         image={post.image ? `${baseUrl}${post.image}` : undefined}
@@ -124,7 +180,8 @@ const BlogPost = () => {
         <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#253e35]/50 via-transparent to-[#253e35]" />
           <img
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             src={post.image}
             alt={post.title}
             title={post.title}
@@ -197,30 +254,38 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="prose-lg"
+                className="prose prose-invert max-w-none prose-headings:font-dela prose-headings:uppercase prose-h2:text-[#E2FEA5] prose-h3:text-[#E2FEA5] prose-p:font-bricolage prose-p:text-[rgba(248,255,232,0.86)] prose-li:font-bricolage prose-li:text-[rgba(248,255,232,0.86)] prose-li:marker:text-[#E2FEA5] prose-ul:pl-6 prose-ul:my-6 prose-li:my-2 prose-strong:text-[#F8FFE8]"
               >
-                {post.content.map((paragraph, index) => {
-                  if (paragraph.startsWith("## ")) {
-                    return (
-                      <h2
-                        key={index}
-                        className="font-dela text-2xl md:text-3xl text-[#E2FEA5] mt-12 mb-6 uppercase"
-                      >
-                        {paragraph.replace("## ", "")}
-                      </h2>
-                    );
-                  }
-                  return (
-                    <p
-                      key={index}
-                      className="text-lg leading-relaxed mb-6 font-bricolage"
-                      style={{ color: "rgba(248, 255, 232, 0.85)" }}
-                    >
-                      {paragraph}
-                    </p>
-                  );
-                })}
+                {contentBlocks.map((block, index) => {
+                  switch (block.type) {
+                    case "h2":
+                      return <h2 key={index}>{block.text}</h2>;
 
+                    case "h3":
+                      return <h3 key={index}>{block.text}</h3>;
+
+                    case "p":
+                      return (
+                        <p key={index}>
+                          <ReactMarkdown>{block.text}</ReactMarkdown>
+                        </p>
+                      );
+
+                    case "ul":
+                      return (
+                        <ul key={index}>
+                          {block.items.map((item, i) => (
+                            <li key={i}>
+                              <ReactMarkdown>{item}</ReactMarkdown>
+                            </li>
+                          ))}
+                        </ul>
+                      );
+
+                    default:
+                      return null;
+                  }
+                })}
                 <div
                   className="mt-10 rounded-3xl p-6 md:p-8 text-center"
                   style={{
@@ -288,6 +353,42 @@ const BlogPost = () => {
               >
                 <div
                   className="p-4 rounded-2xl"
+                  style={{
+                    backgroundColor: "rgba(248, 255, 232, 0.03)",
+                    border: "1px solid rgba(226, 254, 165, 0.1)",
+                  }}
+                >
+                  <p className="font-dela text-lg text-[#F8FFE8] mb-4">
+                    Categories
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {blogCategories.map((category) => {
+                      const isActive = category === post.category;
+
+                      return (
+                        <Link
+                          key={category}
+                          to={getBlogCategoryUrl(category)}
+                          className="rounded-xl px-4 py-3 text-sm font-bricolage transition-colors"
+                          style={{
+                            backgroundColor: isActive
+                              ? "rgba(226, 254, 165, 0.15)"
+                              : "rgba(248, 255, 232, 0.03)",
+                            color: isActive ? "#E2FEA5" : "#F8FFE8",
+                            border: isActive
+                              ? "1px solid rgba(226, 254, 165, 0.35)"
+                              : "1px solid rgba(226, 254, 165, 0.1)",
+                          }}
+                        >
+                          {category}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className="p-4 rounded-2xl sticky top-40"
                   style={{
                     backgroundColor: "rgba(248, 255, 232, 0.03)",
                     border: "1px solid rgba(226, 254, 165, 0.1)",
@@ -362,42 +463,6 @@ const BlogPost = () => {
                         </p>
                       </div>
                     </div>
-                  </div>
-                </div>
-
-                <div
-                  className="p-4 rounded-2xl sticky top-32"
-                  style={{
-                    backgroundColor: "rgba(248, 255, 232, 0.03)",
-                    border: "1px solid rgba(226, 254, 165, 0.1)",
-                  }}
-                >
-                  <p className="font-dela text-lg text-[#F8FFE8] mb-4">
-                    Categories
-                  </p>
-                  <div className="flex flex-col gap-2">
-                    {blogCategories.map((category) => {
-                      const isActive = category === post.category;
-
-                      return (
-                        <Link
-                          key={category}
-                          to={getBlogCategoryUrl(category)}
-                          className="rounded-xl px-4 py-3 text-sm font-bricolage transition-colors"
-                          style={{
-                            backgroundColor: isActive
-                              ? "rgba(226, 254, 165, 0.15)"
-                              : "rgba(248, 255, 232, 0.03)",
-                            color: isActive ? "#E2FEA5" : "#F8FFE8",
-                            border: isActive
-                              ? "1px solid rgba(226, 254, 165, 0.35)"
-                              : "1px solid rgba(226, 254, 165, 0.1)",
-                          }}
-                        >
-                          {category}
-                        </Link>
-                      );
-                    })}
                   </div>
                 </div>
               </motion.aside>
