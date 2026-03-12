@@ -17,6 +17,8 @@ import {
   getBlogArchiveSchema,
   getBlogCategoryUrl,
 } from "@/data/blogs";
+import faqs from "@/data/faqs";
+import FAQSection from "./FAQSection";
 
 type BlogArchiveProps = {
   title: string;
@@ -193,9 +195,7 @@ const BlogArchive = ({
             className="max-w-xl mx-auto mt-8"
           >
             <div className="relative">
-              <Search
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[rgba(248,255,232,0.5)]"
-              />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[rgba(248,255,232,0.5)]" />
               <Input
                 type="text"
                 placeholder="Search any blog..."
@@ -264,9 +264,7 @@ const BlogArchive = ({
                   to={`/blog/${post.slug}`}
                   className="block rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E2FEA5]/40 focus-visible:ring-offset-0"
                 >
-                  <div
-                    className="rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)] bg-[rgba(248,255,232,0.03)] border border-[rgba(226,254,165,0.12)] hover:border-[rgba(226,254,165,0.28)]"
-                  >
+                  <div className="rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.35)] bg-[rgba(248,255,232,0.03)] border border-[rgba(226,254,165,0.12)] hover:border-[rgba(226,254,165,0.28)]">
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         loading="lazy"
@@ -328,6 +326,8 @@ const BlogArchive = ({
         </div>
       </section>
 
+      {/* faqs  */}
+      <FAQSection faqs={faqs["Blog"]} />
       <section className="py-20 px-4" style={{ backgroundColor: "#1e3c30" }}>
         <div className="max-w-3xl mx-auto text-center">
           <motion.h2

@@ -36,9 +36,6 @@ export type BlogPost = {
   tags: string[];
 };
 
-const normalizeBlogText = (text: string) =>
-  text.split("Ã¢â‚¬â€").join(" - ").split("â€”").join(" - ");
-
 const BASE_URL = "https://theeyelevelstudio.com";
 
 const rawBlogPosts: BlogPost[] = [
@@ -335,8 +332,8 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "6 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
+      name: "Akmal Rahman",
+      role: "Co-Founder",
       image: akmal,
     },
     keywords: [
@@ -409,9 +406,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: janani,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "sports digital marketing agency India",
@@ -477,9 +474,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: janani,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "sports sponsorship deck",
@@ -553,9 +550,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: charles,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "admissions marketing agency",
@@ -623,8 +620,8 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
+      name: "Akmal Rahman",
+      role: "Co-Founder",
       image: akmal,
     },
     keywords: [
@@ -684,9 +681,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "9 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: janani,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "engineering college admissions marketing",
@@ -752,8 +749,8 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
+      name: "Akmal Rahman",
+      role: "Co-Founder",
       image: akmal,
     },
     keywords: [
@@ -818,8 +815,8 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
+      name: "Akmal Rahman",
+      role: "Co-Founder",
       image: akmal,
     },
     keywords: [
@@ -882,9 +879,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: janani,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "landing page design",
@@ -958,9 +955,9 @@ const rawBlogPosts: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "9 min read",
     author: {
-      name: "Author Name",
-      role: "Author Role",
-      image: janani,
+      name: "Akmal Rahman",
+      role: "Co-Founder",
+      image: akmal,
     },
     keywords: [
       "medical tourism marketing",
@@ -1054,16 +1051,15 @@ export const getBlogPostsByCategory = (category: string) =>
 export const getBlogCategorySeo = (category: string) => {
   if (category === ALL_BLOGS_CATEGORY) {
     return {
-      title:
-        "Marketing Insights, Growth & AI Trends | The Eye Level Studio Blog",
+      title: "Sports, Healthcare & Education Marketing Blog | EyeLevel",
       description:
-        "Read expert insights on marketing, branding, performance, AI, Web3, and growth strategies shaping the future of business.",
+        "EyeLevel's marketing blog: sports sponsorship, healthcare patient discovery, education admission marketing & growth strategy insights. Subscription free.",
       keywords: [
-        "marketing blog",
-        "digital marketing insights",
-        "branding blog",
-        "AI marketing",
-        "growth strategy blog",
+        "sports marketing blog India",
+        "healthcare marketing insights",
+        "education marketing tips",
+        "digital marketing strategy articles",
+        "growth marketing resources",
       ],
       canonical: "https://theeyelevelstudio.com/blog",
       url: "https://theeyelevelstudio.com/blog",

@@ -74,8 +74,8 @@ const Header = ({ compact = false }: HeaderProps) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
   useEffect(() => {
-    // Skip scroll behavior for compact mode
-    if (compact) {
+    // Skip scroll behavior for compact mode or if window doesn't exist
+    if (compact || typeof window === "undefined") {
       setIsHeaderVisible(true);
       setShowBackToTop(false);
       return;
@@ -103,6 +103,7 @@ const Header = ({ compact = false }: HeaderProps) => {
 
   // Prevent body scroll when menu is open
   useEffect(() => {
+    if (typeof document === "undefined") return;
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -114,6 +115,10 @@ const Header = ({ compact = false }: HeaderProps) => {
   }, [isMenuOpen]);
   const scrollToTop = () =>
     new Promise<void>((resolve) => {
+      if (typeof window === "undefined") {
+        resolve();
+        return;
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
 
       const check = () => {

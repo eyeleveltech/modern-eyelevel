@@ -15,19 +15,20 @@ import {
   organizationSchema,
   websiteSchema,
 } from "@/hooks/schemas";
+import faqs from "@/data/faqs";
 
 const Index = () => {
   return (
     <>
       <SEO
-        title="Marketing & Growth Agency for Global Brands | The Eye Level Studio"
-        description="The Eye Level Studio is a global marketing agency driving growth through strategy, performance marketing, AI, automation, and creative branding."
+        title="Sports, Healthcare & Education Marketing Agency | EyeLevel"
+        description="Chennai's only digital marketing agency for Sports, Healthcare & Education. Performance marketing, event production & video. Book a free consultation today."
         keywords={[
-          "marketing agency",
-          "growth agency",
-          "performance marketing",
-          "AI automation agency",
-          "creative branding agency",
+          "performance marketing agency Chennai",
+          "growth marketing agency",
+          "specialized marketing agency India",
+          "digital marketing services in Chennai",
+          "sports healthcare education digital marketing",
         ]}
         schema={[organizationSchema, websiteSchema, homePageSchema, faqSchema]}
         canonical="https://theeyelevelstudio.com/"
@@ -42,7 +43,7 @@ const Index = () => {
         <ProcessSection />
         <TextTestimonials />
         <WhyEyeLevel />
-        <FAQSection />
+        <FAQSection faqs={faqs["Home"]} />
         <EnhancedFooter showCTA={false} />
       </div>
     </>

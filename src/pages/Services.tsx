@@ -32,7 +32,13 @@ import web_4 from "@/assets/mockup/web_4.png";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import { useEffect, useRef, useState } from "react";
 import SEO from "@/components/SEO";
-import { organizationSchema, servicesSchema, websiteSchema } from "@/hooks/schemas";
+import {
+  organizationSchema,
+  servicesSchema,
+  websiteSchema,
+} from "@/hooks/schemas";
+import faqs from "@/data/faqs";
+import FAQSection from "@/components/FAQSection";
 
 const services = [
   {
@@ -322,14 +328,15 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-[#0D1F1A]">
       <SEO
-        title="Marketing Services for Growth, Performance & Branding | The Eye Level Studio"
-        description="Explore our marketing services covering growth strategy, performance marketing, AI & automation, creative branding, and Web3-driven solutions."
+        title="Marketing & Event Production Services Chennai | EyeLevel"
+        description="Full-service marketing engine: event production, Google Ads, video production, SEO & social media for Sports, Healthcare & Education. Free proposal."
         keywords={[
-          "marketing services",
-          "growth strategy services",
-          "performance marketing services",
-          "AI automation services",
-          "branding services",
+          "Google Ads management Chennai",
+          "social media marketing Chennai",
+          "SEO services India",
+          "video production Chennai",
+          "event management company Chennai",
+          "sponsorship strategy",
         ]}
         schema={[organizationSchema, websiteSchema, servicesSchema]}
         canonical="https://theeyelevelstudio.com/services"
@@ -534,6 +541,9 @@ const ServicesPage = () => {
           </div>
         </section>
       ))}
+
+      {/* faqs */}
+      <FAQSection faqs={faqs["Services"]} />
 
       {/* CTA Section */}
       <section

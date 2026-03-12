@@ -21,8 +21,13 @@ import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
-import { industriesSchema, organizationSchema, websiteSchema } from "@/hooks/schemas";
-
+import {
+  industriesSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/hooks/schemas";
+import FAQSection from "@/components/FAQSection";
+import faqs from "@/data/faqs";
 const industries = [
   {
     id: "education",
@@ -241,14 +246,14 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Marketing Solutions Across Industries & Web3 | The Eye Level Studio"
-        description="We deliver tailored marketing solutions for education, sports, real estate, B2B, and Web3 brands across global markets."
+        title="Sports, Healthcare & Education Agency | EyeLevel"
+        description="EyeLevel specializes in marketing for sports leagues, healthcare providers & educational institutions across India. Vertical expertise, highly customised solutions."
         keywords={[
-          "industry marketing solutions",
-          "education marketing",
-          "sports marketing",
-          "real estate marketing",
-          "B2B marketing",
+          "vertical specialization marketing India",
+          "sports marketing agency India",
+          "healthcare marketing India",
+          "education marketing India",
+          "industry marketing services",
         ]}
         schema={[organizationSchema, websiteSchema, industriesSchema]}
         canonical="https://theeyelevelstudio.com/industries"
@@ -280,9 +285,7 @@ const Industries = () => {
           <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-2xl" />
         </motion.div>
 
-        <motion.div
-          className="relative z-10 max-w-5xl mx-auto text-center"
-        >
+        <motion.div className="relative z-10 max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ scale: 0.8 }}
             whileInView={{ scale: 1 }}
@@ -394,7 +397,8 @@ const Industries = () => {
           onLeave={() => setActiveIndustry(null)}
         />
       ))}
-
+      {/* faqs */}
+      <FAQSection faqs={faqs["Industries"]} />
       <EnhancedFooter mascotBgColor="#173229" showCTA={false} />
     </div>
   );
@@ -465,7 +469,8 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
                 style={{ scale: imageScale }}
                 className="absolute inset-0"
               >
-                <img loading="lazy"
+                <img
+                  loading="lazy"
                   src={industry.image}
                   alt={industry.title}
                   title={industry.title}
@@ -589,32 +594,6 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
               ))}
             </motion.div>
 
-            {/* Stats - Mobile visible */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="grid grid-cols-3 gap-6 mb-10 lg:hidden"
-            >
-              {industry.stats.map((stat, i) => (
-                <div key={i} className="text-center">
-                  <span
-                    className="font-dela text-2xl block mb-1"
-                    style={{ color: industry.accentColor }}
-                  >
-                    {stat.value}
-                  </span>
-                  <span
-                    className="font-bricolage text-xs"
-                    style={{ color: "rgba(248, 255, 232, 0.6)" }}
-                  >
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div> */}
-
             {/* CTA Button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -654,4 +633,3 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
 };
 
 export default Industries;
-

@@ -130,6 +130,8 @@ const BlogPost = () => {
   const contentBlocks = toBlogContentBlocks(post.content);
 
   const handleShare = (platform: string) => {
+    if (typeof window === "undefined") return;
+    
     const url = window.location.href;
     const text = post.title;
 

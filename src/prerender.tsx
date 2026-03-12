@@ -1,5 +1,5 @@
+import React, { Children, isValidElement } from "react";
 import type { ReactNode } from "react";
-import { Children, isValidElement } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
@@ -23,7 +23,7 @@ const toHeadElements = (value: ReactNode) =>
       type:
         typeof element.type === "string" ? element.type : String(element.type),
       props: Object.fromEntries(
-        Object.entries(element.props)
+        Object.entries((element as React.ReactElement).props)
           .filter(
             ([key, val]) =>
               key !== "children" &&
@@ -37,10 +37,12 @@ const toHeadElements = (value: ReactNode) =>
           .map(([key, val]) => [key, String(val)]),
       ),
       children:
-        typeof element.props.children === "string"
-          ? element.props.children
-          : typeof element.props.dangerouslySetInnerHTML?.__html === "string"
-            ? element.props.dangerouslySetInnerHTML.__html
+        typeof (element as React.ReactElement).props.children === "string"
+          ? (element as React.ReactElement).props.children
+          : typeof (element as React.ReactElement).props.dangerouslySetInnerHTML
+                ?.__html === "string"
+            ? (element as React.ReactElement).props.dangerouslySetInnerHTML
+                .__html
             : undefined,
     })) as HeadElement[];
 
@@ -48,7 +50,7 @@ const getTitle = (value: ReactNode) => {
   const [element] = toArray(value).filter(isValidElement);
   if (!element) return undefined;
 
-  const children = element.props.children;
+  const children = (element as React.ReactElement).props.children;
   if (Array.isArray(children)) {
     return children.join("");
   }
@@ -72,11 +74,13 @@ export async function prerender({ url }: { url: string }) {
   );
 
   const helmet = helmetContext.helmet;
-  const title = helmet ? getTitle(helmet.title.toComponent()) : undefined;
+  const title = helmet
+    ? getTitle(helmet.title.toComponent() as unknown as ReactNode)
+    : undefined;
   const elements = new Set<HeadElement>([
-    ...toHeadElements(helmet?.meta.toComponent()),
-    ...toHeadElements(helmet?.link.toComponent()),
-    ...toHeadElements(helmet?.script.toComponent()),
+    ...toHeadElements(helmet?.meta.toComponent() as unknown as ReactNode),
+    ...toHeadElements(helmet?.link.toComponent() as unknown as ReactNode),
+    ...toHeadElements(helmet?.script.toComponent() as unknown as ReactNode),
   ]);
 
   const { parseLinks } = await import("vite-prerender-plugin/parse");

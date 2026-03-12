@@ -127,6 +127,7 @@ const ProcessSection = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (!shouldLoadAnimations) return;
     preloadAround(activeStepIndex);
 

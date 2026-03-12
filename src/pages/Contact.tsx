@@ -20,6 +20,8 @@ import {
   organizationSchema,
   websiteSchema,
 } from "@/hooks/schemas";
+import faqs from "@/data/faqs";
+import FAQSection from "@/components/FAQSection";
 
 const contactSchema = z.object({
   name: z
@@ -95,14 +97,14 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-10" style={{ backgroundColor: "#253e35" }}>
       <SEO
-        title="Contact The Eye Level Studio | Start Your Growth Journey"
-        description="Get in touch with The Eye Level Studio to discuss marketing strategy, branding, performance marketing, AI, or growth solutions."
+        title="Contact EyeLevel — Free Marketing Consultation Chennai"
+        description="Book a free 30-min consultation with EyeLevel — Chennai's specialized agency for Sports, Healthcare & Education. Call +91 97890 99499 or email us."
         keywords={[
-          "contact marketing agency",
-          "growth consultation",
-          "contact eye level studio",
-          "marketing strategy consultation",
-          "branding consultation",
+          "marketing agency contact Chennai",
+          "digital marketing consultation",
+          "EyeLevel contact",
+          "book marketing strategy call",
+          "sports healthcare education agency inquiry",
         ]}
         schema={[organizationSchema, websiteSchema, contactPageSchema]}
         canonical="https://theeyelevelstudio.com/contact-us"
@@ -180,7 +182,6 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-
               </div>
             </motion.div>
 
@@ -374,8 +375,8 @@ const Contact = () => {
           </div>
         </div>
       </main>
-
-      <EnhancedFooter showCTA={false} mascotBgColor="#253E35" />
+      <FAQSection faqs={faqs["Contact"]} />
+      <EnhancedFooter showCTA={false} mascotBgColor="#173229" />
     </div>
   );
 };

@@ -4,41 +4,11 @@ import { Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 import WavyUnderline from "@/components/WavyUnderline";
 
-const faqs = [
-  {
-    question:
-      'What exactly is a growth studio? Is it just a trendy term for an agency?',
-    answer:
-      "No. An agency charges you to push buttons. A Growth Studio builds the machine. We don't just execute tasks to fill a timesheet; we fuse strategy, creativity and code into a single system designed to generate revenue, not just noise.",
-    tag: "The Truth",
-  },
-  {
-    question: "Why shouldn't I just hire a traditional marketing firm?",
-    answer:
-      'Because you don\'t need more chaos; you need a direction. Traditional firms are great at spending budget on "spray and pray" tactics. We use the Rod of Growth to part the seas of complexity and build a single, clear path to Growth.',
-    tag: "Fair Point",
-  },
-  {
-    question: "What results can I actually expect?",
-    answer:
-      'If you want "likes" and "brand love," hire a poet. If you want bankable growth, hire us. Our focus extends beyond vanity metrics like shares and follows to include what matters most: Leads, Sales, Profits.',
-    tag: "Show Me Money",
-  },
-  {
-    question: "Do you know my industry?",
-    answer:
-      "We specialize in Edu-Marketing, Sports, Real Estate, and B2B. But frankly, growth is a discipline, not a niche. We carry a Shape-Shifting Toolkit (Strategy, AI, Automation) that works regardless - selling Anything from a Pin to a Plane !",
-    tag: "Industry",
-  },
-  {
-    question: "How much does this cost?",
-    answer:
-      "It depends on how fast you want to grow. Since we design unique solutions to fit your unique demands, we don't employ cookie-cutter pricing patterns. Let us run a Growth Audit first - if we can't make you money, we don't deserve yours.",
-    tag: "Investment",
-  },
-];
-
-const FAQSection = () => {
+interface FAQ {
+  question: string;
+  answer: string;
+}
+const FAQSection = ({ faqs }: { faqs: FAQ[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -126,15 +96,6 @@ const FAQSection = () => {
                   </div>
 
                   <div className="flex-1">
-                    {/* Tag */}
-                    <span
-                      className={`inline-block text-[10px] uppercase tracking-wider font-bricolage mb-2 transition-colors duration-300 ${
-                        openIndex === index ? "text-lime" : "text-white/40"
-                      }`}
-                    >
-                      {faq.tag}
-                    </span>
-
                     {/* Question */}
                     <h3
                       className={`font-bricolage text-lg md:text-xl font-semibold pr-8 transition-colors duration-300 ${

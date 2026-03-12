@@ -20,6 +20,8 @@ import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
+import FAQSection from "@/components/FAQSection";
+import faqs from "@/data/faqs";
 
 const values = [
   {
@@ -166,12 +168,6 @@ const About = () => {
       dec: "A marketing and technology strategist with 15+ years of experience, specializing in Web3, DeFi, and AI-driven growth initiatives.",
       socials: "https://www.linkedin.com/in/jahangeeransari/",
     },
-    // {
-    //   name: "",
-    //   role: "Brand Marketing Manager",
-    //   image:
-    //     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    // },
   ];
   return (
     <div
@@ -179,14 +175,13 @@ const About = () => {
       style={{ backgroundColor: "#253e35" }}
     >
       <SEO
-        title="About The Eye Level Studio | Growth-Driven Marketing Agency"
-        description="Learn about The Eye Level Studio - a growth-focused marketing agency helping brands scale through strategy, creativity, and AI-led innovation."
+        title="Best Digital Marketing Agency Chennai | EyeLevel"
+        description="EyeLevel is Chennai's specialized agency for Sports, Healthcare & Education, 15+ years experience. Book a free consultation today."
         keywords={[
-          "about eye level studio",
-          "growth marketing agency",
-          "creative agency",
-          "AI marketing agency",
-          "branding and strategy team",
+          "marketing agency team Chennai",
+          "EyeLevel Growth Studio, specialized marketing Chennai",
+          "sports healthcare education agency",
+          "digital marketing company Chennai",
         ]}
         canonical="https://theeyelevelstudio.com/about-us"
         url="https://theeyelevelstudio.com/about-us"
@@ -835,6 +830,9 @@ const About = () => {
         </div>
       </section>
 
+      {/* FAQS */}
+      <FAQSection faqs={faqs["About Us"]} />
+
       {/* Join Us Section */}
       <section
         className="py-20 px-4 relative overflow-hidden"
@@ -890,4 +888,3 @@ const About = () => {
 };
 
 export default About;
-

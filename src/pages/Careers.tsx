@@ -20,6 +20,9 @@ import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
 import { openPositions } from "@/data/careers";
+import FAQ from "@/components/FAQ";
+import faqs from "@/data/faqs";
+import FAQSection from "@/components/FAQSection";
 
 const benefits = [
   {
@@ -137,14 +140,14 @@ const Careers = () => {
       style={{ backgroundColor: "#253e35" }}
     >
       <SEO
-        title="Careers at The Eye Level Studio | Join Our Growth Team"
-        description="Explore open roles at The Eye Level Studio and build your career with a growth-focused marketing and creative team."
+        title="Digital Marketing Jobs in Chennai | EyeLevel Careers"
+        description="EyeLevel is hiring digital marketing specialists, videographers & designers in Chennai. Work with Sports, Healthcare & Education sectors. Apply now."
         keywords={[
-          "marketing jobs",
-          "creative agency careers",
-          "growth marketing careers",
-          "eye level studio jobs",
+          "marketing agency jobs Chennai",
+          "creative agency hiring Chennai",
+          "digital marketing careers India",
           "performance marketing jobs",
+          "social media marketing jobs Chennai",
         ]}
         canonical="https://theeyelevelstudio.com/careers"
         url="https://theeyelevelstudio.com/careers"
@@ -460,21 +463,13 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Can't Find Role - with mascot */}
+      {/* faqs */}
+      <FAQSection faqs={faqs["Careers"]} />
+
       <section
         className="py-20 px-4 relative overflow-hidden"
         style={{ backgroundColor: "#1e3c30" }}
       >
-        {/* Mascot */}
-        {/* <motion.img
-          src={career_mascot}
-          alt="EyeLevel Mascot"
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="absolute -bottom-8 right-0 md:right-12 w-40 h-40 md:w-56 md:h-56 object-contain pointer-events-none opacity-90"
-        /> */}
-
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

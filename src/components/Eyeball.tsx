@@ -9,6 +9,7 @@ const Eyeball = () => {
   const pupilY = useMotionValue(0);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleMouseMove = (e: MouseEvent) => {
       if (!eyeRef.current) return;
 

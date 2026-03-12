@@ -60,6 +60,8 @@ const JobDetails = () => {
   };
 
   const handleShare = async () => {
+    if (typeof window === "undefined") return;
+    
     if (navigator.share) {
       await navigator.share({
         title: `${job.title} at EyeLevel Growth Studio`,
