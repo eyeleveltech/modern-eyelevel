@@ -7,7 +7,7 @@ const Booking = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
       <SEO
-        title="Book a Marketing Consultation | The Eye Level Studio"
+        title="Book a Marketing Consultation | The EyeLevel Studio"
         description="Schedule a consultation with our marketing experts to unlock growth through strategy, performance marketing, AI, and branding."
         keywords={[
           "book marketing consultation",

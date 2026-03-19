@@ -17,7 +17,11 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import SEO from "@/components/SEO";
-import { organizationSchema, websiteSchema } from "@/hooks/schemas";
+import {
+  organizationSchema,
+  websiteSchema,
+  breadcrumbSchema,
+} from "@/hooks/schemas";
 import {
   blogCategories,
   blogPostsData,
@@ -93,12 +97,12 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
         <SEO
-          title="Post Not Found | The Eye Level Studio"
+          title="Post Not Found | The EyeLevel Studio"
           description="The requested blog article could not be found."
           keywords={[
             "blog post not found",
             "marketing blog",
-            "eye level studio",
+            "eyelevel studio",
           ]}
           canonical={`${baseUrl}/blog`}
           url={slug ? `${baseUrl}/blog/${slug}` : `${baseUrl}/blog`}
@@ -131,7 +135,7 @@ const BlogPost = () => {
 
   const handleShare = (platform: string) => {
     if (typeof window === "undefined") return;
-    
+
     const url = window.location.href;
     const text = post.title;
 
@@ -168,13 +172,26 @@ const BlogPost = () => {
         title={post.seoTitle}
         description={post.seoDescription}
         keywords={post.keywords}
-        schema={[organizationSchema, websiteSchema, getBlogPostingSchema(post)]}
-        canonical={postUrl}
-        url={postUrl}
-        image={post.image ? `${baseUrl}${post.image}` : undefined}
+        image={`${baseUrl}${post.image}`}
         imageAlt={post.title}
         type="article"
-        twitterCreator="@Eye_Levelstudio"
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          getBlogPostingSchema(post),
+          breadcrumbSchema([
+            { name: "Home", url: `${baseUrl}/` },
+            { name: "Blog", url: `${baseUrl}/blog` },
+            {
+              name: post.category,
+              url: `${baseUrl}/blog/category/${post.category.toLowerCase().replace(/\s+/g, "-")}`,
+            },
+            { name: post.title, url: postUrl },
+          ]),
+        ]}
+        canonical={postUrl}
+        url={postUrl}
+        twitterCreator="@EyeLevelstudio"
       />
       <Header />
 
@@ -296,29 +313,23 @@ const BlogPost = () => {
                     border: "1px solid rgba(226, 254, 165, 0.18)",
                   }}
                 >
-                  {/* <p
-                    className="text-sm uppercase tracking-[0.24em] font-bricolage mb-3"
-                    style={{ color: "#E2FEA5" }}
-                  >
-                    Link Building
-                  </p> */}
-                  <h3 className="font-dela text-2xl md:text-3xl text-[#F8FFE8] uppercase mb-3">
-                    Need High-Quality Backlinks?
+                  <h3 className="font-dela text-xl md:text-2xl text-[#F8FFE8] uppercase mb-3">
+                    {post.cta?.heading}
                   </h3>
                   <p
-                    className="font-bricolage text-base md:text-lg mb-6"
+                    className="font-bricolage text-base mb-6"
                     style={{ color: "rgba(248, 255, 232, 0.78)" }}
                   >
-                    Build authority with strategic backlinks that strengthen
-                    your rankings, improve visibility, and support long-term
-                    organic growth.
+                    {post.cta?.description}
                   </p>
                   <Button
-                    onClick={() => navigate("/contact-us")}
+                    onClick={() =>
+                      navigate({ pathname: post.cta?.btnLink || "/services" })
+                    }
                     className="rounded-full px-7 py-6 font-semibold font-bricolage"
                     style={{ backgroundColor: "#E2FEA5", color: "#0a0a0a" }}
                   >
-                    Get Backlinks
+                    {post.cta?.btnText}
                   </Button>
                 </div>
 

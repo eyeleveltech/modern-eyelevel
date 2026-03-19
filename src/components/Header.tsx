@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import eyelevelLogo from "@/assets/branding/eyelevelstudio-logo.png";
-import mascotGrowth from "@/assets/mascot/hide.png";
+import eyelevelLogo from "@/assets/branding/eyelevel_Logo.svg";
+import mascotGrowth from "@/assets/mascot/hide.webp";
 const navLinks = [
   {
     href: "/",
@@ -167,13 +167,13 @@ const Header = ({ compact = false }: HeaderProps) => {
               boxShadow: "0 4px 0 #0a0a0a",
             }}
           >
-            <Link to="/" className="relative">
+            <Link to="/" className="relative z-50">
               {/* Flag background extending from top */}
               <img loading="lazy"
                 src={eyelevelLogo}
                 alt="EyeLevel Studio"
                 title="EyeLevel Studio"
-                className="h-[42px] md:h-[62px] relative top-0.5 w-auto z-50 "
+                className="h-[42px] md:h-[65px] w-auto z-50 "
               />
             </Link>
             {compact ? (

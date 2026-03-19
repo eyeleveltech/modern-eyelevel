@@ -6,36 +6,38 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ServiceGallery from "@/components/ServiceGallery";
 import WavyUnderline from "@/components/WavyUnderline";
-import influencerCelebrityImg from "@/assets/services/content/influencer-celebrity.jpg";
+import influencerCelebrityImg from "@/assets/services/content/influencer-celebrity.webp";
 import eventsVideo1 from "@/assets/videos/events-video-1.mp4";
 import eventsVideo2 from "@/assets/videos/events-video-2.mp4";
-import photoGallery1 from "@/assets/services/content/photo-gallery-1.png";
-import photoGallery2 from "@/assets/services/content/photo-gallery-2.png";
-import photoGallery3 from "@/assets/services/content/photo-gallery-3.png";
-import martechGallery1 from "@/assets/services/content/martech-gallery-1.png";
-import martechGallery2 from "@/assets/services/content/martech-gallery-2.jpg";
-import production_1 from "@/assets/services/content/production_1.jpg";
-import production_2 from "@/assets/services/content/production_2.jpg";
-import production_3 from "@/assets/services/content/production_3.jpg";
-import poster_1 from "@/assets/services/content/poster_1.png";
-import poster_3 from "@/assets/services/content/poster_3.png";
-import social_1 from "@/assets/services/social/google.png";
-import social_2 from "@/assets/services/social/social-media.png";
-import social_3 from "@/assets/services/social/linkedin.png";
-import celebrityEvent from "@/assets/services/content/celebrity.png";
-import meeting from "@/assets/services/content/meeting.jpg";
-import crm from "@/assets/services/content/crm.png";
-import web_1 from "@/assets/mockup/web_1.png";
-import web_2 from "@/assets/mockup/web_2.png";
-import web_3 from "@/assets/mockup/web_3.png";
-import web_4 from "@/assets/mockup/web_4.png";
+import photoGallery1 from "@/assets/services/content/photo-gallery-1.webp";
+import photoGallery2 from "@/assets/services/content/photo-gallery-2.webp";
+import photoGallery3 from "@/assets/services/content/photo-gallery-3.webp";
+import martechGallery1 from "@/assets/services/content/martech-gallery-1.webp";
+import martechGallery2 from "@/assets/services/content/martech-gallery-2.webp";
+import production_1 from "@/assets/services/content/production_1.webp";
+import production_2 from "@/assets/services/content/production_2.webp";
+import production_3 from "@/assets/services/content/production_3.webp";
+import poster_1 from "@/assets/services/content/poster_1.webp";
+import poster_3 from "@/assets/services/content/poster_3.webp";
+import social_1 from "@/assets/services/social/google.webp";
+import social_2 from "@/assets/services/social/social-media.webp";
+import social_3 from "@/assets/services/social/linkedin.webp";
+import celebrityEvent from "@/assets/services/content/celebrity.webp";
+import meeting from "@/assets/services/content/meeting.webp";
+import crm from "@/assets/services/content/crm.webp";
+import web_1 from "@/assets/mockup/web_1.webp";
+import web_2 from "@/assets/mockup/web_2.webp";
+import web_3 from "@/assets/mockup/web_3.webp";
+import web_4 from "@/assets/mockup/web_4.webp";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import { useEffect, useRef, useState } from "react";
 import SEO from "@/components/SEO";
 import {
+  faqPageSchema,
   organizationSchema,
   servicesSchema,
   websiteSchema,
+  breadcrumbSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 import FAQSection from "@/components/FAQSection";
@@ -338,7 +340,18 @@ const ServicesPage = () => {
           "event management company Chennai",
           "sponsorship strategy",
         ]}
-        schema={[organizationSchema, websiteSchema, servicesSchema]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          servicesSchema,
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+            { name: "Services", url: "https://theeyelevelstudio.com/services" },
+          ]),
+          faqPageSchema(faqs["Services"], {
+            url: "https://theeyelevelstudio.com/services",
+          }),
+        ]}
         canonical="https://theeyelevelstudio.com/services"
         url="https://theeyelevelstudio.com/services"
       />

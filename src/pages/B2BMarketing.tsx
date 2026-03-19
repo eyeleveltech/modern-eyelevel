@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
+import SEO from "@/components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -30,6 +31,8 @@ import {
   ClientLogosMarquee,
 } from "@/components/IndustryPageEnhancements";
 import GreenButton from "@/components/GreenButton";
+import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
+import { getVerticalBySlug } from "@/data/marketingVerticals";
 
 // 18-pointed star SVG component
 const Star18 = ({ className }: { className?: string }) => {
@@ -180,9 +183,31 @@ const B2BMarketing = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const vertical = getVerticalBySlug("b2b-marketing");
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={vertical?.seoTitle || "B2B Marketing Agency | Enterprise Sales Growth | EyeLevel"}
+        description={vertical?.seoDescription || "B2B marketing agency specializing in enterprise sales growth, lead generation, account-based marketing, and marketing automation for SaaS and technology companies."}
+        keywords={vertical?.keywords || ["B2B marketing", "enterprise marketing", "SaaS marketing"]}
+        schema={[
+          organizationSchema,
+          localBusinessSchema,
+          marketingVerticalSchema({
+            name: vertical?.name || "B2B Marketing",
+            description: vertical?.overview || "",
+            url: "https://theeyelevelstudio.com/b2b-marketing",
+            capabilities: vertical?.capabilities || [],
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+            { name: "B2B Marketing", url: "https://theeyelevelstudio.com/b2b-marketing" },
+          ]),
+        ]}
+        canonical="https://theeyelevelstudio.com/b2b-marketing"
+        url="https://theeyelevelstudio.com/b2b-marketing"
+      />
       <Header />
 
       {/* Hero Section */}

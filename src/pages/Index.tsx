@@ -10,10 +10,11 @@ import FAQSection from "@/components/FAQSection";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import SEO from "@/components/SEO";
 import {
-  faqSchema,
+  faqPageSchema,
   homePageSchema,
   organizationSchema,
   websiteSchema,
+  localBusinessSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 
@@ -30,7 +31,13 @@ const Index = () => {
           "digital marketing services in Chennai",
           "sports healthcare education digital marketing",
         ]}
-        schema={[organizationSchema, websiteSchema, homePageSchema, faqSchema]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          homePageSchema,
+          localBusinessSchema,
+          faqPageSchema(faqs["Home"], { url: "https://theeyelevelstudio.com/" }),
+        ]}
         canonical="https://theeyelevelstudio.com/"
         url="https://theeyelevelstudio.com/"
       />

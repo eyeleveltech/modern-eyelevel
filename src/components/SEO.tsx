@@ -28,8 +28,8 @@ const SEO = ({
   imageAlt,
   url,
   type = "website",
-  siteName = "The Eye Level Studio",
-  twitterSite = "@Eye_Levelstudio",
+  siteName = "The EyeLevel Studio",
+  twitterSite = "@EyeLevelstudio",
   twitterCreator,
   noindex = false,
 }: SeoTypes) => {

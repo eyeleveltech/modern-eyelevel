@@ -37,10 +37,7 @@ const AppRoutes = () => (
     <Route
       path="/careers/visualizer--senior-graphic-designer"
       element={
-        <Navigate
-          to="/careers/visualizer-senior-graphic-designer"
-          replace
-        />
+        <Navigate to="/careers/visualizer-senior-graphic-designer" replace />
       }
     />
     <Route

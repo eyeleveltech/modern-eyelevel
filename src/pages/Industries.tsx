@@ -12,19 +12,21 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 // Import industry images
-import industryEducation from "@/assets/industries/edu.jpeg";
-import industrySports from "@/assets/industries/sport.jpeg";
-import industryRealestate from "@/assets/industries/realestate.jpeg";
-import industryB2b from "@/assets/industries/b2b.jpeg";
-import finTech from "@/assets/industries/fintech.jpeg";
+import industryEducation from "@/assets/industries/edu.webp";
+import industrySports from "@/assets/industries/sport.webp";
+import industryRealestate from "@/assets/industries/realestate.webp";
+import industryB2b from "@/assets/industries/b2b.webp";
+import finTech from "@/assets/industries/fintech.webp";
 import WavyUnderline from "@/components/WavyUnderline";
 
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
 import {
+  faqPageSchema,
   industriesSchema,
   organizationSchema,
   websiteSchema,
+  breadcrumbSchema,
 } from "@/hooks/schemas";
 import FAQSection from "@/components/FAQSection";
 import faqs from "@/data/faqs";
@@ -39,7 +41,7 @@ const industries = [
       "We help schools, universities, and EdTech companies build powerful brands and create a predictable pipeline of qualified student applications.",
     longDescription:
       "Partner with us to streamline your admissions funnel and attract students who are the perfect fit for your campus. Our data-driven approach ensures every marketing dollar translates into quality enrollments.",
-    href: "#",
+    href: "/education-digital-marketing-services/",
     image: industryEducation,
     accentColor: "#B8D4BE",
     stats: [
@@ -255,7 +257,21 @@ const Industries = () => {
           "education marketing India",
           "industry marketing services",
         ]}
-        schema={[organizationSchema, websiteSchema, industriesSchema]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          industriesSchema,
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+            {
+              name: "Industries",
+              url: "https://theeyelevelstudio.com/industries",
+            },
+          ]),
+          faqPageSchema(faqs["Industries"], {
+            url: "https://theeyelevelstudio.com/industries",
+          }),
+        ]}
         canonical="https://theeyelevelstudio.com/industries"
         url="https://theeyelevelstudio.com/industries"
       />
@@ -340,7 +356,7 @@ const Industries = () => {
             className="flex flex-wrap justify-center gap-3 md:gap-4xl"
           >
             {industries.map((industry, index) => (
-              <Link key={industry.id} to={industry.href}>
+              <a key={industry.id} href={industry.href}>
                 <motion.div
                   className="group flex items-center gap-2 px-5 py-3 rounded-full border-2 font-bricolage font-medium transition-all duration-300 hover:bg-[rgba(248,255,232,0.05)]"
                   style={{
@@ -358,7 +374,7 @@ const Industries = () => {
                   <span>{industry.title}</span>
                   <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </motion.div>
-              </Link>
+              </a>
             ))}
           </motion.div>
         </motion.div>
@@ -613,10 +629,10 @@ const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
                   boxShadow: "0 4px 0 #0a0a0a",
                 }}
               >
-                <Link to={industry.href}>
+                <a href={industry.href}>
                   Explore {industry.title}
                   <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                </a>
               </Button>
             </motion.div>
           </motion.div>

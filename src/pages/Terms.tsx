@@ -7,13 +7,13 @@ const Terms = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
       <SEO
-        title="Privacy Policy | The Eye Level Studio"
-        description="Learn how The Eye Level Studio collects, uses, and protects your personal data across our website and services."
+        title="Terms & Conditions | The EyeLevel Studio"
+        description="Learn how The EyeLevel Studio collects, uses, and protects your personal data across our website and services."
         keywords={[
           "terms and conditions",
           "website terms",
           "service terms",
-          "eye level studio terms",
+          "eyelevel studio terms",
           "legal terms",
         ]}
         canonical="https://theeyelevelstudio.com/terms-and-condition"

@@ -241,12 +241,12 @@ const Apply = () => {
   return (
     <div className="min-h-screen bg-[#253e35] py-10">
       <SEO
-        title="Apply for Careers | The Eye Level Studio"
-        description="Submit your application to join The Eye Level Studio team."
+        title="Apply for Careers | The EyeLevel Studio"
+        description="Submit your application to join The EyeLevel Studio team."
         keywords={[
           "apply for marketing job",
           "career application",
-          "eye level studio application",
+          "eyelevel studio application",
           "creative agency application",
           "job application form",
         ]}

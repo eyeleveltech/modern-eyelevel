@@ -28,7 +28,7 @@ const JobDetails = () => {
     return (
       <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
         <SEO
-          title="Job Not Found | The Eye Level Studio"
+          title="Job Not Found | The EyeLevel Studio"
           description="The requested career listing could not be found."
           keywords={["job not found", "career listing", "marketing jobs"]}
           canonical={`${baseUrl}/careers`}
@@ -80,7 +80,7 @@ const JobDetails = () => {
       style={{ backgroundColor: "#253e35" }}
     >
       <SEO
-        title={`${job.title} | Careers at The Eye Level Studio`}
+        title={`${job.title} | Careers at The EyeLevel Studio`}
         description={job.shortDescription}
         keywords={[
           job.title,

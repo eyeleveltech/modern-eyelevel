@@ -17,7 +17,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#253e35' }}>
       <SEO
-        title="404 Page Not Found | The Eye Level Studio"
+        title="404 Page Not Found | The EyeLevel Studio"
         description="The page you are looking for does not exist."
         keywords={["404 page", "page not found", "broken link"]}
         canonical={canonicalUrl}

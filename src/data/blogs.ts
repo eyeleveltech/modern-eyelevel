@@ -1,18 +1,28 @@
-import akmal from "@/assets/people/akmal.jpeg";
-import charles from "@/assets/people/charles.png";
-import janani from "@/assets/people/janani.png";
-import mohan from "@/assets/people/mohan.png";
-import blogImage1 from "@/assets/blogImages/blog1.jpg";
-import blogImage2 from "@/assets/blogImages/blog2.jpg";
-import blogImage3 from "@/assets/blogImages/blog3.jpg";
-import blogImage4 from "@/assets/blogImages/blog4.jpg";
-import blogImage5 from "@/assets/blogImages/blog5.jpg";
-import blogImage6 from "@/assets/blogImages/blog6.jpg";
+import akmal from "@/assets/people/akmal.webp";
+import charles from "@/assets/people/charles.webp";
+import janani from "@/assets/people/janani.webp";
+import mohan from "@/assets/people/mohan.webp";
 import { ORG_ID } from "@/hooks/schemas";
 import { normalizeTextDeep } from "@/lib/text";
+import blogImage1 from "@/assets/blogImages/blog1.webp";
+import blogImage2 from "@/assets/blogImages/blog2.webp";
+import blogImage3 from "@/assets/blogImages/blog3.webp";
+import blogImage4 from "@/assets/blogImages/blog4.webp";
+import blogImage5 from "@/assets/blogImages/blog5.webp";
+import blogImage6 from "@/assets/blogImages/blog6.webp";
+import blogImage7 from "@/assets/blogImages/blog7.webp";
+import blogImage8 from "@/assets/blogImages/blog8.webp";
+import blogImage9 from "@/assets/blogImages/blog9.webp";
+import blogImage10 from "@/assets/blogImages/blog10.webp";
+import blogImage11 from "@/assets/blogImages/blog11.webp";
+import blogImage12 from "@/assets/blogImages/blog12.webp";
+import blogImage13 from "@/assets/blogImages/blog13.webp";
+import blogImage14 from "@/assets/blogImages/blog14.webp";
+import blogImage15 from "@/assets/blogImages/blog15.webp";
+import blogImage16 from "@/assets/blogImages/blog16.webp";
 
 export const ALL_BLOGS_CATEGORY = "All Blogs";
-
+const BASE_URL = "https://theeyelevelstudio.com/";
 export type BlogAuthor = {
   name: string;
   role: string;
@@ -34,9 +44,13 @@ export type BlogPost = {
   seoDescription: string;
   content: string[];
   tags: string[];
+  cta: {
+    heading: string;
+    description: string;
+    btnText: string;
+    btnLink: string;
+  };
 };
-
-const BASE_URL = "https://theeyelevelstudio.com";
 
 const rawBlogPosts: BlogPost[] = [
   {
@@ -60,6 +74,14 @@ const rawBlogPosts: BlogPost[] = [
       "Digital Strategy",
       "Automation",
     ],
+
+    cta: {
+      heading: "Ready to Use AI to Grow Your Marketing in 2026?",
+      description:
+        "Discover how AI-powered marketing strategies can automate campaigns, improve targeting, and drive higher conversions. Start using the latest AI tools to scale your marketing and stay ahead of your competitors.",
+      btnText: "Get Started",
+      btnLink: "/services",
+    },
 
     seoTitle: "How AI Is Transforming Marketing in 2026",
     seoDescription:
@@ -109,6 +131,13 @@ const rawBlogPosts: BlogPost[] = [
       "Visual Design",
       "Consumer Behavior",
     ],
+    cta: {
+      heading: "Want to Build a Stronger Brand Identity?",
+      description:
+        "Color plays a powerful role in shaping how people perceive a brand, but it’s only one part of a successful branding strategy. Explore more insights on brand identity, visual storytelling, and digital marketing strategies that help businesses stand out.",
+      btnText: "Explore Branding Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "The Psychology of Color in Branding Explained",
     seoDescription:
       "Learn how color psychology influences brand perception, emotions, and conversions across digital and physical brand experiences.",
@@ -147,6 +176,13 @@ const rawBlogPosts: BlogPost[] = [
       image: janani,
     },
     keywords: ["Design Systems", "UI/UX", "Product Design", "Development"],
+    cta: {
+      heading: "Want to Build a Scalable Design System?",
+      description:
+        "A well-structured design system helps teams maintain consistency, speed up product development, and scale design across large applications. Explore more insights on building scalable UI frameworks, design tokens, and component-driven workflows.",
+      btnText: "Explore Design System Strategies",
+      btnLink: "/services",
+    },
 
     seoTitle: "Building a Scalable Design System for Growth",
     seoDescription:
@@ -179,7 +215,7 @@ const rawBlogPosts: BlogPost[] = [
     title: "The Future of Performance Marketing",
     excerpt:
       "Explore emerging trends and technologies shaping the future of data-driven marketing.",
-    category: "Design",
+    category: "Performance Marketing",
     image: blogImage4,
     date: "Dec 22, 2025",
     readTime: "6 min read",
@@ -194,7 +230,13 @@ const rawBlogPosts: BlogPost[] = [
       "Privacy",
       "Analytics",
     ],
-
+    cta: {
+      heading: "Want to Master Data-Driven Marketing?",
+      description:
+        "Performance marketing is evolving with new technologies, smarter analytics, and AI-driven optimization. Discover more insights on data-driven campaigns, marketing automation, and strategies that help businesses achieve measurable growth.",
+      btnText: "Explore Performance Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "The Future of Performance Marketing Strategies",
     seoDescription:
       "Explore emerging performance marketing trends, data-driven tactics, and how brands can stay competitive in a changing landscape.",
@@ -239,6 +281,13 @@ const rawBlogPosts: BlogPost[] = [
       role: "Brand Marketing Specialist",
     },
     keywords: ["Storytelling", "Branding", "Content Strategy", "Marketing"],
+    cta: {
+      heading: "Want to Strengthen Your Brand Story?",
+      description:
+        "Great brands connect with audiences through powerful storytelling, clear messaging, and authentic communication. Explore more insights on brand storytelling strategies, content marketing, and ways to build deeper emotional connections with your audience.",
+      btnText: "Explore Brand Storytelling Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Crafting Compelling Brand Stories That Convert",
     seoDescription:
       "Learn how to craft authentic brand stories that connect emotionally, strengthen identity, and drive meaningful conversions.",
@@ -286,7 +335,13 @@ const rawBlogPosts: BlogPost[] = [
       "User Experience",
       "Web Design",
     ],
-
+    cta: {
+      heading: "Want to Improve Your Website Conversions?",
+      description:
+        "Great design is not just about aesthetics — it directly impacts user behavior and conversions. Explore more insights on UX design strategies, landing page optimization, and techniques that help turn visitors into customers.",
+      btnText: "Explore Conversion Optimization Tips",
+      btnLink: "/services",
+    },
     seoTitle: "Design Principles for Conversion Optimization",
     seoDescription:
       "Discover proven design principles that improve user experience, engagement, and conversion rates across platforms.",
@@ -328,7 +383,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "If your only hire is an event manager, you're not building a successful league. You're producing events that disappear the moment the last chair is stacked.",
     category: "Sports Marketing",
-    image: blogImage1,
+    image: blogImage7,
     date: "Mar 10, 2026",
     readTime: "6 min read",
     author: {
@@ -343,6 +398,13 @@ const rawBlogPosts: BlogPost[] = [
       "sports event organizer",
       "sports event promotion",
     ],
+    cta: {
+      heading: "Want to Grow Your Sports League the Right Way?",
+      description:
+        "Running successful sports leagues requires more than organizing matches and managing events. Explore more insights on sports marketing, audience growth, sponsorship strategies, and how to build a league that attracts fans, players, and long-term partners.",
+      btnText: "Explore Sports Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Sports League Marketing vs Event Management | EyeLevel",
     seoDescription:
       "Running a sports league? Here's why hiring an event manager isn't enough — and what a sports marketing partner actually delivers for your league's growth.",
@@ -402,7 +464,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "India's sports economy is shifting. Here's what emerging leagues are getting right — and wrong — when it comes to marketing in 2026.",
     category: "Sports Marketing",
-    image: blogImage2,
+    image: blogImage8,
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
@@ -417,7 +479,13 @@ const rawBlogPosts: BlogPost[] = [
       "sports marketing agency Chennai",
       "digital marketing for athletes",
     ],
-
+    cta: {
+      heading: "Want to Build a Successful Sports League Brand?",
+      description:
+        "As the sports industry in India continues to evolve, strong marketing strategies are becoming essential for league growth. Explore more insights on fan engagement, sponsorship strategies, and digital marketing approaches that help emerging leagues build long-term success.",
+      btnText: "Explore Sports Marketing Insights",
+      btnLink: "/services",
+    },
     seoTitle: "Sports League Marketing in India 2026 | EyeLevel",
     seoDescription:
       "A ground-level look at how Indian sports leagues are marketing themselves in 2026 — what's working, what's failing, and where the biggest growth opportunities lie.",
@@ -470,7 +538,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Most sponsorship decks are designed to impress, not persuade. Here's the framework that gets sponsors to say yes.",
     category: "Sports Marketing",
-    image: blogImage3,
+    image: blogImage9,
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
@@ -485,6 +553,13 @@ const rawBlogPosts: BlogPost[] = [
       "sports marketing agency",
       "sports event promotion",
     ],
+    cta: {
+      heading: "Want to Attract More Sponsors for Your League?",
+      description:
+        "A strong sponsorship strategy goes beyond a well-designed deck. Learn more about building compelling sponsorship proposals, creating value for brands, and developing partnerships that drive long-term revenue for sports leagues and events.",
+      btnText: "Explore Sponsorship Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "How to Build a Sports Sponsorship Deck That Closes | EyeLevel",
     seoDescription:
       "Most sponsorship decks get ignored. Here's the exact framework for building a sports sponsorship proposal that sponsors actually read — and sign.",
@@ -546,7 +621,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Every year, Indian colleges and coaching institutes face the same high-stakes window: the admission season. Here's the playbook that fills seats.",
     category: "Education Marketing",
-    image: blogImage4,
+    image: blogImage10,
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
@@ -561,7 +636,13 @@ const rawBlogPosts: BlogPost[] = [
       "student recruitment marketing",
       "education lead generation agency",
     ],
-
+    cta: {
+      heading: "Want to Attract More Student Admissions?",
+      description:
+        "Successful admission campaigns require the right mix of digital marketing, targeted advertising, and clear communication with prospective students. Explore more insights on admission marketing strategies that help colleges and coaching institutes increase inquiries and fill seats every season.",
+      btnText: "Explore Admission Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Admission Season Marketing Playbook for Colleges | EyeLevel",
     seoDescription:
       "A step-by-step marketing playbook for colleges and coaching institutes to maximize enrollments during admission season — from Google Ads to landing pages to follow-up.",
@@ -616,7 +697,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Most preschools with empty seats don't have a curriculum problem or a fees problem. They have a marketing problem — and it has a systematic solution.",
     category: "Education Marketing",
-    image: blogImage6,
+    image: blogImage11,
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
@@ -630,6 +711,13 @@ const rawBlogPosts: BlogPost[] = [
       "education digital marketing services",
       "local SEO for schools, preschool enrollment",
     ],
+    cta: {
+      heading: "Want to Increase Preschool Admissions?",
+      description:
+        "Many preschools struggle with empty seats not because of curriculum or pricing, but because of weak marketing systems. Explore more insights on preschool marketing strategies, parent trust building, and digital campaigns that consistently drive new admissions.",
+      btnText: "Explore Preschool Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Preschool & Daycare Admissions Marketing India | EyeLevel",
     seoDescription:
       "Most preschools with empty seats don't have a capacity problem — they have a marketing problem. Here's how to fix preschool admissions with the right digital strategy.",
@@ -677,7 +765,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Some engineering colleges consistently fill 90%+ of their seats while others sit below 50%. The difference is the marketing system they've built around admissions.",
     category: "Education Marketing",
-    image: blogImage5,
+    image: blogImage12,
     date: "Mar 10, 2026",
     readTime: "9 min read",
     author: {
@@ -691,6 +779,13 @@ const rawBlogPosts: BlogPost[] = [
       "education lead generation agency",
       "higher education marketing agency",
     ],
+    cta: {
+      heading: "Want to Fill More Engineering College Seats?",
+      description:
+        "Colleges that consistently achieve high admission rates rely on structured marketing systems, targeted outreach, and strong digital visibility. Explore more insights on admission marketing strategies that help engineering colleges attract qualified students and increase enrollment.",
+      btnText: "Explore College Admission Marketing",
+      btnLink: "/services",
+    },
     seoTitle: "Engineering College Admissions Marketing Blueprint | EyeLevel",
     seoDescription:
       "A complete admissions marketing guide for engineering colleges in India — covering Google Ads, student lead generation, parent targeting, and seat fill strategies.",
@@ -745,7 +840,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Real estate developers in India aren't under-spending on marketing. They have a structure problem — and it's costing them significant revenue.",
     category: "Real Estate Marketing",
-    image: blogImage4,
+    image: blogImage13,
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
@@ -760,6 +855,13 @@ const rawBlogPosts: BlogPost[] = [
       "lead generation real estate India",
       "property marketing agency",
     ],
+    cta: {
+      heading: "Want to Improve Your Real Estate Marketing Strategy?",
+      description:
+        "Successful real estate marketing requires more than running ads. Discover more insights on lead generation systems, digital campaigns, and marketing strategies that help developers attract qualified buyers and convert more property inquiries into sales.",
+      btnText: "Explore Real Estate Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle:
       "What Real Estate Brands Get Wrong About Digital Marketing | EyeLevel",
     seoDescription:
@@ -811,7 +913,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "You can keep pouring more leads into the top of the funnel — but until you plug the holes, you'll never fill the bucket.",
     category: "Real Estate Marketing",
-    image: blogImage3,
+    image: blogImage14,
     date: "Mar 10, 2026",
     readTime: "8 min read",
     author: {
@@ -826,6 +928,13 @@ const rawBlogPosts: BlogPost[] = [
       "real estate marketing funnel",
       "digital marketing for real estate India",
     ],
+    cta: {
+      heading: "Want to Fix Your Real Estate Lead Conversion?",
+      description:
+        "Generating more leads won't solve the problem if your sales funnel is leaking. Explore more insights on real estate lead nurturing, sales funnel optimization, and marketing systems that turn property inquiries into qualified buyers.",
+      btnText: "Explore Lead Conversion Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "The Leaky Bucket Problem in Real Estate Marketing | EyeLevel",
     seoDescription:
       "You're generating real estate leads but they're not converting. The problem is your funnel — not your ads. Here's how to find and fix every leak in your lead pipeline.",
@@ -875,7 +984,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Run a social media campaign. Get traffic. Watch it disappear. Without a landing page, you're paying to deliver interested people to a door that doesn't open.",
     category: "Digital Marketing",
-    image: blogImage2,
+    image: blogImage15,
     date: "Mar 10, 2026",
     readTime: "7 min read",
     author: {
@@ -890,6 +999,13 @@ const rawBlogPosts: BlogPost[] = [
       "lead generation landing page",
       "digital marketing services in Chennai",
     ],
+    cta: {
+      heading: "Want Higher Conversions From Your Social Media Campaigns?",
+      description:
+        "Driving traffic from social media is only the first step. A well-designed landing page turns interested visitors into real leads and customers. Explore more insights on landing page strategy, campaign funnels, and conversion-focused marketing systems.",
+      btnText: "Explore Landing Page Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Why Social Media Campaigns Need Landing Pages | EyeLevel",
     seoDescription:
       "Running social media ads without landing pages is like pouring water into a broken glass. Here's why landing pages are essential for every campaign — and what to include.",
@@ -951,7 +1067,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "India's medical tourism market is growing — but most hospitals are capturing none of it. Here's how to build the marketing infrastructure to change that.",
     category: "Healthcare Marketing",
-    image: blogImage1,
+    image: blogImage16,
     date: "Mar 10, 2026",
     readTime: "9 min read",
     author: {
@@ -966,6 +1082,13 @@ const rawBlogPosts: BlogPost[] = [
       "hospital marketing agency",
       "healthcare seo agency",
     ],
+    cta: {
+      heading: "Want to Attract More International Patients to Your Hospital?",
+      description:
+        "India’s medical tourism industry is growing rapidly, but hospitals need strong digital marketing systems to reach patients globally. Explore more insights on medical tourism marketing, international patient acquisition, and strategies that help healthcare providers expand their global reach.",
+      btnText: "Explore Medical Tourism Marketing Strategies",
+      btnLink: "/services",
+    },
     seoTitle: "Medical Tourism Marketing for Indian Hospitals | EyeLevel",
     seoDescription:
       "India is the world's fastest-growing medical tourism destination. Here's how hospitals can market to international patients — from digital strategy to trust building.",
@@ -1074,11 +1197,11 @@ export const getBlogCategorySeo = (category: string) => {
   );
 
   return {
-    title: `${category} Blogs | The Eye Level Studio`,
+    title: `${category} Blogs | The EyeLevel Studio`,
     description:
       previewTopics.length > 0
-        ? `Explore ${category.toLowerCase()} insights from The Eye Level Studio covering ${previewTopics.join(", ")}.`
-        : `Explore ${category.toLowerCase()} insights and articles from The Eye Level Studio.`,
+        ? `Explore ${category.toLowerCase()} insights from The EyeLevel Studio covering ${previewTopics.join(", ")}.`
+        : `Explore ${category.toLowerCase()} insights and articles from The EyeLevel Studio.`,
     keywords: [`${category} blog`, `${category} insights`, ...previewTopics],
     canonical: `https://theeyelevelstudio.com${getBlogCategoryUrl(category)}`,
     url: `https://theeyelevelstudio.com${getBlogCategoryUrl(category)}`,

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
+import SEO from "@/components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -31,6 +32,8 @@ import {
   ClientLogosMarquee,
 } from "@/components/IndustryPageEnhancements";
 import GreenButton from "@/components/GreenButton";
+import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
+import { getVerticalBySlug } from "@/data/marketingVerticals";
 
 // 18-pointed star SVG component
 const Star18 = ({ className }: { className?: string }) => {
@@ -184,9 +187,31 @@ const RealEstateMarketing = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const vertical = getVerticalBySlug("real-estate-marketing");
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={vertical?.seoTitle || "Real Estate Marketing Agency | Property Sales & Lead Generation | EyeLevel"}
+        description={vertical?.seoDescription || "Real estate marketing expertise for developers, brokers, and agents. Drive property sales through targeted digital strategies."}
+        keywords={vertical?.keywords || ["real estate marketing", "property marketing", "real estate leads"]}
+        schema={[
+          organizationSchema,
+          localBusinessSchema,
+          marketingVerticalSchema({
+            name: vertical?.name || "Real Estate Marketing",
+            description: vertical?.overview || "",
+            url: "https://theeyelevelstudio.com/real-estate-marketing",
+            capabilities: vertical?.capabilities || [],
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+            { name: "Real Estate Marketing", url: "https://theeyelevelstudio.com/real-estate-marketing" },
+          ]),
+        ]}
+        canonical="https://theeyelevelstudio.com/real-estate-marketing"
+        url="https://theeyelevelstudio.com/real-estate-marketing"
+      />
       <Header />
 
       {/* Hero Section */}

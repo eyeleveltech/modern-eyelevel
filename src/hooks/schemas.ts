@@ -4,11 +4,11 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": ORG_ID,
-  name: "The Eye Level Studio",
+  name: "The EyeLevel Studio",
   url: "https://theeyelevelstudio.com/",
   logo: "https://theeyelevelstudio.com/logo_eyelevel.png",
   description:
-    "The Eye Level Studio is a global marketing agency delivering growth strategy, performance marketing, AI automation, creative branding, and Web3 marketing solutions.",
+    "The EyeLevel Studio is a global marketing agency delivering growth strategy, performance marketing, AI automation, creative branding, and Web3 marketing solutions.",
   sameAs: [
     "https://www.linkedin.com/company/theeyelevelstudio/",
     "https://www.instagram.com/theeyelevelstudio/",
@@ -29,7 +29,7 @@ export const websiteSchema = {
   "@type": "WebSite",
   "@id": "https://theeyelevelstudio.com/#website",
   url: "https://theeyelevelstudio.com/",
-  name: "The Eye Level Studio",
+  name: "The EyeLevel Studio",
   publisher: { "@id": ORG_ID },
   inLanguage: "en",
 };
@@ -134,4 +134,128 @@ export const faqSchema = {
       },
     },
   ],
+};
+
+export type FaqEntry = {
+  question: string;
+  answer: string;
+};
+
+export const faqPageSchema = (
+  faqs: FaqEntry[],
+  options?: { url?: string; id?: string },
+) => {
+  const url = options?.url;
+  const id = options?.id ?? (url ? `${url}#faq` : undefined);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    ...(id ? { "@id": id } : null),
+    ...(url ? { url } : null),
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+};
+
+// Local Business Schema - for local SEO (Chennai-based)
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theeyelevelstudio.com/#localbusiness",
+  name: "The EyeLevel Studio",
+  image: "https://theeyelevelstudio.com/logo_eyelevel.png",
+  description:
+    "Chennai-based growth studio specializing in marketing for Sports, Healthcare, and Education sectors.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Chennai, India",
+    addressLocality: "Chennai",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600000",
+    addressCountry: "IN",
+  },
+  telephone: "+91 97890 99499",
+  email: "hello@eyelevelstudio.in",
+  url: "https://theeyelevelstudio.com",
+  sameAs: [
+    "https://www.linkedin.com/company/theeyelevelstudio/",
+    "https://www.instagram.com/theeyelevelstudio/",
+    "https://www.youtube.com/@theeyelevelstudio",
+    "https://x.com/Eye_Levelstudio",
+    "https://www.facebook.com/share/1DN368ZHPh/",
+  ],
+  serviceArea: {
+    "@type": "Place",
+    name: "Global",
+  },
+  priceRange: "$$",
+};
+
+// Breadcrumb Schema - dynamic builder
+export const breadcrumbSchema = (items: Array<{ name: string; url: string }>) => {
+  const itemListElement = items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement,
+  };
+};
+
+// Marketing Vertical Schema - for industry-specific pages
+export const marketingVerticalSchema = (vertical: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  capabilities: string[];
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: vertical.name,
+    description: vertical.description,
+    url: vertical.url,
+    image: vertical.image,
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Place", name: "Global" },
+    serviceType: vertical.capabilities,
+  };
+};
+
+// Service Schema - for individual service pages
+export const serviceDetailSchema = (service: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  benefits: string[];
+}) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.description,
+    url: service.url,
+    image: service.image,
+    provider: { "@id": ORG_ID },
+    areaServed: { "@type": "Place", name: "Global" },
+    agg_rating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "50",
+    },
+  };
 };

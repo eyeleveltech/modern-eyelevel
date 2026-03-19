@@ -13,15 +13,20 @@ import teamImage4 from "@/assets/galleries/about/aboutImg4.jpg";
 import GreenButton from "@/components/GreenButton";
 import video from "@/assets/videos/videogallery.mp4";
 import video1 from "@/assets/videos/videogallery2.mp4";
-import akmal from "@/assets/people/akmal.jpeg";
-import jameel from "@/assets/people/jameel.jpeg";
-import jahangeer from "@/assets/people/jahangeer.jpeg";
+import akmal from "@/assets/people/akmal.webp";
+import jameel from "@/assets/people/jameel.webp";
+import jahangeer from "@/assets/people/jahangeer.webp";
 import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
 import faqs from "@/data/faqs";
+import {
+  faqPageSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/hooks/schemas";
 
 const values = [
   {
@@ -182,6 +187,13 @@ const About = () => {
           "EyeLevel Growth Studio, specialized marketing Chennai",
           "sports healthcare education agency",
           "digital marketing company Chennai",
+        ]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          faqPageSchema(faqs["About Us"], {
+            url: "https://theeyelevelstudio.com/about-us",
+          }),
         ]}
         canonical="https://theeyelevelstudio.com/about-us"
         url="https://theeyelevelstudio.com/about-us"

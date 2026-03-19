@@ -17,6 +17,7 @@ import GreenButton from "@/components/GreenButton";
 import SEO from "@/components/SEO";
 import {
   contactPageSchema,
+  faqPageSchema,
   organizationSchema,
   websiteSchema,
 } from "@/hooks/schemas";
@@ -106,7 +107,14 @@ const Contact = () => {
           "book marketing strategy call",
           "sports healthcare education agency inquiry",
         ]}
-        schema={[organizationSchema, websiteSchema, contactPageSchema]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          contactPageSchema,
+          faqPageSchema(faqs["Contact"], {
+            url: "https://theeyelevelstudio.com/contact-us",
+          }),
+        ]}
         canonical="https://theeyelevelstudio.com/contact-us"
         url="https://theeyelevelstudio.com/contact-us"
       />

@@ -17,6 +17,7 @@ import {
   getBlogArchiveSchema,
   getBlogCategoryUrl,
 } from "@/data/blogs";
+import { breadcrumbSchema, faqPageSchema } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 import FAQSection from "./FAQSection";
 
@@ -127,13 +128,37 @@ const BlogArchive = ({
     return () => observer.disconnect();
   }, []);
 
+  const baseUrl = "https://theeyelevelstudio.com";
+  
+  const breadcrumbs = activeCategory === ALL_BLOGS_CATEGORY
+    ? breadcrumbSchema([
+        { name: "Home", url: `${baseUrl}/` },
+        { name: "Blog", url: `${baseUrl}/blog` },
+      ])
+    : breadcrumbSchema([
+        { name: "Home", url: `${baseUrl}/` },
+        { name: "Blog", url: `${baseUrl}/blog` },
+        { name: activeCategory, url: `${baseUrl}${getBlogCategoryUrl(activeCategory)}` },
+      ]);
+
+  const archiveSchema = getBlogArchiveSchema(activeCategory);
+  const schemas = Array.isArray(archiveSchema)
+    ? [
+        ...archiveSchema,
+        breadcrumbs,
+        faqPageSchema(faqs["Blog"], { url }),
+      ]
+    : [archiveSchema, breadcrumbs, faqPageSchema(faqs["Blog"], { url })];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
       <SEO
         title={title}
         description={description}
         keywords={keywords}
-        schema={getBlogArchiveSchema(activeCategory)}
+        image={posts[0]?.image ? `${baseUrl}${posts[0].image}` : undefined}
+        imageAlt={posts[0]?.title ?? title}
+        schema={schemas}
         canonical={canonical}
         url={url}
       />

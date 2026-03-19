@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
+import SEO from "@/components/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -29,6 +30,8 @@ import {
   ClientLogosMarquee,
 } from "@/components/IndustryPageEnhancements";
 import GreenButton from "@/components/GreenButton";
+import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
+import { getVerticalBySlug } from "@/data/marketingVerticals";
 
 // 18-pointed star SVG component
 const Star18 = ({ className }: { className?: string }) => {
@@ -181,9 +184,31 @@ const SportsMarketing = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const vertical = getVerticalBySlug("sports-marketing");
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={vertical?.seoTitle || "Sports League Marketing Agency | Fan Engagement & Sponsorship | EyeLevel"}
+        description={vertical?.seoDescription || "Sports marketing agency specializing in league promotion, fan engagement, sponsorship activation, and sports event marketing."}
+        keywords={vertical?.keywords || ["sports marketing", "sports league marketing", "sports event marketing"]}
+        schema={[
+          organizationSchema,
+          localBusinessSchema,
+          marketingVerticalSchema({
+            name: vertical?.name || "Sports Marketing",
+            description: vertical?.overview || "",
+            url: "https://theeyelevelstudio.com/sports-marketing",
+            capabilities: vertical?.capabilities || [],
+          }),
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+            { name: "Sports Marketing", url: "https://theeyelevelstudio.com/sports-marketing" },
+          ]),
+        ]}
+        canonical="https://theeyelevelstudio.com/sports-marketing"
+        url="https://theeyelevelstudio.com/sports-marketing"
+      />
       <Header />
 
       {/* Hero Section */}

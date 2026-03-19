@@ -13,6 +13,7 @@ import {
   Calendar,
   ArrowRight,
   Facebook,
+  Youtube,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -46,7 +47,10 @@ const footerLinks = [
   {
     title: "Industries",
     links: [
-      { label: "Edu-Marketing", href: "/industries" },
+      {
+        label: "Edu-Marketing",
+        href: "/education-digital-marketing-services/",
+      },
       { label: "Sports Marketing", href: "/industries" },
       { label: "Real Estate", href: "/industries" },
       { label: "B2B Marketing", href: "/industries" },
@@ -69,6 +73,11 @@ const socialLinks = [
     icon: Facebook,
     label: "Facebook",
     href: "https://www.facebook.com/share/1DN368ZHPh/",
+  },
+  {
+    icon: Youtube,
+    label: "YouTube",
+    href: "https://www.youtube.com/@theeyelevelstudio",
   },
   { icon: Twitter, label: "Twitter", href: "https://x.com/Eye_Levelstudio" },
   {
@@ -701,12 +710,12 @@ const EnhancedFooter = ({
                 <ul className="space-y-2">
                   {section.links.map((link, i) => (
                     <li key={i}>
-                      <Link
-                        to={link.href}
+                      <a
+                        href={link.href}
                         className="text-white/50 hover:text-lime transition-colors duration-300 text-sm font-bricolage"
                       >
                         {link.label}
-                      </Link>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -723,7 +732,7 @@ const EnhancedFooter = ({
               <h3 className="text-white font-semibold font-bricolage mb-4 text-sm">
                 Connect
               </h3>
-              <div className="flex gap-3">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
@@ -743,7 +752,8 @@ const EnhancedFooter = ({
           {/* Bottom Bar */}
           <div className="flex flex-col md:flex-row items-center relative justify-between gap-4 pt-8 border-t border-white/10">
             <div className="flex items-center gap-3">
-              <img loading="lazy"
+              <img
+                loading="lazy"
                 src={eyelevelLogoColor}
                 alt="EyeLevel"
                 title="EyeLevel"
@@ -775,5 +785,3 @@ const EnhancedFooter = ({
 };
 
 export default EnhancedFooter;
-
-

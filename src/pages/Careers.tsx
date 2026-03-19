@@ -15,14 +15,14 @@ import { Button } from "@/components/ui/button";
 import WavyUnderline from "@/components/WavyUnderline";
 import mascotWave from "@/assets/mascot/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
-import career_mascot from "@/assets/mascot/career_mascot.png";
+import career_mascot from "@/assets/mascot/career_mascot.webp";
 import { useEffect, useRef, useState } from "react";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import SEO from "@/components/SEO";
 import { openPositions } from "@/data/careers";
-import FAQ from "@/components/FAQ";
 import faqs from "@/data/faqs";
 import FAQSection from "@/components/FAQSection";
+import { faqPageSchema, organizationSchema, websiteSchema } from "@/hooks/schemas";
 
 const benefits = [
   {
@@ -148,6 +148,13 @@ const Careers = () => {
           "digital marketing careers India",
           "performance marketing jobs",
           "social media marketing jobs Chennai",
+        ]}
+        schema={[
+          organizationSchema,
+          websiteSchema,
+          faqPageSchema(faqs["Careers"], {
+            url: "https://theeyelevelstudio.com/careers",
+          }),
         ]}
         canonical="https://theeyelevelstudio.com/careers"
         url="https://theeyelevelstudio.com/careers"

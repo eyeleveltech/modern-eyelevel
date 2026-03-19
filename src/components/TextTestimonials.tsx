@@ -25,7 +25,7 @@ const testimonials = [
   {
     id: 4,
     quote:
-      "This partnership with Eye Level Growth Studio for Bengaluru Open 2025 meant a lot. They aren't just an agency but turned out to be part of our team. Their passion and creativity brought our vision to life. Grateful for this collaboration, excited for what's next.",
+      "This partnership with EyeLevel Growth Studio for Bengaluru Open 2025 meant a lot. They aren't just an agency but turned out to be part of our team. Their passion and creativity brought our vision to life. Grateful for this collaboration, excited for what's next.",
     company: "Bengaluru Jawans",
   },
 ];

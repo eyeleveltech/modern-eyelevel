@@ -50,6 +50,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://theeyelevelstudio.com/education-digital-marketing-services</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://theeyelevelstudio.com/careers</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -89,16 +98,18 @@
   <!-- Blog -->
   <url>
     <loc>https://theeyelevelstudio.com/blog</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
     </image:image>
   </url>
+
+  <!-- Blog Categories -->
   <url>
     <loc>https://theeyelevelstudio.com/blog/category/ai</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
@@ -107,7 +118,7 @@
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/category/branding</loc>
-    <lastmod>2026-03-09</lastmod>
+    <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
@@ -115,8 +126,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://theeyelevelstudio.com/blog/category/design-process</loc>
-    <lastmod>2026-03-09</lastmod>
+    <loc>https://theeyelevelstudio.com/blog/category/design</loc>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
@@ -124,8 +135,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://theeyelevelstudio.com/blog/category/design-strategies</loc>
-    <lastmod>2026-03-09</lastmod>
+    <loc>https://theeyelevelstudio.com/blog/category/performance-marketing</loc>
+    <lastmod>2025-12-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
@@ -133,66 +144,194 @@
     </image:image>
   </url>
   <url>
-    <loc>https://theeyelevelstudio.com/blog/category/design-principles</loc>
-    <lastmod>2026-03-09</lastmod>
+    <loc>https://theeyelevelstudio.com/blog/category/sports-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <image:image>
       <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/category/education-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/category/real-estate-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/category/digital-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/category/healthcare-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+
+  <!-- Blog Posts -->
   <url>
     <loc>https://theeyelevelstudio.com/blog/how-ai-is-transforming-marketing-in-2026</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog1.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/the-psychology-of-color-in-branding</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog2.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/building-a-design-system-that-scales</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog3.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/the-future-of-performance-marketing</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2025-12-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog4.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/crafting-compelling-brand-stories</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog5.webp</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://theeyelevelstudio.com/blog/design-principles-for-conversion-optimization</loc>
-    <lastmod>2026-02-27</lastmod>
+    <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
-      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog6.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/why-your-sports-league-needs-a-marketing-partner</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog7.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/state-of-sports-league-marketing-india-2026</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog8.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/how-to-build-a-sponsorship-deck-that-closes-deals</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog9.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/admission-season-marketing-playbook-for-colleges-and-coaching-institutes</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog10.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/why-preschool-and-daycare-admissions-are-a-marketing-problem</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog11.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/engineering-college-admissions-marketing-blueprint</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog12.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/what-most-real-estate-brands-get-wrong-about-digital-marketing</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog13.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/the-leaky-bucket-problem-why-real-estate-leads-dont-convert</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog14.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/why-every-social-media-campaign-needs-a-landing-page</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog15.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/blog/medical-tourism-marketing-how-indian-hospitals-can-attract-international-patients</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/blog-images/blog16.webp</image:loc>
     </image:image>
   </url>
 

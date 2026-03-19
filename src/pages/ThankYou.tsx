@@ -4,7 +4,7 @@ import EnhancedFooter from "@/components/EnhancedFooter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mascotTrophy from "@/assets/mascot/mascot_transparent.png";
+import mascotTrophy from "@/assets/mascot/mascot_transparent.webp";
 import SEO from "@/components/SEO";
 
 type ThankYouType = "application" | "contact" | "booking" | "general";
@@ -89,8 +89,8 @@ const ThankYou = () => {
       style={{ backgroundColor: "#253e35" }}
     >
       <SEO
-        title="Thank You | The Eye Level Studio"
-        description="Your submission has been received by The Eye Level Studio."
+        title="Thank You | The EyeLevel Studio"
+        description="Your submission has been received by The EyeLevel Studio."
         keywords={[
           "thank you page",
           "submission received",
