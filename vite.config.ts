@@ -6,7 +6,14 @@ import { vitePrerenderPlugin } from "vite-prerender-plugin";
 
 const prerenderRoutes = [
   "/",
-  // "/about-us",
+  "/about-us",
+  "/services",
+  "/industries",
+  "/contact-us",
+  "/blog",
+  "/careers",
+  "/privacy-policy",
+  "/terms-and-condition",
 ];
 
 // https://vitejs.dev/config/
@@ -17,14 +24,11 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    // Prerender plugin disabled due to SSR issues with third-party libraries
-    // The app will still work perfectly as a client-side React application
-    // Uncomment and fix when ready to implement proper SSR
-    // vitePrerenderPlugin({
-    //   renderTarget: "#root",
-    //   prerenderScript: path.resolve(__dirname," ./src/prerender.tsx"),
-    //   additionalPrerenderRoutes: prerenderRoutes,
-    // }),
+    vitePrerenderPlugin({
+      renderTarget: "#root",
+      prerenderScript: path.resolve(__dirname, "./src/prerender.tsx"),
+      additionalPrerenderRoutes: prerenderRoutes,
+    }),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {

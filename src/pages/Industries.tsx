@@ -18,8 +18,7 @@ import industryRealestate from "@/assets/industries/realestate.webp";
 import industryB2b from "@/assets/industries/b2b.webp";
 import finTech from "@/assets/industries/fintech.webp";
 import WavyUnderline from "@/components/WavyUnderline";
-
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import SEO from "@/components/SEO";
 import {
   faqPageSchema,
@@ -156,6 +155,31 @@ const industries = [
       "Growth Hacking",
     ],
   },
+  {
+    id: "pickleball-marketing",
+    number: "06",
+    title: "Pickleball Marketing",
+    tagline: "From Courts to Community",
+    shortTagline: "Scale the League.",
+    description:
+      "We help pickleball leagues, clubs, tournaments, and brands turn fast-growing interest into stronger communities, fuller events, and sponsor-ready visibility.",
+    longDescription:
+      "From launch buzz to long-term fan retention, we build marketing systems for pickleball properties that need more than generic sports promotion. We connect local energy with digital reach so your league, club, or tournament keeps growing on and off the court.",
+    href: "/pickleball-agency",
+    image: industrySports,
+    accentColor: "#C7B6FF",
+    stats: [
+      { value: "3x", label: "Community Growth" },
+      { value: "40%", label: "Higher Event Turnout" },
+      { value: "25+", label: "Brand & League Campaigns" },
+    ],
+    capabilities: [
+      "Tournament Promotion",
+      "Community Growth",
+      "Sponsorship Packaging",
+      "Player & Club Branding",
+    ],
+  },
 ];
 
 // 18-pointed star SVG component (reused from Hero)
@@ -194,7 +218,7 @@ const Industries = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const ref = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const lottieRef = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -316,7 +340,7 @@ const Industries = () => {
             </span>
           </motion.div>
           {animationData && (
-            <Lottie
+            <ClientLottie
               lottieRef={lottieRef}
               animationData={animationData}
               autoPlay={false}
@@ -343,9 +367,9 @@ const Industries = () => {
             className="font-bricolage text-base md:text-lg lg:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed"
             style={{ color: "#F8FFE8" }}
           >
-            We believe that true proficiency comes from deep focus. Four key
-            verticals. Years of immersion. Strategies that are not just creative
-            but contextually brilliant.
+            We believe that true proficiency comes from deep focus. Six focused
+            categories. Years of immersion. Strategies that are not just
+            creative but contextually brilliant.
           </motion.p>
 
           {/* Industry quick links */}

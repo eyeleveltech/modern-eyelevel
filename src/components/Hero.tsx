@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "./ClientLottie";
 import WavyUnderline from "./WavyUnderline";
 import { useMotionValueEvent } from "framer-motion";
 
@@ -35,7 +35,7 @@ const Star18 = ({ className }: { className?: string }) => {
 const Hero = () => {
   // animation
   const ref = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const lottieRef = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -124,7 +124,7 @@ const Hero = () => {
                 FIRE
               </span>
               {animationData && (
-                <Lottie
+                <ClientLottie
                   lottieRef={lottieRef}
                   animationData={animationData}
                   autoPlay={false}
@@ -174,7 +174,7 @@ const Hero = () => {
           </motion.div>
         </div>
         {/* {animationData && (
-          <Lottie
+          <ClientLottie
             lottieRef={lottieRef}
             animationData={animationData}
             loop={true}

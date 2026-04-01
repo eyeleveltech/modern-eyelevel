@@ -17,7 +17,7 @@ import mascotWave from "@/assets/mascot/mascot-wave.png";
 import GreenButton from "@/components/GreenButton";
 import career_mascot from "@/assets/mascot/career_mascot.webp";
 import { useEffect, useRef, useState } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import SEO from "@/components/SEO";
 import { openPositions } from "@/data/careers";
 import faqs from "@/data/faqs";
@@ -72,8 +72,8 @@ const Star18 = ({ className }: { className?: string }) => {
 };
 
 const Careers = () => {
-  const lottieRef1 = useRef<LottieRefCurrentProps>(null);
-  const lottieRef2 = useRef<LottieRefCurrentProps>(null);
+  const lottieRef1 = useRef<ClientLottieRef>(null);
+  const lottieRef2 = useRef<ClientLottieRef>(null);
 
   const [anim1, setAnim1] = useState<unknown>(null);
   const [anim2, setAnim2] = useState<unknown>(null);
@@ -198,7 +198,7 @@ const Careers = () => {
               <span className="relative inline-block">
                 D{/* Animation 1 pinned to D */}
                 {anim1 && (
-                  <Lottie
+                  <ClientLottie
                     lottieRef={lottieRef1}
                     animationData={anim1}
                     autoplay={false}
@@ -219,7 +219,7 @@ const Careers = () => {
               <span className="relative inline-block">
                 R{/* Animation 2 pinned to last R */}
                 {anim2 && (
-                  <Lottie
+                  <ClientLottie
                     lottieRef={lottieRef2}
                     animationData={anim2}
                     autoplay={false}
@@ -235,7 +235,7 @@ const Careers = () => {
           </motion.h1>
           {/* animation
           {anim1 && (
-            <Lottie
+            <ClientLottie
               lottieRef={lottieRef1}
               animationData={anim1}
               autoplay={false}
@@ -250,7 +250,7 @@ const Careers = () => {
           )}
 
           {anim2 && (
-            <Lottie
+            <ClientLottie
               lottieRef={lottieRef2}
               animationData={anim2}
               autoplay={false}

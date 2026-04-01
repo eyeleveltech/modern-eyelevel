@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import WavyUnderline from "@/components/WavyUnderline";
-import Lottie from "lottie-react";
+import ClientLottie from "@/components/ClientLottie";
 import GreenButton from "./GreenButton";
 
 type AnimationKey = "stare" | "scatt" | "blocks" | "gun";
@@ -276,7 +276,7 @@ const MascotLottie = memo(({ index, activeIndex, animation }: MascotLottieProps)
     >
       <div className="w-56 h-56 md:w-72 md:h-72 lg:w-78 lg:h-78">
         {animation ? (
-          <Lottie
+          <ClientLottie
             animationData={animation as object}
             loop
             autoplay

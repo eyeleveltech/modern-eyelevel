@@ -23,7 +23,7 @@ import { useToast } from "@/hooks/use-toast";
 import eyelevelLogoColor from "@/assets/branding/eyelevel-logo-color-new.png";
 import WavyUnderline from "./WavyUnderline";
 import GreenButton from "./GreenButton";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "./ClientLottie";
 
 const footerLinks = [
   {
@@ -54,6 +54,7 @@ const footerLinks = [
       { label: "Sports Marketing", href: "/industries" },
       { label: "Real Estate", href: "/industries" },
       { label: "B2B Marketing", href: "/industries" },
+      { label: "Pickleball Marketing", href: "/pickleball-agency" },
     ],
   },
 ];
@@ -205,9 +206,9 @@ const EnhancedFooter = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const ref = useRef(null);
-  const lottieRef1 = useRef<LottieRefCurrentProps>(null);
-  const lottieRef2 = useRef<LottieRefCurrentProps>(null);
-  const lottieRef3 = useRef<LottieRefCurrentProps>(null);
+  const lottieRef1 = useRef<ClientLottieRef>(null);
+  const lottieRef2 = useRef<ClientLottieRef>(null);
+  const lottieRef3 = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -657,7 +658,7 @@ const EnhancedFooter = ({
           style={{ backgroundColor: mascotBgColor }}
           className="flex items-center border-0 outline-none justify-between w-full"
         >
-          <Lottie
+          <ClientLottie
             lottieRef={lottieRef1}
             animationData={animationData}
             autoPlay={false}
@@ -667,7 +668,7 @@ const EnhancedFooter = ({
             }}
             className="w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-40"
           />
-          <Lottie
+          <ClientLottie
             lottieRef={lottieRef2}
             animationData={animationData}
             autoPlay={false}
@@ -677,7 +678,7 @@ const EnhancedFooter = ({
             }}
             className=" w-[150px] md:w-[180px] lg:w-[200px] pointer-events-none z-40"
           />
-          <Lottie
+          <ClientLottie
             lottieRef={lottieRef3}
             animationData={animationData}
             autoPlay={false}

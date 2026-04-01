@@ -29,7 +29,7 @@ import web_1 from "@/assets/mockup/web_1.webp";
 import web_2 from "@/assets/mockup/web_2.webp";
 import web_3 from "@/assets/mockup/web_3.webp";
 import web_4 from "@/assets/mockup/web_4.webp";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import { useEffect, useRef, useState } from "react";
 import SEO from "@/components/SEO";
 import {
@@ -276,7 +276,7 @@ const Star18 = ({ className }: { className?: string }) => {
 };
 const ServicesPage = () => {
   const ref = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const lottieRef = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -416,7 +416,7 @@ const ServicesPage = () => {
               GR
               <span className="">
                 {animationData && (
-                  <Lottie
+                  <ClientLottie
                     lottieRef={lottieRef}
                     animationData={animationData}
                     autoPlay={false}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { Input } from "@/components/ui/input";
@@ -47,7 +47,7 @@ const BlogArchive = ({
   const [searchQuery, setSearchQuery] = useState("");
   const [email, setEmail] = useState("");
   const ref = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const lottieRef = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
   const hasPlayedInitial = useRef(false);
   const hasLeftHero = useRef(false);
@@ -204,7 +204,7 @@ const BlogArchive = ({
             )}
           </motion.h1>
           {animationData && (
-            <Lottie
+            <ClientLottie
               lottieRef={lottieRef}
               animationData={animationData}
               autoPlay={false}

@@ -18,7 +18,7 @@ import jameel from "@/assets/people/jameel.webp";
 import jahangeer from "@/assets/people/jahangeer.webp";
 import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
 import faqs from "@/data/faqs";
@@ -100,7 +100,7 @@ const videoMap: Record<number, string> = {
 };
 const About = () => {
   const ref = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const lottieRef = useRef<ClientLottieRef>(null);
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -247,7 +247,7 @@ const About = () => {
             className="flex items-center justify-center gap-4 mb-10 relative"
           >
             {animationData && (
-              <Lottie
+              <ClientLottie
                 lottieRef={lottieRef}
                 animationData={animationData}
                 autoPlay={false}
