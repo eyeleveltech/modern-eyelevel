@@ -24,9 +24,10 @@ export interface Industry {
 export const industries: Industry[] = [
   {
     id: "sports-marketing",
-    slug: "sports-marketing",
+    slug: "sports-marketing-agency",
     name: "Sports Marketing",
-    seoTitle: "Sports League Marketing Agency | Fan Engagement & Sponsorship | EyeLevel",
+    seoTitle:
+      "Sports League Marketing Agency | Fan Engagement & Sponsorship | EyeLevel",
     seoDescription:
       "Sports marketing agency specializing in league promotion, fan engagement, sponsorship activation, and sports event marketing for leagues, teams, and sporting brands.",
     shortDescription:
@@ -77,9 +78,10 @@ export const industries: Industry[] = [
   },
   {
     id: "healthcare-marketing",
-    slug: "healthcare-marketing",
+    slug: "healthcare-marketing-agency",
     name: "Healthcare Marketing",
-    seoTitle: "Healthcare Marketing Agency | Patient Acquisition & Reputation | EyeLevel",
+    seoTitle:
+      "Healthcare Marketing Agency | Patient Acquisition & Reputation | EyeLevel",
     seoDescription:
       "Healthcare marketing for hospitals, clinics, practitioners, and medical brands. Patient acquisition, reputation management, and compliant digital marketing.",
     shortDescription:
@@ -130,9 +132,10 @@ export const industries: Industry[] = [
   },
   {
     id: "education-marketing",
-    slug: "education-digital-marketing-services",
+    slug: "education-marketing-agency",
     name: "Education Marketing",
-    seoTitle: "Education Marketing Agency | Student Enrollment Solutions | EyeLevel",
+    seoTitle:
+      "Education Marketing Agency | Student Enrollment Solutions | EyeLevel",
     seoDescription:
       "Specialized education marketing agency helping schools, colleges & institutions boost student enrollment through targeted digital strategies, SEO, and lead generation.",
     shortDescription:
@@ -183,9 +186,10 @@ export const industries: Industry[] = [
   },
   {
     id: "real-estate-marketing",
-    slug: "real-estate-marketing",
+    slug: "real-estate-marketing-agency",
     name: "Real Estate Marketing",
-    seoTitle: "Real Estate Marketing Agency | Property Sales & Lead Generation | EyeLevel",
+    seoTitle:
+      "Real Estate Marketing Agency | Property Sales & Lead Generation | EyeLevel",
     seoDescription:
       "Real estate marketing expertise for developers, brokers, and agents. Drive property sales through targeted digital strategies, virtual tours, and qualified buyer generation.",
     shortDescription:
@@ -236,7 +240,7 @@ export const industries: Industry[] = [
   },
   {
     id: "b2b-marketing",
-    slug: "b2b-marketing",
+    slug: "b2b-marketing-agency",
     name: "B2B Marketing",
     seoTitle: "B2B Marketing Agency | Enterprise Sales Growth | EyeLevel",
     seoDescription:
@@ -304,7 +308,10 @@ export const getAllIndustries = (): Industry[] => {
 };
 
 // Schema builder function
-export const getIndustrySchema = (industry: Industry, baseUrl = "https://theeyelevelstudio.com") => {
+export const getIndustrySchema = (
+  industry: Industry,
+  baseUrl = "https://theeyelevelstudio.com",
+) => {
   return {
     "@context": "https://schema.org",
     "@type": "Service",

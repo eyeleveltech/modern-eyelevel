@@ -49,12 +49,12 @@ const footerLinks = [
     links: [
       {
         label: "Edu-Marketing",
-        href: "/education-digital-marketing-services/",
+        href: "/education-marketing-agency/",
       },
-      { label: "Sports Marketing", href: "/industries" },
-      { label: "Real Estate", href: "/industries" },
-      { label: "B2B Marketing", href: "/industries" },
-      { label: "Pickleball Marketing", href: "/pickleball-agency" },
+      { label: "Sports Marketing", href: "/sports-marketing-agency" },
+      { label: "Real Estate", href: "/real-estate-marketing-agency" },
+      { label: "B2B Marketing", href: "/b2b-marketing-agency" },
+      { label: "Pickleball Marketing", href: "/pickleball-marketing-agency" },
     ],
   },
 ];

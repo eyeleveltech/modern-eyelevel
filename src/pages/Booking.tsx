@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import WavyUnderline from "@/components/WavyUnderline";
 import SEO from "@/components/SEO";
+import { bookingPageSchema } from "@/hooks/schemas";
 
 const Booking = () => {
   return (
@@ -16,6 +17,7 @@ const Booking = () => {
           "branding consultation",
           "AI marketing consultation",
         ]}
+        schema={bookingPageSchema}
         canonical="https://theeyelevelstudio.com/booking"
         url="https://theeyelevelstudio.com/booking"
       />

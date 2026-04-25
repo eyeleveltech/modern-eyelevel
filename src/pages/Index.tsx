@@ -12,9 +12,10 @@ import SEO from "@/components/SEO";
 import {
   faqPageSchema,
   homePageSchema,
+  homeServicesSchema,
   organizationSchema,
   websiteSchema,
-  localBusinessSchema,
+  breadcrumbSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 
@@ -35,7 +36,10 @@ const Index = () => {
           organizationSchema,
           websiteSchema,
           homePageSchema,
-          localBusinessSchema,
+          homeServicesSchema,
+          breadcrumbSchema([
+            { name: "Home", url: "https://theeyelevelstudio.com/" },
+          ]),
           faqPageSchema(faqs["Home"], { url: "https://theeyelevelstudio.com/" }),
         ]}
         canonical="https://theeyelevelstudio.com/"

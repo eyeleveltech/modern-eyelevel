@@ -2,6 +2,10 @@
   RewriteEngine On
   RewriteBase /
 
+  # ✅ ADD THIS AT VERY TOP (before 404 block)
+  RewriteRule ^education-digital-marketing-services/?$ /education-marketing-agency/ [R=301,L]
+  RewriteRule ^pickleball-agency/?$ /pickleball-marketing-agency/ [R=301,L]
+
   # Block junk query strings like ?161df1950567902.html (not real pages)
   RewriteCond %{QUERY_STRING} ^[0-9a-f]{8,}\.html=?$ [NC]
   RewriteRule ^ - [R=410,L]

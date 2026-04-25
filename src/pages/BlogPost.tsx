@@ -219,7 +219,7 @@ const BlogPost = () => {
                 >
                   {post.category}
                 </span>
-                <h1 className="font-dela text-3xl md:text-4xl lg:text-5xl text-[#F8FFE8] uppercase mb-4">
+                <h1 className="font-dela text-2xl md:text-4xl lg:text-5xl text-[#F8FFE8] uppercase mb-4">
                   {post.title}
                 </h1>
               </motion.div>

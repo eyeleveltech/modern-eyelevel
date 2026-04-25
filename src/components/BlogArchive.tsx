@@ -17,7 +17,7 @@ import {
   getBlogArchiveSchema,
   getBlogCategoryUrl,
 } from "@/data/blogs";
-import { breadcrumbSchema, faqPageSchema } from "@/hooks/schemas";
+import { blogPageSchema, breadcrumbSchema, faqPageSchema } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 import FAQSection from "./FAQSection";
 
@@ -144,11 +144,17 @@ const BlogArchive = ({
   const archiveSchema = getBlogArchiveSchema(activeCategory);
   const schemas = Array.isArray(archiveSchema)
     ? [
+        ...(activeCategory === ALL_BLOGS_CATEGORY ? [blogPageSchema] : []),
         ...archiveSchema,
         breadcrumbs,
         faqPageSchema(faqs["Blog"], { url }),
       ]
-    : [archiveSchema, breadcrumbs, faqPageSchema(faqs["Blog"], { url })];
+    : [
+        ...(activeCategory === ALL_BLOGS_CATEGORY ? [blogPageSchema] : []),
+        archiveSchema,
+        breadcrumbs,
+        faqPageSchema(faqs["Blog"], { url }),
+      ];
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>

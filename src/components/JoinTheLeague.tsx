@@ -1,27 +1,19 @@
 import { motion } from "framer-motion";
-import logo_1 from "@/assets/logos/logo_01.png";
-import logo_2 from "@/assets/logos/logo_02.png";
-import logo_3 from "@/assets/logos/logo_03.png";
-import logo_4 from "@/assets/logos/logo_04.png";
-import logo_5 from "@/assets/logos/logo_05.png";
-import logo_6 from "@/assets/logos/logo_06.png";
-import logo_7 from "@/assets/logos/logo_07.png";
-import logo_8 from "@/assets/logos/logo_08.png";
-import logo_9 from "@/assets/logos/logo_09.png";
+import logo_1 from "@/assets/logos/logo_1.png";
+import logo_2 from "@/assets/logos/logo_2.png";
+import logo_3 from "@/assets/logos/logo_3.webp";
+import logo_4 from "@/assets/logos/logo_4.png";
+import logo_5 from "@/assets/logos/logo_5.png";
+import logo_6 from "@/assets/logos/logo_6.png";
+import logo_7 from "@/assets/logos/logo_7.png";
+import logo_8 from "@/assets/logos/logo_8.png";
+import logo_9 from "@/assets/logos/logo_9.png";
 import logo_10 from "@/assets/logos/logo_10.png";
-
-const clients = [
-  "Hi Living",
-  "GATACA",
-  "Secret Alchemist",
-  "Chennai Super Champs",
-  "Bengaluru Jawans",
-  "Vilaasa Estates",
-  "Lalteen",
-  "Joyalukkas",
-  "Liza",
-  "Nura J",
-];
+import logo_11 from "@/assets/logos/logo_11.png";
+import logo_12 from "@/assets/logos/logo_12.png";
+import logo_13 from "@/assets/logos/logo_13.png";
+import logo_14 from "@/assets/logos/logo_14.png";
+import logo_15 from "@/assets/logos/logo_15.png";
 
 const JoinTheLeague = () => {
   const clientLogo = [
@@ -35,6 +27,11 @@ const JoinTheLeague = () => {
     logo_8,
     logo_9,
     logo_10,
+    logo_11,
+    logo_12,
+    logo_13,
+    logo_14,
+    logo_15,
   ];
 
   return (
@@ -91,23 +88,27 @@ const JoinTheLeague = () => {
 
                 {/* Marquee track */}
                 <div className="overflow-hidden w-full">
-                  <div className="flex gap-20 w-max animate-marquee-reverse items-center animate-in">
-                    {[
-                      ...clientLogo,
-                      ...clientLogo,
-                      ...clientLogo,
-                      ...clientLogo,
-                    ].map((client, index) => (
+                  <div className="flex w-max animate-join-league-marquee items-center">
+                    {[0, 1, 2].map((groupIndex) => (
                       <div
-                        key={index}
-                        className="flex-shrink-0 px-6 flex items-center justify-center"
+                        key={groupIndex}
+                        className="flex shrink-0 gap-14 md:gap-20 pr-14 md:pr-20 items-center"
+                        aria-hidden={groupIndex > 0}
                       >
-                        <img loading="lazy"
-                          src={client}
-                          alt="Client logo"
-                          title="Client logo"
-                          className="h-12 md:h-16 w-auto object-contain"
-                        />
+                        {clientLogo.map((client, index) => (
+                          <div
+                            key={`${groupIndex}-${index}`}
+                            className="flex-shrink-0 w-36 md:w-44 h-20 flex items-center justify-center"
+                          >
+                            <img
+                              loading="lazy"
+                              src={client}
+                              alt="Client logo"
+                              title="Client logo"
+                              className="h-14 md:h-16 w-36 md:w-40 object-contain"
+                            />
+                          </div>
+                        ))}
                       </div>
                     ))}
                   </div>
@@ -121,4 +122,3 @@ const JoinTheLeague = () => {
   );
 };
 export default JoinTheLeague;
-

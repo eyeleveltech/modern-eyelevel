@@ -21,6 +21,7 @@ export type JobListing = {
   responsibilities: string[];
   requirements: string[];
   qualities: string[];
+  whatYouGet?: string[];
   benefits: string[];
 };
 
@@ -33,6 +34,14 @@ export const titleToSlug = (title: string) =>
     .replace(/^-+|-+$/g, "");
 
 const rawOpenPositions = [
+  {
+    title: "Social Media Intern",
+    department: "Social Media",
+    type: "Full-time · Internship",
+    location: "Chennai, India",
+    description:
+      "Work on real client accounts and learn social media marketing from the inside.",
+  },
   {
     title: "Real Estate Sales Manager",
     department: "Sales",
@@ -66,6 +75,59 @@ const rawOpenPositions = [
 ] satisfies Array<Omit<OpenPosition, "slug">>;
 
 const rawJobListings: Record<string, JobListing> = {
+  "social-media-intern": {
+    title: "Social Media Intern",
+    department: "Social Media",
+    type: "Full-time · Internship",
+    location: "Chennai, India",
+    datePosted: "25/04/2026",
+    experience: "Fresher / 0-1 Years",
+    shortDescription:
+      "Work on real client accounts and learn social media marketing from the inside.",
+    aboutCompany: `Growth is a climb. We don't do guesswork. EyeLevel Growth Studio isn't a traditional "stiff" agency. We are a high-performance growth engine. We unite strategy, design, AI, and performance to help brands rise.
+Our promise is simple: Serious attention. Clear timelines. No confusion. We don't care about vanity metrics. We care about leads, sales, and real business outcomes. We are the "smart, busy friend" clients trust to get it done.
+`,
+    responsibilities: [
+      "Manage social media accounts for real clients across Instagram, LinkedIn, Facebook, and YouTube",
+      "Plan and execute monthly content calendars",
+      "Write captions, copy, and content briefs that actually perform",
+      "Coordinate with the creative team to brief and deliver content on time",
+      "Monitor performance - track what's working and flag what isn't",
+      "Stay ahead of trends and bring platform-native ideas to the table",
+      "Engage with audiences, respond to comments, and build community",
+      "Support campaign execution from planning to posting",
+    ],
+    requirements: [
+      "Genuine understanding of how Instagram, LinkedIn, and Facebook work - not just as a user, but as a marketer",
+      "Strong written communication in English",
+      "Basic understanding of content strategy and social media metrics",
+      "Ability to manage multiple accounts and deadlines without dropping the ball",
+      "Familiarity with tools like Canva, Meta Business Suite, or scheduling platforms is a plus",
+      "No prior agency experience required - but you must have a point of view",
+    ],
+    qualities: [
+      "Someone who notices when a brand's social media is underperforming - and knows why",
+      "Organised, reliable, and proactive under pressure",
+      "Creative thinker who can execute fast",
+      "Open to feedback and hungry to improve",
+      "Self-starter who doesn't wait to be told what to do",
+      "Someone who takes content seriously - not just someone who \"likes social media\"",
+    ],
+    whatYouGet: [
+      "Paid internship from Day 1",
+      "Work on real client accounts - sports leagues, wellness brands, events, and more",
+      "Direct mentorship from EyeLevel's founding team",
+      "A full-time permanent role at the end of 3 months - no guesswork, no maybe",
+      "Fast-paced environment where your work actually matters",
+    ],
+    benefits: [
+      "Work on real brands and real growth problems",
+      "Fast-paced, high-performance culture",
+      "Clear expectations and zero confusion",
+      "Room to grow creatively and professionally",
+      "A team that values output over noise",
+    ],
+  },
   "real-estate-sales-manager": {
     title: "Real Estate Sales Manager",
     department: "Sales",

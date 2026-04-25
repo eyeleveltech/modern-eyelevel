@@ -18,8 +18,7 @@ import SEO from "@/components/SEO";
 import {
   contactPageSchema,
   faqPageSchema,
-  organizationSchema,
-  websiteSchema,
+  localBusinessSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 import FAQSection from "@/components/FAQSection";
@@ -108,9 +107,8 @@ const Contact = () => {
           "sports healthcare education agency inquiry",
         ]}
         schema={[
-          organizationSchema,
-          websiteSchema,
           contactPageSchema,
+          localBusinessSchema,
           faqPageSchema(faqs["Contact"], {
             url: "https://theeyelevelstudio.com/contact-us",
           }),

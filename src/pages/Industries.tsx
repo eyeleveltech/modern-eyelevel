@@ -17,6 +17,7 @@ import industrySports from "@/assets/industries/sport.webp";
 import industryRealestate from "@/assets/industries/realestate.webp";
 import industryB2b from "@/assets/industries/b2b.webp";
 import finTech from "@/assets/industries/fintech.webp";
+import pickelball from "@/assets/industries/pickleball.webp";
 import WavyUnderline from "@/components/WavyUnderline";
 import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
 import SEO from "@/components/SEO";
@@ -40,7 +41,7 @@ const industries = [
       "We help schools, universities, and EdTech companies build powerful brands and create a predictable pipeline of qualified student applications.",
     longDescription:
       "Partner with us to streamline your admissions funnel and attract students who are the perfect fit for your campus. Our data-driven approach ensures every marketing dollar translates into quality enrollments.",
-    href: "/education-digital-marketing-services/",
+    href: "/education-marketing-agency/",
     image: industryEducation,
     accentColor: "#B8D4BE",
     stats: [
@@ -65,7 +66,7 @@ const industries = [
       "We help sports teams, leagues, and event organizers translate passion into packed stadiums, engaged communities, and lucrative commercial opportunities.",
     longDescription:
       "Go beyond the game with brand strategies that maximize your reach and monetize your global fanbase. We turn every match into a marketing opportunity.",
-    href: "#",
+    href: "/sports-marketing-agency",
     image: industrySports,
     accentColor: "#FFB4B4",
     stats: [
@@ -90,7 +91,7 @@ const industries = [
       "We help developers, brokers, and property management companies build powerful brands and generate a consistent flow of qualified leads.",
     longDescription:
       "Leverage high-performance digital systems built specifically to move real estate inventory in competitive markets. From pre-launch to sold-out.",
-    href: "#",
+    href: "/real-estate-marketing-agency",
     image: industryRealestate,
     accentColor: "#E2FEA5",
     stats: [
@@ -115,7 +116,7 @@ const industries = [
       "We help B2B companies build a predictable pipeline of qualified leads and nurture them into long-term, high-value customers.",
     longDescription:
       "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
-    href: "#",
+    href: "/b2b-marketing-agency",
     image: industryB2b,
     accentColor: "#FCFAC2",
     stats: [
@@ -140,7 +141,7 @@ const industries = [
       "We help FinTech startups, gaming studios, and Web3 projects build passionate communities that drive sustainable growth in decentralized ecosystems",
     longDescription:
       "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
-    href: "#",
+    href: "/fintech-marketing-agency ",
     image: finTech,
     accentColor: "#FCFAC2",
     stats: [
@@ -165,8 +166,8 @@ const industries = [
       "We help pickleball leagues, clubs, tournaments, and brands turn fast-growing interest into stronger communities, fuller events, and sponsor-ready visibility.",
     longDescription:
       "From launch buzz to long-term fan retention, we build marketing systems for pickleball properties that need more than generic sports promotion. We connect local energy with digital reach so your league, club, or tournament keeps growing on and off the court.",
-    href: "/pickleball-agency",
-    image: industrySports,
+    href: "/pickleball-marketing-agency",
+    image: pickelball,
     accentColor: "#C7B6FF",
     stats: [
       { value: "3x", label: "Community Growth" },

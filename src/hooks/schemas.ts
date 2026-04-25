@@ -7,8 +7,6 @@ export const organizationSchema = {
   name: "The EyeLevel Studio",
   url: "https://theeyelevelstudio.com/",
   logo: "https://theeyelevelstudio.com/logo_eyelevel.png",
-  description:
-    "The EyeLevel Studio is a global marketing agency delivering growth strategy, performance marketing, AI automation, creative branding, and Web3 marketing solutions.",
   sameAs: [
     "https://www.linkedin.com/company/theeyelevelstudio/",
     "https://www.instagram.com/theeyelevelstudio/",
@@ -16,12 +14,6 @@ export const organizationSchema = {
     "https://x.com/Eye_Levelstudio",
     "https://www.facebook.com/share/1DN368ZHPh/",
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "business inquiries",
-    email: "hello@eyelevelstudio.in",
-    availableLanguage: ["English"],
-  },
 };
 
 export const websiteSchema = {
@@ -40,53 +32,84 @@ export const homePageSchema = {
   "@id": "https://theeyelevelstudio.com/#homepage",
   url: "https://theeyelevelstudio.com/",
   name: "Marketing & Growth Agency for Global Brands",
-  description:
-    "A global marketing agency helping brands scale through growth strategy, performance marketing, AI automation, creative branding, and Web3 solutions.",
-  about: { "@id": ORG_ID },
-  primaryImageOfPage: {
-    "@type": "ImageObject",
-    url: "https://theeyelevelstudio.com/logo_eyelevel.png",
+};
+
+export const homeServicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Digital Marketing Services",
+  provider: { "@id": ORG_ID },
+  areaServed: "Global",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Services",
+    itemListElement: [
+      { "@type": "Service", name: "Education Marketing" },
+      { "@type": "Service", name: "Sports Marketing" },
+      { "@type": "Service", name: "Real Estate Marketing" },
+      { "@type": "Service", name: "B2B Marketing" },
+      { "@type": "Service", name: "FinTech Marketing" },
+      { "@type": "Service", name: "Pickleball Marketing" },
+    ],
   },
 };
 
 export const servicesSchema = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://theeyelevelstudio.com/services#service",
+  "@type": "CollectionPage",
   name: "Marketing Services",
-  provider: { "@id": ORG_ID },
-  areaServed: { "@type": "Place", name: "Global" },
-  serviceType: [
-    "Growth Strategy",
-    "Performance Marketing",
-    "AI & Automation",
-    "Creative Branding",
-    "Web3 Marketing",
-  ],
   url: "https://theeyelevelstudio.com/services",
 };
 
 export const industriesSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://theeyelevelstudio.com/industries#page",
-  name: "Industry-Specific Marketing Solutions",
-  about: [
-    "Education Marketing",
-    "Sports Marketing",
-    "Real Estate Marketing",
-    "B2B Marketing",
-    "Web3 & Blockchain Marketing",
-  ],
-  publisher: { "@id": ORG_ID },
+  "@type": "CollectionPage",
+  name: "Industries We Serve",
+  url: "https://theeyelevelstudio.com/industries",
 };
 
 export const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "@id": "https://theeyelevelstudio.com/contact-us#contact",
   url: "https://theeyelevelstudio.com/contact-us",
-  publisher: { "@id": ORG_ID },
+  name: "Contact EyeLevel Growth Studio",
+};
+
+export const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: "https://theeyelevelstudio.com/about-us",
+  name: "About EyeLevel Growth Studio",
+  about: {
+    "@id": ORG_ID,
+  },
+};
+
+export const bookingPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Marketing Consultation Booking",
+  provider: {
+    "@id": ORG_ID,
+  },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://theeyelevelstudio.com/booking",
+    },
+    result: {
+      "@type": "Reservation",
+      name: "Consultation Booking",
+    },
+  },
+};
+
+export const blogPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "EyeLevel Blog",
+  url: "https://theeyelevelstudio.com/blog",
 };
 
 export const faqSchema = {
@@ -168,34 +191,17 @@ export const faqPageSchema = (
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://theeyelevelstudio.com/#localbusiness",
+  "@id": ORG_ID,
   name: "The EyeLevel Studio",
-  image: "https://theeyelevelstudio.com/logo_eyelevel.png",
-  description:
-    "Chennai-based growth studio specializing in marketing for Sports, Healthcare, and Education sectors.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Chennai, India",
     addressLocality: "Chennai",
     addressRegion: "Tamil Nadu",
-    postalCode: "600000",
     addressCountry: "IN",
   },
-  telephone: "+91 97890 99499",
+  telephone: "+919789099499",
   email: "hello@eyelevelstudio.in",
-  url: "https://theeyelevelstudio.com",
-  sameAs: [
-    "https://www.linkedin.com/company/theeyelevelstudio/",
-    "https://www.instagram.com/theeyelevelstudio/",
-    "https://www.youtube.com/@theeyelevelstudio",
-    "https://x.com/Eye_Levelstudio",
-    "https://www.facebook.com/share/1DN368ZHPh/",
-  ],
-  serviceArea: {
-    "@type": "Place",
-    name: "Global",
-  },
-  priceRange: "$$",
+  url: "https://theeyelevelstudio.com/",
 };
 
 // Breadcrumb Schema - dynamic builder

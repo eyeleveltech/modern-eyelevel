@@ -23,9 +23,9 @@ import SEO from "@/components/SEO";
 import FAQSection from "@/components/FAQSection";
 import faqs from "@/data/faqs";
 import {
+  aboutPageSchema,
   faqPageSchema,
   organizationSchema,
-  websiteSchema,
 } from "@/hooks/schemas";
 
 const values = [
@@ -190,7 +190,7 @@ const About = () => {
         ]}
         schema={[
           organizationSchema,
-          websiteSchema,
+          aboutPageSchema,
           faqPageSchema(faqs["About Us"], {
             url: "https://theeyelevelstudio.com/about-us",
           }),

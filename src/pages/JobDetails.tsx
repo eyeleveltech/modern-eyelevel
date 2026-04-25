@@ -251,6 +251,38 @@ const JobDetails = () => {
               </ul>
             </div>
 
+            {job.whatYouGet && (
+              <div
+                className="rounded-2xl p-6 md:p-8"
+                style={{
+                  backgroundColor: "#173229",
+                  border: "1px solid rgba(226, 254, 165, 0.1)",
+                }}
+              >
+                <h2
+                  className="font-dela text-2xl mb-4 uppercase"
+                  style={{ color: "#E2FEA5" }}
+                >
+                  What You Get
+                </h2>
+                <ul className="space-y-3">
+                  {job.whatYouGet.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 font-bricolage"
+                      style={{ color: "rgba(248, 255, 232, 0.8)" }}
+                    >
+                      <CheckCircle
+                        className="w-5 h-5 shrink-0 mt-0.5"
+                        style={{ color: "#E2FEA5" }}
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div
               className="rounded-2xl p-6 md:p-8"
               style={{

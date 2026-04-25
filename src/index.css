@@ -181,7 +181,22 @@
   }
 }
 .animate-marquee-reverse {
-  animation: marquee-reverse 70s linear infinite;
+  animation: marquee-reverse 32s linear infinite;
+}
+
+@keyframes join-league-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+}
+
+.animate-join-league-marquee {
+  animation: join-league-marquee 28s linear infinite;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* Floating animation */
