@@ -14,6 +14,7 @@ import logo_12 from "@/assets/logos/logo_12.png";
 import logo_13 from "@/assets/logos/logo_13.png";
 import logo_14 from "@/assets/logos/logo_14.png";
 import logo_15 from "@/assets/logos/logo_15.png";
+import logo_16 from "@/assets/logos/logo_16.png";
 
 const JoinTheLeague = () => {
   const clientLogo = [
@@ -32,6 +33,7 @@ const JoinTheLeague = () => {
     logo_13,
     logo_14,
     logo_15,
+    logo_16,
   ];
 
   return (

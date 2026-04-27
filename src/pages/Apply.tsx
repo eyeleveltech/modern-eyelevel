@@ -8,9 +8,7 @@ import Header from "@/components/Header";
 import EnhancedFooter from "@/components/EnhancedFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -21,7 +19,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import {
   Upload,
-  CheckCircle,
   ArrowLeft,
   FileText,
   X,
@@ -44,7 +41,7 @@ const applicationSchema = z.object({
   currentSalary: z.string().min(1, "Current salary is required"),
   currentJobTitle: z.string().optional(),
   expectedSalary: z.string().min(1, "Expected salary is required"),
-  linkedIn: z.string().optional(),
+  noticePeriod: z.string().min(1, "Notice period is required"),
   employeeName: z.string().optional(),
   employeeCode: z.string().optional(),
   employeeEmail: z.string().optional(),
@@ -65,6 +62,34 @@ interface Experience {
   title: string;
   duration: string;
 }
+
+const SOCIAL_PLATFORMS = [
+  { value: "linkedin", label: "LinkedIn" },
+  { value: "behance", label: "Behance" },
+  { value: "dribbble", label: "Dribbble" },
+  { value: "artstation", label: "ArtStation" },
+  { value: "deviantart", label: "DeviantArt" },
+  { value: "adobe-portfolio", label: "Adobe Portfolio" },
+  { value: "personal-website", label: "Personal Website / Portfolio" },
+  { value: "github", label: "GitHub" },
+  { value: "blogger", label: "Blogger" },
+  { value: "youtube", label: "YouTube" },
+  { value: "instagram", label: "Instagram" },
+  { value: "pinterest", label: "Pinterest" },
+  { value: "x-twitter", label: "X (Twitter)" },
+  { value: "facebook", label: "Facebook" },
+  { value: "reddit", label: "Reddit" },
+  { value: "quora", label: "Quora" },
+] as const;
+
+type SocialPlatform = (typeof SOCIAL_PLATFORMS)[number]["value"];
+
+interface SocialLink {
+  id: string;
+  platform: SocialPlatform;
+  url: string;
+}
+
 const JOB_APPLY_WEBHOOK_URL =
   import.meta.env.VITE_JOB_APPLY_WEBHOOK_URL ??
   "https://automate.eyelevelstudio.in/webhook/job-apply";
@@ -76,16 +101,16 @@ const Apply = () => {
   const position = searchParams.get("position") || "General Application";
 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
-  const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [education, setEducation] = useState<Education[]>([]);
   const [experience, setExperience] = useState<Experience[]>([]);
+  const [socialLinks, setSocialLinks] = useState<SocialLink[]>([]);
+  const [selectedSocialPlatform, setSelectedSocialPlatform] =
+    useState<SocialPlatform>();
 
   const {
     register,
     handleSubmit,
-    setValue,
-    watch,
     formState: { errors },
   } = useForm<ApplicationFormData>({
     resolver: zodResolver(applicationSchema),
@@ -121,21 +146,6 @@ const Apply = () => {
         return;
       }
       setResumeFile(file);
-    }
-  };
-
-  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (file.size > 2 * 1024 * 1024) {
-        toast({
-          title: "File too large",
-          description: "Please upload a photo smaller than 2MB",
-          variant: "destructive",
-        });
-        return;
-      }
-      setPhotoFile(file);
     }
   };
 
@@ -181,6 +191,31 @@ const Apply = () => {
     );
   };
 
+  const addSocialLink = () => {
+    if (!selectedSocialPlatform) return;
+
+    setSocialLinks([
+      ...socialLinks,
+      { id: Date.now().toString(), platform: selectedSocialPlatform, url: "" },
+    ]);
+    setSelectedSocialPlatform(undefined);
+  };
+
+  const removeSocialLink = (id: string) => {
+    setSocialLinks(socialLinks.filter((link) => link.id !== id));
+  };
+
+  const updateSocialUrl = (id: string, url: string) => {
+    setSocialLinks(
+      socialLinks.map((link) => (link.id === id ? { ...link, url } : link)),
+    );
+  };
+
+  const clearSocialLinks = () => {
+    setSocialLinks([]);
+    setSelectedSocialPlatform(undefined);
+  };
+
   const onSubmit = async (data: ApplicationFormData) => {
     if (!resumeFile) {
       toast({
@@ -195,6 +230,18 @@ const Apply = () => {
 
     try {
       const formData = new FormData();
+      const cleanedSocialLinks = socialLinks
+        .filter((link) => link.url.trim())
+        .map((link) => ({
+          platform: link.platform,
+          label:
+            SOCIAL_PLATFORMS.find((platform) => platform.value === link.platform)
+              ?.label ?? link.platform,
+          url: link.url.trim(),
+        }));
+      const linkedIn =
+        cleanedSocialLinks.find((link) => link.platform === "linkedin")?.url ??
+        "";
 
       formData.append(
         "payload",
@@ -203,11 +250,12 @@ const Apply = () => {
           position,
           education,
           experience,
+          socialLinks: cleanedSocialLinks,
+          linkedIn,
         }),
       );
 
       formData.append("resume", resumeFile);
-      if (photoFile) formData.append("photo", photoFile);
 
       const response = await fetch(JOB_APPLY_WEBHOOK_URL, {
         method: "POST",
@@ -626,6 +674,26 @@ const Apply = () => {
                       </p>
                     )}
                   </div>
+
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="noticePeriod"
+                      className="text-[#F8FFE8] font-bricolage"
+                    >
+                      Notice Period *
+                    </Label>
+                    <Input
+                      id="noticePeriod"
+                      {...register("noticePeriod")}
+                      placeholder="e.g., Immediate, 15 days, 30 days"
+                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                    />
+                    {errors.noticePeriod && (
+                      <p className="text-red-400 text-sm">
+                        {errors.noticePeriod.message}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -839,32 +907,121 @@ const Apply = () => {
               </div>
 
               {/* Social Links */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10 uppercase">
+              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="font-dela text-2xl text-[#F8FFE8]">
                     Social Links
                   </h2>
                   <button
                     type="button"
+                    onClick={clearSocialLinks}
                     className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
                   >
                     Clear
                   </button>
                 </div>
 
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="linkedIn"
-                    className="text-[#F8FFE8] font-bricolage"
-                  >
-                    LinkedIn
-                  </Label>
-                  <Input
-                    id="linkedIn"
-                    {...register("linkedIn")}
-                    placeholder="https://linkedin.com/in/yourprofile"
-                    className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
-                  />
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 items-end">
+                    <div className="space-y-2">
+                      <Label className="text-[#F8FFE8] font-bricolage">
+                        Choose Platform
+                      </Label>
+                      <Select
+                        value={selectedSocialPlatform}
+                        onValueChange={(value) =>
+                          setSelectedSocialPlatform(value as SocialPlatform)
+                        }
+                      >
+                        <SelectTrigger className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] focus:ring-[#E2FEA5]/30 focus:ring-offset-0">
+                          <SelectValue placeholder="Choose social media" />
+                        </SelectTrigger>
+                        <SelectContent className="z-[10000] bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8]">
+                          {SOCIAL_PLATFORMS.map((platform) => {
+                            const isSelected = socialLinks.some(
+                              (link) => link.platform === platform.value,
+                            );
+
+                            return (
+                              <SelectItem
+                                key={platform.value}
+                                value={platform.value}
+                                disabled={isSelected}
+                                className="focus:bg-[#E2FEA5] focus:text-[#173229]"
+                              >
+                                {platform.label}
+                              </SelectItem>
+                            );
+                          })}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <Button
+                      type="button"
+                      onClick={addSocialLink}
+                      disabled={
+                        !selectedSocialPlatform ||
+                        socialLinks.length >= SOCIAL_PLATFORMS.length
+                      }
+                      className="h-10 rounded-lg px-5 bg-[#E2FEA5] text-[#173229] hover:bg-[#FCFAC2] font-bricolage disabled:cursor-not-allowed disabled:opacity-40"
+                    >
+                      <Plus className="w-4 h-4" /> Add Field
+                    </Button>
+                  </div>
+
+                  {socialLinks.length === 0 ? (
+                    <p className="text-[rgba(248,255,232,0.5)] text-center py-4 font-bricolage normal-case">
+                      Choose a platform first, then add its profile link field.
+                    </p>
+                  ) : (
+                    socialLinks.map((socialLink) => (
+                      <div
+                        key={socialLink.id}
+                        className="grid grid-cols-1 md:grid-cols-[220px_1fr_auto] gap-3 items-end"
+                      >
+                        <div className="space-y-2">
+                          <Label className="text-[#F8FFE8] font-bricolage">
+                            Platform
+                          </Label>
+                          <div className="flex h-10 items-center rounded-md border border-[#E2FEA5]/20 bg-[#253e35] px-3 text-sm text-[#F8FFE8] font-bricolage">
+                            {SOCIAL_PLATFORMS.find(
+                              (platform) =>
+                                platform.value === socialLink.platform,
+                            )?.label ?? socialLink.platform}
+                          </div>
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label
+                            htmlFor={`social-url-${socialLink.id}`}
+                            className="text-[#F8FFE8] font-bricolage"
+                          >
+                            Profile Link
+                          </Label>
+                          <Input
+                            id={`social-url-${socialLink.id}`}
+                            value={socialLink.url}
+                            onChange={(e) =>
+                              updateSocialUrl(socialLink.id, e.target.value)
+                            }
+                            placeholder="https://"
+                            className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                          />
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => removeSocialLink(socialLink.id)}
+                          className="h-10 w-10 rounded-lg border border-red-400/30 text-red-400 hover:text-red-300 hover:border-red-300 transition-colors flex items-center justify-center"
+                          aria-label="Remove social link"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))
+                  )}
+
                 </div>
               </div>
 
@@ -874,43 +1031,15 @@ const Apply = () => {
                   Attachment Information
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label className="text-[#F8FFE8] font-bricolage">
-                      Photo (Optional)
-                    </Label>
-                    <div className="flex items-center gap-4">
-                      <input
-                        type="file"
-                        id="photo"
-                        accept="image/*"
-                        onChange={handlePhotoChange}
-                        className="hidden"
-                      />
-                      <label
-                        htmlFor="photo"
-                        className="px-4 py-2 bg-[#253e35] border border-[#E2FEA5]/20 rounded-lg text-[#F8FFE8] cursor-pointer hover:border-[#E2FEA5]/40 transition-colors font-bricolage"
-                      >
-                        Browse
-                      </label>
-                      {photoFile && (
-                        <span className="text-[#E2FEA5] text-sm font-bricolage">
-                          {photoFile.name}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label className="text-[#F8FFE8] font-bricolage">
-                      Resume * (Already uploaded above)
-                    </Label>
-                    <p className="text-[rgba(248,255,232,0.5)] text-sm font-bricolage">
-                      {resumeFile
-                        ? `Uploaded: ${resumeFile.name}`
-                        : "Please upload your resume above"}
-                    </p>
-                  </div>
+                <div className="space-y-2">
+                  <Label className="text-[#F8FFE8] font-bricolage">
+                    Resume * (Already uploaded above)
+                  </Label>
+                  <p className="text-[rgba(248,255,232,0.5)] text-sm font-bricolage">
+                    {resumeFile
+                      ? `Uploaded: ${resumeFile.name}`
+                      : "Please upload your resume above"}
+                  </p>
                 </div>
               </div>
 
