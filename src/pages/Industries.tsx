@@ -1,26 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  AnimatePresence,
-} from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-
-// Import industry images
-import industryEducation from "@/assets/industries/edu.webp";
-import industrySports from "@/assets/industries/sport.webp";
-import industryRealestate from "@/assets/industries/realestate.webp";
-import industryB2b from "@/assets/industries/b2b.webp";
-import finTech from "@/assets/industries/fintech.webp";
-import pickelball from "@/assets/industries/pickleball.webp";
-import WavyUnderline from "@/components/WavyUnderline";
-import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import WavyUnderline from "@/components/shared/WavyUnderline";
+import ClientLottie, { type ClientLottieRef } from "@/components/shared/ClientLottie";
+import SEO from "@/components/utils/SEO";
 import {
   faqPageSchema,
   industriesSchema,
@@ -28,185 +13,11 @@ import {
   websiteSchema,
   breadcrumbSchema,
 } from "@/hooks/schemas";
-import FAQSection from "@/components/FAQSection";
+import FAQSection from "@/components/sections/FAQSection";
 import faqs from "@/data/faqs";
-const industries = [
-  {
-    id: "education",
-    number: "01",
-    title: "Edu-Marketing",
-    tagline: "From Enquiries to Admissions",
-    shortTagline: "Enroll More.",
-    description:
-      "We help schools, universities, and EdTech companies build powerful brands and create a predictable pipeline of qualified student applications.",
-    longDescription:
-      "Partner with us to streamline your admissions funnel and attract students who are the perfect fit for your campus. Our data-driven approach ensures every marketing dollar translates into quality enrollments.",
-    href: "/education-marketing-agency/",
-    image: industryEducation,
-    accentColor: "#B8D4BE",
-    stats: [
-      { value: "3x", label: "Enrollment Growth" },
-      { value: "45%", label: "Lower CAC" },
-      { value: "150+", label: "Institutions Served" },
-    ],
-    capabilities: [
-      "Admission Campaigns",
-      "Brand Building",
-      "Lead Nurturing",
-      "Digital Strategy",
-    ],
-  },
-  {
-    id: "sports",
-    number: "02",
-    title: "Sports Marketing",
-    tagline: "From Fans to Superfans",
-    shortTagline: "Win Bigger.",
-    description:
-      "We help sports teams, leagues, and event organizers translate passion into packed stadiums, engaged communities, and lucrative commercial opportunities.",
-    longDescription:
-      "Go beyond the game with brand strategies that maximize your reach and monetize your global fanbase. We turn every match into a marketing opportunity.",
-    href: "/sports-marketing-agency",
-    image: industrySports,
-    accentColor: "#FFB4B4",
-    stats: [
-      { value: "10M+", label: "Fan Reach" },
-      { value: "200%", label: "ROI Increase" },
-      { value: "50+", label: "Teams & Leagues" },
-    ],
-    capabilities: [
-      "Fan Engagement",
-      "Sponsorship Activation",
-      "Event Marketing",
-      "Merchandise Strategy",
-    ],
-  },
-  {
-    id: "real-estate",
-    number: "03",
-    title: "Real Estate",
-    tagline: "From Blueprints to Buyers",
-    shortTagline: "Sell Faster.",
-    description:
-      "We help developers, brokers, and property management companies build powerful brands and generate a consistent flow of qualified leads.",
-    longDescription:
-      "Leverage high-performance digital systems built specifically to move real estate inventory in competitive markets. From pre-launch to sold-out.",
-    href: "/real-estate-marketing-agency",
-    image: industryRealestate,
-    accentColor: "#E2FEA5",
-    stats: [
-      { value: "50%", label: "Faster Sales" },
-      { value: "8x", label: "Lead Quality" },
-      { value: "â‚¹500Cr+", label: "Properties Sold" },
-    ],
-    capabilities: [
-      "Project Launches",
-      "Virtual Tours",
-      "Lead Generation",
-      "Brand Positioning",
-    ],
-  },
-  {
-    id: "b2b",
-    number: "04",
-    title: "B2B Marketing",
-    tagline: "From Leads to Loyalty",
-    shortTagline: "Close Sooner.",
-    description:
-      "We help B2B companies build a predictable pipeline of qualified leads and nurture them into long-term, high-value customers.",
-    longDescription:
-      "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
-    href: "/b2b-marketing-agency",
-    image: industryB2b,
-    accentColor: "#FCFAC2",
-    stats: [
-      { value: "5x", label: "Pipeline Growth" },
-      { value: "30%", label: "Shorter Cycle" },
-      { value: "100+", label: "Enterprise Clients" },
-    ],
-    capabilities: [
-      "Account-Based Marketing",
-      "Content Strategy",
-      "Sales Enablement",
-      "Lead Scoring",
-    ],
-  },
-  {
-    id: "fintech-gaming-web-3",
-    number: "05",
-    title: "FinTech, Gaming & Web 3",
-    tagline: "From Users to Believers",
-    shortTagline: "Close Sooner.",
-    description:
-      "We help FinTech startups, gaming studios, and Web3 projects build passionate communities that drive sustainable growth in decentralized ecosystems",
-    longDescription:
-      "Build a sophisticated engine that identifies high-value targets and moves them efficiently through your sales cycle. Strategic marketing meets measurable results.",
-    href: "/fintech-marketing-agency ",
-    image: finTech,
-    accentColor: "#FCFAC2",
-    stats: [
-      { value: "5x", label: "Pipeline Growth" },
-      { value: "30%", label: "Shorter Cycle" },
-      { value: "100+", label: "Enterprise Clients" },
-    ],
-    capabilities: [
-      "Community Building",
-      "KOL Partnerships",
-      "Token Launches",
-      "Growth Hacking",
-    ],
-  },
-  {
-    id: "pickleball-marketing",
-    number: "06",
-    title: "Pickleball Marketing",
-    tagline: "From Courts to Community",
-    shortTagline: "Scale the League.",
-    description:
-      "We help pickleball leagues, clubs, tournaments, and brands turn fast-growing interest into stronger communities, fuller events, and sponsor-ready visibility.",
-    longDescription:
-      "From launch buzz to long-term fan retention, we build marketing systems for pickleball properties that need more than generic sports promotion. We connect local energy with digital reach so your league, club, or tournament keeps growing on and off the court.",
-    href: "/pickleball-marketing-agency",
-    image: pickelball,
-    accentColor: "#C7B6FF",
-    stats: [
-      { value: "3x", label: "Community Growth" },
-      { value: "40%", label: "Higher Event Turnout" },
-      { value: "25+", label: "Brand & League Campaigns" },
-    ],
-    capabilities: [
-      "Tournament Promotion",
-      "Community Growth",
-      "Sponsorship Packaging",
-      "Player & Club Branding",
-    ],
-  },
-];
-
-// 18-pointed star SVG component (reused from Hero)
-const Star18 = ({ className }: { className?: string }) => {
-  const points = 18;
-  const outerRadius = 100;
-  const innerRadius = 75;
-  const cx = 100;
-  const cy = 100;
-
-  let pathData = "";
-  for (let i = 0; i < points * 2; i++) {
-    const radius = i % 2 === 0 ? outerRadius : innerRadius;
-    const angle = (Math.PI * i) / points - Math.PI / 2;
-    const x = cx + radius * Math.cos(angle);
-    const y = cy + radius * Math.sin(angle);
-    pathData += `${i === 0 ? "M" : "L"} ${x} ${y} `;
-  }
-  pathData += "Z";
-
-  return (
-    <svg viewBox="0 0 200 200" className={className}>
-      <path d={pathData} fill="currentColor" />
-    </svg>
-  );
-};
+import { industriesPageData, IndustryShowcase } from "@/components/pages/industries/IndustryShowcase";
+import { Star18 } from "@/components/shared/Star18";
+import GreenButton from "@/components/shared/GreenButton";
 
 const Industries = () => {
   const [activeIndustry, setActiveIndustry] = useState<number | null>(null);
@@ -237,6 +48,7 @@ const Industries = () => {
     lottieRef.current.setSpeed(1.5);
     lottieRef.current.goToAndPlay(0, true);
   };
+
   useEffect(() => {
     if (animationData && !hasPlayedInitial.current) {
       playAnimation();
@@ -262,7 +74,7 @@ const Industries = () => {
       },
       {
         threshold: 0.4,
-      },
+      }
     );
 
     observer.observe(ref.current);
@@ -273,14 +85,14 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Sports, Healthcare & Education Agency | EyeLevel"
-        description="EyeLevel specializes in marketing for sports leagues, healthcare providers & educational institutions across India. Vertical expertise, highly customised solutions."
+        title="Industries — EyeLevel Growth Studio | SaaS, D2C, Sports, Healthcare, Offshore"
+        description="EyeLevel serves SaaS companies, D2C brands, sports leagues, healthcare brands, and offshore clients. Specialised marketing for each vertical."
         keywords={[
-          "vertical specialization marketing India",
-          "sports marketing agency India",
-          "healthcare marketing India",
-          "education marketing India",
-          "industry marketing services",
+          "marketing agency for SaaS India",
+          "D2C marketing agency India",
+          "healthcare digital marketing India",
+          "offshore marketing agency India",
+          "pickleball marketing agency India",
         ]}
         schema={[
           organizationSchema,
@@ -302,17 +114,16 @@ const Industries = () => {
       />
       <Header />
 
-      {/* Hero Section - Matching home page style */}
+      {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center pt-32 md:pt-40 pb-20 px-4 overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center pt-32 md:pt-40 pb-20 px-4 overflow-hidden bg-secondary"
       >
         {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-forest-dark/60 pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -327,19 +138,7 @@ const Industries = () => {
         </motion.div>
 
         <motion.div className="relative z-10 max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ scale: 0.8 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 rounded-full border border-[#E2FEA5]/30 bg-[#E2FEA5]/5"
-          >
-            <span
-              className="text-sm font-medium font-bricolage"
-              style={{ color: "#E2FEA5" }}
-            >
-              Our Verticals
-            </span>
-          </motion.div>
+          <GreenButton>Our Verticals</GreenButton>
           {animationData && (
             <ClientLottie
               lottieRef={lottieRef}
@@ -353,24 +152,18 @@ const Industries = () => {
             initial={{ y: 30 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-dela text-4xl md:text-6xl lg:text-7xl uppercase mb-8 leading-[1.05]"
-            style={{ color: "#E2FEA5" }}
+            className="font-dela text-4xl md:text-6xl lg:text-7xl uppercase mb-8 leading-[1.05] text-primary"
           >
-            Specialized
-            <br />
-            <WavyUnderline>Expertise</WavyUnderline>
+            INDUSTRIES <WavyUnderline>WE GROW</WavyUnderline>
           </motion.h1>
 
           <motion.p
             initial={{ y: 20 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-bricolage text-base md:text-lg lg:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "#F8FFE8" }}
+            className="font-bricolage text-base md:text-lg lg:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed text-foreground"
           >
-            We believe that true proficiency comes from deep focus. Six focused
-            categories. Years of immersion. Strategies that are not just
-            creative but contextually brilliant.
+            Specialised marketing for SaaS, D2C, Sports & Pickleball, Healthcare, and Offshore clients.
           </motion.p>
 
           {/* Industry quick links */}
@@ -380,7 +173,7 @@ const Industries = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-3 md:gap-4xl"
           >
-            {industries.map((industry, index) => (
+            {industriesPageData.map((industry, index) => (
               <a key={industry.id} href={industry.href}>
                 <motion.div
                   className="group flex items-center gap-2 px-5 py-3 rounded-full border-2 font-bricolage font-medium transition-all duration-300 hover:bg-[rgba(248,255,232,0.05)]"
@@ -420,15 +213,14 @@ const Industries = () => {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: "#E2FEA5" }}
+              className="w-1.5 h-1.5 rounded-full bg-primary"
             />
           </motion.div>
         </motion.div>
       </section>
 
       {/* Industries Showcase */}
-      {industries.map((industry, index) => (
+      {industriesPageData.map((industry, index) => (
         <IndustryShowcase
           key={industry.id}
           industry={industry}
@@ -438,239 +230,16 @@ const Industries = () => {
           onLeave={() => setActiveIndustry(null)}
         />
       ))}
+
       {/* faqs */}
       <FAQSection faqs={faqs["Industries"]} />
-      <EnhancedFooter mascotBgColor="#173229" showCTA={false} />
+      <EnhancedFooter mascotBgClass="bg-background" showCTA={false} />
     </div>
   );
 };
 
-interface IndustryShowcaseProps {
-  industry: (typeof industries)[0];
-  index: number;
-  isActive: boolean;
-  onHover: () => void;
-  onLeave: () => void;
-}
-
-const IndustryShowcase = ({ industry, index }: IndustryShowcaseProps) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1.2, 1]);
-  const contentY = useTransform(scrollYProgress, [0, 0.5], [100, 0]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
-  const isEven = index % 2 === 0;
-
-  return (
-    <section
-      id={industry.id}
-      ref={ref}
-      className="relative min-h-screen flex items-center py-20 md:py-32 overflow-hidden"
-      style={{
-        backgroundColor: isEven ? "#173229" : "#1e3c30",
-      }}
-    >
-      {/* Background accent */}
-      {/* Background accent (Desktop: left/right) */}
-      {/* <div
-        className="hidden lg:block absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at ${isEven ? "right" : "left"} center, ${industry.accentColor}, transparent 70%)`,
-        }}
-      /> */}
-
-      {/* Background accent (Mobile: top/bottom) */}
-      {/* <div
-        className="lg:hidden absolute left-0 top-0 w-full h-full opacity-5 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at center ${isEven ? "bottom" : "top"}, ${industry.accentColor}, transparent 70%)`,
-        }}
-      /> */}
-
-      <div className="max-w-5xl mx-auto px-4 w-full">
-        <div
-          className={`grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${isEven ? "" : "lg:grid-flow-dense"}`}
-        >
-          {/* Image Section */}
-          <motion.div
-            className={`relative ${isEven ? "lg:order-1" : "lg:order-2"}`}
-            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group">
-              {/* Image with parallax */}
-              <motion.div
-                style={{ scale: imageScale }}
-                className="absolute inset-0"
-              >
-                <img
-                  loading="lazy"
-                  src={industry.image}
-                  alt={industry.title}
-                  title={industry.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </motion.div>
-
-              {/* Overlay gradient */}
-              <div
-                className="absolute inset-0 opacity-40"
-                style={{
-                  background: `linear-gradient(135deg, ${industry.accentColor}20, transparent 60%)`,
-                }}
-              />
-
-              {/* Number badge */}
-              {/* <div
-                className="absolute top-6 left-6 w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-sm"
-                style={{
-                  backgroundColor: `${industry.accentColor}20`,
-                  border: `2px solid ${industry.accentColor}40`,
-                }}
-              >
-                <span
-                  className="font-dela text-2xl"
-                  style={{ color: industry.accentColor }}
-                >
-                  {industry.number}
-                </span>
-              </div> */}
-
-              {/* Stats overlay on hover */}
-              {/* <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 transition-opacity duration-300"
-              >
-                <div className="grid grid-cols-3 gap-4 p-8">
-                  {industry.stats.map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <span
-                        className="font-dela text-2xl md:text-3xl block mb-2"
-                        style={{ color: industry.accentColor }}
-                      >
-                        {stat.value}
-                      </span>
-                      <span className="font-bricolage text-sm text-white/70">
-                        {stat.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div> */}
-            </div>
-          </motion.div>
-
-          {/* Content Section */}
-          <motion.div
-            className={`${isEven ? "lg:order-2" : "lg:order-1"}`}
-            style={{ y: contentY, opacity: contentOpacity }}
-          >
-            {/* Title & Tagline */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-3 mb-6 px-5 py-2.5 rounded-full border border-[#E2FEA5]/30 bg-[#E2FEA5]/5"
-              >
-                <span
-                  className="text-sm font-medium font-bricolage"
-                  style={{ color: "#E2FEA5" }}
-                >
-                  {industry.tagline}
-                </span>
-              </motion.div>
-              <h2
-                className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.1] uppercase"
-                style={{ color: industry.accentColor }}
-              >
-                {industry.title}
-              </h2>
-            </motion.div>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="font-bricolage text-lg md:text-xl leading-relaxed mb-8"
-              style={{ color: "rgba(248, 255, 232, 0.85)" }}
-            >
-              {industry.description}
-            </motion.p>
-
-            {/* Capabilities */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-wrap gap-3 mb-10"
-            >
-              {industry.capabilities.map((capability, i) => (
-                <span
-                  key={i}
-                  className="px-4 py-2 rounded-full font-bricolage text-sm border"
-                  style={{
-                    borderColor: "rgba(248, 255, 232, 0.2)",
-                    color: "rgba(248, 255, 232, 0.7)",
-                  }}
-                >
-                  {capability}
-                </span>
-              ))}
-            </motion.div>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="z-20"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="group rounded-full px-8 py-6 text-base font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
-                style={{
-                  backgroundColor: industry.accentColor,
-                  color: "#0a0a0a",
-                  border: "3px solid #0a0a0a",
-                  boxShadow: "0 4px 0 #0a0a0a",
-                }}
-              >
-                <a href={industry.href}>
-                  Explore {industry.title}
-                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Decorative line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{ backgroundColor: "rgba(248, 255, 232, 0.1)" }}
-      />
-    </section>
-  );
-};
-
 export default Industries;
+
+
+
+

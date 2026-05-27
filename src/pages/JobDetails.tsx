@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -13,7 +13,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 import { jobListings } from "@/data/careers";
 
 const JobDetails = () => {
@@ -26,9 +26,9 @@ const JobDetails = () => {
 
   if (!job) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <div className="min-h-screen bg-secondary">
         <SEO
-          title="Job Not Found | The EyeLevel Studio"
+          title="Job Not Found | EyeLevel Growth Studio"
           description="The requested career listing could not be found."
           keywords={["job not found", "career listing", "marketing jobs"]}
           canonical={`${baseUrl}/careers`}
@@ -37,7 +37,7 @@ const JobDetails = () => {
         />
         <Header />
         <div className="pt-32 pb-20 text-center">
-          <h1 className="font-dela text-4xl text-[#F8FFE8] mb-4">
+          <h1 className="font-dela text-4xl text-foreground mb-4">
             Job Not Found
           </h1>
           <p className="text-[rgba(248,255,232,0.7)] mb-8">
@@ -45,7 +45,7 @@ const JobDetails = () => {
           </p>
           <Button
             onClick={() => navigate("/careers")}
-            className="bg-[#E2FEA5] text-[#253e35]"
+            className="bg-primary text-forest-muted"
           >
             Back to Careers
           </Button>
@@ -61,7 +61,7 @@ const JobDetails = () => {
 
   const handleShare = async () => {
     if (typeof window === "undefined") return;
-    
+
     if (navigator.share) {
       await navigator.share({
         title: `${job.title} at EyeLevel Growth Studio`,
@@ -76,11 +76,10 @@ const JobDetails = () => {
 
   return (
     <div
-      className="min-h-screen overflow-hidden"
-      style={{ backgroundColor: "#253e35" }}
+      className="min-h-screen overflow-hidden bg-secondary"
     >
       <SEO
-        title={`${job.title} | Careers at The EyeLevel Studio`}
+        title={`${job.title} | Careers at EyeLevel Growth Studio`}
         description={job.shortDescription}
         keywords={[
           job.title,
@@ -100,7 +99,7 @@ const JobDetails = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => navigate("/careers")}
-            className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-[#E2FEA5] mb-8 transition-colors font-bricolage"
+            className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-primary mb-8 transition-colors font-bricolage"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Careers
@@ -113,22 +112,19 @@ const JobDetails = () => {
           >
             <div className="flex items-center gap-2 mb-4">
               <span
-                className="text-xs px-3 py-1 rounded-full font-medium font-bricolage"
-                style={{ backgroundColor: "#E2FEA5", color: "#173229" }}
+                className="text-xs px-3 py-1 rounded-full font-medium font-bricolage bg-primary text-secondary"
               >
                 EyeLevel Growth Studio
               </span>
               <span
-                className="text-xs px-3 py-1 rounded-full font-medium font-bricolage"
-                style={{ backgroundColor: "#173229", color: "#F8FFE8" }}
+                className="text-xs px-3 py-1 rounded-full font-medium font-bricolage bg-background text-foreground"
               >
                 {job.type}
               </span>
             </div>
 
             <h1
-              className="text-3xl md:text-5xl font-dela mb-4 uppercase"
-              style={{ color: "#F8FFE8" }}
+              className="text-3xl md:text-5xl font-dela mb-4 uppercase text-foreground"
             >
               {job.title}
             </h1>
@@ -164,17 +160,11 @@ const JobDetails = () => {
           >
             <Button
               size="lg"
-              className="group rounded-full px-8 py-6 text-base font-semibold font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
-              style={{
-                backgroundColor: "#FCFAC2",
-                color: "#0a0a0a",
-                border: "3px solid #0a0a0a",
-                boxShadow: "0 4px 0 #0a0a0a",
-              }}
+              className="rounded-full"
               onClick={handleApply}
             >
               Apply Now
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 w-5 h-5 " />
             </Button>
             <Button
               variant="outline"
@@ -208,8 +198,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary"
               >
                 About EyeLevel Growth Studio
               </h2>
@@ -229,8 +218,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary"
               >
                 Roles and Responsibilities
               </h2>
@@ -242,8 +230,7 @@ const JobDetails = () => {
                     style={{ color: "rgba(248, 255, 232, 0.8)" }}
                   >
                     <CheckCircle
-                      className="w-5 h-5 shrink-0 mt-0.5"
-                      style={{ color: "#E2FEA5" }}
+                      className="w-5 h-5 shrink-0 mt-0.5 text-primary"
                     />
                     {item}
                   </li>
@@ -260,8 +247,7 @@ const JobDetails = () => {
                 }}
               >
                 <h2
-                  className="font-dela text-2xl mb-4 uppercase"
-                  style={{ color: "#E2FEA5" }}
+                  className="font-dela text-2xl mb-4 uppercase text-primary"
                 >
                   What You Get
                 </h2>
@@ -273,8 +259,7 @@ const JobDetails = () => {
                       style={{ color: "rgba(248, 255, 232, 0.8)" }}
                     >
                       <CheckCircle
-                        className="w-5 h-5 shrink-0 mt-0.5"
-                        style={{ color: "#E2FEA5" }}
+                        className="w-5 h-5 shrink-0 mt-0.5 text-primary"
                       />
                       {item}
                     </li>
@@ -291,8 +276,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary"
               >
                 Requirements
               </h2>
@@ -304,8 +288,7 @@ const JobDetails = () => {
                     style={{ color: "rgba(248, 255, 232, 0.8)" }}
                   >
                     <CheckCircle
-                      className="w-5 h-5 shrink-0 mt-0.5"
-                      style={{ color: "#E2FEA5" }}
+                      className="w-5 h-5 shrink-0 mt-0.5 text-primary"
                     />
                     {item}
                   </li>
@@ -321,8 +304,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary"
               >
                 Qualities We Look For
               </h2>
@@ -334,8 +316,7 @@ const JobDetails = () => {
                     style={{ color: "rgba(248, 255, 232, 0.8)" }}
                   >
                     <CheckCircle
-                      className="w-5 h-5 shrink-0 mt-0.5"
-                      style={{ color: "#E2FEA5" }}
+                      className="w-5 h-5 shrink-0 mt-0.5 text-primary"
                     />
                     {item}
                   </li>
@@ -351,8 +332,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary"
               >
                 Why Work With Us?
               </h2>
@@ -374,8 +354,7 @@ const JobDetails = () => {
                     style={{ color: "rgba(248, 255, 232, 0.8)" }}
                   >
                     <CheckCircle
-                      className="w-5 h-5 shrink-0 mt-0.5"
-                      style={{ color: "#E2FEA5" }}
+                      className="w-5 h-5 shrink-0 mt-0.5 text-primary"
                     />
                     {item}
                   </li>
@@ -392,8 +371,7 @@ const JobDetails = () => {
               }}
             >
               <h2
-                className="font-dela text-2xl mb-4 uppercase"
-                style={{ color: "#0a0a0a" }}
+                className="font-dela text-2xl mb-4 uppercase text-primary-foreground"
               >
                 Ready to Join Our Team?
               </h2>
@@ -406,26 +384,26 @@ const JobDetails = () => {
               </p>
               <Button
                 size="lg"
-                className="group rounded-full px-10 py-6 text-base font-semibold font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
-                style={{
-                  backgroundColor: "#FCFAC2",
-                  color: "#0a0a0a",
-                  border: "3px solid #0a0a0a",
-                  boxShadow: "0 4px 0 #0a0a0a",
-                }}
+                className="group px-10 py-6 text-base font-semibold"
+
                 onClick={handleApply}
               >
                 Apply Now
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 w-5 h-5 " />
               </Button>
             </div>
           </motion.div>
         </div>
       </main>
 
-      <EnhancedFooter showCTA={false} mascotBgColor="#253E35" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-secondary" />
     </div>
   );
 };
 
 export default JobDetails;
+
+
+
+
+

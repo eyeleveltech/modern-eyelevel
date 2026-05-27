@@ -10,18 +10,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Mail, Phone, MapPin, CheckCircle } from "lucide-react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import WavyUnderline from "@/components/WavyUnderline";
-import GreenButton from "@/components/GreenButton";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import WavyUnderline from "@/components/shared/WavyUnderline";
+import GreenButton from "@/components/shared/GreenButton";
+import SEO from "@/components/utils/SEO";
 import {
   contactPageSchema,
   faqPageSchema,
   localBusinessSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
-import FAQSection from "@/components/FAQSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 const contactSchema = z.object({
   name: z
@@ -95,7 +95,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-10" style={{ backgroundColor: "#253e35" }}>
+    <div className="min-h-screen pt-10 bg-secondary">
       <SEO
         title="Contact EyeLevel — Free Marketing Consultation Chennai"
         description="Book a free 30-min consultation with EyeLevel — Chennai's specialized agency for Sports, Healthcare & Education. Call +91 97890 99499 or email us."
@@ -129,8 +129,7 @@ const Contact = () => {
             >
               <GreenButton>Get in Touch</GreenButton>
               <h1
-                className="text-4xl md:text-6xl font-dela mb-6 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="text-4xl md:text-6xl font-dela mb-6 uppercase text-primary"
               >
                 MAKE SOME <WavyUnderline>NOISE</WavyUnderline>
               </h1>
@@ -148,7 +147,7 @@ const Contact = () => {
                     className="w-12 h-12 rounded-xl flex items-center justify-center"
                     style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                   >
-                    <Mail className="w-5 h-5" style={{ color: "#E2FEA5" }} />
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p
@@ -158,8 +157,7 @@ const Contact = () => {
                       Email us at
                     </p>
                     <p
-                      className="font-medium font-bricolage"
-                      style={{ color: "#F8FFE8" }}
+                      className="font-medium font-bricolage text-foreground"
                     >
                       hello@eyelevelstudio.in
                     </p>
@@ -171,7 +169,7 @@ const Contact = () => {
                     className="w-12 h-12 rounded-xl flex items-center justify-center"
                     style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                   >
-                    <Phone className="w-5 h-5" style={{ color: "#E2FEA5" }} />
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p
@@ -181,8 +179,7 @@ const Contact = () => {
                       Call us at
                     </p>
                     <p
-                      className="font-medium font-bricolage"
-                      style={{ color: "#F8FFE8" }}
+                      className="font-medium font-bricolage text-foreground"
                     >
                       +91 9789099499
                     </p>
@@ -206,17 +203,14 @@ const Contact = () => {
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                    style={{ backgroundColor: "#E2FEA5" }}
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-primary"
                   >
                     <CheckCircle
-                      className="w-8 h-8"
-                      style={{ color: "#173229" }}
+                      className="w-8 h-8 text-forest-dark"
                     />
                   </div>
                   <h3
-                    className="text-2xl font-dela mb-4"
-                    style={{ color: "#173229" }}
+                    className="text-2xl font-dela mb-4 text-forest-dark"
                   >
                     Message Received!
                   </h3>
@@ -243,8 +237,7 @@ const Contact = () => {
                   <div>
                     <Label
                       htmlFor="name"
-                      className="font-medium font-bricolage"
-                      style={{ color: "#173229" }}
+                      className="font-medium font-bricolage text-forest-dark"
                     >
                       Your Name *
                     </Label>
@@ -269,8 +262,7 @@ const Contact = () => {
                   <div>
                     <Label
                       htmlFor="email"
-                      className="font-medium font-bricolage"
-                      style={{ color: "#173229" }}
+                      className="font-medium font-bricolage text-forest-dark"
                     >
                       Email Address *
                     </Label>
@@ -296,8 +288,7 @@ const Contact = () => {
                   <div>
                     <Label
                       htmlFor="company"
-                      className="font-medium font-bricolage"
-                      style={{ color: "#173229" }}
+                      className="font-medium font-bricolage text-forest-dark"
                     >
                       Company Name
                     </Label>
@@ -322,8 +313,7 @@ const Contact = () => {
                   <div>
                     <Label
                       htmlFor="message"
-                      className="font-medium font-bricolage"
-                      style={{ color: "#173229" }}
+                      className="font-medium font-bricolage text-forest-dark"
                     >
                       Your Message *
                     </Label>
@@ -382,9 +372,12 @@ const Contact = () => {
         </div>
       </main>
       <FAQSection faqs={faqs["Contact"]} />
-      <EnhancedFooter showCTA={false} mascotBgColor="#173229" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-background" />
     </div>
   );
 };
 
 export default Contact;
+
+
+

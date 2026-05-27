@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import SEO from "@/components/utils/SEO";
 
 const NotFound = () => {
   const location = useLocation();
@@ -15,9 +15,9 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#253e35' }}>
+    <div className="min-h-screen bg-secondary">
       <SEO
-        title="404 Page Not Found | The EyeLevel Studio"
+        title="404 Page Not Found | EyeLevel Growth Studio"
         description="The page you are looking for does not exist."
         keywords={["404 page", "page not found", "broken link"]}
         canonical={canonicalUrl}
@@ -37,13 +37,12 @@ const NotFound = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="mb-6 text-[120px] md:text-[180px] font-dela leading-none"
-            style={{ color: '#d0e999' }}
+            className="mb-6 text-8xl md:text-9xl font-dela leading-none text-primary"
           >
             404
           </motion.h1>
           
-          <h2 className="mb-4 text-3xl md:text-4xl font-dela" style={{ color: '#F8FFE8' }}>
+          <h2 className="mb-4 text-3xl md:text-4xl font-dela text-foreground">
             Page Not Found
           </h2>
           
@@ -75,3 +74,5 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
+

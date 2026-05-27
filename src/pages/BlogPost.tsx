@@ -12,11 +12,11 @@ import {
   Link as LinkIcon,
   ArrowRight,
 } from "lucide-react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 import {
   organizationSchema,
   websiteSchema,
@@ -95,9 +95,9 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+      <div className="min-h-screen bg-secondary">
         <SEO
-          title="Post Not Found | The EyeLevel Studio"
+          title="Post Not Found | EyeLevel Growth Studio"
           description="The requested blog article could not be found."
           keywords={[
             "blog post not found",
@@ -111,7 +111,7 @@ const BlogPost = () => {
         <Header />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="font-dela text-4xl text-[#F8FFE8] mb-4">
+            <h1 className="font-dela text-4xl text-foreground mb-4">
               Post Not Found
             </h1>
             <p className="text-[rgba(248,255,232,0.7)] mb-8">
@@ -119,7 +119,7 @@ const BlogPost = () => {
             </p>
             <Button
               onClick={() => navigate("/blog")}
-              className="bg-[#E2FEA5] text-[#253e35]"
+              className="bg-primary text-forest-muted"
             >
               Back to Blog
             </Button>
@@ -167,7 +167,7 @@ const BlogPost = () => {
   const postUrl = slug ? `${baseUrl}/blog/${slug}` : `${baseUrl}/blog`;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+    <div className="min-h-screen bg-secondary">
       <SEO
         title={post.seoTitle}
         description={post.seoDescription}
@@ -214,12 +214,11 @@ const BlogPost = () => {
                 className="max-w-4xl mx-auto"
               >
                 <span
-                  className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold font-bricolage mb-4"
-                  style={{ backgroundColor: "#E2FEA5", color: "#0a0a0a" }}
+                  className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold font-bricolage mb-4 bg-primary text-primary-foreground"
                 >
                   {post.category}
                 </span>
-                <h1 className="font-dela text-2xl md:text-4xl lg:text-5xl text-[#F8FFE8] uppercase mb-4">
+                <h1 className="font-dela text-2xl md:text-4xl lg:text-5xl text-foreground uppercase mb-4">
                   {post.title}
                 </h1>
               </motion.div>
@@ -235,7 +234,7 @@ const BlogPost = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={() => navigate("/blog")}
-              className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-[#E2FEA5] transition-colors w-fit"
+              className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-primary transition-colors w-fit"
             >
               <ArrowLeft className="w-5 h-5" />
               Back to Blog
@@ -273,7 +272,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="prose prose-invert max-w-none prose-headings:font-dela prose-headings:uppercase prose-h2:text-[#E2FEA5] prose-h3:text-[#E2FEA5] prose-p:font-bricolage prose-p:text-[rgba(248,255,232,0.86)] prose-li:font-bricolage prose-li:text-[rgba(248,255,232,0.86)] prose-li:marker:text-[#E2FEA5] prose-ul:pl-6 prose-ul:my-6 prose-li:my-2 prose-strong:text-[#F8FFE8]"
+                className="prose prose-invert max-w-none prose-headings:font-dela prose-headings:uppercase prose-h2:text-primary prose-h3:text-primary prose-p:font-bricolage prose-p:text-[rgba(248,255,232,0.86)] prose-li:font-bricolage prose-li:text-[rgba(248,255,232,0.86)] prose-li:marker:text-primary prose-ul:pl-6 prose-ul:my-6 prose-li:my-2 prose-strong:text-foreground"
               >
                 {contentBlocks.map((block, index) => {
                   switch (block.type) {
@@ -313,7 +312,7 @@ const BlogPost = () => {
                     border: "1px solid rgba(226, 254, 165, 0.18)",
                   }}
                 >
-                  <h3 className="font-dela text-xl md:text-2xl text-[#F8FFE8] uppercase mb-3">
+                  <h3 className="font-dela text-xl md:text-2xl text-foreground uppercase mb-3">
                     {post.cta?.heading}
                   </h3>
                   <p
@@ -326,8 +325,7 @@ const BlogPost = () => {
                     onClick={() =>
                       navigate({ pathname: post.cta?.btnLink || "/services" })
                     }
-                    className="rounded-full px-7 py-6 font-semibold font-bricolage"
-                    style={{ backgroundColor: "#E2FEA5", color: "#0a0a0a" }}
+                    className="rounded-full px-7 py-6 font-semibold font-bricolage bg-primary text-primary-foreground"
                   >
                     {post.cta?.btnText}
                   </Button>
@@ -371,7 +369,7 @@ const BlogPost = () => {
                     border: "1px solid rgba(226, 254, 165, 0.1)",
                   }}
                 >
-                  <p className="font-dela text-lg text-[#F8FFE8] mb-4">
+                  <p className="font-dela text-lg text-foreground mb-4">
                     Categories
                   </p>
                   <div className="flex flex-col gap-2">
@@ -407,8 +405,8 @@ const BlogPost = () => {
                     border: "1px solid rgba(226, 254, 165, 0.1)",
                   }}
                 >
-                  <p className="font-dela text-lg text-[#F8FFE8] mb-4 flex items-center gap-2">
-                    <Share2 className="w-5 h-5 text-[#E2FEA5]" />
+                  <p className="font-dela text-lg text-foreground mb-4 flex items-center gap-2">
+                    <Share2 className="w-5 h-5 text-primary" />
                     Share Article
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -417,28 +415,28 @@ const BlogPost = () => {
                       className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                       style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                     >
-                      <Twitter className="w-5 h-5 text-[#E2FEA5]" />
+                      <Twitter className="w-5 h-5 text-primary" />
                     </button>
                     <button
                       onClick={() => handleShare("linkedin")}
                       className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                       style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                     >
-                      <Linkedin className="w-5 h-5 text-[#E2FEA5]" />
+                      <Linkedin className="w-5 h-5 text-primary" />
                     </button>
                     <button
                       onClick={() => handleShare("facebook")}
                       className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                       style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                     >
-                      <Facebook className="w-5 h-5 text-[#E2FEA5]" />
+                      <Facebook className="w-5 h-5 text-primary" />
                     </button>
                     <button
                       onClick={() => handleShare("copy")}
                       className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                       style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                     >
-                      <LinkIcon className="w-5 h-5 text-[#E2FEA5]" />
+                      <LinkIcon className="w-5 h-5 text-primary" />
                     </button>
                   </div>
 
@@ -459,13 +457,13 @@ const BlogPost = () => {
                           className="size-12 rounded-full object-cover"
                         />
                       ) : (
-                        <div className="size-12 bg-[#E2FEA5] text-[#253e35] text-3xl font-bold rounded-full flex items-center justify-center">
+                        <div className="size-12 bg-primary text-forest-muted text-3xl font-bold rounded-full flex items-center justify-center">
                           <span>{post.author.name.charAt(0)}</span>
                         </div>
                       )}
 
                       <div>
-                        <p className="font-dela text-[#F8FFE8]">
+                        <p className="font-dela text-foreground">
                           {post.author.name}
                         </p>
                         <p
@@ -485,7 +483,7 @@ const BlogPost = () => {
       </article>
 
       {relatedPosts.length > 0 && (
-        <section className="py-20 px-4" style={{ backgroundColor: "#173229" }}>
+        <section className="py-20 px-4 bg-background">
           <div className="container mx-auto">
             <div className="max-w-6xl mx-auto">
               <motion.div
@@ -495,12 +493,11 @@ const BlogPost = () => {
                 className="text-center mb-12"
               >
                 <p
-                  className="uppercase tracking-[0.3em] text-sm mb-4 font-bricolage"
-                  style={{ color: "#E2FEA5" }}
+                  className="uppercase tracking-[0.3em] text-sm mb-4 font-bricolage text-primary"
                 >
                   Keep Reading
                 </p>
-                <h2 className="text-3xl md:text-4xl font-dela text-[#F8FFE8]">
+                <h2 className="text-3xl md:text-4xl font-dela text-foreground">
                   Related Articles
                 </h2>
               </motion.div>
@@ -548,7 +545,7 @@ const BlogPost = () => {
                           >
                             {relatedPost.date} | {relatedPost.readTime}
                           </p>
-                          <h3 className="font-dela text-lg text-[#F8FFE8] group-hover:text-[#E2FEA5] transition-colors">
+                          <h3 className="font-dela text-lg text-foreground group-hover:text-primary transition-colors">
                             {relatedPost.title}
                           </h3>
                         </div>
@@ -562,7 +559,7 @@ const BlogPost = () => {
         </section>
       )}
 
-      <section className="py-20 px-4" style={{ backgroundColor: "#1e3c30" }}>
+      <section className="py-20 px-4 bg-secondary">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
@@ -570,7 +567,7 @@ const BlogPost = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-dela text-3xl md:text-4xl text-[#F8FFE8] uppercase mb-6">
+              <h2 className="font-dela text-3xl md:text-4xl text-foreground uppercase mb-6">
                 Ready to Transform Your Brand?
               </h2>
               <p
@@ -598,9 +595,14 @@ const BlogPost = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} mascotBgColor="#1E3C30" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-background" />
     </div>
   );
 };
 
 export default BlogPost;
+
+
+
+
+

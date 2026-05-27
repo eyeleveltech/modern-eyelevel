@@ -1,14 +1,15 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import JoinTheLeague from "@/components/JoinTheLeague";
-import WhatWeDo from "@/components/WhatWeDo";
-import IndustriesSection from "@/components/IndustriesSection";
-import ProcessSection from "@/components/ProcessSection";
-import TextTestimonials from "@/components/TextTestimonials";
-import WhyEyeLevel from "@/components/WhyEyeLevel";
-import FAQSection from "@/components/FAQSection";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import Hero from "@/components/pages/home/Hero";
+import JoinTheLeague from "@/components/sections/JoinTheLeague";
+import WhyEyeLevelExists from "@/components/pages/home/WhyEyeLevelExists";
+import WhatWeDo from "@/components/pages/home/WhatWeDo";
+import HomeIndustriesSection from "@/components/pages/home/HomeIndustriesSection";
+import ProcessSection from "@/components/sections/ProcessSection";
+import TextTestimonials from "@/components/sections/TextTestimonials";
+import WhyEyeLevel from "@/components/pages/home/WhyEyeLevel";
+import FAQSection from "@/components/sections/FAQSection";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import SEO from "@/components/utils/SEO";
 import {
   faqPageSchema,
   homePageSchema,
@@ -16,6 +17,7 @@ import {
   organizationSchema,
   websiteSchema,
   breadcrumbSchema,
+  localBusinessSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
 
@@ -23,24 +25,23 @@ const Index = () => {
   return (
     <>
       <SEO
-        title="Sports, Healthcare & Education Marketing Agency | EyeLevel"
-        description="Chennai's only digital marketing agency for Sports, Healthcare & Education. Performance marketing, event production & video. Book a free consultation today."
+        title="Marketing Agency India | Digital & Events Chennai | EyeLevel"
+        description="EyeLevel is a marketing agency in Chennai for ambitious brands across India. Digital, events, content, and growth — founder-led. Book a call."
         keywords={[
-          "performance marketing agency Chennai",
-          "growth marketing agency",
-          "specialized marketing agency India",
-          "digital marketing services in Chennai",
-          "sports healthcare education digital marketing",
+          "marketing agency India",
+          "Digital Marketing Agency Chennai",
+          "Event management agency Chennai"
         ]}
         schema={[
           organizationSchema,
+          localBusinessSchema,
           websiteSchema,
           homePageSchema,
           homeServicesSchema,
+          faqPageSchema(faqs["Home"]),
           breadcrumbSchema([
             { name: "Home", url: "https://theeyelevelstudio.com/" },
           ]),
-          faqPageSchema(faqs["Home"], { url: "https://theeyelevelstudio.com/" }),
         ]}
         canonical="https://theeyelevelstudio.com/"
         url="https://theeyelevelstudio.com/"
@@ -49,16 +50,18 @@ const Index = () => {
         <Header />
         <Hero />
         <JoinTheLeague />
+        <WhyEyeLevelExists />
         <WhatWeDo />
-        <IndustriesSection />
+        <HomeIndustriesSection />
         <ProcessSection />
         <TextTestimonials />
         <WhyEyeLevel />
         <FAQSection faqs={faqs["Home"]} />
-        <EnhancedFooter showCTA={false} />
+        <EnhancedFooter showCTA={false} mascotBgClass="bg-background" />
       </div>
     </>
   );
 };
 
 export default Index;
+

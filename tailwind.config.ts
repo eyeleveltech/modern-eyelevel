@@ -55,18 +55,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        lime: "hsl(var(--lime))",
-        cream: "hsl(var(--cream))",
-        forest: {
-          DEFAULT: "hsl(var(--forest))",
-          light: "hsl(var(--forest-light))",
-          dark: "hsl(var(--forest-dark))",
+        brand: {
+          black: "hsl(var(--brand-black))",
+          light: "hsl(var(--brand-light))",
+          yellow: "hsl(var(--brand-yellow))",
+          lime: "hsl(var(--brand-lime))",
+          pink: "hsl(var(--brand-pink))",
         },
-        orange: "hsl(var(--orange))",
-        purple: "hsl(var(--purple))",
-        pink: "hsl(var(--pink))",
-        teal: "hsl(var(--teal))",
-        black: "hsl(var(--black))",
+        forest: {
+          muted: "hsl(var(--forest-muted))",
+          dark: "hsl(var(--forest-dark))",
+          deep: "hsl(var(--forest-deep))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -75,6 +75,15 @@ export default {
         "2xl": "1.5rem",
         "3xl": "2rem",
         "4xl": "3rem",
+      },
+      borderWidth: {
+        '3': '3px',
+      },
+      boxShadow: {
+        "brand-hover": "0 24px 60px rgba(0,0,0,0.35)",
+        "neo-sm": "0 4px 0 #0a0a0a",
+        "neo-md": "0 6px 0 #0a0a0a",
+        "neo-pressed": "0 0px 0 #0a0a0a",
       },
       keyframes: {
         "accordion-down": {

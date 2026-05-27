@@ -9,16 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full",
+        default: "bg-brand-yellow font-bricolage text-primary-foreground hover:shadow-none transition-all duration-150 border border-2 hover:translate-y-0.5 border-primary-foreground shadow-neo-sm rounded-full",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full",
-        outline: "border-2 border-foreground bg-transparent text-foreground hover:bg-foreground/10 rounded-full",
+        outline: "border-2 border-foreground/80 bg-transparent text-foreground hover:bg-foreground/10 rounded-full",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
         ghost: "hover:bg-accent hover:text-accent-foreground rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-cream text-forest hover:bg-cream/90 rounded-full shadow-lg hover:shadow-xl hover:scale-105",
-        heroOutline: "border-2 border-cream/50 bg-transparent text-cream hover:bg-cream/10 rounded-full",
-        lime: "bg-lime text-forest hover:bg-lime/90 rounded-full font-bold tracking-wide",
-        dark: "bg-forest text-cream hover:bg-forest-light rounded-full font-bold",
+        hero: "bg-card text-forest hover:bg-card/90 rounded-full shadow-lg hover:shadow-xl hover:scale-105",
+        heroOutline: "border-2 border-brand-light/50 bg-transparent text-foreground hover:bg-card/10 rounded-full",
+        neo: "bg-primary text-primary-foreground border-3 border-foreground shadow-neo-sm hover:translate-y-0.5 hover:shadow-none rounded-full font-bold",
+        lime: "bg-primary text-forest hover:bg-primary/90 rounded-full font-bold tracking-wide",
+        dark: "bg-forest text-foreground hover:bg-forest-light rounded-full font-bold",
       },
       size: {
         default: "h-11 px-6 py-2",
@@ -37,7 +38,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
@@ -50,3 +51,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
+
+

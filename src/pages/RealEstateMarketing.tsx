@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import SEO from "@/components/utils/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import WavyUnderline from "@/components/WavyUnderline";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 import realestateGallery1 from "@/assets/galleries/realestate/realestate-gallery-1.jpg";
 import realestateGallery2 from "@/assets/galleries/realestate/realestate-gallery-2.jpg";
 import realestateGallery3 from "@/assets/galleries/realestate/realestate-gallery-3.jpg";
@@ -30,8 +30,8 @@ import {
   TestimonialsSection,
   BigStatsSection,
   ClientLogosMarquee,
-} from "@/components/IndustryPageEnhancements";
-import GreenButton from "@/components/GreenButton";
+} from "@/components/shared/marketing-sections";
+import GreenButton from "@/components/shared/GreenButton";
 import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
 import { getVerticalBySlug } from "@/data/marketingVerticals";
 
@@ -217,14 +217,13 @@ const RealEstateMarketing = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden bg-secondary"
       >
         {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none opacity-50"
+          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-forest-dark/60 pointer-events-none opacity-50"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -257,8 +256,7 @@ const RealEstateMarketing = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dela text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase"
-            style={{ color: "#E2FEA5" }}
+            className="font-dela text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase text-primary"
           >
             DON'T LIST IT.
             <br />
@@ -269,8 +267,7 @@ const RealEstateMarketing = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "#F8FFE8" }}
+            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed text-foreground"
           >
             "Post and pray" is not a strategy. We engineer high-performance lead
             engines that screen out unqualified leads and deliver buyers
@@ -316,8 +313,7 @@ const RealEstateMarketing = () => {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: "#E2FEA5" }}
+              className="w-1.5 h-1.5 rounded-full bg-primary"
             />
           </motion.div>
         </motion.div>
@@ -325,8 +321,7 @@ const RealEstateMarketing = () => {
 
       {/* Reality Check - Challenges Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-background"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -337,8 +332,7 @@ const RealEstateMarketing = () => {
           >
             <GreenButton>The Reality Check</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-primary"
             >
               WHY PROPERTIES SIT <WavyUnderline>UNSOLD</WavyUnderline>
             </h2>
@@ -390,8 +384,7 @@ const RealEstateMarketing = () => {
                     </span>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#F8FFE8" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-foreground"
                     >
                       {challenge.title}
                     </h3>
@@ -411,8 +404,7 @@ const RealEstateMarketing = () => {
 
       {/* The Fix - Solutions Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#1e3c30" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -423,8 +415,7 @@ const RealEstateMarketing = () => {
           >
             <GreenButton>The Fix</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-primary"
             >
               HOW WE SELL <WavyUnderline>PROPERTIES</WavyUnderline>
             </h2>
@@ -479,14 +470,12 @@ const RealEstateMarketing = () => {
                       }}
                     >
                       <solution.icon
-                        className="w-7 h-7"
-                        style={{ color: "#E2FEA5" }}
+                        className="w-7 h-7 text-primary"
                       />
                     </div>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#E2FEA5" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-primary"
                     >
                       {solution.title}
                     </h3>
@@ -506,8 +495,7 @@ const RealEstateMarketing = () => {
 
       {/* Services Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 bg-secondary"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -519,8 +507,7 @@ const RealEstateMarketing = () => {
             <div>
               <GreenButton>Our Arsenal</GreenButton>
               <h2
-                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-primary"
               >
                 Services
               </h2>
@@ -559,14 +546,12 @@ const RealEstateMarketing = () => {
                     }}
                   >
                     <service.icon
-                      className="w-7 h-7"
-                      style={{ color: "#E2FEA5" }}
+                      className="w-7 h-7 text-primary"
                     />
                   </div>
 
                   <h3
-                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase"
-                    style={{ color: "#F8FFE8" }}
+                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase text-foreground"
                   >
                     {service.title}
                   </h3>
@@ -578,8 +563,7 @@ const RealEstateMarketing = () => {
                   </p>
 
                   <ArrowRight
-                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                    style={{ color: "#E2FEA5" }}
+                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary"
                   />
                 </div>
               </motion.div>
@@ -643,8 +627,7 @@ const RealEstateMarketing = () => {
 
       {/* FAQ Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 bg-background"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -655,8 +638,7 @@ const RealEstateMarketing = () => {
           >
             <GreenButton>The Buyer's Perspective</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl"
-              style={{ color: "#E2FEA5" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl text-primary"
             >
               FAQs
             </h2>
@@ -738,14 +720,13 @@ const RealEstateMarketing = () => {
 
       {/* Final CTA Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-[#1e3329]"
+            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-forest-dark/60"
           >
             <Star18 className="w-full h-full" />
           </motion.div>
@@ -759,8 +740,7 @@ const RealEstateMarketing = () => {
           >
             <GreenButton>Ready to Launch?</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-primary"
             >
               Let's Sell Your
               <br />
@@ -801,3 +781,5 @@ const RealEstateMarketing = () => {
 };
 
 export default RealEstateMarketing;
+
+

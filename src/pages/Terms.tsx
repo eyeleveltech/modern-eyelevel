@@ -1,14 +1,14 @@
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 
 const Terms = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+    <div className="min-h-screen bg-secondary">
       <SEO
-        title="Terms & Conditions | The EyeLevel Studio"
-        description="Learn how The EyeLevel Studio collects, uses, and protects your personal data across our website and services."
+        title="Terms & Conditions | EyeLevel Growth Studio"
+        description="Learn how EyeLevel Growth Studio collects, uses, and protects your personal data across our website and services."
         keywords={[
           "terms and conditions",
           "website terms",
@@ -29,10 +29,9 @@ const Terms = () => {
             transition={{ duration: 0.6 }}
           >
             <h1
-              className="font-dela text-4xl md:text-5xl mb-8 uppercase"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-4xl md:text-5xl mb-8 uppercase text-foreground"
             >
-              Terms & <span style={{ color: "#d0e999" }}>Conditions</span>
+              Terms & <span className="text-primary">Conditions</span>
             </h1>
 
             <div
@@ -48,8 +47,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   1. Acceptance of Terms
                 </h2>
@@ -63,8 +61,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   2. Services Description
                 </h2>
@@ -78,8 +75,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   3. Client Responsibilities
                 </h2>
@@ -93,8 +89,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   4. Payment Terms
                 </h2>
@@ -108,8 +103,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   5. Intellectual Property
                 </h2>
@@ -123,8 +117,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   6. Confidentiality
                 </h2>
@@ -137,8 +130,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   7. Limitation of Liability
                 </h2>
@@ -151,8 +143,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   8. Termination
                 </h2>
@@ -165,8 +156,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   9. Governing Law
                 </h2>
@@ -179,8 +169,7 @@ const Terms = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   10. Contact Information
                 </h2>
@@ -188,16 +177,19 @@ const Terms = () => {
                   For questions about these Terms & Conditions, please contact
                   us at:
                 </p>
-                <p style={{ color: "#d0e999" }}>hello@eyelevelstudio.in</p>
+                <p className="text-primary">hello@eyelevelstudio.in</p>
               </section>
             </div>
           </motion.div>
         </div>
       </main>
 
-      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
+      <EnhancedFooter mascotBgClass="bg-secondary" showCTA={false} />
     </div>
   );
 };
 
 export default Terms;
+
+
+

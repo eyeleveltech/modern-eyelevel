@@ -4,8 +4,8 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,8 +25,8 @@ import {
   Plus,
   Trash2,
 } from "lucide-react";
-import GreenButton from "@/components/GreenButton";
-import SEO from "@/components/SEO";
+import GreenButton from "@/components/shared/GreenButton";
+import SEO from "@/components/utils/SEO";
 
 const applicationSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -287,10 +287,10 @@ const Apply = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#253e35] py-10">
+    <div className="min-h-screen bg-secondary py-10">
       <SEO
-        title="Apply for Careers | The EyeLevel Studio"
-        description="Submit your application to join The EyeLevel Studio team."
+        title="Apply for Careers | EyeLevel Growth Studio"
+        description="Submit your application to join EyeLevel Growth Studio team."
         keywords={[
           "apply for marketing job",
           "career application",
@@ -310,7 +310,7 @@ const Apply = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={() => navigate("/careers")}
-            className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-[#E2FEA5] mb-8 transition-colors font-bricolage"
+            className="flex items-center gap-2 text-[rgba(248,255,232,0.7)] hover:text-primary mb-8 transition-colors font-bricolage"
           >
             <ArrowLeft className="w-5 h-5" />
             Back to Careers
@@ -323,8 +323,8 @@ const Apply = () => {
             className="text-center mb-12"
           >
             <GreenButton>Application Form</GreenButton>
-            <h1 className="font-dela text-3xl md:text-4xl lg:text-5xl text-[#F8FFE8] mb-4 uppercase">
-              Apply for <span style={{ color: "#E2FEA5" }}>{position}</span>
+            <h1 className="font-dela text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 uppercase">
+              Apply for <span className="text-primary">{position}</span>
             </h1>
             <p className="text-xl text-[rgba(248,255,232,0.7)] max-w-2xl mx-auto font-bricolage">
               Upload your resume to auto-fill the form, or complete the fields
@@ -341,9 +341,9 @@ const Apply = () => {
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               {/* Resume Upload - Primary */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Upload Resume
                   </h2>
                   <span className="text-sm text-[rgba(248,255,232,0.5)] font-bricolage">
@@ -351,7 +351,7 @@ const Apply = () => {
                   </span>
                 </div>
 
-                <div className="border-2 border-dashed border-[#E2FEA5]/30 rounded-xl p-8 text-center hover:border-[#E2FEA5]/50 transition-colors">
+                <div className="border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 transition-colors">
                   <input
                     type="file"
                     id="resume"
@@ -361,8 +361,8 @@ const Apply = () => {
                   />
                   {resumeFile ? (
                     <div className="flex items-center justify-center gap-3">
-                      <FileText className="w-6 h-6 text-[#E2FEA5]" />
-                      <span className="text-[#E2FEA5] font-medium font-bricolage">
+                      <FileText className="w-6 h-6 text-primary" />
+                      <span className="text-primary font-medium font-bricolage">
                         {resumeFile.name}
                       </span>
                       <button
@@ -375,8 +375,8 @@ const Apply = () => {
                     </div>
                   ) : (
                     <label htmlFor="resume" className="cursor-pointer">
-                      <Upload className="w-12 h-12 text-[#E2FEA5]/50 mx-auto mb-4" />
-                      <p className="text-[#F8FFE8] font-medium mb-2 font-bricolage">
+                      <Upload className="w-12 h-12 text-primary/50 mx-auto mb-4" />
+                      <p className="text-foreground font-medium mb-2 font-bricolage">
                         Upload your resume or drag and drop it here
                       </p>
                       <p className="text-[rgba(248,255,232,0.5)] text-sm font-bricolage">
@@ -388,14 +388,14 @@ const Apply = () => {
               </div>
 
               {/* Basic Info */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Basic Info
                   </h2>
                   <button
                     type="button"
-                    className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="text-sm text-primary hover:underline font-bricolage"
                   >
                     Clear
                   </button>
@@ -405,7 +405,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="firstName"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       First Name *
                     </Label>
@@ -413,7 +413,7 @@ const Apply = () => {
                       id="firstName"
                       {...register("firstName")}
                       placeholder="Enter your first name"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.firstName && (
                       <p className="text-red-400 text-sm">
@@ -425,7 +425,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="lastName"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Last Name *
                     </Label>
@@ -433,7 +433,7 @@ const Apply = () => {
                       id="lastName"
                       {...register("lastName")}
                       placeholder="Enter your last name"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.lastName && (
                       <p className="text-red-400 text-sm">
@@ -445,7 +445,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="email"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Email *
                     </Label>
@@ -454,7 +454,7 @@ const Apply = () => {
                       type="email"
                       {...register("email")}
                       placeholder="Enter your email"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.email && (
                       <p className="text-red-400 text-sm">
@@ -466,7 +466,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="phone"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Mobile * (+91)
                     </Label>
@@ -475,7 +475,7 @@ const Apply = () => {
                       type="tel"
                       {...register("phone")}
                       placeholder="Enter your mobile number"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.phone && (
                       <p className="text-red-400 text-sm">
@@ -487,14 +487,14 @@ const Apply = () => {
               </div>
 
               {/* Address Information */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Address Information
                   </h2>
                   <button
                     type="button"
-                    className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="text-sm text-primary hover:underline font-bricolage"
                   >
                     Clear
                   </button>
@@ -504,7 +504,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="street"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Street *
                     </Label>
@@ -512,7 +512,7 @@ const Apply = () => {
                       id="street"
                       {...register("street")}
                       placeholder="Enter your street address"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.street && (
                       <p className="text-red-400 text-sm">
@@ -525,7 +525,7 @@ const Apply = () => {
                     <div className="space-y-2">
                       <Label
                         htmlFor="city"
-                        className="text-[#F8FFE8] font-bricolage"
+                        className="text-foreground font-bricolage"
                       >
                         City *
                       </Label>
@@ -533,7 +533,7 @@ const Apply = () => {
                         id="city"
                         {...register("city")}
                         placeholder="Enter your city"
-                        className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                        className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                       />
                       {errors.city && (
                         <p className="text-red-400 text-sm">
@@ -545,7 +545,7 @@ const Apply = () => {
                     <div className="space-y-2">
                       <Label
                         htmlFor="state"
-                        className="text-[#F8FFE8] font-bricolage"
+                        className="text-foreground font-bricolage"
                       >
                         State/Province *
                       </Label>
@@ -553,7 +553,7 @@ const Apply = () => {
                         id="state"
                         {...register("state")}
                         placeholder="Enter your state"
-                        className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                        className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                       />
                       {errors.state && (
                         <p className="text-red-400 text-sm">
@@ -565,7 +565,7 @@ const Apply = () => {
                     <div className="space-y-2">
                       <Label
                         htmlFor="zipCode"
-                        className="text-[#F8FFE8] font-bricolage"
+                        className="text-foreground font-bricolage"
                       >
                         Zip/Postal Code *
                       </Label>
@@ -573,7 +573,7 @@ const Apply = () => {
                         id="zipCode"
                         {...register("zipCode")}
                         placeholder="Enter your zip code"
-                        className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                        className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                       />
                       {errors.zipCode && (
                         <p className="text-red-400 text-sm">
@@ -585,7 +585,7 @@ const Apply = () => {
                     <div className="space-y-2">
                       <Label
                         htmlFor="country"
-                        className="text-[#F8FFE8] font-bricolage"
+                        className="text-foreground font-bricolage"
                       >
                         Country *
                       </Label>
@@ -593,7 +593,7 @@ const Apply = () => {
                         id="country"
                         {...register("country")}
                         placeholder="Enter your country"
-                        className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                        className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                       />
                       {errors.country && (
                         <p className="text-red-400 text-sm">
@@ -606,14 +606,14 @@ const Apply = () => {
               </div>
 
               {/* Professional Details */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Professional Details
                   </h2>
                   <button
                     type="button"
-                    className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="text-sm text-primary hover:underline font-bricolage"
                   >
                     Clear
                   </button>
@@ -623,7 +623,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="currentSalary"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Current Salary (LPA) *
                     </Label>
@@ -631,7 +631,7 @@ const Apply = () => {
                       id="currentSalary"
                       {...register("currentSalary")}
                       placeholder="e.g., 8 LPA"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.currentSalary && (
                       <p className="text-red-400 text-sm">
@@ -643,7 +643,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="currentJobTitle"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Current Job Title
                     </Label>
@@ -651,14 +651,14 @@ const Apply = () => {
                       id="currentJobTitle"
                       {...register("currentJobTitle")}
                       placeholder="Enter your current job title"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label
                       htmlFor="expectedSalary"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Expected Salary (LPA) *
                     </Label>
@@ -666,7 +666,7 @@ const Apply = () => {
                       id="expectedSalary"
                       {...register("expectedSalary")}
                       placeholder="e.g., 12 LPA"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.expectedSalary && (
                       <p className="text-red-400 text-sm">
@@ -678,7 +678,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="noticePeriod"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Notice Period *
                     </Label>
@@ -686,7 +686,7 @@ const Apply = () => {
                       id="noticePeriod"
                       {...register("noticePeriod")}
                       placeholder="e.g., Immediate, 15 days, 30 days"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                     {errors.noticePeriod && (
                       <p className="text-red-400 text-sm">
@@ -698,15 +698,15 @@ const Apply = () => {
               </div>
 
               {/* Educational Details */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Educational Details
                   </h2>
                   <button
                     type="button"
                     onClick={addEducation}
-                    className="flex items-center gap-2 text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="flex items-center gap-2 text-sm text-primary hover:underline font-bricolage"
                   >
                     <Plus className="w-4 h-4" /> Add
                   </button>
@@ -721,7 +721,7 @@ const Apply = () => {
                     {education.map((edu) => (
                       <div
                         key={edu.id}
-                        className="bg-[#253e35] rounded-xl p-4 border border-[#E2FEA5]/10"
+                        className="bg-secondary rounded-xl p-4 border border-primary/10"
                       >
                         <div className="flex justify-end mb-3">
                           <button
@@ -739,7 +739,7 @@ const Apply = () => {
                               updateEducation(edu.id, "degree", e.target.value)
                             }
                             placeholder="Degree/Qualification"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                           <Input
                             value={edu.institution}
@@ -751,7 +751,7 @@ const Apply = () => {
                               )
                             }
                             placeholder="Institution"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                           <Input
                             value={edu.year}
@@ -759,7 +759,7 @@ const Apply = () => {
                               updateEducation(edu.id, "year", e.target.value)
                             }
                             placeholder="Year of Completion"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                         </div>
                       </div>
@@ -769,15 +769,15 @@ const Apply = () => {
               </div>
 
               {/* Experience Details */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8] uppercase">
+                  <h2 className="font-dela text-2xl text-foreground uppercase">
                     Experience Details
                   </h2>
                   <button
                     type="button"
                     onClick={addExperience}
-                    className="flex items-center gap-2 text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="flex items-center gap-2 text-sm text-primary hover:underline font-bricolage"
                   >
                     <Plus className="w-4 h-4" /> Add
                   </button>
@@ -792,7 +792,7 @@ const Apply = () => {
                     {experience.map((exp) => (
                       <div
                         key={exp.id}
-                        className="bg-[#253e35] rounded-xl p-4 border border-[#E2FEA5]/10"
+                        className="bg-secondary rounded-xl p-4 border border-primary/10"
                       >
                         <div className="flex justify-end mb-3">
                           <button
@@ -814,7 +814,7 @@ const Apply = () => {
                               )
                             }
                             placeholder="Company Name"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                           <Input
                             value={exp.title}
@@ -822,7 +822,7 @@ const Apply = () => {
                               updateExperience(exp.id, "title", e.target.value)
                             }
                             placeholder="Job Title"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                           <Input
                             value={exp.duration}
@@ -834,7 +834,7 @@ const Apply = () => {
                               )
                             }
                             placeholder="Duration (e.g., Jan 2022 - Present)"
-                            className="bg-[#173229] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)]"
+                            className="bg-background border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)]"
                           />
                         </div>
                       </div>
@@ -844,14 +844,14 @@ const Apply = () => {
               </div>
 
               {/* Employment Details (Referral) */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10 uppercase">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10 uppercase">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8]">
+                  <h2 className="font-dela text-2xl text-foreground">
                     Employment Details (IJP/Referral)
                   </h2>
                   <button
                     type="button"
-                    className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="text-sm text-primary hover:underline font-bricolage"
                   >
                     Clear
                   </button>
@@ -861,7 +861,7 @@ const Apply = () => {
                   <div className="space-y-2">
                     <Label
                       htmlFor="employeeName"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Employee Name
                     </Label>
@@ -869,14 +869,14 @@ const Apply = () => {
                       id="employeeName"
                       {...register("employeeName")}
                       placeholder="Referrer's name"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label
                       htmlFor="employeeCode"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Employee Code
                     </Label>
@@ -884,14 +884,14 @@ const Apply = () => {
                       id="employeeCode"
                       {...register("employeeCode")}
                       placeholder="Employee code"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label
                       htmlFor="employeeEmail"
-                      className="text-[#F8FFE8] font-bricolage"
+                      className="text-foreground font-bricolage"
                     >
                       Employee Email
                     </Label>
@@ -900,22 +900,22 @@ const Apply = () => {
                       type="email"
                       {...register("employeeEmail")}
                       placeholder="Referrer's email"
-                      className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                      className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-dela text-2xl text-[#F8FFE8]">
+                  <h2 className="font-dela text-2xl text-foreground">
                     Social Links
                   </h2>
                   <button
                     type="button"
                     onClick={clearSocialLinks}
-                    className="text-sm text-[#E2FEA5] hover:underline font-bricolage"
+                    className="text-sm text-primary hover:underline font-bricolage"
                   >
                     Clear
                   </button>
@@ -924,7 +924,7 @@ const Apply = () => {
                 <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 items-end">
                     <div className="space-y-2">
-                      <Label className="text-[#F8FFE8] font-bricolage">
+                      <Label className="text-foreground font-bricolage">
                         Choose Platform
                       </Label>
                       <Select
@@ -933,10 +933,10 @@ const Apply = () => {
                           setSelectedSocialPlatform(value as SocialPlatform)
                         }
                       >
-                        <SelectTrigger className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] focus:ring-[#E2FEA5]/30 focus:ring-offset-0">
+                        <SelectTrigger className="bg-secondary border-primary/20 text-foreground focus:ring-[#E2FEA5]/30 focus:ring-offset-0">
                           <SelectValue placeholder="Choose social media" />
                         </SelectTrigger>
-                        <SelectContent className="z-[10000] bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8]">
+                        <SelectContent className="z-[10000] bg-secondary border-primary/20 text-foreground">
                           {SOCIAL_PLATFORMS.map((platform) => {
                             const isSelected = socialLinks.some(
                               (link) => link.platform === platform.value,
@@ -947,7 +947,7 @@ const Apply = () => {
                                 key={platform.value}
                                 value={platform.value}
                                 disabled={isSelected}
-                                className="focus:bg-[#E2FEA5] focus:text-[#173229]"
+                                className="focus:bg-primary focus:text-forest-dark"
                               >
                                 {platform.label}
                               </SelectItem>
@@ -964,7 +964,7 @@ const Apply = () => {
                         !selectedSocialPlatform ||
                         socialLinks.length >= SOCIAL_PLATFORMS.length
                       }
-                      className="h-10 rounded-lg px-5 bg-[#E2FEA5] text-[#173229] hover:bg-[#FCFAC2] font-bricolage disabled:cursor-not-allowed disabled:opacity-40"
+                      className="h-10 rounded-lg px-5 bg-primary text-forest-dark hover:bg-[#FCFAC2] font-bricolage disabled:cursor-not-allowed disabled:opacity-40"
                     >
                       <Plus className="w-4 h-4" /> Add Field
                     </Button>
@@ -981,10 +981,10 @@ const Apply = () => {
                         className="grid grid-cols-1 md:grid-cols-[220px_1fr_auto] gap-3 items-end"
                       >
                         <div className="space-y-2">
-                          <Label className="text-[#F8FFE8] font-bricolage">
+                          <Label className="text-foreground font-bricolage">
                             Platform
                           </Label>
-                          <div className="flex h-10 items-center rounded-md border border-[#E2FEA5]/20 bg-[#253e35] px-3 text-sm text-[#F8FFE8] font-bricolage">
+                          <div className="flex h-10 items-center rounded-md border border-primary/20 bg-secondary px-3 text-sm text-foreground font-bricolage">
                             {SOCIAL_PLATFORMS.find(
                               (platform) =>
                                 platform.value === socialLink.platform,
@@ -995,7 +995,7 @@ const Apply = () => {
                         <div className="space-y-2">
                           <Label
                             htmlFor={`social-url-${socialLink.id}`}
-                            className="text-[#F8FFE8] font-bricolage"
+                            className="text-foreground font-bricolage"
                           >
                             Profile Link
                           </Label>
@@ -1006,7 +1006,7 @@ const Apply = () => {
                               updateSocialUrl(socialLink.id, e.target.value)
                             }
                             placeholder="https://"
-                            className="bg-[#253e35] border-[#E2FEA5]/20 text-[#F8FFE8] placeholder:text-[rgba(248,255,232,0.4)] focus:border-[#E2FEA5]"
+                            className="bg-secondary border-primary/20 text-foreground placeholder:text-[rgba(248,255,232,0.4)] focus:border-primary"
                           />
                         </div>
 
@@ -1026,13 +1026,13 @@ const Apply = () => {
               </div>
 
               {/* Attachment Information */}
-              <div className="bg-[#173229] rounded-2xl p-6 md:p-8 border border-[#E2FEA5]/10 uppercase">
-                <h2 className="font-dela text-2xl text-[#F8FFE8] mb-6">
+              <div className="bg-background rounded-2xl p-6 md:p-8 border border-primary/10 uppercase">
+                <h2 className="font-dela text-2xl text-foreground mb-6">
                   Attachment Information
                 </h2>
 
                 <div className="space-y-2">
-                  <Label className="text-[#F8FFE8] font-bricolage">
+                  <Label className="text-foreground font-bricolage">
                     Resume * (Already uploaded above)
                   </Label>
                   <p className="text-[rgba(248,255,232,0.5)] text-sm font-bricolage">
@@ -1064,13 +1064,7 @@ const Apply = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="group rounded-full px-10 py-6 text-base font-semibold font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
-                  style={{
-                    backgroundColor: "#FCFAC2",
-                    color: "#0a0a0a",
-                    border: "3px solid #0a0a0a",
-                    boxShadow: "0 4px 0 #0a0a0a",
-                  }}
+                  className="group rounded-full px-10 py-6 text-base font-semibold "
                 >
                   {isSubmitting ? (
                     <>
@@ -1087,9 +1081,12 @@ const Apply = () => {
         </div>
       </main>
 
-      <EnhancedFooter showCTA={false} mascotBgColor="#253E35" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-secondary" />
     </div>
   );
 };
 
 export default Apply;
+
+
+

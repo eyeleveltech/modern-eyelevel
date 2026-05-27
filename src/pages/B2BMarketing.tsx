@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import SEO from "@/components/utils/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import WavyUnderline from "@/components/WavyUnderline";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 import b2bGallery1 from "@/assets/galleries/b2b/b2b-gallery-1.jpg";
 import b2bGallery2 from "@/assets/galleries/b2b/b2b-gallery-2.jpg";
 import b2bGallery3 from "@/assets/galleries/b2b/b2b-gallery-3.jpg";
@@ -29,8 +29,8 @@ import {
   TestimonialsSection,
   BigStatsSection,
   ClientLogosMarquee,
-} from "@/components/IndustryPageEnhancements";
-import GreenButton from "@/components/GreenButton";
+} from "@/components/shared/marketing-sections";
+import GreenButton from "@/components/shared/GreenButton";
 import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
 import { getVerticalBySlug } from "@/data/marketingVerticals";
 
@@ -213,14 +213,13 @@ const B2BMarketing = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden bg-secondary"
       >
         {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none opacity-50"
+          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-forest-dark/60 pointer-events-none opacity-50"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -255,8 +254,7 @@ const B2BMarketing = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase"
-            style={{ color: "#FCFAC2" }}
+            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase text-foreground"
           >
             STOP COLD CALLING.
             <br />
@@ -267,8 +265,7 @@ const B2BMarketing = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "#F8FFE8" }}
+            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed text-foreground"
           >
             B2B doesn't have to be boring (or slow). We fuse Account-Based
             Marketing (ABM) with aggressive creative to shorten your sales cycle
@@ -314,8 +311,7 @@ const B2BMarketing = () => {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: "#FCFAC2" }}
+              className="w-1.5 h-1.5 rounded-full bg-card"
             />
           </motion.div>
         </motion.div>
@@ -323,8 +319,7 @@ const B2BMarketing = () => {
 
       {/* Reality Check - Challenges Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-background"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -335,8 +330,7 @@ const B2BMarketing = () => {
           >
             <GreenButton>The Reality Check</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-              style={{ color: "#FCFAC2" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-foreground"
             >
               WHY DEALS <WavyUnderline>STALL</WavyUnderline>
             </h2>
@@ -388,8 +382,7 @@ const B2BMarketing = () => {
                     </span>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#F8FFE8" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-foreground"
                     >
                       {challenge.title}
                     </h3>
@@ -409,8 +402,7 @@ const B2BMarketing = () => {
 
       {/* The Fix - Solutions Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#1e3c30" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -421,8 +413,7 @@ const B2BMarketing = () => {
           >
             <GreenButton>The Fix</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#FCFAC2" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-foreground"
             >
               HOW WE CLOSE <WavyUnderline>DEALS</WavyUnderline>
             </h2>
@@ -477,14 +468,12 @@ const B2BMarketing = () => {
                       }}
                     >
                       <solution.icon
-                        className="w-7 h-7"
-                        style={{ color: "#FCFAC2" }}
+                        className="w-7 h-7 text-foreground"
                       />
                     </div>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#FCFAC2" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-foreground"
                     >
                       {solution.title}
                     </h3>
@@ -504,8 +493,7 @@ const B2BMarketing = () => {
 
       {/* Services Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 bg-secondary"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -517,8 +505,7 @@ const B2BMarketing = () => {
             <div>
               <GreenButton>Our Arsenal</GreenButton>
               <h2
-                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-                style={{ color: "#FCFAC2" }}
+                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-foreground"
               >
                 Services
               </h2>
@@ -557,14 +544,12 @@ const B2BMarketing = () => {
                     }}
                   >
                     <service.icon
-                      className="w-7 h-7"
-                      style={{ color: "#FCFAC2" }}
+                      className="w-7 h-7 text-foreground"
                     />
                   </div>
 
                   <h3
-                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase"
-                    style={{ color: "#F8FFE8" }}
+                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase text-foreground"
                   >
                     {service.title}
                   </h3>
@@ -576,8 +561,7 @@ const B2BMarketing = () => {
                   </p>
 
                   <ArrowRight
-                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                    style={{ color: "#FCFAC2" }}
+                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-foreground"
                   />
                 </div>
               </motion.div>
@@ -636,8 +620,7 @@ const B2BMarketing = () => {
 
       {/* FAQ Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 bg-background"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -648,8 +631,7 @@ const B2BMarketing = () => {
           >
             <GreenButton>The Boardroom Brief</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl"
-              style={{ color: "#FCFAC2" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl text-foreground"
             >
               FAQs
             </h2>
@@ -731,14 +713,13 @@ const B2BMarketing = () => {
 
       {/* Final CTA Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-[#1e3329]"
+            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-forest-dark/60"
           >
             <Star18 className="w-full h-full" />
           </motion.div>
@@ -752,8 +733,7 @@ const B2BMarketing = () => {
           >
             <GreenButton>Ready to Close?</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#FCFAC2" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-foreground"
             >
               Let's Land Your
               <br />
@@ -792,3 +772,5 @@ const B2BMarketing = () => {
 };
 
 export default B2BMarketing;
+
+

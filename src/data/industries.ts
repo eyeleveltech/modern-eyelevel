@@ -322,7 +322,7 @@ export const getIndustrySchema = (
     image: industry.image,
     provider: {
       "@type": "Organization",
-      name: "The EyeLevel Studio",
+      name: "EyeLevel Growth Studio",
       url: baseUrl,
     },
     areaServed: { "@type": "Place", name: "Global" },

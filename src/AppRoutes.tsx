@@ -11,10 +11,13 @@ import Index from "./pages/Index";
 import Industries from "./pages/Industries";
 import JobDetails from "./pages/JobDetails";
 import NotFound from "./pages/NotFound";
+import Portfolio from "./pages/Portfolio";
 import Privacy from "./pages/Privacy";
 import ServicesPage from "./pages/Services";
 import Terms from "./pages/Terms";
 import ThankYou from "./pages/ThankYou";
+import Works from "./pages/Works";
+import WhatsappMarketing from "./pages/WhatsappMarketing";
 
 const AppRoutes = () => (
   <Routes>
@@ -22,6 +25,8 @@ const AppRoutes = () => (
     <Route path="/about-us" element={<About />} />
     <Route path="/careers" element={<Careers />} />
     <Route path="/services" element={<ServicesPage />} />
+    <Route path="/services/whatsapp-marketing" element={<WhatsappMarketing />} />
+    <Route path="/works" element={<Works />} />
     <Route path="/how-we-work" element={<Navigate to="/about-us" replace />} />
     <Route path="/industries" element={<Industries />} />
     <Route path="/contact-us" element={<Contact />} />

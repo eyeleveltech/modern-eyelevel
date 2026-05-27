@@ -197,6 +197,22 @@ export const pageMetadataRegistry: Record<string, PageMetadata> = {
     ogType: "website",
     schemas: ["marketingVertical", "breadcrumb", "localBusiness"],
   },
+  "/services/whatsapp-marketing": {
+    route: "/services/whatsapp-marketing",
+    title: "WhatsApp Marketing Agency India — EyeLevel Growth Studio",
+    description:
+      "Full-service WhatsApp marketing: broadcasts, drip sequences, chatbots, and Business API setup. EyeLevel runs WhatsApp campaigns for D2C brands, hospitals, schools, and SaaS companies across India.",
+    keywords: [
+      "WhatsApp marketing agency India",
+      "WhatsApp Business API India",
+      "WhatsApp marketing for D2C brands India",
+      "WhatsApp broadcast campaign India",
+      "Gupshup WATI Twixor India",
+    ],
+    canonical: "https://theeyelevelstudio.com/services/whatsapp-marketing",
+    ogType: "website",
+    schemas: ["marketingVertical", "breadcrumb", "localBusiness"],
+  },
 
   // Transactional Pages (Minimal SEO)
   "/booking": {

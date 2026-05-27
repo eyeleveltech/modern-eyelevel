@@ -8,6 +8,7 @@ const prerenderRoutes = [
   "/",
   "/about-us",
   "/services",
+  "/portfolio",
   "/industries",
   "/contact-us",
   "/blog",

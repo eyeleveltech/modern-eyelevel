@@ -1,11 +1,11 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Home, Briefcase, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import mascotTrophy from "@/assets/mascot/mascot_transparent.webp";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 
 type ThankYouType = "application" | "contact" | "booking" | "general";
 
@@ -85,12 +85,11 @@ const ThankYou = () => {
 
   return (
     <div
-      className="min-h-screen overflow-hidden"
-      style={{ backgroundColor: "#253e35" }}
+      className="min-h-screen overflow-hidden bg-secondary"
     >
       <SEO
-        title="Thank You | The EyeLevel Studio"
-        description="Your submission has been received by The EyeLevel Studio."
+        title="Thank You | EyeLevel Growth Studio"
+        description="Your submission has been received by EyeLevel Growth Studio."
         keywords={[
           "thank you page",
           "submission received",
@@ -110,15 +109,13 @@ const ThankYou = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="absolute top-1/4 -right-20 w-80 h-80 rounded-full"
-            style={{ backgroundColor: "#E2FEA5" }}
+            className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-primary"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 0.05, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="absolute bottom-1/4 -left-20 w-60 h-60 rounded-full"
-            style={{ backgroundColor: "#E2FEA5" }}
+            className="absolute bottom-1/4 -left-20 w-60 h-60 rounded-full bg-primary"
           />
         </div>
 
@@ -131,10 +128,9 @@ const ThankYou = () => {
             className="mb-8"
           >
             <div
-              className="w-24 h-24 rounded-full flex items-center justify-center mx-auto"
-              style={{ backgroundColor: "#E2FEA5" }}
+              className="w-24 h-24 rounded-full flex items-center justify-center mx-auto bg-primary"
             >
-              <CheckCircle className="w-12 h-12" style={{ color: "#253e35" }} />
+              <CheckCircle className="w-12 h-12 text-forest-muted" />
             </div>
           </motion.div>
 
@@ -155,15 +151,13 @@ const ThankYou = () => {
             transition={{ delay: 0.2 }}
           >
             <h1
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-4 uppercase"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-4 uppercase text-foreground"
             >
               {content.title}
             </h1>
 
             <h2
-              className="font-dela text-xl md:text-2xl mb-6"
-              style={{ color: "#E2FEA5" }}
+              className="font-dela text-xl md:text-2xl mb-6 text-primary"
             >
               {content.subtitle}
             </h2>
@@ -173,7 +167,7 @@ const ThankYou = () => {
                 className="text-lg mb-4 font-bricolage"
                 style={{ color: "rgba(248, 255, 232, 0.8)" }}
               >
-                Position: <span style={{ color: "#E2FEA5" }}>{position}</span>
+                Position: <span className="text-primary">{position}</span>
               </p>
             )}
 
@@ -240,7 +234,7 @@ const ThankYou = () => {
               Have questions? Reach out to us at{" "}
               <a
                 href="mailto:hello@eyelevelstudio.com"
-                className="underline hover:text-[#E2FEA5] transition-colors"
+                className="underline hover:text-primary transition-colors"
               >
                 hello@eyelevelstudio.com
               </a>
@@ -249,9 +243,12 @@ const ThankYou = () => {
         </div>
       </main>
 
-      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
+      <EnhancedFooter mascotBgClass="bg-secondary" showCTA={false} />
     </div>
   );
 };
 
 export default ThankYou;
+
+
+

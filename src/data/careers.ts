@@ -35,6 +35,14 @@ export const titleToSlug = (title: string) =>
 
 const rawOpenPositions = [
   {
+    title: "Account & Creative Lead",
+    department: "Account Management & Creative",
+    type: "On-site",
+    location: "Chennai, India",
+    description:
+      "Own client relationships and creative quality across all active projects.",
+  },
+  {
     title: "Social Media Intern",
     department: "Social Media",
     type: "Full-time · Internship",
@@ -257,6 +265,66 @@ Our promise is simple: Serious attention. Clear timelines. No confusion. We don'
       "Self-driven and reliable under deadlines",
       "Team player who understands real-world constraints",
       "Someone who designs with purpose, not just aesthetics",
+    ],
+    benefits: [
+      "Work on real brands and real growth problems",
+      "Fast-paced, high-performance culture",
+      "Clear expectations and zero confusion",
+      "Room to grow creatively and professionally",
+      "A team that values output over noise",
+    ],
+  },
+  "account-creative-lead": {
+    title: "Account & Creative Lead",
+    department: "Account Management & Creative",
+    type: "Full-time",
+    location: "Chennai, India",
+    datePosted: "20/05/2026",
+    experience: "4–6 years",
+    shortDescription:
+      "Own client relationships and creative quality across all active projects.",
+    aboutCompany: `EyeLevel is a full-service growth studio based in Chennai. We work with brands across sports, healthcare, education, and luxury — handling everything from brand strategy and creative campaigns to events, digital marketing, and performance advertising.
+
+We are not a large agency. We are a tight, ambitious team that moves fast, thinks big, and genuinely cares about client outcomes. We have worked with clients like Chennai Superchamps, Bengaluru Jawans, Joyalukkas, and leading healthcare and education brands across South India.`,
+    responsibilities: [
+      "Own day-to-day client communication across all active projects",
+      "Attend client meetings, take briefs, and translate them into clear internal briefs for the team",
+      "Assign work to designers, video editors, digital marketing executives, and developers",
+      "Review all creative output before it reaches the client — quality sits with you",
+      "Brief designers with clarity — reference points, tone, layout direction",
+      "Jump into Photoshop or Illustrator when needed to demonstrate, not just describe",
+      "Build monthly content calendars, campaign plans, and project timelines",
+      "Track work-in-progress daily and ensure nothing falls through the cracks",
+      "Coordinate between internal teams and external vendors",
+      "Run team standups and keep everyone aligned",
+      "Contribute to campaign strategy alongside the Founder",
+      "Handle weekly project status updates to clients and internal leadership",
+    ],
+    requirements: [
+      "4–6 years of experience in a marketing or creative agency (mandatory)",
+      "Degree in Visual Communication, Mass Communication, or a related field",
+      "Hands-on proficiency in Adobe Illustrator and Photoshop",
+      "Working knowledge of video editing — you don't need to edit daily, but you must brief editors with precision",
+      "Understanding of social media management across Instagram, LinkedIn, and Facebook",
+      "Working knowledge of digital marketing — Meta Ads, Google Ads, SEO basics, email campaigns",
+      "Strong written and verbal communication in English and Tamil",
+      "Ability to manage multiple clients and projects simultaneously without losing quality",
+    ],
+    qualities: [
+      "Someone who can hold a client relationship and a creative brief in the same hand",
+      "Organised, reliable, and proactive — you flag problems before they become fires",
+      "Strong eye for creative quality — you know when something is off, and you can articulate why",
+      "Comfortable giving feedback to the team and receiving it from clients",
+      "No ego about rolling up sleeves — strategy one hour, Photoshop the next",
+      "Self-starter who doesn't wait to be told what to do",
+      "Agency-trained instincts — you understand timelines, approvals, revisions, and client management without needing it explained",
+    ],
+    whatYouGet: [
+      "Salary of Rs 55,000 – 65,000/month based on experience",
+      "Work on high-visibility clients in sports, healthcare, and luxury",
+      "Direct access to the Founder — steep learning curve, fast growth",
+      "Clear path to grow into the Studio Manager role as EyeLevel scales",
+      "A team that values ownership, not just execution",
     ],
     benefits: [
       "Work on real brands and real growth problems",

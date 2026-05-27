@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -12,16 +12,16 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import WavyUnderline from "@/components/WavyUnderline";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 import mascotWave from "@/assets/mascot/mascot-wave.png";
-import GreenButton from "@/components/GreenButton";
+import GreenButton from "@/components/shared/GreenButton";
 import career_mascot from "@/assets/mascot/career_mascot.webp";
 import { useEffect, useRef, useState } from "react";
-import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
-import SEO from "@/components/SEO";
+import ClientLottie, { type ClientLottieRef } from "@/components/shared/ClientLottie";
+import SEO from "@/components/utils/SEO";
 import { openPositions } from "@/data/careers";
 import faqs from "@/data/faqs";
-import FAQSection from "@/components/FAQSection";
+import FAQSection from "@/components/sections/FAQSection";
 import { faqPageSchema, organizationSchema, websiteSchema } from "@/hooks/schemas";
 
 const benefits = [
@@ -136,8 +136,7 @@ const Careers = () => {
 
   return (
     <div
-      className="min-h-screen overflow-hidden"
-      style={{ backgroundColor: "#253e35" }}
+      className="min-h-screen overflow-hidden bg-secondary"
     >
       <SEO
         title="Digital Marketing Jobs in Chennai | EyeLevel Careers"
@@ -170,7 +169,7 @@ const Careers = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-forest-dark/60 pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -189,8 +188,7 @@ const Careers = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-8xl font-dela mb-6 uppercase"
-            style={{ color: "#E2FEA5" }}
+            className="text-4xl md:text-6xl lg:text-8xl font-dela mb-6 uppercase text-primary"
           >
             <span className="relative inline-block">
               {/* BUILD */}
@@ -274,8 +272,7 @@ const Careers = () => {
 
       {/* Why Join Us - Join the League style */}
       <section
-        className="py-20 px-4 relative"
-        style={{ backgroundColor: "#173229" }}
+        className="py-20 px-4 relative bg-background"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -286,8 +283,7 @@ const Careers = () => {
           >
             <GreenButton>Why Join Us</GreenButton>
             <h2
-              className="text-3xl md:text-5xl font-dela uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-5xl font-dela uppercase text-primary"
             >
               PERKS & <WavyUnderline>BENEFITS</WavyUnderline>
             </h2>
@@ -324,13 +320,11 @@ const Careers = () => {
                     }}
                   >
                     <benefit.icon
-                      className="w-7 h-7"
-                      style={{ color: "#173229" }}
+                      className="w-7 h-7 text-forest-dark"
                     />
                   </div>
                   <h3
-                    className="text-lg font-dela mb-2 uppercase"
-                    style={{ color: "#0a0a0a" }}
+                    className="text-lg font-dela mb-2 uppercase text-primary-foreground"
                   >
                     {benefit.title}
                   </h3>
@@ -364,8 +358,7 @@ const Careers = () => {
           >
             <GreenButton>Open Positions</GreenButton>
             <h2
-              className="text-3xl md:text-5xl font-dela uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-5xl font-dela uppercase text-primary"
             >
               JOIN THE <WavyUnderline>TEAM</WavyUnderline>
             </h2>
@@ -419,8 +412,7 @@ const Careers = () => {
                           className="inline-block"
                         >
                           <h3
-                            className="text-xl font-dela mb-2 transition-colors uppercase hover:text-[#173229]"
-                            style={{ color: "#0a0a0a" }}
+                            className="text-xl font-dela mb-2 transition-colors uppercase hover:text-forest-dark text-primary-foreground"
                           >
                             {position.title}
                           </h3>
@@ -448,17 +440,11 @@ const Careers = () => {
 
                       <Button
                         asChild
-                        className="rounded-full group/btn shrink-0 font-bricolage hover:translate-y-0.5 hover:shadow-none transition-all duration-150"
-                        style={{
-                          backgroundColor: "#173229",
-                          color: "#F8FFE8",
-                          border: "2px solid #0a0a0a",
-                          boxShadow: "0 3px 0 #0a0a0a",
-                        }}
+                        className="rounded-full shrink-0"
                       >
                         <Link to={`/careers/${position.slug}`}>
                           I'm Interested
-                          <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                          <ArrowRight className="ml-2 w-4 h-4" />
                         </Link>
                       </Button>
                     </div>
@@ -474,8 +460,7 @@ const Careers = () => {
       <FAQSection faqs={faqs["Careers"]} />
 
       <section
-        className="py-20 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#1e3c30" }}
+        className="py-20 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
@@ -484,8 +469,7 @@ const Careers = () => {
             viewport={{ once: true }}
           >
             <h2
-              className="text-3xl md:text-4xl font-dela mb-6 uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-4xl font-dela mb-6 uppercase text-primary"
             >
               DON'T SEE YOUR <WavyUnderline>ROLE?</WavyUnderline>
             </h2>
@@ -501,13 +485,7 @@ const Careers = () => {
             <Button
               asChild
               size="lg"
-              className="group rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
-              style={{
-                backgroundColor: "#FCFAC2",
-                color: "#0a0a0a",
-                border: "3px solid #0a0a0a",
-                boxShadow: "0 4px 0 #0a0a0a",
-              }}
+              className="group px-10 py-7 text-base md:text-lg font-semibold"
             >
               <Link to="/careers/general-application">
                 Send Your Resume
@@ -518,9 +496,14 @@ const Careers = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} mascotBgColor="#1E3C30" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-background" />
     </div>
   );
 };
 
 export default Careers;
+
+
+
+
+

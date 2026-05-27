@@ -1,11 +1,11 @@
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import ServiceGallery from "@/components/ServiceGallery";
-import WavyUnderline from "@/components/WavyUnderline";
+import ServiceGallery from "@/components/pages/services/ServiceGallery";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 import influencerCelebrityImg from "@/assets/services/content/influencer-celebrity.webp";
 import eventsVideo1 from "@/assets/videos/events-video-1.mp4";
 import eventsVideo2 from "@/assets/videos/events-video-2.mp4";
@@ -29,9 +29,9 @@ import web_1 from "@/assets/mockup/web_1.webp";
 import web_2 from "@/assets/mockup/web_2.webp";
 import web_3 from "@/assets/mockup/web_3.webp";
 import web_4 from "@/assets/mockup/web_4.webp";
-import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
+import ClientLottie, { type ClientLottieRef } from "@/components/shared/ClientLottie";
 import { useEffect, useRef, useState } from "react";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 import {
   faqPageSchema,
   organizationSchema,
@@ -40,7 +40,7 @@ import {
   breadcrumbSchema,
 } from "@/hooks/schemas";
 import faqs from "@/data/faqs";
-import FAQSection from "@/components/FAQSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 const services = [
   {
@@ -234,13 +234,12 @@ const services = [
     title: "Marketing Technology",
     tagline: "Systems that automate and scale growth.",
     description:
-      "We set up, integrate, and manage the marketing technology stack required for modern growth. The goal is operational efficiency, clear insights, and smarter decision-making.",
+      "CRM setup, marketing automation, Make.com and Zapier workflows, and AI agent deployment. For brands ready to systemise their growth operations.",
     includes: [
       "CRM setup and integration",
-      "WhatsApp Business and email platforms",
-      "Cloud communication tools",
-      "Workflow automation",
-      "Ongoing optimization and support",
+      "Marketing automation",
+      "Make.com & Zapier workflows",
+      "AI agent deployment",
     ],
     media: [
       { src: martechGallery1, type: "image" as const },
@@ -248,6 +247,45 @@ const services = [
       { src: crm, type: "image" as const },
     ],
     bgColor: "#253e35",
+    cta: { text: "Learn More →", link: "/services/ai-marketing" },
+  },
+  {
+    id: 9,
+    title: "WhatsApp Marketing",
+    tagline: "Where your customers actually read your messages.",
+    description:
+      "Broadcast campaigns, drip sequences, chatbots, and WhatsApp Business API setup — fully managed.",
+    includes: [
+      "Broadcast campaigns",
+      "Drip sequences",
+      "Chatbots",
+      "WhatsApp Business API setup",
+    ],
+    media: [
+      { src: crm, type: "image" as const },
+      { src: social_2, type: "image" as const },
+    ],
+    bgColor: "#0D1F1A",
+    cta: { text: "Learn More →", link: "/services/whatsapp-marketing" },
+  },
+  {
+    id: 10,
+    title: "AI Marketing & Automation",
+    tagline: "AI at the engine. Speed at every layer.",
+    description:
+      "AI-powered content (videos, ads, reels, product visuals) combined with AI agents that automate lead qualification and sales follow-up.",
+    includes: [
+      "AI-powered content creation",
+      "Automated lead qualification",
+      "AI agents for sales follow-up",
+      "Dynamic ad creatives",
+    ],
+    media: [
+      { src: web_1, type: "image" as const },
+      { src: web_2, type: "image" as const },
+    ],
+    bgColor: "#1a2f28",
+    cta: { text: "Learn More →", link: "/services/ai-marketing" },
   },
 ];
 
@@ -328,17 +366,15 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0D1F1A]">
+    <div className="min-h-screen bg-forest-deep">
       <SEO
-        title="Marketing & Event Production Services Chennai | EyeLevel"
-        description="Full-service marketing engine: event production, Google Ads, video production, SEO & social media for Sports, Healthcare & Education. Free proposal."
+        title="Marketing Services — EyeLevel Growth Studio, Chennai"
+        description="AI content, WhatsApp marketing, influencer partnerships, performance ads, sports event marketing, and more — EyeLevel Growth Studio, Chennai."
         keywords={[
-          "Google Ads management Chennai",
-          "social media marketing Chennai",
-          "SEO services India",
-          "video production Chennai",
-          "event management company Chennai",
-          "sponsorship strategy",
+          "marketing agency Chennai",
+          "AI marketing agency India",
+          "WhatsApp marketing agency India",
+          "digital marketing services India",
         ]}
         schema={[
           organizationSchema,
@@ -360,14 +396,13 @@ const ServicesPage = () => {
       {/* Hero Section - Minimal */}
       <section
         ref={ref}
-        className="relative pt-[110px] flex justify-center items-center pb-20 px-4 overflow-hidden lg:min-h-screen"
-        style={{ backgroundColor: "#0D1F1A" }}
+        className="relative pt-[110px] flex justify-center items-center pb-20 px-4 overflow-hidden lg:min-h-screen bg-forest-deep"
       >
         {/* Rotating 32-pointed star - centered upper area */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-forest-dark/60 pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -381,8 +416,8 @@ const ServicesPage = () => {
         </div>
         {/* Background Elements */}
         {/* <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-96 h-96 bg-[#E2FEA5]/5 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#E2FEA5]/10 rounded-full blur-[100px]" />
+          <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
         </div> */}
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -397,8 +432,7 @@ const ServicesPage = () => {
             }}
           >
             <span
-              className="text-sm font-medium font-bricolage"
-              style={{ color: "#E2FEA5" }}
+              className="text-sm font-medium font-bricolage text-primary"
             >
               Our Services
             </span>
@@ -408,13 +442,13 @@ const ServicesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="font-dela uppercase text-center leading-[1.05] mb-5"
-            style={{ color: "#E2FEA5" }}
+            className="font-dela uppercase text-center leading-[1.05] mb-5 text-primary"
           >
             {/* BIG TITLE */}
             <span className="relative flex items-end justify-center text-4xl md:text-6xl lg:text-7xl">
               GR
               <span className="">
+                <span className="sr-only">O</span>
                 {animationData && (
                   <ClientLottie
                     lottieRef={lottieRef}
@@ -427,7 +461,7 @@ const ServicesPage = () => {
               </span>
               WTH
             </span>
-
+            {" "}
             {/* SUBTITLE – ONE LINE, SMALLER */}
             <span className="block text-4xl md:text-6xl lg:text-7xl tracking-wide">
               WITHOUT <WavyUnderline>GUESSWORK</WavyUnderline>
@@ -457,9 +491,9 @@ const ServicesPage = () => {
           {/* Subtle Background Accent */}
           <div className="absolute inset-0 pointer-events-none">
             {index % 2 === 0 ? (
-              <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#E2FEA5]/5 rounded-full blur-[120px]" />
+              <div className="absolute -right-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
             ) : (
-              <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#E2FEA5]/5 rounded-full blur-[120px]" />
+              <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
             )}
           </div>
 
@@ -495,15 +529,13 @@ const ServicesPage = () => {
                   className="space-y-6"
                 >
                   <h2
-                    className="text-2xl md:text-3xl lg:text-4xl font-dela leading-tight uppercase"
-                    style={{ color: "#F8FFE8" }}
+                    className="text-2xl md:text-3xl lg:text-4xl font-dela leading-tight uppercase text-foreground"
                   >
                     {service.title}
                   </h2>
 
                   <p
-                    className="text-lg md:text-xl font-semibold font-bricolage"
-                    style={{ color: "#E2FEA5" }}
+                    className="text-lg md:text-xl font-semibold font-bricolage text-primary"
                   >
                     {service.tagline}
                   </p>
@@ -534,12 +566,11 @@ const ServicesPage = () => {
                             }}
                           >
                             <Check
-                              className="w-3.5 h-3.5"
-                              style={{ color: "#E2FEA5" }}
+                              className="w-3.5 h-3.5 text-primary"
                             />
                           </div>
                           <span
-                            className="font-bricolage text-sm md:text-base transition-colors duration-300 group-hover:text-[#E2FEA5]"
+                            className="font-bricolage text-sm md:text-base transition-colors duration-300 group-hover:text-primary"
                             style={{ color: "rgba(248, 255, 232, 0.85)" }}
                           >
                             {item}
@@ -548,6 +579,27 @@ const ServicesPage = () => {
                       ))}
                     </div>
                   </div>
+
+                  {/* CTA Button */}
+                  {service.cta && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
+                      className="pt-4"
+                    >
+                      <Link to={service.cta.link}>
+                        <Button
+                          variant="link"
+                          className="p-0 h-auto text-lg font-dela uppercase hover:no-underline flex items-center gap-2 group transition-colors duration-300 text-primary"
+                        >
+                          {service.cta.text.replace("→", "")}
+                          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                    </motion.div>
+                  )}
                 </motion.div>
               </div>
             </motion.div>
@@ -560,12 +612,11 @@ const ServicesPage = () => {
 
       {/* CTA Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#0D1F1A" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-forest-deep"
       >
         {/* Background Elements */}
         {/* <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#E2FEA5]/5 rounded-full blur-[180px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-primary/5 rounded-full blur-[180px]" />
         </div> */}
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -576,8 +627,7 @@ const ServicesPage = () => {
             transition={{ duration: 0.6 }}
           >
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-dela mb-6 leading-tight uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-4xl md:text-5xl lg:text-6xl font-dela mb-6 leading-tight uppercase text-primary"
             >
               READY TO BUILD SOMETHING <WavyUnderline>GREAT?</WavyUnderline>
             </h2>
@@ -594,13 +644,8 @@ const ServicesPage = () => {
               <Link to="/booking">
                 <Button
                   size="lg"
-                  className="group rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
-                  style={{
-                    backgroundColor: "#FCFAC2",
-                    color: "#0a0a0a",
-                    border: "3px solid #0a0a0a",
-                    boxShadow: "0 4px 0 #0a0a0a",
-                  }}
+                  className="group px-10 py-7 text-base md:text-lg font-semibold font-bricolage"
+
                 >
                   Book a Strategy Call
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -611,7 +656,7 @@ const ServicesPage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:bg-[#E2FEA5]/10 transition-all duration-150"
+                  className="rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:bg-primary/10 transition-all duration-150"
                   style={{
                     backgroundColor: "transparent",
                     color: "#F8FFE8",
@@ -626,9 +671,12 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <EnhancedFooter mascotBgColor="#0D1F1A" showCTA={false} />
+      <EnhancedFooter mascotBgClass="bg-forest-deep" showCTA={false} />
     </div>
   );
 };
 
 export default ServicesPage;
+
+
+

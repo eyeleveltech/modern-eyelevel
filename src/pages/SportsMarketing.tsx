@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
+import SEO from "@/components/utils/SEO";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import WavyUnderline from "@/components/WavyUnderline";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 import sportsGallery1 from "@/assets/galleries/sports/sports-gallery-1.jpg";
 import sportsGallery2 from "@/assets/galleries/sports/sports-gallery-2.jpg";
 import sportsGallery3 from "@/assets/galleries/sports/sports-gallery-3.jpg";
@@ -28,8 +28,8 @@ import {
   TestimonialsSection,
   BigStatsSection,
   ClientLogosMarquee,
-} from "@/components/IndustryPageEnhancements";
-import GreenButton from "@/components/GreenButton";
+} from "@/components/shared/marketing-sections";
+import GreenButton from "@/components/shared/GreenButton";
 import { breadcrumbSchema, localBusinessSchema, organizationSchema, marketingVerticalSchema } from "@/hooks/schemas";
 import { getVerticalBySlug } from "@/data/marketingVerticals";
 
@@ -214,14 +214,13 @@ const SportsMarketing = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden bg-secondary"
       >
         {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-[#1e3329] pointer-events-none opacity-50"
+          className="absolute inset-0 m-auto w-[800px] md:w-[1000px] lg:w-[1200px] h-[800px] md:h-[1000px] lg:h-[1200px] text-forest-dark/60 pointer-events-none opacity-50"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -254,8 +253,7 @@ const SportsMarketing = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase"
-            style={{ color: "#FFB4B4" }}
+            className="font-dela text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 leading-[0.95] uppercase text-accent"
           >
             FANS ARE METRICS.
             <br />
@@ -266,8 +264,7 @@ const SportsMarketing = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed"
-            style={{ color: "#F8FFE8" }}
+            className="font-bricolage text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 leading-relaxed text-foreground"
           >
             Passion doesn't pay the bills; ticket sales do. We treat your team
             like a brand.
@@ -312,8 +309,7 @@ const SportsMarketing = () => {
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: "#FFB4B4" }}
+              className="w-1.5 h-1.5 rounded-full bg-accent"
             />
           </motion.div>
         </motion.div>
@@ -321,8 +317,7 @@ const SportsMarketing = () => {
 
       {/* Reality Check - Challenges Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-background"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -333,8 +328,7 @@ const SportsMarketing = () => {
           >
             <GreenButton>The Reality Check</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-              style={{ color: "#FFB4B4" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-accent"
             >
               WHY YOUR FANS AREN'T <WavyUnderline>BUYING</WavyUnderline>
             </h2>
@@ -386,8 +380,7 @@ const SportsMarketing = () => {
                     </span>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#F8FFE8" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-foreground"
                     >
                       {challenge.title}
                     </h3>
@@ -407,8 +400,7 @@ const SportsMarketing = () => {
 
       {/* The Fix - Solutions Section */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#1e3c30" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -419,8 +411,7 @@ const SportsMarketing = () => {
           >
             <GreenButton>The Fix</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#FFB4B4" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-accent"
             >
               HOW WE FILL <WavyUnderline>STADIUMS</WavyUnderline>
             </h2>
@@ -475,14 +466,12 @@ const SportsMarketing = () => {
                       }}
                     >
                       <solution.icon
-                        className="w-7 h-7"
-                        style={{ color: "#FFB4B4" }}
+                        className="w-7 h-7 text-accent"
                       />
                     </div>
 
                     <h3
-                      className="font-dela text-xl md:text-2xl mb-4 uppercase"
-                      style={{ color: "#FFB4B4" }}
+                      className="font-dela text-xl md:text-2xl mb-4 uppercase text-accent"
                     >
                       {solution.title}
                     </h3>
@@ -502,8 +491,7 @@ const SportsMarketing = () => {
 
       {/* Services Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 bg-secondary"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -515,8 +503,7 @@ const SportsMarketing = () => {
             <div>
               <GreenButton>Our Arsenal</GreenButton>
               <h2
-                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase"
-                style={{ color: "#FFB4B4" }}
+                className="font-dela text-4xl md:text-5xl lg:text-6xl uppercase text-accent"
               >
                 Services
               </h2>
@@ -555,14 +542,12 @@ const SportsMarketing = () => {
                     }}
                   >
                     <service.icon
-                      className="w-7 h-7"
-                      style={{ color: "#FFB4B4" }}
+                      className="w-7 h-7 text-accent"
                     />
                   </div>
 
                   <h3
-                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase"
-                    style={{ color: "#F8FFE8" }}
+                    className="font-dela text-xl mb-3 transition-colors duration-300 uppercase text-foreground"
                   >
                     {service.title}
                   </h3>
@@ -574,8 +559,7 @@ const SportsMarketing = () => {
                   </p>
 
                   <ArrowRight
-                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                    style={{ color: "#FFB4B4" }}
+                    className="absolute bottom-8 right-8 w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-accent"
                   />
                 </div>
               </motion.div>
@@ -641,8 +625,7 @@ const SportsMarketing = () => {
 
       {/* FAQ Section */}
       <section
-        className="py-24 md:py-32 px-4"
-        style={{ backgroundColor: "#173229" }}
+        className="py-24 md:py-32 px-4 bg-background"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -653,8 +636,7 @@ const SportsMarketing = () => {
           >
             <GreenButton>The Locker Room Talk</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl"
-              style={{ color: "#FFB4B4" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl text-accent"
             >
               FAQs
             </h2>
@@ -736,8 +718,7 @@ const SportsMarketing = () => {
 
       {/* Final CTA Section with Mascot */}
       <section
-        className="py-24 md:py-32 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-24 md:py-32 px-4 relative overflow-hidden bg-secondary"
       >
         {/* Mascot */}
         {/* <motion.img
@@ -753,7 +734,7 @@ const SportsMarketing = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-[#1e3329]"
+            className="absolute -right-1/4 top-1/2 -translate-y-1/2 w-[600px] h-[600px] text-forest-dark/60"
           >
             <Star18 className="w-full h-full" />
           </motion.div>
@@ -767,8 +748,7 @@ const SportsMarketing = () => {
           >
             <GreenButton>Ready to Win?</GreenButton>
             <h2
-              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-              style={{ color: "#FFB4B4" }}
+              className="font-dela text-4xl md:text-5xl lg:text-6xl mb-6 uppercase text-accent"
             >
               Let's Pack Your
               <br />
@@ -807,3 +787,5 @@ const SportsMarketing = () => {
 };
 
 export default SportsMarketing;
+
+

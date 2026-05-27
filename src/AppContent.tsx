@@ -1,5 +1,5 @@
-import ScrollToTop from "./components/ScrollToTop";
-import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "@/components/utils/ScrollToTop";
+import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AppRoutes from "./AppRoutes";
 
 const isBrowser = typeof window !== "undefined";

@@ -2,70 +2,63 @@ const faqs = {
   Home: [
     {
       id: 1,
-      question:
-        "What makes EyeLevel different from other digital marketing agencies in Chennai?",
+      question: "What does EyeLevel Growth Studio do?",
       answer:
-        "EyeLevel is Chennai's only digital marketing agency focused exclusively on three verticals: sports, healthcare, and education. While generic agencies apply the same playbook to every client, EyeLevel builds custom growth systems based on deep vertical knowledge — understanding the sponsorship economics of a sports league, MCI compliance in healthcare marketing, or the narrow admission-season windows in education. Our team combines event production, performance marketing (Google Ads, Meta Ads), video production, and brand strategy — all in one place. No coordination loss. No learning curve. Specialized execution from Day 1.",
+        "EyeLevel Growth Studio is a Chennai-based digital marketing agency specialising in AI-powered content production, WhatsApp marketing campaigns, paid media, LinkedIn B2B marketing, influencer and celebrity partnerships, and sports event marketing. We work with SaaS companies, D2C brands, and offshore clients in the US and UAE.",
     },
     {
       id: 2,
-      question:
-        "Why choose a specialized digital marketing agency over a generic one?",
+      question: "Is EyeLevel only for Chennai-based businesses?",
       answer:
-        "Generic digital marketing agencies treat every client the same. A specialized digital marketing agency like EyeLevel understands your industry's unique challenges, buyer psychology, and performance channels. For sports organizations that means fan engagement, sponsorship strategy, and match-day content. For healthcare providers it is patient acquisition, doctor credibility, and compliant advertising. For education institutions it is enrollment marketing and admission-funnel optimization. Specialized agencies deliver faster results — no expensive trial-and-error period.",
+        "No. While we are based in Chennai, we currently manage marketing for clients in the US and UAE, working fully remote and async-first. We also serve clients across Bangalore, Hyderabad, and Pune.",
     },
     {
       id: 3,
-      question:
-        "What industries does EyeLevel's digital marketing agency serve?",
+      question: "What industries does EyeLevel serve?",
       answer:
-        "EyeLevel's digital marketing agency serves three core industries: (1) Sports — emerging leagues, cricket associations, franchise teams, sports academies, and athletes. (2) Healthcare — hospitals, multi-specialty clinics, dental practices, and medical colleges. (3) Education — engineering colleges, medical colleges, coaching institutes, universities, and EdTech platforms. Each vertical receives a custom strategy, not a repurposed template.",
+        "We specialize in four key areas: SaaS & Tech Startups, D2C & E-commerce, Sports & Pickleball marketing, and Offshore / US Clients. Our approach is to build specialized growth engines for these verticals rather than being a generic, one-size-fits-all agency.",
     },
     {
       id: 4,
-      question: "What performance marketing services does EyeLevel provide?",
+      question: "Do you offer AI content creation as a service?",
       answer:
-        "EyeLevel's performance marketing services include Google Ads management (Search, Display, YouTube), Meta Ads campaigns (Facebook and Instagram), SEO and local SEO, landing-page design and optimization, and conversion-rate optimization. All performance marketing at EyeLevel is vertical-specific — Google Ads for a hospital are built differently from Google Ads for a college admissions campaign. We optimize for real business outcomes: patient inquiries, student leads, ticket sales, or sponsorship inquiries — not clicks.",
+        "Yes. We use AI at the production layer — content, creatives, research, and reporting — which means we move significantly faster than a traditional agency. We also build custom AI agents for lead qualification and marketing automation.",
     },
     {
       id: 5,
-      question:
-        "How long does it take to see results with EyeLevel's digital marketing agency?",
+      question: "What is WhatsApp marketing and do you offer it?",
       answer:
-        "Most clients see measurable traction within 4 weeks. For healthcare clients, patient inquiries typically start within 2-4 weeks of Google Ads going live. For education institutions, student leads start flowing within 2 weeks, with enrollment impact visible in 4-6 weeks. For sports clients, audience growth and sponsor interest materializes in 4-8 weeks depending on season timing. EyeLevel shares weekly performance data so you always know where you stand.",
+        "WhatsApp marketing allows brands to reach audiences directly on their phones with high open rates. We design and execute WhatsApp campaigns, particularly for D2C brands, to reduce customer acquisition cost (CAC) and increase lifetime value (LTV).",
     },
     {
       id: 6,
-      question:
-        "Does EyeLevel do event production as well as digital marketing?",
+      question: "Does EyeLevel work with sports leagues and events?",
       answer:
-        "Yes. Event production is one of EyeLevel's core services — not an add-on. Our event production team handles full-cycle execution: concept ideation, venue selection, creative direction, stage design, audio-visual setup, on-ground coordination, match-day content production, and post-event content repurposing. We have produced 15+ sporting events. For healthcare and education clients, we produce open houses, campus fairs, and awareness events. This integrated model — digital marketing plus event production — is what makes EyeLevel unique in Chennai.",
+        "Yes. We have produced two national pickleball leagues — TNPPL and WPPL — end-to-end, covering marketing, sponsorship, content, and live broadcast. We have 15+ sporting events in our production history.",
     },
     {
       id: 7,
-      question: "What is EyeLevel's Growth Systems Framework?",
+      question: "Can EyeLevel help a US or UAE company with marketing?",
       answer:
-        "EyeLevel's Growth Systems Framework is a 4-step process: (1) Attract — targeted campaigns reaching your specific audience. (2) Nurture — automated and personalized follow-ups guiding prospects to a decision. (3) Convert — deadline-driven trust-building tactics that turn leads into paying customers. (4) Measure — real-time tracking of cost-per-acquisition, conversion rates, and ROI. This framework is adapted per vertical — sports leagues, hospitals, and colleges each receive a version optimized for their buyer journey.",
+        "Absolutely. We actively manage marketing for offshore clients in the US and UAE. We offer full-service retainers with an async-first workflow, combining senior strategy with Indian execution efficiency to match your market's standards.",
     },
     {
       id: 8,
-      question:
-        "How much does it cost to work with EyeLevel's digital marketing agency?",
+      question: "What celebrity and influencer connections does EyeLevel have?",
       answer:
-        "EyeLevel's services are priced based on vertical, scope, and campaign complexity. Healthcare digital marketing packages start from Rs 75,000/month. Education marketing retainers start from Rs 25,000/month (maintenance) to Rs 1.5 lakh/month (full admission-season campaigns). Sports marketing engagements range from Rs 1 lakh to Rs 5 lakh+ per month depending on scope. For one-time projects such as event production, sponsorship decks, or video production, pricing is project-based. Contact us for a tailored proposal.",
+        "We have strong connections with celebrities and influencers to align your brand with the right personalities. Our celebrity connect campaigns are structured to deliver measurable buzz, real engagement, and tangible performance results.",
     },
     {
       id: 9,
-      question: "Does EyeLevel work with clients outside Chennai?",
+      question: "How quickly can EyeLevel start working with us?",
       answer:
-        "Yes. EyeLevel is headquartered in Chennai but serves clients across South India and nationally. Sports clients have included leagues from Bangalore, Hyderabad, and across Tamil Nadu. Education clients include colleges in multiple Tamil Nadu districts and other states. Digital marketing, video production strategy, and campaign management are location-independent. For event production requiring on-ground execution, we travel as needed.",
+        "We move fast. After our initial consultation, we share a scoped proposal within 48 hours. Once approved, we kick off strategy in Week 1, build out campaigns in Weeks 2-3, and launch active campaigns by Week 4.",
     },
     {
       id: 10,
-      question:
-        "How do I start working with EyeLevel's digital marketing agency?",
+      question: "How do I book a discovery call with EyeLevel?",
       answer:
-        "Starting with EyeLevel is simple: (1) Contact us via the form, phone, or WhatsApp. (2) We schedule a 30-minute consultation — no obligation, no sales pitch. (3) We analyze your current marketing, goals, and industry context. (4) We present a custom proposal within 5 business days. (5) You review, we refine, and we begin execution. Contact us at hello@eyelevelstudio.in or call +91 97890 99499.",
+        "You can book a discovery call at theeyelevelstudio.com/booking. We respond within 24 hours to schedule a free, 30-minute consultation with no sales pressure to understand your growth goals.",
     },
   ],
   "About Us": [

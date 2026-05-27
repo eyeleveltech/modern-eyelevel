@@ -1,14 +1,14 @@
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
-import SEO from "@/components/SEO";
+import SEO from "@/components/utils/SEO";
 
 const Privacy = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+    <div className="min-h-screen bg-secondary">
       <SEO
-        title="Privacy Policy | The EyeLevel Studio"
-        description="Privacy policy for The EyeLevel Studio. Learn how we collect, use, and protect your personal information when you use our website and services."
+        title="Privacy Policy | EyeLevel Growth Studio"
+        description="Privacy policy for EyeLevel Growth Studio. Learn how we collect, use, and protect your personal information when you use our website and services."
         keywords={[
           "privacy policy",
           "data privacy",
@@ -28,10 +28,9 @@ const Privacy = () => {
             transition={{ duration: 0.6 }}
           >
             <h1
-              className="font-dela text-4xl md:text-5xl mb-8 uppercase"
-              style={{ color: "#F8FFE8" }}
+              className="font-dela text-4xl md:text-5xl mb-8 uppercase text-foreground"
             >
-              Privacy <span style={{ color: "#d0e999" }}>Policy</span>
+              Privacy <span className="text-primary">Policy</span>
             </h1>
 
             <div
@@ -47,8 +46,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   1. Introduction
                 </h2>
@@ -62,8 +60,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   2. Information We Collect
                 </h2>
@@ -88,8 +85,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   3. How We Use Your Information
                 </h2>
@@ -108,8 +104,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   4. Information Sharing
                 </h2>
@@ -126,8 +121,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   5. Data Security
                 </h2>
@@ -141,8 +135,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   6. Cookies
                 </h2>
@@ -155,8 +148,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   7. Your Rights
                 </h2>
@@ -172,8 +164,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   8. Data Retention
                 </h2>
@@ -186,8 +177,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   9. Third-Party Links
                 </h2>
@@ -200,8 +190,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   10. Changes to This Policy
                 </h2>
@@ -214,8 +203,7 @@ const Privacy = () => {
 
               <section className="space-y-4">
                 <h2
-                  className="text-xl font-semibold uppercase"
-                  style={{ color: "#F8FFE8" }}
+                  className="text-xl font-semibold uppercase text-foreground"
                 >
                   11. Contact Us
                 </h2>
@@ -223,7 +211,7 @@ const Privacy = () => {
                   If you have any questions about this Privacy Policy, please
                   contact us at:
                 </p>
-                <p style={{ color: "#d0e999" }}>hello@eyelevelstudio.in</p>
+                <p className="text-primary">hello@eyelevelstudio.in</p>
                 <p>Phone: +91 97890 99499</p>
               </section>
             </div>
@@ -231,9 +219,12 @@ const Privacy = () => {
         </div>
       </main>
 
-      <EnhancedFooter mascotBgColor="#253E35" showCTA={false} />
+      <EnhancedFooter mascotBgClass="bg-secondary" showCTA={false} />
     </div>
   );
 };
 
 export default Privacy;
+
+
+

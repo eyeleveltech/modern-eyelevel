@@ -2,17 +2,39 @@ export const ORG_ID = "https://theeyelevelstudio.com/#organization";
 
 export const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness"],
   "@id": ORG_ID,
-  name: "The EyeLevel Studio",
-  url: "https://theeyelevelstudio.com/",
-  logo: "https://theeyelevelstudio.com/logo_eyelevel.png",
+  name: "EyeLevel Growth Studio",
+  url: "https://theeyelevelstudio.com",
+  logo: "https://theeyelevelstudio.com/logo.png",
+  email: "hello@eyelevelstudio.in",
+  telephone: "+919789099499",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "43, 2nd Cross Street, 2nd Main Road Navarathna Garden",
+    addressLocality: "Ekkatuthangal",
+    addressRegion: "Tamil Nadu",
+    postalCode: "600032",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 13.0224363,
+    longitude: 80.2010678,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:30",
+      closes: "18:00",
+    },
+  ],
   sameAs: [
-    "https://www.linkedin.com/company/theeyelevelstudio/",
-    "https://www.instagram.com/theeyelevelstudio/",
+    "https://www.linkedin.com/company/theeyelevelstudio",
+    "https://www.instagram.com/theeyelevelstudio",
     "https://www.youtube.com/@theeyelevelstudio",
     "https://x.com/Eye_Levelstudio",
-    "https://www.facebook.com/share/1DN368ZHPh/",
   ],
 };
 
@@ -21,7 +43,7 @@ export const websiteSchema = {
   "@type": "WebSite",
   "@id": "https://theeyelevelstudio.com/#website",
   url: "https://theeyelevelstudio.com/",
-  name: "The EyeLevel Studio",
+  name: "EyeLevel Growth Studio",
   publisher: { "@id": ORG_ID },
   inLanguage: "en",
 };
@@ -192,16 +214,31 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": ORG_ID,
-  name: "The EyeLevel Studio",
+  name: "EyeLevel Growth Studio",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Chennai",
+    streetAddress: "43, 2nd Cross Street, 2nd Main Road Navarathna Garden",
+    addressLocality: "Ekkatuthangal",
     addressRegion: "Tamil Nadu",
+    postalCode: "600032",
     addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 13.0224363,
+    longitude: 80.2010678,
   },
   telephone: "+919789099499",
   email: "hello@eyelevelstudio.in",
-  url: "https://theeyelevelstudio.com/",
+  url: "https://theeyelevelstudio.com",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:30",
+      closes: "18:00",
+    },
+  ],
 };
 
 // Breadcrumb Schema - dynamic builder

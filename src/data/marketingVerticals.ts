@@ -257,7 +257,7 @@ export const getVerticalSchema = (vertical: MarketingVertical, baseUrl = "https:
     image: vertical.image,
     provider: {
       "@type": "Organization",
-      name: "The EyeLevel Studio",
+      name: "EyeLevel Growth Studio",
       url: baseUrl,
     },
     areaServed: { "@type": "Place", name: "Global" },

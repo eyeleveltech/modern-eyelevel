@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "react-router-dom";
-import BlogArchive from "@/components/BlogArchive";
+import BlogArchive from "@/components/pages/blog/BlogArchive";
 import {
   getBlogCategoryBySlug,
   getBlogCategorySeo,

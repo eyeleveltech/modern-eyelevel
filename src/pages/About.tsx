@@ -1,16 +1,16 @@
-import Header from "@/components/Header";
-import EnhancedFooter from "@/components/EnhancedFooter";
+import Header from "@/components/layout/Header";
+import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import WavyUnderline from "@/components/WavyUnderline";
+import WavyUnderline from "@/components/shared/WavyUnderline";
 // Team gallery images - placeholder for now
 import teamImage1 from "@/assets/galleries/about/aboutImage1.jpeg";
 import teamImage2 from "@/assets/galleries/about/aboutImg2.jpg";
 import teamImage3 from "@/assets/galleries/about/aboutImg3.jpeg";
 import teamImage4 from "@/assets/galleries/about/aboutImg4.jpg";
-import GreenButton from "@/components/GreenButton";
+import GreenButton from "@/components/shared/GreenButton";
 import video from "@/assets/videos/videogallery.mp4";
 import video1 from "@/assets/videos/videogallery2.mp4";
 import akmal from "@/assets/people/akmal.webp";
@@ -18,9 +18,9 @@ import jameel from "@/assets/people/jameel.webp";
 import jahangeer from "@/assets/people/jahangeer.webp";
 import { Linkedin } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ClientLottie, { type ClientLottieRef } from "@/components/ClientLottie";
-import SEO from "@/components/SEO";
-import FAQSection from "@/components/FAQSection";
+import ClientLottie, { type ClientLottieRef } from "@/components/shared/ClientLottie";
+import SEO from "@/components/utils/SEO";
+import FAQSection from "@/components/sections/FAQSection";
 import faqs from "@/data/faqs";
 import {
   aboutPageSchema,
@@ -154,39 +154,30 @@ const About = () => {
   const authors = [
     {
       name: "Mohammad Jameel",
-      role: "Founder",
+      role: "Founder & CEO",
       image: jameel,
-      dec: "A seasoned investment banking professional specializing in wealth management and alternative investment solutions for HNI and celebrity clients.",
+      dec: "Seasoned investment professional and entrepreneur with a background in wealth management and alternative investments. Founded EyeLevel to bring precision-driven, ROI-focused marketing to brands that are tired of guesswork.",
       socials: "https://www.linkedin.com/in/muhammad-jameel-1b340836/",
     },
     {
       name: "Akmal Rahman",
-      role: "Co-Founder",
+      role: "Co-Founder & Chief Growth Architect",
       image: akmal,
-      dec: "A senior marketing leader with 15+ years of experience driving scalable growth, building powerful brands, and executing high-impact go-to-market strategies.",
+      dec: "Senior marketing leader with 15+ years of experience driving scalable growth, building brands, and executing go-to-market strategies across sports, SaaS, D2C, and offline. Co-Producer of the Tamil Nadu Pickleball Premier League and the World Pickleball Premier League.",
       socials: "https://www.linkedin.com/in/akmalbillekar/",
-    },
-    {
-      name: "Jahangeer Ansari",
-      role: "Web3 & Tech Strategy Advisor",
-      image: jahangeer,
-      dec: "A marketing and technology strategist with 15+ years of experience, specializing in Web3, DeFi, and AI-driven growth initiatives.",
-      socials: "https://www.linkedin.com/in/jahangeeransari/",
     },
   ];
   return (
     <div
-      className="min-h-screen overflow-hidden"
-      style={{ backgroundColor: "#253e35" }}
+      className="min-h-screen overflow-hidden bg-secondary"
     >
       <SEO
-        title="Best Digital Marketing Agency Chennai | EyeLevel"
-        description="EyeLevel is Chennai's specialized agency for Sports, Healthcare & Education, 15+ years experience. Book a free consultation today."
+        title="About EyeLevel Growth Studio — AI Marketing Agency, Chennai"
+        description="Meet the team behind EyeLevel Growth Studio. 50+ clients, 2 national pickleball leagues produced, and AI-powered marketing from Chennai."
         keywords={[
-          "marketing agency team Chennai",
-          "EyeLevel Growth Studio, specialized marketing Chennai",
-          "sports healthcare education agency",
-          "digital marketing company Chennai",
+          "marketing agency Chennai",
+          "digital marketing agency India",
+          "AI marketing agency India",
         ]}
         schema={[
           organizationSchema,
@@ -209,7 +200,7 @@ const About = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-[#1e3329] pointer-events-none"
+          className="absolute inset-0 m-auto w-[350px] md:w-[600px] lg:w-[750px] h-[350px] md:h-[600px] lg:h-[750px] text-forest-dark/60 pointer-events-none"
         >
           <Star18 className="w-full h-full" />
         </motion.div>
@@ -233,8 +224,7 @@ const About = () => {
             }}
           >
             <span
-              className="text-sm font-medium font-bricolage"
-              style={{ color: "#E2FEA5" }}
+              className="text-sm font-medium font-bricolage text-primary"
             >
               About Us
             </span>
@@ -257,8 +247,7 @@ const About = () => {
             )}
 
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-dela uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-4xl md:text-6xl lg:text-7xl font-dela uppercase text-primary"
             >
               THE TEAM BEHIND <WavyUnderline>THE GROWTH</WavyUnderline>
             </h1>
@@ -287,10 +276,9 @@ const About = () => {
 
       {/* Our Story - Simplified */}
       <section
-        className="py-20 px-4 relative"
-        style={{ backgroundColor: "#173229" }}
+        className="py-20 px-4 relative bg-background"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -305,15 +293,13 @@ const About = () => {
                 }}
               >
                 <span
-                  className="text-sm font-medium font-bricolage"
-                  style={{ color: "#E2FEA5" }}
+                  className="text-sm font-medium font-bricolage text-primary"
                 >
                   Our Story
                 </span>
               </div>
               <h2
-                className="text-3xl md:text-5xl font-dela mb-6 uppercase"
-                style={{ color: "#E2FEA5" }}
+                className="text-3xl md:text-5xl font-dela mb-6 uppercase text-primary"
               >
                 FROM FRUSTRATION
                 <br />
@@ -342,74 +328,76 @@ const About = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div
-                  className="rounded-3xl p-8 text-center"
+                  className="rounded-2xl p-4 md:p-6 text-center"
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-3xl md:text-3xl font-dela"
-                    style={{ color: "#E2FEA5" }}
+                    className="text-2xl font-dela text-primary"
                   >
                     50+
                   </span>
                   <p
-                    className="text-sm mt-2 font-bricolage"
+                    className="text-xs md:text-sm mt-2 font-bricolage"
                     style={{ color: "rgba(248, 255, 232, 0.7)" }}
                   >
                     Clients Served
                   </p>
                 </div>
                 <div
-                  className="rounded-3xl p-8 text-center mt-8"
+                  className="rounded-2xl p-4 md:p-6 text-center"
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-3xl md:text-3xl font-dela"
-                    style={{ color: "#E2FEA5" }}
-                  >
-                    3x
-                  </span>
-                  <p
-                    className="text-sm mt-2 font-bricolage"
-                    style={{ color: "rgba(248, 255, 232, 0.7)" }}
-                  >
-                    Avg. Growth
-                  </p>
-                </div>
-                <div
-                  className="rounded-3xl p-8 text-center"
-                  style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
-                >
-                  <span
-                    className="text-3xl md:text-3xl font-dela"
-                    style={{ color: "#E2FEA5" }}
+                    className="text-2xl font-dela text-primary"
                   >
                     15+
                   </span>
                   <p
-                    className="text-sm mt-2 font-bricolage"
+                    className="text-xs md:text-sm mt-2 font-bricolage"
                     style={{ color: "rgba(248, 255, 232, 0.7)" }}
                   >
-                    Years Experience
+                    Sporting Events
                   </p>
                 </div>
                 <div
-                  className="rounded-3xl p-8 text-center mt-8"
+                  className="rounded-2xl p-4 md:p-6 text-center"
                   style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
                 >
                   <span
-                    className="text-3xl md:text-3xl font-dela"
-                    style={{ color: "#E2FEA5" }}
+                    className="text-2xl font-dela text-primary"
                   >
-                    100%
+                    200+
                   </span>
                   <p
-                    className="text-sm mt-2 font-bricolage"
+                    className="text-xs md:text-sm mt-2 font-bricolage"
                     style={{ color: "rgba(248, 255, 232, 0.7)" }}
                   >
-                    Commitment
+                    Digital Campaigns Completed
                   </p>
+                </div>
+                <div
+                  className="col-span-1 sm:col-span-3 rounded-2xl p-6 md:p-8 flex flex-col sm:items-center justify-between gap-4 text-left"
+                  style={{ backgroundColor: "rgba(226, 254, 165, 0.1)" }}
+                >
+                  <div className="flex-1">
+                    <span
+                      className="text-lg md:text-xl font-dela block leading-tight text-primary"
+                    >
+                      Growth Focus,
+                      <br />
+                      Not Vanity Metrics
+                    </span>
+                  </div>
+                  <div className="flex-1 sm:max-w-xs md:max-w-md">
+                    <p
+                      className="text-xs md:text-sm font-bricolage leading-snug"
+                      style={{ color: "rgba(248, 255, 232, 0.7)" }}
+                    >
+                      We report pipeline and revenue — not impressions.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -427,7 +415,7 @@ const About = () => {
       >
         {/* Background decoration */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E2FEA5]/5 rounded-full blur-[150px]" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#667eea]/10 rounded-full blur-[120px]" />
         </div>
 
@@ -446,15 +434,13 @@ const About = () => {
               }}
             >
               <span
-                className="text-sm font-medium font-bricolage"
-                style={{ color: "#E2FEA5" }}
+                className="text-sm font-medium font-bricolage text-primary"
               >
                 Our Values
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-dela uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-5xl font-dela uppercase text-primary"
             >
               WHY WE STAND FOR
               <br />
@@ -481,14 +467,12 @@ const About = () => {
               >
                 <div className="relative z-10">
                   <span
-                    className="text-6xl md:text-8xl font-dela opacity-20"
-                    style={{ color: "#253e35" }}
+                    className="text-6xl md:text-8xl font-dela opacity-20 text-forest-muted"
                   >
                     01
                   </span>
                   <h3
-                    className="text-2xl md:text-3xl font-dela mt-4 mb-4 uppercase"
-                    style={{ color: "#253e35" }}
+                    className="text-2xl md:text-3xl font-dela mt-4 mb-4 uppercase text-forest-muted"
                   >
                     {values[0].title}
                   </h3>
@@ -519,14 +503,12 @@ const About = () => {
               >
                 <div className="relative z-10">
                   <span
-                    className="text-5xl md:text-6xl font-dela opacity-20"
-                    style={{ color: "#253e35" }}
+                    className="text-5xl md:text-6xl font-dela opacity-20 text-forest-muted"
                   >
                     02
                   </span>
                   <h3
-                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase"
-                    style={{ color: "#253e35" }}
+                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase text-forest-muted"
                   >
                     {values[1].title}
                   </h3>
@@ -557,14 +539,12 @@ const About = () => {
               >
                 <div className="relative z-10">
                   <span
-                    className="text-5xl md:text-6xl font-dela opacity-20"
-                    style={{ color: "#253e35" }}
+                    className="text-5xl md:text-6xl font-dela opacity-20 text-forest-muted"
                   >
                     03
                   </span>
                   <h3
-                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase"
-                    style={{ color: "#253e35" }}
+                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase text-forest-muted"
                   >
                     {values[2].title}
                   </h3>
@@ -595,14 +575,12 @@ const About = () => {
               >
                 <div className="relative z-10">
                   <span
-                    className="text-5xl md:text-6xl font-dela opacity-20"
-                    style={{ color: "#253e35" }}
+                    className="text-5xl md:text-6xl font-dela opacity-20 text-forest-muted"
                   >
                     04
                   </span>
                   <h3
-                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase"
-                    style={{ color: "#253e35" }}
+                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase text-forest-muted"
                   >
                     {values[3].title}
                   </h3>
@@ -633,14 +611,12 @@ const About = () => {
               >
                 <div className="relative z-10">
                   <span
-                    className="text-5xl md:text-6xl font-dela opacity-20"
-                    style={{ color: "#253e35" }}
+                    className="text-5xl md:text-6xl font-dela opacity-20 text-forest-muted"
                   >
                     05
                   </span>
                   <h3
-                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase"
-                    style={{ color: "#253e35" }}
+                    className="text-xl md:text-2xl font-dela mt-3 mb-3 uppercase text-forest-muted"
                   >
                     {values[4].title}
                   </h3>
@@ -673,12 +649,12 @@ const About = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-dela uppercase">
-              <span style={{ color: "#E2FEA5" }}>The Leadership</span>{" "}
+              <span className="text-primary">The Leadership</span>{" "}
               <WavyUnderline>Team</WavyUnderline>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {authors.map((author, index) => (
               <motion.div
                 key={author.name}
@@ -708,20 +684,19 @@ const About = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   <h3
-                    className="font-dela text-lg uppercase"
-                    style={{ color: "#253E35" }}
+                    className="font-dela text-lg uppercase text-forest-muted"
                   >
                     {author.name}
                   </h3>
-                  <p className="text-sm font-bricolage text-[#E2FEA5] mt-1 px-3 py-0.5 rounded-full bg-[#253E35]">
+                  <p className="text-sm font-bricolage text-primary mt-1 px-3 py-0.5 rounded-full bg-secondary">
                     {author.role}
                   </p>
                 </div>
-                <p className="text-sm font-bricolage mt-3 mx-4 text-[#253E35]/70">
+                <p className="text-sm font-bricolage mt-3 mx-4 text-forest-muted/70">
                   {author?.dec}
                 </p>
                 <a
-                  className="text-sm flex justify-center gap-2 font-bricolage mt-2 mx-4 text-[#E2FEA5] bg-[#253E35] px-4 py-2 rounded-full border-2 border-[#E2FEA5] hover:bg-[#253E35]/90 transition-colors"
+                  className="text-sm flex justify-center gap-2 font-bricolage mt-2 mx-4 text-primary bg-secondary px-4 py-2 rounded-full border-2 border-primary hover:bg-secondary/90 transition-colors"
                   href={author.socials}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -739,8 +714,7 @@ const About = () => {
 
       {/* Gallery Section */}
       <section
-        className="py-20 px-4 relative"
-        style={{ backgroundColor: "#1e3c30" }}
+        className="py-20 px-4 relative bg-secondary"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -757,15 +731,13 @@ const About = () => {
               }}
             >
               <span
-                className="text-sm font-medium font-bricolage"
-                style={{ color: "#E2FEA5" }}
+                className="text-sm font-medium font-bricolage text-primary"
               >
                 Gallery
               </span>
             </div>
             <h2
-              className="text-3xl md:text-5xl font-dela uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-5xl font-dela uppercase text-primary"
             >
               LIFE AT <WavyUnderline>EYELEVEL</WavyUnderline>
             </h2>
@@ -782,9 +754,8 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative overflow-hidden rounded-2xl group ${
-                    index === 0 ? "md:col-span-2 md:row-span-2" : ""
-                  }`}
+                  className={`relative overflow-hidden rounded-2xl group ${index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                    }`}
                 >
                   {/* VIDEO OR IMAGE */}
                   {videoSrc ? (
@@ -829,8 +800,7 @@ const About = () => {
                   {/* Caption */}
                   {/* <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <p
-                      className="text-sm font-medium font-bricolage"
-                      style={{ color: "#F8FFE8" }}
+                      className="text-sm font-medium font-bricolage text-foreground"
                     >
                       {image.alt}
                     </p>
@@ -847,8 +817,7 @@ const About = () => {
 
       {/* Join Us Section */}
       <section
-        className="py-20 px-4 relative overflow-hidden"
-        style={{ backgroundColor: "#253e35" }}
+        className="py-20 px-4 relative overflow-hidden bg-secondary"
       >
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div
@@ -860,8 +829,7 @@ const About = () => {
             <GreenButton>We're Hiring</GreenButton>
 
             <h2
-              className="text-3xl md:text-5xl font-dela mb-6 uppercase"
-              style={{ color: "#E2FEA5" }}
+              className="text-3xl md:text-5xl font-dela mb-6 uppercase text-primary"
             >
               Join the <WavyUnderline>Growth Squad</WavyUnderline>
             </h2>
@@ -878,13 +846,7 @@ const About = () => {
             <Link to="/careers">
               <Button
                 size="lg"
-                className="group rounded-full px-10 py-7 text-base md:text-lg font-semibold font-bricolage hover:translate-y-1 hover:shadow-none transition-all duration-150"
-                style={{
-                  backgroundColor: "#FCFAC2",
-                  color: "#0a0a0a",
-                  border: "3px solid #0a0a0a",
-                  boxShadow: "0 4px 0 #0a0a0a",
-                }}
+                className="group px-10 py-7 text-base md:text-lg font-semibold"
               >
                 View Open Positions
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -894,9 +856,12 @@ const About = () => {
         </div>
       </section>
 
-      <EnhancedFooter showCTA={false} mascotBgColor="#253E35" />
+      <EnhancedFooter showCTA={false} mascotBgClass="bg-secondary" />
     </div>
   );
 };
 
 export default About;
+
+
+

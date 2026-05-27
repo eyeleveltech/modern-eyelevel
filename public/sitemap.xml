@@ -32,6 +32,15 @@
     </image:image>
   </url>
   <url>
+    <loc>https://theeyelevelstudio.com/portfolio</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://theeyelevelstudio.com/contact-us</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -81,6 +90,15 @@
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://theeyelevelstudio.com/services/whatsapp-marketing</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <image:image>
       <image:loc>https://theeyelevelstudio.com/logo_eyelevel.png</image:loc>
     </image:image>

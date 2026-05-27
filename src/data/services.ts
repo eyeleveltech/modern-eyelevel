@@ -351,7 +351,7 @@ export const getServiceSchema = (service: Service, baseUrl = "https://theeyeleve
     image: service.image,
     provider: {
       "@type": "Organization",
-      name: "The EyeLevel Studio",
+      name: "EyeLevel Growth Studio",
       url: baseUrl,
     },
     areaServed: { "@type": "Place", name: "Global" },

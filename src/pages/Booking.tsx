@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import Header from "@/components/Header";
-import WavyUnderline from "@/components/WavyUnderline";
-import SEO from "@/components/SEO";
+import Header from "@/components/layout/Header";
+import WavyUnderline from "@/components/shared/WavyUnderline";
+import SEO from "@/components/utils/SEO";
 import { bookingPageSchema } from "@/hooks/schemas";
 
 const Booking = () => {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#253e35" }}>
+    <div className="min-h-screen bg-secondary">
       <SEO
-        title="Book a Marketing Consultation | The EyeLevel Studio"
+        title="Book a Marketing Consultation | EyeLevel Growth Studio"
         description="Schedule a consultation with our marketing experts to unlock growth through strategy, performance marketing, AI, and branding."
         keywords={[
           "book marketing consultation",
@@ -31,8 +31,7 @@ const Booking = () => {
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h1
-            className="text-2xl sm:text-3xl md:text-5xl font-dela mb-3 sm:mb-4 uppercase leading-relaxed"
-            style={{ color: "#E2FEA5" }}
+            className="text-2xl sm:text-3xl md:text-5xl font-dela mb-3 sm:mb-4 uppercase leading-relaxed text-primary"
           >
             Book Your <WavyUnderline>Free</WavyUnderline> Consultation
           </h1>
@@ -58,7 +57,7 @@ const Booking = () => {
           }}
         >
           <iframe
-            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2LfQ_OWiyFvg1nG-vCR9-00AFU5SqCSRExcs-mQpcL-HoH0qR6soNQ1iCwm22yAzwJJT-qSmoc?gv=true"
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2pwEfwQCBbY8eZgs7bPdbaTLJzzCmU6_ZuQaRnAisL2VBrlPAkUxElWoEZJVhcNfXvR-PGB4LA?gv=true"
             title="Book a consultation with EyeLevel Growth Studio"
             className="block w-full h-[720px] sm:h-[820px] md:h-[950px] lg:h-[1100px]"
             style={{ border: 0 }}
@@ -70,3 +69,5 @@ const Booking = () => {
 };
 
 export default Booking;
+
+
