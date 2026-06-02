@@ -1,243 +1,119 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { X, ArrowRight } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
 import GreenButton from "@/components/shared/GreenButton";
+
+// Assuming these images exist based on previous workspace state
+import sportImg from "@/assets/industries/sport.webp";
+import realestateImg from "@/assets/industries/realestate.webp";
+import healthcareImg from "@/assets/industries/healthcare-whatsapp.png";
+import d2cImg from "@/assets/industries/d2c-whatsapp.png";
+import b2bImg from "@/assets/industries/b2b.webp";
+import eduImg from "@/assets/industries/edu.webp";
 
 export interface Industry {
   id: string;
   number: string;
   title: string;
-  tagline: string;
   description: string;
-  accentColor: string;
-  stats: string[];
-  link?: string;
-  ctaText?: string;
+  link: string;
+  linkText: string;
+  image: string;
 }
 
 const industries: Industry[] = [
   {
-    id: "saas",
+    id: "sports",
     number: "01",
-    title: "SaaS & Tech Startups",
-    tagline: "From Demo Requests to Paying Customers",
-    description: "SaaS companies need pipeline, not impressions. We build LinkedIn B2B funnels, AI content systems, and performance campaigns that turn interest into qualified conversations.",
-    accentColor: "#B8D4BE",
-    stats: ["3x Enrollment Growth", "45% Lower CAC"],
-    link: "/industries/saas",
-    ctaText: "Explore SaaS Marketing →"
+    title: "Sports & Fitness",
+    description: "We've produced two national pickleball leagues and 15+ sporting events end-to-end — marketing, sponsorship, content, broadcast, and merchandise.",
+    link: "/services/sports-marketing",
+    linkText: "Sports marketing agency in Chennai",
+    image: sportImg,
+  },
+  {
+    id: "realestate",
+    number: "02",
+    title: "Real Estate",
+    description: "Real estate is a high-trust, slow-burn sale. Months of buyer research before a site visit. Most agencies optimise for cheap leads. We're built for closed deals.",
+    link: "/industries/real-estate",
+    linkText: "Real estate marketing agency in Chennai",
+    image: realestateImg,
+  },
+  {
+    id: "healthcare",
+    number: "03",
+    title: "Healthcare",
+    description: "Building trust for hospitals and clinics. We focus on patient acquisition, reputation management, and high-quality educational content.",
+    link: "/industries/healthcare",
+    linkText: "Healthcare marketing agency in Chennai",
+    image: healthcareImg,
   },
   {
     id: "d2c",
-    number: "02",
-    title: "D2C & E-commerce",
-    tagline: "From First Click to Repeat Customer",
-    description: "D2C brands live on CAC and retention. We run WhatsApp campaigns, Meta ads, and content systems designed to reduce acquisition cost and increase LTV.",
-    accentColor: "#FFB4B4",
-    stats: ["10M+ Fan Reach", "200% ROI"],
-    link: "/industries/d2c",
-    ctaText: "Explore D2C Marketing →"
-  },
-  {
-    id: "sports",
-    number: "03",
-    title: "Sports & Pickleball",
-    tagline: "From Tournament Day to Year-Round Brand",
-    description: "We've produced two national pickleball leagues and 15+ sporting events end-to-end — marketing, sponsorship, content, broadcast, and merchandise.",
-    accentColor: "#E2FEA5",
-    stats: ["50% Faster Sales", "8x Lead Quality"],
-    link: "/services/sports-marketing",
-    ctaText: "Explore Sports Marketing →"
-  },
-  {
-    id: "offshore",
     number: "04",
-    title: "Offshore / US Clients",
-    tagline: "Senior Strategy. Indian Efficiency. Your Time Zone.",
-    description: "We currently manage marketing for offshore clients in the US and UAE. Full-service retainers, async-first, delivery standards that match your market.",
-    accentColor: "#FCFAC2",
-    stats: ["5x Pipeline Growth", "30% Shorter Cycle"],
-    link: "/industries/offshore",
-    ctaText: "Explore Offshore Marketing →"
+    title: "FMCG & D2C",
+    description: "D2C brands live on CAC and retention. We run WhatsApp campaigns, Meta ads, and content systems designed to reduce acquisition cost and increase LTV.",
+    link: "/industries/d2c",
+    linkText: "D2C marketing agency in Chennai",
+    image: d2cImg,
   },
+  {
+    id: "b2b",
+    number: "05",
+    title: "Manufacturing & B2B",
+    description: "Long sales cycles require persistent nurturing. We build comprehensive B2B pipelines and LinkedIn strategies to convert prospects.",
+    link: "/industries/b2b",
+    linkText: "B2B marketing agency in Chennai",
+    image: b2bImg,
+  },
+  {
+    id: "education",
+    number: "06",
+    title: "Education & EdTech",
+    description: "From student enrollment to course sales. We build full-funnel marketing systems that drive qualified leads and higher conversions.",
+    link: "/industries/education",
+    linkText: "Education marketing agency in Chennai",
+    image: eduImg,
+  }
 ];
 
-interface IndustryCardProps {
-  industry: Industry;
-  index: number;
-  isActive: boolean;
-  onClick: () => void;
-}
-
-const IndustryCard = ({ industry, index, isActive, onClick }: IndustryCardProps) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      onClick={onClick}
-      className="group cursor-pointer"
-    >
-      <motion.div
-        className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isActive ? "bg-card/5" : "bg-transparent border-brand-light/10"}`}
-        style={{
-          borderColor: isActive ? industry.accentColor : undefined,
-        }}
-      >
-        {/* Main Row */}
-        <div className="px-6 md:px-10 py-6 md:py-8 flex items-center gap-6 md:gap-10">
-          {/* Number */}
-          <span className="font-bricolage text-xs md:text-sm font-medium shrink-0 text-foreground/40">
-            {industry.number}
-          </span>
-
-          {/* Title & Tagline */}
-          <div className="flex-1 flex flex-col md:flex-row md:items-center gap-1 md:gap-6">
-            <h3
-              className={`font-dela text-xl md:text-2xl lg:text-3xl transition-colors duration-300 ${!isActive ? "text-foreground" : ""}`}
-              style={isActive ? { color: industry.accentColor } : undefined}
-            >
-              {industry.title}
-            </h3>
-            <motion.span
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: isActive ? 1 : 0.6, x: 0 }}
-              className={`font-bricolage text-sm md:text-base ${isActive ? "text-foreground" : "text-foreground/60"}`}
-            >
-              {industry.tagline}
-            </motion.span>
-          </div>
-
-          {/* Accent Bar (visible on hover) */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: isActive ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="hidden lg:block h-1 w-24 rounded-full origin-left"
-            style={{ backgroundColor: industry.accentColor }}
-          />
-
-          {/* Arrow */}
-          <motion.div
-            animate={{
-              x: isActive ? 0 : -5,
-              opacity: isActive ? 1 : 0.4,
-            }}
-            transition={{ duration: 0.3 }}
-            className="shrink-0"
-          >
-            {isActive ? (
-              <ArrowUp width={24} height={24} style={{ color: industry.accentColor }} />
-            ) : (
-              <ArrowDown width={24} height={24} className="text-foreground/40" />
-            )}
-          </motion.div>
-        </div>
-
-        {/* Expanded Content */}
-        <AnimatePresence>
-          {isActive && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="overflow-hidden"
-            >
-              <div className="px-6 md:px-10 pb-8 pt-2">
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 lg:items-center">
-                  {/* Description */}
-                  <p className="font-bricolage text-sm md:text-base leading-relaxed max-w-xl lg:pl-16 text-foreground/85">
-                    {industry.description}
-                  </p>
-
-                  {/* Stats & CTA */}
-                  <div className="flex flex-col gap-6 lg:gap-8 lg:ml-auto lg:pr-12 lg:items-end">
-                    <div className="flex gap-6 lg:gap-10">
-                      {industry.stats.map((stat, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.1 + i * 0.1 }}
-                          className="text-center lg:text-right"
-                        >
-                          <span
-                            className="font-dela text-base md:text-lg block"
-                            style={{ color: industry.accentColor }}
-                          >
-                            {stat.split(" ")[0]}
-                          </span>
-                          <span className="font-bricolage text-xs text-foreground/60">
-                            {stat.split(" ").slice(1).join(" ")}
-                          </span>
-                        </motion.div>
-                      ))}
-                    </div>
-                    {industry.link && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                      >
-                        <Link
-                          to={industry.link}
-                          className="whitespace-nowrap font-bricolage text-xs md:text-sm px-5 py-2 rounded-full transition-transform inline-flex items-center justify-center font-medium hover:scale-105 text-black border-2 border-black shadow-[0_2px_0_#0a0a0a]"
-                          style={{ backgroundColor: industry.accentColor }}
-                        >
-                          {industry.ctaText}
-                        </Link>
-                      </motion.div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </motion.div>
-  );
-};
-
 const HomeIndustriesSection = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
   return (
-    <section className="py-12 px-4 relative overflow-hidden md:py-[32px] bg-background">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <motion.div
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Container for the text (centered) */}
+      <div className="max-w-[1200px] mx-auto px-4 text-center mb-16 el-reveal">
+        <GreenButton>INDUSTRIES</GreenButton>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-dela text-3xl md:text-5xl lg:text-[56px] text-foreground mb-6 leading-[1.1] tracking-wide mt-6"
+        >
+          We don't work with everyone.<br className="hidden md:block" />
+          <span className="text-primary">We work with <WavyUnderline>these.</WavyUnderline></span>
+        </motion.h2>
+
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 md:mb-20 text-center"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="font-bricolage text-foreground/70 text-base md:text-lg"
         >
-          <GreenButton>Industries We Dominate</GreenButton>
-          <h2 className="font-dela text-4xl md:text-5xl lg:text-6xl leading-[1.05] uppercase mt-6">
-            <span className="text-primary">
-              SPECIALIZED
-            </span>
-            <br />
-            <WavyUnderline>EXPERTISE</WavyUnderline>
-          </h2>
-        </motion.div>
+          Six industries the studio goes deep in across <span className="font-medium text-primary">India and Chennai.</span>
+        </motion.p>
+      </div>
 
-        {/* Interactive Cards */}
-        <div className="space-y-3">
+      {/* Accordion Area */}
+      <div className="w-full max-w-[1300px] mx-auto px-4">
+        <div className="flex flex-col md:flex-row gap-4 h-[auto] md:h-[450px] lg:h-[500px]">
           {industries.map((industry, index) => (
-            <IndustryCard
-              key={industry.id}
-              industry={industry}
-              index={index}
-              isActive={activeIndex === index}
-              onClick={() =>
-                setActiveIndex(activeIndex === index ? null : index)
-              }
-            />
+            <IndustryCard key={industry.id} industry={industry} index={index} />
           ))}
         </div>
       </div>
@@ -245,6 +121,74 @@ const HomeIndustriesSection = () => {
   );
 };
 
+interface IndustryCardProps {
+  industry: Industry;
+  index: number;
+}
+
+const IndustryCard = ({ industry, index }: IndustryCardProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group relative w-full md:w-auto h-[400px] md:h-full rounded-[1.5rem] overflow-hidden cursor-pointer [perspective:1200px] flex-1 md:hover:flex-[2.5] lg:hover:flex-[3] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+    >
+      {/* Inner wrapper for 3D flip effect */}
+      <div className="relative w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+        
+        {/* FRONT SIDE */}
+        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] rounded-[1.5rem] overflow-hidden border border-white/5 bg-[#111C15]">
+          <img
+            src={industry.image}
+            alt={industry.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+            onError={(e) => {
+              // Fallback if image path is broken
+              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=800&auto=format&fit=crop';
+            }}
+          />
+          
+          {/* Dark Overlay Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09110C] via-[#09110C]/40 to-transparent" />
+          
+          <div className="absolute inset-0 p-6 md:p-4 pb-8 flex flex-col items-center justify-end transition-opacity duration-300 group-hover:opacity-0">
+            <h3 className="font-bricolage font-bold text-xl md:text-xl lg:text-[22px] text-primary whitespace-nowrap md:[writing-mode:vertical-rl] md:-rotate-180 tracking-wide transition-all duration-500">
+              {industry.title}
+            </h3>
+          </div>
+        </div>
+
+        {/* BACK SIDE */}
+        <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[1.5rem] bg-[#09110C] border border-primary p-6 md:p-8 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+          
+          {/* Top Row: Number and X */}
+          <div className="flex items-center justify-between text-primary mb-4 md:mb-6">
+            <span className="font-bricolage text-sm">{industry.number}</span>
+            <X className="w-5 h-5 cursor-pointer opacity-70 hover:opacity-100 transition-opacity" />
+          </div>
+
+          <h3 className="font-dela text-xl md:text-2xl text-primary mb-3 md:mb-4 shrink-0">{industry.title}</h3>
+          
+          <p className="font-bricolage text-sm text-foreground/80 leading-relaxed mb-auto overflow-y-auto pr-2 scrollbar-hide">
+            {industry.description}
+          </p>
+
+          <Link to={industry.link} className="mt-4 md:mt-6 flex items-start justify-between group/link gap-4 shrink-0">
+             <span className="font-bricolage text-sm font-medium text-primary group-hover/link:text-white transition-colors">
+               {industry.linkText}
+             </span>
+             <ArrowRight className="w-5 h-5 shrink-0 text-primary group-hover/link:translate-x-1 transition-all mt-0.5" />
+          </Link>
+          
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default HomeIndustriesSection;
+
 
 
