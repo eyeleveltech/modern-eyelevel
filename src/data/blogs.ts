@@ -20,6 +20,26 @@ import blogImage13 from "@/assets/blogImages/blog13.webp";
 import blogImage14 from "@/assets/blogImages/blog14.webp";
 import blogImage15 from "@/assets/blogImages/blog15.webp";
 import blogImage16 from "@/assets/blogImages/blog16.webp";
+import blogImage17 from "@/assets/blogImages/blog17.webp";
+import blogImage18 from "@/assets/blogImages/blog18.webp";
+import blogImage19 from "@/assets/blogImages/blog19.webp";
+import blogImage20 from "@/assets/blogImages/blog20.webp";
+import blogImage21 from "@/assets/blogImages/blog21.webp";
+import blogImage22 from "@/assets/blogImages/blog22.webp";
+import blogImage23 from "@/assets/blogImages/blog23.webp";
+import blogImage24 from "@/assets/blogImages/blog24.webp";
+import blogImage25 from "@/assets/blogImages/blog25.webp";
+import blogImage26 from "@/assets/blogImages/blog26.webp";
+import blogImage27 from "@/assets/blogImages/blog27.webp";
+import blogImage28 from "@/assets/blogImages/blog28.webp";
+import blogImage29 from "@/assets/blogImages/blog29.webp";
+import blogImage30 from "@/assets/blogImages/blog30.webp";
+import blogImage31 from "@/assets/blogImages/blog31.webp";
+import blogImage32 from "@/assets/blogImages/blog32.webp";
+import blogImage33 from "@/assets/blogImages/blog33.webp";
+import blogImage34 from "@/assets/blogImages/blog34.webp";
+import blogImage35 from "@/assets/blogImages/blog35.webp";
+import blogImage36 from "@/assets/blogImages/blog36.webp";
 
 export const ALL_BLOGS_CATEGORY = "All Blogs";
 const BASE_URL = "https://theeyelevelstudio.com/";
@@ -1149,7 +1169,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "How D2C brands in India use WhatsApp to reduce CAC, recover carts, and build loyal customer bases. Covers API setup, campaign types, and real client examples.",
     category: "Digital Marketing",
-    image: blogImage1,
+    image: blogImage17,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1211,7 +1231,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Step-by-step marketing guide for pickleball tournaments and leagues in India \u2014 brand identity, sponsorship, social media, and post-event community building.",
     category: "Sports Marketing",
-    image: blogImage2,
+    image: blogImage18,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1272,7 +1292,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "The real state of AI content creation for marketing in 2026 \u2014 what it replaces, what it can't, and how Indian agencies produce 3x more content at half the cost.",
     category: "AI Marketing",
-    image: blogImage3,
+    image: blogImage19,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1336,7 +1356,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "The practical guide to LinkedIn B2B marketing for Indian companies \u2014 organic strategy, paid ads, founder branding, and Sales Navigator outreach that generates real pipeline.",
     category: "B2B Marketing",
-    image: blogImage4,
+    image: blogImage20,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1398,7 +1418,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Why 2026 is the right year for Indian brands to enter pickleball sponsorship \u2014 what to expect, what to budget, and how to activate for maximum commercial return.",
     category: "Sports Marketing",
-    image: blogImage5,
+    image: blogImage21,
     date: "May 25, 2026",
     readTime: "4 min read",
     author: {
@@ -1462,7 +1482,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Open rates, click-through rates, and conversion data comparing WhatsApp and email for Indian D2C and B2C brands. The case for switching your primary nurture channel.",
     category: "Digital Marketing",
-    image: blogImage6,
+    image: blogImage22,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1523,7 +1543,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Cost, quality, and AI capabilities have made Indian marketing agencies a serious option for US startups. What to look for, what to avoid, and what to expect.",
     category: "Offshore Marketing",
-    image: blogImage1,
+    image: blogImage23,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1585,7 +1605,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "How Indian SaaS companies at seed to Series A build consistent marketing pipeline without a large sales team \u2014 LinkedIn, content, AI agents, and GTM frameworks.",
     category: "SaaS Marketing",
-    image: blogImage2,
+    image: blogImage24,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1642,7 +1662,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "A practical explanation of go-to-market strategy for Indian startup founders \u2014 what it is, what it includes, and how to build one that drives pipeline and revenue.",
     category: "GTM Strategy",
-    image: blogImage3,
+    image: blogImage25,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1700,7 +1720,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Step-by-step guide for brands and organisations that want to build a pickleball community in India \u2014 digital community, live events, and brand activation formats.",
     category: "Sports Marketing",
-    image: blogImage4,
+    image: blogImage26,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1762,7 +1782,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Generative Engine Optimization (GEO) is how brands get cited in AI answers on ChatGPT, Perplexity, and Gemini. What it is, how it differs from SEO, and how to do it.",
     category: "AI Marketing",
-    image: blogImage5,
+    image: blogImage27,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1823,7 +1843,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "How to set up WhatsApp Business API in India for small and mid-size businesses. Covers Meta verification, platform selection (WATI, Gupshup, Twixor), and first campaign setup.",
     category: "Digital Marketing",
-    image: blogImage6,
+    image: blogImage28,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1889,7 +1909,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "The strategies that separate India's fastest-growing D2C brands from those that plateau. Community, WhatsApp, content, and retention \u2014 what actually works.",
     category: "D2C Marketing",
-    image: blogImage7,
+    image: blogImage29,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -1946,7 +1966,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Marketing automation explained for Indian businesses \u2014 what it is, what it automates, which tools to use (Make.com, Zapier, HubSpot), and how to start without a large tech team.",
     category: "AI Marketing",
-    image: blogImage1,
+    image: blogImage30,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2008,7 +2028,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Practical strategies for Indian SaaS companies to reduce customer acquisition cost \u2014 from channel mix optimisation to AI-powered lead qualification and content-led inbound.",
     category: "SaaS Marketing",
-    image: blogImage2,
+    image: blogImage31,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2065,7 +2085,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "How Indian hospitals and clinics use digital marketing to attract new patients \u2014 from Google Business Profile to paid ads, content, and WhatsApp appointment flows.",
     category: "Healthcare Marketing",
-    image: blogImage3,
+    image: blogImage32,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2127,7 +2147,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "How brands enter the South Indian market through influencer and celebrity partnerships \u2014 Kollywood connects to micro-influencer campaigns. A practical guide by EyeLevel.",
     category: "Influencer Marketing",
-    image: blogImage4,
+    image: blogImage33,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2185,7 +2205,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Eight questions every founder should ask before hiring a marketing agency in India \u2014 covering account management, reporting, AI capability, and how to spot red flags early.",
     category: "Agency Services",
-    image: blogImage5,
+    image: blogImage34,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2244,7 +2264,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "A practical comparison of Make.com and Zapier for Indian marketing teams \u2014 pricing, complexity, use cases, and which to choose based on your automation goals.",
     category: "AI Marketing",
-    image: blogImage6,
+    image: blogImage35,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
@@ -2306,7 +2326,7 @@ const rawBlogPosts: BlogPost[] = [
     excerpt:
       "Practical performance marketing strategies for Indian brands in 2026 \u2014 Meta, Google, LinkedIn ad optimisation, creative testing, and full-funnel approaches that maximise ROAS.",
     category: "Performance Marketing",
-    image: blogImage7,
+    image: blogImage36,
     date: "May 25, 2026",
     readTime: "5 min read",
     author: {
