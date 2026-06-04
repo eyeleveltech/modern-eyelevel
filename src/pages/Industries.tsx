@@ -85,7 +85,7 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Industries — EyeLevel Growth Studio | SaaS, D2C, Sports, Healthcare, Offshore"
+        title="Industries ï¿½ EyeLevel Growth Studio | SaaS, D2C, Sports, Healthcare, Offshore"
         description="EyeLevel serves SaaS companies, D2C brands, sports leagues, healthcare brands, and offshore clients. Specialised marketing for each vertical."
         keywords={[
           "marketing agency for SaaS India",
