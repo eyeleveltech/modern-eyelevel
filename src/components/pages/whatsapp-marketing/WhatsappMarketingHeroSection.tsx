@@ -46,7 +46,7 @@ export default function WhatsappMarketingHeroSection({ scrollTo }: WhatsappMarke
         <Star18 className="w-full h-full" />
       </motion.div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center el-reveal">
+      <div className="max-w-4xl mx-auto text-center relative mt-5  z-10 flex flex-col items-center el-reveal">
         <GreenButton>WhatsApp Marketing Agency · India</GreenButton>
 
         <motion.h1
@@ -54,7 +54,8 @@ export default function WhatsappMarketingHeroSection({ scrollTo }: WhatsappMarke
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="font-dela uppercase text-center leading-[1.05] mb-5 text-primary text-2xl md:text-3xl lg:text-5xl tracking-wide"
+          className="font-dela uppercase text-center mb-5 text-primary text-2xl md:text-3xl lg:text-5xl tracking-wide"
+          style={{ lineHeight: "1.2" }}
         >
           WHERE YOUR CUSTOMERS<br className="hidden md:inline" />
           ACTUALLY <WavyUnderline>READ</WavyUnderline> YOUR MESSAGES

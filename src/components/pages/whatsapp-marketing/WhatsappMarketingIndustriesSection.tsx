@@ -1,8 +1,8 @@
 import WhatsappMarketingSectionHeader from "./WhatsappMarketingSectionHeader";
-import d2cImage from "@/assets/services/whatsappMarketing/d2c.png";
-import healthcareImage from "@/assets/services/whatsappMarketing/healthcare.png";
-import educationImage from "@/assets/services/whatsappMarketing/preeschool.png";
-import saasImage from "@/assets/services/whatsappMarketing/saas.png";
+import d2cImage from "@/assets/services/whatsappMarketing/d2d.webp";
+import healthcareImage from "@/assets/services/whatsappMarketing/healthcare.webp";
+import educationImage from "@/assets/services/whatsappMarketing/preschool.webp";
+import saasImage from "@/assets/services/whatsappMarketing/saas.webp";
 
 const industries = [
   {
@@ -63,7 +63,7 @@ export default function WhatsappMarketingIndustriesSection() {
                 loading="lazy"
               />
               {/* Premium dark gradient overlay for typography readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/95 via-forest-950/70 to-forest-950/20 group-hover:from-forest-950/98 group-hover:via-forest-950/80 transition-all duration-500" />
+              <div className="absolute z-10 inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/0 group-hover:from-black/98 group-hover:via-black/80 transition-all duration-500" />
             </div>
 
             {/* Content Area (Overlaid on Image) */}
