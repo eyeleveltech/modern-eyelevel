@@ -5,11 +5,11 @@ import WavyUnderline from "@/components/shared/WavyUnderline";
 import GreenButton from "@/components/shared/GreenButton";
 
 // Assuming these images exist based on previous workspace state
-import sportImg from "@/assets/industries/sport.webp";
-import realestateImg from "@/assets/industries/realestate.webp";
-import healthcareImg from "@/assets/industries/healthcare-whatsapp.png";
-import d2cImg from "@/assets/industries/d2c-whatsapp.png";
-import b2bImg from "@/assets/industries/b2b.webp";
+import sportImg from "@/assets/industries/h_industry/sport.webp";
+import realestateImg from "@/assets/industries/h_industry/realestate.webp";
+import healthcareImg from "@/assets/industries/h_industry/healthcare.webp";
+import d2cImg from "@/assets/industries/h_industry/d2c.webp";
+import b2bImg from "@/assets/industries/h_industry/b2b.webp";
 
 export interface Industry {
   id: string;

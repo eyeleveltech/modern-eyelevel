@@ -2,8 +2,11 @@
 import industrySports from "@/assets/industries/sport.webp";
 import industryRealestate from "@/assets/industries/realestate.webp";
 import industryB2b from "@/assets/industries/b2b.webp";
-import finTech from "@/assets/industries/fintech.webp";
 import pickelball from "@/assets/industries/pickleball.webp";
+import industrySaas from "@/assets/industries/saas.webp";
+import industryD2d from "@/assets/industries/d2c.webp";
+import industryHealthcare from "@/assets/industries/healthcare.webp";
+import industryOffshore from "@/assets/industries/offshore.webp";
 
 export interface IndustryPageItem {
   id: string;
@@ -30,7 +33,7 @@ export const industriesPageData: IndustryPageItem[] = [
     description: "Pipeline-first marketing for SaaS companies. LinkedIn B2B campaigns, content systems, and GTM execution from seed to Series B.",
     longDescription: "Pipeline-first marketing for SaaS companies. LinkedIn B2B campaigns, content systems, and GTM execution from seed to Series B.",
     href: "/industries/saas",
-    image: industryB2b,
+    image: industrySaas,
     accentColor: "#E2FEA5",
     stats: [],
     capabilities: ["B2B Campaigns", "Content Systems", "GTM Execution", "Pipeline Growth"],
@@ -44,7 +47,7 @@ export const industriesPageData: IndustryPageItem[] = [
     description: "CAC reduction and retention marketing for D2C brands. WhatsApp campaigns, Meta performance ads, and AI content production.",
     longDescription: "CAC reduction and retention marketing for D2C brands. WhatsApp campaigns, Meta performance ads, and AI content production.",
     href: "/industries/d2c",
-    image: finTech,
+    image: industryD2d,
     accentColor: "#FCFAC2",
     stats: [],
     capabilities: ["WhatsApp Campaigns", "Meta Ads", "AI Content", "CAC Reduction"],
@@ -58,7 +61,7 @@ export const industriesPageData: IndustryPageItem[] = [
     description: "Digital marketing for hospitals, clinics, and wellness brands. GMB optimisation, patient acquisition campaigns, and content.",
     longDescription: "Digital marketing for hospitals, clinics, and wellness brands. GMB optimisation, patient acquisition campaigns, and content.",
     href: "/industries/healthcare",
-    image: industryEducation,
+    image: industryHealthcare,
     accentColor: "#FFB4B4",
     stats: [],
     capabilities: ["GMB Optimisation", "Patient Acquisition", "Content Creation", "Digital Marketing"],
@@ -72,7 +75,7 @@ export const industriesPageData: IndustryPageItem[] = [
     description: "Full-service marketing retainers for US and UAE companies that want senior-level strategy at Indian efficiency.",
     longDescription: "Full-service marketing retainers for US and UAE companies that want senior-level strategy at Indian efficiency.",
     href: "/industries/offshore",
-    image: industryB2b,
+    image: industryOffshore,
     accentColor: "#B8D4BE",
     stats: [],
     capabilities: ["Full-Service Retainers", "Senior-Level Strategy", "Indian Efficiency", "US/UAE Markets"],
