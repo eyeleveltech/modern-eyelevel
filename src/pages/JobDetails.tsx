@@ -145,10 +145,12 @@ const JobDetails = () => {
                 <Briefcase className="w-4 h-4" />
                 {job.department}
               </span>
-              <span className="flex items-center gap-2">
-                <Users className="w-4 h-4" />
-                {job.experience}
-              </span>
+              {job.experience && (
+                <span className="flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  {job.experience}
+                </span>
+              )}
             </div>
           </motion.div>
 
