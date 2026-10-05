@@ -58,14 +58,6 @@ const rawOpenPositions = [
     description:
       "Design social media creatives, branding assets, and marketing visuals using AI-powered design workflows.",
   },
-  {
-    title: "Frontend Developer Intern",
-    department: "Technology",
-    type: "Full-time · Internship · On-site",
-    location: "Chennai, India",
-    description:
-      "Build fast, modern web experiences using React and JavaScript for real-world brands.",
-  },
 ] satisfies Array<Omit<OpenPosition, "slug">>;
 
 const rawJobListings: Record<string, JobListing> = {
@@ -219,73 +211,6 @@ We're not your agency. We're your extended marketing team — one studio, full s
       "Continuous learning.",
       "Work on diverse brands.",
       "Supportive team culture.",
-    ],
-  },
-  "frontend-developer-intern": {
-    title: "Frontend Developer Intern",
-    department: "Technology",
-    type: "Full-time · Internship · On-site",
-    location: "Chennai, India",
-    datePosted: "03/10/2026",
-    shortDescription:
-      "Build fast, modern web experiences using React and JavaScript for real-world brands.",
-
-    aboutCompany: `EyeLevel was not built by an agency chasing clients. It was built by a marketing head who spent 15 years hiring agencies, and knowing exactly what they failed to deliver.
-
-We're not your agency. We're your extended marketing team — one studio, full stack, zero handoffs, working across sports, healthcare, real estate, IT/SaaS, and automotive brands in Chennai and beyond.`,
-
-    responsibilities: [
-      "Build and maintain modern, responsive web interfaces using React and JavaScript",
-      "Convert UI designs and requirements into clean, reusable, and production-ready frontend components",
-      "Work with TypeScript to build reliable, maintainable, and scalable frontend applications",
-      "Integrate REST APIs and work with backend developers to connect frontend applications with real data",
-      "Work with SQL databases to understand, query, and manage application data where required",
-      "Implement responsive layouts and ensure websites work smoothly across desktop, tablet, and mobile devices",
-      "Debug frontend issues, improve performance, and ensure a smooth user experience across browsers and devices",
-      "Collaborate with designers, backend developers, content teams, and project leads to deliver features on schedule",
-      "Stay updated with modern frontend technologies, frameworks, development practices, and AI-assisted development tools",
-    ],
-
-    requirements: [
-      "Good understanding of HTML, CSS, and JavaScript fundamentals",
-      "Hands-on experience with React and familiarity with component-based development",
-      "Strong grasp of modern JavaScript (ES6+), DOM manipulation, and frontend routing concepts",
-      "Basic to working knowledge of TypeScript",
-      "Familiarity with REST APIs, JSON, and asynchronous JavaScript",
-      "Basic understanding of Git and GitHub",
-      "Ability to learn quickly, debug problems independently, and work with an existing codebase",
-      "A portfolio, GitHub profile, personal project, or internship project demonstrating your frontend skills is preferred",
-    ],
-
-    qualities: [
-      "Strong problem-solving mindset with a focus on debugging and finding solutions",
-      "Writes clean, readable, and maintainable code rather than just making things work",
-      "Curious about modern frontend development and genuinely interested in React and JavaScript",
-      "Comfortable learning new technologies and adapting to an existing codebase",
-      "Pays attention to UI details, responsiveness, performance, and user experience",
-      "No ego about code reviews or revisions; quick to take feedback, improve, and keep moving",
-      "Organised and reliable, communicating clearly and taking ownership of assigned work",
-      "Self-starter who can research, experiment, and find solutions before getting stuck",
-      "Interested in using AI tools such as ChatGPT or Claude to improve development speed without compromising code quality",
-    ],
-
-    whatYouGet: [
-      "Stipend based on experience, to be discussed",
-      "Work on real-world websites and digital products for brands across multiple industries",
-      "Hands-on experience with React, JavaScript, TypeScript, APIs, and SQL",
-      "Direct access to experienced developers and project leads for a steep learning curve and fast growth",
-      "Opportunity to work on production code rather than only internal practice projects",
-      "Clear path to grow into a full-time Frontend Developer role",
-      "A team that values ownership, learning, and problem-solving",
-    ],
-
-    benefits: [
-      "Freshers are welcome, where practical skills and willingness to learn matter most",
-      "Work on real products and real business requirements",
-      "Exposure to modern frontend technologies and AI-assisted development",
-      "Fast-paced, collaborative engineering environment",
-      "Clear expectations and regular feedback",
-      "Room to grow technically and professionally",
     ],
   },
 };
