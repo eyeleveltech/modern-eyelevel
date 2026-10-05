@@ -35,14 +35,6 @@ export const titleToSlug = (title: string) =>
 
 const rawOpenPositions = [
   {
-    title: "AI Creative Video Intern",
-    department: "Video Production",
-    type: "Full-time · Internship · On-site",
-    location: "Chennai, India",
-    description:
-      "Cut Reels, Shorts, and short-form video that actually performs.",
-  },
-  {
     title: "AI Content & Copywriting Intern",
     department: "Content & AI",
     type: "Full-time · Internship · On-site",
@@ -61,57 +53,6 @@ const rawOpenPositions = [
 ] satisfies Array<Omit<OpenPosition, "slug">>;
 
 const rawJobListings: Record<string, JobListing> = {
-  "ai-creative-video-intern": {
-    title: "AI Creative Video Intern",
-    department: "Video Production",
-    type: "Full-time · Internship · On-site",
-    location: "Chennai, India",
-    datePosted: "29/07/2026",
-    experience: "0-1 years",
-    shortDescription:
-      "Cut Reels, Shorts, and short-form video that actually performs.",
-    aboutCompany: `EyeLevel was not built by an agency chasing clients. It was built by a marketing head who spent 15 years hiring agencies, and knowing exactly what they failed to deliver.
-
-We're not your agency. We're your extended marketing team — one studio, full stack, zero handoffs, working across sports, healthcare, real estate, IT/SaaS, and automotive brands in Chennai and beyond.`,
-    responsibilities: [
-      "Edit Reels, Shorts, and short-form video for multiple client brands — combining traditional craft with AI tools to hit quality and speed",
-      "Cut long-form footage — shoots, events, interviews — into scroll-stopping short content, using AI to accelerate the repetitive parts",
-      "Handle sound design, captions, transitions, and pacing tailored to each platform — with AI auto-captioning and audio tools where they save time",
-      "Color grade and finish videos to a consistent, professional standard using DaVinci Resolve, augmented by AI grading tools where appropriate",
-      "Generate AI-assisted b-roll, effects, or transitions using Runway, Veo, Kling AI, or Pika — where they serve the edit, not just because they can",
-      "Stay on top of reels trends, AI video tools, and short-form formats — experiment, bring what's relevant back to the team, and keep output fresh",
-    ],
-
-    requirements: [
-      "0–1 years of hands-on reels/short-form editing experience — DaVinci Resolve is mandatory, Fusion and Fairlight are a plus",
-      "Working knowledge of color correction, grading, captions, motion graphics basics, and sound design for short-form",
-      "Hands-on experience with AI video tools such as Runway, Veo, Kling AI, Pika, or Luma AI — or a strong willingness to learn fast",
-      "Comfortable using AI tools like ChatGPT or Claude for scripting, shot planning, and creative research",
-      "Solid understanding of platform-specific formats and editing styles for Instagram Reels, YouTube Shorts, and TikTok",
-      "A portfolio or showreel is mandatory to apply — own laptop capable of running DaVinci Resolve smoothly, preferred",
-    ],
-
-    qualities: [
-      "Sharp eye for pacing and rhythm — you know what makes a reel actually perform",
-      "Uses AI as a creative accelerator, not a crutch — quality never takes a back seat to speed",
-      "Fast turnaround without cutting corners — organised, reliable, and proactive",
-      "No ego about revisions — you take feedback, iterate fast, and move on",
-      "Genuinely curious about where AI and video craft intersect — you experiment because you're interested, not because you were told to",
-      "Self-starter who treats every client deliverable like it has your name on it",
-    ],
-    whatYouGet: [
-      "Salary based on experience",
-      "Work on high-visibility clients across sports, healthcare, and wellness",
-      "Direct access to the Founder and Video Production Head — steep learning curve, fast growth",
-      "A team that values ownership, not just execution",
-    ],
-    benefits: [
-      "Work on real brands and real growth problems",
-      "Fast-paced, high-performance culture",
-      "Clear expectations and zero confusion",
-      "Room to grow creatively and professionally",
-    ],
-  },
   "ai-content-copywriting-intern": {
     title: "AI Content & Copywriting Intern",
     department: "Digital Marketing",
@@ -215,24 +156,12 @@ We're not your agency. We're your extended marketing team — one studio, full s
   },
 };
 
-// "dd/mm/yyyy" -> sortable timestamp. Listings without a parseable date
-// (e.g. the evergreen "Open") sort last.
-const postedAt = (slug: string) => {
-  const match = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(
-    rawJobListings[slug]?.datePosted ?? "",
-  );
-  if (!match) return -Infinity;
-  const [, day, month, year] = match;
-  return Date.UTC(Number(year), Number(month) - 1, Number(day));
-};
-
+// Positions are shown in the order they are listed in rawOpenPositions.
 export const openPositions: OpenPosition[] = normalizeTextDeep(
-  rawOpenPositions
-    .map((position) => ({
-      ...position,
-      slug: titleToSlug(position.title),
-    }))
-    .sort((a, b) => postedAt(b.slug) - postedAt(a.slug)),
+  rawOpenPositions.map((position) => ({
+    ...position,
+    slug: titleToSlug(position.title),
+  })),
 );
 
 export const jobListings = normalizeTextDeep(rawJobListings);
