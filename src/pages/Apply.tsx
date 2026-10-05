@@ -21,6 +21,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Upload, ArrowLeft, FileText, X, Plus, Trash2 } from "lucide-react";
 import GreenButton from "@/components/shared/GreenButton";
 import SEO from "@/components/utils/SEO";
+import { openPositions } from "@/data/careers";
 
 const applicationSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -107,11 +108,23 @@ interface SocialLink {
 const JOB_APPLY_WEBHOOK_URL =
   "https://automate.eyelevelstudio.in/webhook/job-apply";
 
+const GENERAL_APPLICATION = "General Application";
+
+// Only roles currently listed on the Careers page accept applications, so old
+// links to a closed role (ads, shared URLs) can't keep submitting the form.
+const isAcceptingApplications = (position: string) => {
+  const requested = position.trim().toLowerCase();
+  return (
+    requested === GENERAL_APPLICATION.toLowerCase() ||
+    openPositions.some((open) => open.title.toLowerCase() === requested)
+  );
+};
+
 const Apply = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const position = searchParams.get("position") || "General Application";
+  const position = searchParams.get("position") || GENERAL_APPLICATION;
 
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -350,6 +363,38 @@ const Apply = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (!isAcceptingApplications(position)) {
+    return (
+      <div className="min-h-screen bg-secondary">
+        <SEO
+          title="Position Closed | Eyelevel Growth Studio"
+          description="This position is no longer accepting applications."
+          keywords={["position closed", "career listing", "marketing jobs"]}
+          canonical="https://theeyelevelstudio.com/careers"
+          url="https://theeyelevelstudio.com/apply"
+          noindex
+        />
+        <Header />
+        <div className="pt-32 pb-20 px-4 text-center">
+          <h1 className="font-dela text-4xl text-foreground mb-4">
+            Position Closed
+          </h1>
+          <p className="text-[rgba(248,255,232,0.7)] mb-8">
+            This position is no longer accepting applications. Take a look at
+            the roles we're hiring for right now.
+          </p>
+          <Button
+            onClick={() => navigate("/careers")}
+            className="bg-primary text-forest-muted"
+          >
+            View Open Roles
+          </Button>
+        </div>
+        <EnhancedFooter showCTA={false} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-[65vh] lg:min-h-[95vh] bg-secondary py-10">
