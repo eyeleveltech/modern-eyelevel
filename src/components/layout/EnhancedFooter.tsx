@@ -29,15 +29,12 @@ const footerLinks = [
   {
     title: "Services",
     links: [
-      { label: "Performance Marketing", href: "/services/performance-marketing" },
-      { label: "AI-Era SEO", href: "/services/ai-era-seo" },
       { label: "Social Media Management", href: "/services/social-media-management" },
-      { label: "Content and Creative", href: "/services/content-and-creative" },
-      { label: "LinkedIn B2B Marketing", href: "/services/linkedin-b2b-marketing" },
-      { label: "CRO and Funnel Design", href: "/services/cro-and-funnel-design" },
-      { label: "Revenue Attribution Dashboard", href: "/services" },
-      { label: "Brand and Identity", href: "/services" },
-      { label: "Website Design and Development", href: "/services" },
+      { label: "Paid & Performance Marketing", href: "/services/performance-marketing" },
+      { label: "AI & Video Production", href: "/services/ai-and-video-production" },
+      { label: "Web & App Development", href: "/services/website-and-app-development" },
+      { label: "Organic Marketing", href: "/services/organic-marketing" },
+      { label: "Event Management", href: "/services/event-management" },
     ],
   },
   {

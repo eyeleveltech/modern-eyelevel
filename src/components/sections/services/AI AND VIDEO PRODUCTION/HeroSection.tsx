@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, LayoutDashboard, Link as LinkIcon, Coins, FileSpreadsheet, Bell, Package } from "lucide-react";
+import { ArrowRight, FileText, MessageSquare, Video, Image, BookOpen } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
 import { AnimatedHeroHeading } from "@/components/shared/AnimatedHeroHeading";
 import GreenButton from "@/components/shared/GreenButton";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { revenueAttributionDashboardSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { contentAndCreativeSchema, breadcrumbSchema } from "@/hooks/schemas";
 
 export const HeroSection = () => {
   const heroRef = useRef(null);
@@ -27,8 +27,7 @@ export const HeroSection = () => {
     {/* Section 1 — Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[65vh] lg:min-h-[95vh]  flex flex-col items-center justify-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]"
-      >
+        className="relative min-h-[65vh] lg:min-h-[95vh]  flex items-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]">
         {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
@@ -54,29 +53,29 @@ export const HeroSection = () => {
             transition={{ delay: 0.1 }}
             className="mb-0"
           >
-            <GreenButton>SERVICES / REVENUE ATTRIBUTION DASHBOARD</GreenButton>
+            <GreenButton>SERVICES / AI & VIDEO PRODUCTION</GreenButton>
           </motion.div>
 
           <AnimatedHeroHeading
             words={[
-              "EVERY", "CAMPAIGN", "TIED", "TO", "A", "BUSINESS", "OUTCOME", "YOU", "CAN",
-              <WavyUnderline key="wavy">SHOW YOUR BOARD</WavyUnderline>
+              "AI", "HANDLES", "PRODUCTION", "SPEED.", "HUMANS", "HANDLE",
+              <WavyUnderline key="wavy">STRATEGY AND VOICE</WavyUnderline>
             ]}
           />
-            <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
+          <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 1 }}
             className="font-bricolage text-lg max-w-3xl mx-auto mb-10 leading-relaxed text-foreground"
           >
-            Not a metric you have to explain away. A number that defends itself.
+            Video strategy, podcast editing, AI automation, and chatbots — built with your brief, delivered with your tone. No generic outputs, no freelancer churn.
           </motion.p>
 
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.3 }}
+            transition={{ delay: 1.1 }}
             className="flex items-center rounded-full relative font-bricolage z-1000 justify-start gap-4"
           >
             <Link to="/booking">

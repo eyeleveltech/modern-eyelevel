@@ -11,21 +11,21 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { aiEraSeoSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { organicMarketingSchema, breadcrumbSchema } from "@/hooks/schemas";
 
-import { HeroSection } from "@/components/sections/services/AI ERA SEO/HeroSection";
-import { IncludesSection } from "@/components/sections/services/AI ERA SEO/IncludesSection";
-import { WhoIsItForSection } from "@/components/sections/services/AI ERA SEO/WhoIsItForSection";
-import { QuoteSection } from "@/components/sections/services/AI ERA SEO/QuoteSection";
-import { IndustriesSection } from "@/components/sections/services/AI ERA SEO/IndustriesSection";
-import { CTASection } from "@/components/sections/services/AI ERA SEO/CTASection";
+import { HeroSection } from "@/components/sections/services/ORGANIC MARKETING/HeroSection";
+import { IncludesSection } from "@/components/sections/services/ORGANIC MARKETING/IncludesSection";
+import { WhoIsItForSection } from "@/components/sections/services/ORGANIC MARKETING/WhoIsItForSection";
+import { QuoteSection } from "@/components/sections/services/ORGANIC MARKETING/QuoteSection";
+import { IndustriesSection } from "@/components/sections/services/ORGANIC MARKETING/IndustriesSection";
+import { CTASection } from "@/components/sections/services/ORGANIC MARKETING/CTASection";
 
-const AiEraSeo = () => {
+const OrganicMarketing = () => {
   return (
     <div className="min-h-[65vh] lg:min-h-[95vh] bg-background overflow-clip">
       <SEO
-        title="AI-Era SEO Agency Chennai | AEO & GEO | Eyelevel Growth Studio"
-        description="Traditional SEO plus AEO (AI Overviews, featured snippets) and GEO (ChatGPT, Gemini, Perplexity). We optimise for where buyers find answers now."
+        title="Organic Marketing Agency | SEO, AEO & GEO | Eyelevel Growth Studio"
+        description="We optimize your digital presence so customers discover you naturally — on search engines, AI platforms, and maps. No ads needed."
         keywords={[
           "SEO agency Chennai",
           "AI SEO agency India",
@@ -36,15 +36,15 @@ const AiEraSeo = () => {
         ]}
         image="https://theeyelevelstudio.com/og/services-1200x630.png"
         schema={[
-          aiEraSeoSchema,
+          organicMarketingSchema,
           breadcrumbSchema([
             { name: "Home", url: "https://theeyelevelstudio.com/" },
             { name: "Services", url: "https://theeyelevelstudio.com/services" },
-            { name: "AI-Era SEO", url: "https://theeyelevelstudio.com/services/ai-era-seo" },
+            { name: "Organic Marketing", url: "https://theeyelevelstudio.com/services/organic-marketing" },
           ]),
         ]}
-        canonical="https://theeyelevelstudio.com/services/ai-era-seo"
-        url="https://theeyelevelstudio.com/services/ai-era-seo"
+        canonical="https://theeyelevelstudio.com/services/organic-marketing"
+        url="https://theeyelevelstudio.com/services/organic-marketing"
       />
       <Header />
 
@@ -60,4 +60,4 @@ const AiEraSeo = () => {
   );
 };
 
-export default AiEraSeo;
+export default OrganicMarketing;

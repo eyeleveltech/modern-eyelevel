@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Layers, FileText, Sparkles, RefreshCcw, PenTool } from "lucide-react";
+import { ArrowRight, Map, Palette, Code2, SearchCheck, PenLine, Wrench } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
 import { AnimatedHeroHeading } from "@/components/shared/AnimatedHeroHeading";
 import GreenButton from "@/components/shared/GreenButton";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { brandAndIdentitySchema, breadcrumbSchema } from "@/hooks/schemas";
+import { websiteDesignAndDevelopmentSchema, breadcrumbSchema } from "@/hooks/schemas";
 
 export const IncludesSection = () => {
   const scrollAnimProps = {
@@ -34,67 +34,60 @@ export const IncludesSection = () => {
           </motion.h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
-          {/* Box 1 — Brand Strategy (wide) */}
+          {/* Box 1 (wide) */}
           <motion.div
             {...scrollAnimProps}
             className="lg:col-span-2 bg-primary/5 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Layers className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
+            <Map className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
             <h3 className="font-dela text-xl md:text-2xl lg:text-3xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-              BRAND STRATEGY
+              CUSTOM E-COMMERCE
             </h3>
-            <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl">
-              Positioning, messaging architecture, and competitive differentiation — so your brand owns a clear space in the market.
-            </p>
+            <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+              <li>
+                <Link to="/services/web-and-app-development/e-commerce-websites" className="hover:text-primary hover:underline underline-offset-4 transition-colors">E-Commerce Websites (Shopify / WooCommerce / Custom)</Link>
+              </li>
+            </ul>
           </motion.div>
 
-          {/* Box 2 — Logo & Visual Identity */}
+          {/* Box 2 */}
           <motion.div
             {...scrollAnimProps}
             transition={{ delay: 0.1 }}
             className="lg:col-span-1 bg-secondary/30 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-white/5 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <PenTool className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
+            <Palette className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
             <h3 className="font-dela text-xl md:text-2xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-              LOGO & VISUAL IDENTITY
+              INFORMATIONAL SITES
             </h3>
-            <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80">
-              Colour, typography, and grid — built to work at every scale.
-            </p>
+            <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+              <li>
+                <Link to="/services/web-and-app-development/catalogue-portfolio-websites" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Catalogue / Portfolio Websites</Link>
+              </li>
+              <li>
+                <Link to="/services/web-and-app-development/brand-corporate-websites" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Brand / Corporate Websites</Link>
+              </li>
+            </ul>
           </motion.div>
 
-          {/* Box 3 — Brand Guidelines */}
+          {/* Box 3 (full width) */}
           <motion.div
             {...scrollAnimProps}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-1 bg-secondary/30 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-white/5 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <FileText className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
-            <h3 className="font-dela text-xl md:text-2xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-              BRAND GUIDELINES
-            </h3>
-            <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80">
-              So every vendor, designer, and team member follows the same rules.
-            </p>
-          </motion.div>
-
-          {/* Box 4 — Naming & Rebranding (wide, highlighted) */}
-          <motion.div
-            {...scrollAnimProps}
-            transition={{ delay: 0.3 }}
-            className="lg:col-span-2 bg-primary/5 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
+            className="lg:col-span-3 bg-primary/5 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <Sparkles className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
+            <Code2 className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
             <h3 className="font-dela text-xl md:text-2xl lg:text-3xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-              NAMING, TAGLINES & REBRANDING
+              MOBILE APP DEVELOPMENT
             </h3>
-            <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl">
-              Naming and tagline development for new products or sub-brands. Full rebranding engagements — audit, strategy, and rollout handled as one project.
-            </p>
+            <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+              <li>
+                <Link to="/services/web-and-app-development/mobile-app-development" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Mobile App Development</Link>
+              </li>
+            </ul>
           </motion.div>
         </div>
       </section>

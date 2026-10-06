@@ -7,13 +7,9 @@ import {
   TrendingUp,
   Search,
   Users,
-  Palette,
-  Linkedin,
-  Filter,
-  PieChart,
-  Star,
   Layout,
-  ArrowRight,
+  Video,
+  Calendar,
   LucideIcon,
 } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
@@ -30,75 +26,51 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     num: "01",
-    name: "PERFORMANCE MARKETING",
-    icon: TrendingUp,
-    angle: -90,
-    labelPos: "bottom",
-    mobileName: "Performance"
-  },
-  {
-    num: "02",
-    name: "AI ERA SEO",
-    icon: Search,
-    angle: -50,
-    labelPos: "bottom",
-    mobileName: "SEO"
-  },
-  {
-    num: "03",
     name: "SOCIAL MEDIA MANAGEMENT",
     icon: Users,
-    angle: -10,
+    angle: -90,
     labelPos: "bottom",
     mobileName: "Social Media"
   },
   {
-    num: "04",
-    name: "CONTENT AND CREATIVE",
-    icon: Palette,
+    num: "02",
+    name: "PAID & PERFORMANCE MARKETING",
+    icon: TrendingUp,
+    angle: -30,
+    labelPos: "bottom",
+    mobileName: "Paid Ads"
+  },
+  {
+    num: "03",
+    name: "AI VIDEO PRODUCTION",
+    icon: Video,
     angle: 30,
     labelPos: "bottom",
-    mobileName: "Content"
+    mobileName: "Video Prod"
+  },
+  {
+    num: "04",
+    name: "WEB & APP DEVELOPMENT",
+    icon: Layout,
+    angle: 90,
+    labelPos: "bottom",
+    mobileName: "Web & App"
   },
   {
     num: "05",
-    name: "LINKEDIN B2B MARKETING",
-    icon: Linkedin,
-    angle: 70,
+    name: "ORGANIC MARKETING",
+    icon: Search,
+    angle: 150,
     labelPos: "bottom",
-    mobileName: "LinkedIn B2B"
+    mobileName: "Organic"
   },
   {
     num: "06",
-    name: "CRO AND FUNNEL DESIGN",
-    icon: Filter,
-    angle: 110,
+    name: "EVENTS",
+    icon: Calendar,
+    angle: 210,
     labelPos: "bottom",
-    mobileName: "CRO & Funnel"
-  },
-  {
-    num: "07",
-    name: "REVENUE ATTRIBUTION DASHBOARD",
-    icon: PieChart,
-    angle: 150,
-    labelPos: "bottom",
-    mobileName: "Attribution"
-  },
-  {
-    num: "08",
-    name: "BRAND AND IDENTITY",
-    icon: Star,
-    angle: 190,
-    labelPos: "bottom",
-    mobileName: "Branding"
-  },
-  {
-    num: "09",
-    name: "WEBSITE DESIGN AND DEVELOPMENT",
-    icon: Layout,
-    angle: 230,
-    labelPos: "bottom",
-    mobileName: "Web Design"
+    mobileName: "Events"
   }
 ];
 
@@ -128,14 +100,14 @@ const HowItConnects = () => {
 
             {/* Heading */}
             <h2 className="font-dela text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-primary mb-6 uppercase tracking-tight leading-[1.1]">
-              These are not nine separate <WavyUnderline>services</WavyUnderline><br />
+              These are not six separate <WavyUnderline>services</WavyUnderline><br />
             </h2>
             {/* Subtle Divider */}
             <div className="w-12 h-px bg-white/10 mb-8 mx-auto lg:mx-0" />
 
             {/* Body text */}
             <p className="text-base sm:text-lg font-bricolage text-white/70 leading-relaxed mb-6 max-w-xl">
-              They are nine parts of one growth system. Strategy informs creative. Creative feeds performance. Performance data shapes SEO. SEO feeds content. Content builds the brand. The brand closes the deal.<br /><br />
+              They are six parts of one growth system. Strategy informs creative. Creative feeds performance. Performance data shapes SEO. SEO feeds content. Content builds the brand. The brand closes the deal.<br /><br />
               When one studio runs all of it, nothing gets lost in translation.
             </p>
           </div>

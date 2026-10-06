@@ -11,21 +11,21 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { contentAndCreativeSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { aiAndVideoProductionSchema, breadcrumbSchema } from "@/hooks/schemas";
 
-import { HeroSection } from "@/components/sections/services/CONTENT AND CREATIVE/HeroSection";
-import { IncludesSection } from "@/components/sections/services/CONTENT AND CREATIVE/IncludesSection";
-import { WhoIsItForSection } from "@/components/sections/services/CONTENT AND CREATIVE/WhoIsItForSection";
-import { QuoteSection } from "@/components/sections/services/CONTENT AND CREATIVE/QuoteSection";
-import { IndustriesSection } from "@/components/sections/services/CONTENT AND CREATIVE/IndustriesSection";
-import { CTASection } from "@/components/sections/services/CONTENT AND CREATIVE/CTASection";
+import { HeroSection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/HeroSection";
+import { IncludesSection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/IncludesSection";
+import { WhoIsItForSection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/WhoIsItForSection";
+import { QuoteSection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/QuoteSection";
+import { IndustriesSection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/IndustriesSection";
+import { CTASection } from "@/components/sections/services/AI AND VIDEO PRODUCTION/CTASection";
 
-const ContentAndCreative = () => {
+const AiAndVideoProduction = () => {
   return (
     <div className="min-h-[65vh] lg:min-h-[95vh] bg-background overflow-clip">
       <SEO
-        title="Content Marketing Agency Chennai | Creative Services | Eyelevel Growth Studio"
-        description="AI handles production speed. Humans handle strategy and voice. Video, design, copy, and brand assets built with your brief, delivered with your tone."
+        title="AI & Video Production | TVCs, Reels & Motion Graphics | Eyelevel"
+        description="From cinematic TVCs to AI-assisted motion graphics, we produce video content that commands attention and drives action for screens big and small."
         keywords={[
           "content marketing agency Chennai",
           "creative agency Chennai",
@@ -35,15 +35,15 @@ const ContentAndCreative = () => {
         ]}
         image="https://theeyelevelstudio.com/og/services-1200x630.png"
         schema={[
-          contentAndCreativeSchema,
+          aiAndVideoProductionSchema,
           breadcrumbSchema([
             { name: "Home", url: "https://theeyelevelstudio.com/" },
             { name: "Services", url: "https://theeyelevelstudio.com/services" },
-            { name: "Content and Creative", url: "https://theeyelevelstudio.com/services/content-and-creative" },
+            { name: "AI & Video Production", url: "https://theeyelevelstudio.com/services/ai-and-video-production" },
           ]),
         ]}
-        canonical="https://theeyelevelstudio.com/services/content-and-creative"
-        url="https://theeyelevelstudio.com/services/content-and-creative"
+        canonical="https://theeyelevelstudio.com/services/ai-and-video-production"
+        url="https://theeyelevelstudio.com/services/ai-and-video-production"
       />
       <Header />
 
@@ -59,4 +59,4 @@ const ContentAndCreative = () => {
   );
 };
 
-export default ContentAndCreative;
+export default AiAndVideoProduction;
