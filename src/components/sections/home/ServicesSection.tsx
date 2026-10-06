@@ -35,130 +35,87 @@ export interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: "performance",
-    number: "01",
-    title: "Performance Marketing",
-    description: "Meta and Google Ads built for revenue, not clicks. Flat fees, full attribution from ad to close.",
-    link: "/services/performance-marketing",
-    icon: <Target className="w-5 h-5" />,
-    features: [
-      "Meta & Google Ads",
-      "Full Funnel Strategy",
-      "Attribution & Reporting",
-      "Conversion Focused"
-    ]
-  },
-  {
-    id: "seo",
-    number: "02",
-    title: "AI-Era SEO",
-    subtitle: "( AEO + GEO ) ",
-    description: "Traditional SEO plus AEO (AI Overviews, Featured Snippets) and GEO (ChatGPT, Gemini, Perplexity citations).",
-    link: "/services/ai-era-seo",
-    icon: <Search className="w-5 h-5" />,
-    features: [
-      "AI Overview Optimization",
-      "Featured Snippets",
-      "Technical SEO",
-      "Content Strategy"
-    ]
-  },
-  {
     id: "social",
-    number: "03",
+    number: "01",
     title: "Social Media Management",
-    description: "Content that builds the audience your sales team needs.",
+    description: "Your Brand, Everywhere That Matters. We build and manage your brand's social presence from the ground up.",
     link: "/services/social-media-management",
     icon: <MessageSquare className="w-5 h-5" />,
     features: [
-      "Audience Growth",
-      "Community Engagement",
-      "Platform Strategy",
-      "Content Calendar"
+      "Strategy & Content",
+      "Multi-Channel Management",
+      "Production (Photo/Video)",
+      "Influencer Partnerships"
     ]
   },
   {
-    id: "content",
-    number: "04",
-    title: "Content & Creative",
-    description: "AI handles production speed, humans handle strategy and voice. Video, design, copy, brand assets.",
-    link: "/services/content-and-creative",
+    id: "performance",
+    number: "02",
+    title: "Paid & Performance Marketing",
+    description: "High ROI ad campaigns across Google, Meta, and LinkedIn with detailed tracking and analysis.",
+    link: "/services/performance-marketing",
+    icon: <Target className="w-5 h-5" />,
+    features: [
+      "Strategy & Budgeting",
+      "Audience Targeting",
+      "Conversion Tracking",
+      "Analysis & Reporting"
+    ]
+  },
+  {
+    id: "ai-video",
+    number: "03",
+    title: "AI & Video Production",
+    description: "Future-Proof Content at Scale. High-end video production combined with AI efficiency.",
+    link: "/services/ai-and-video-production",
     icon: <Pen className="w-5 h-5" />,
     features: [
-      "Video Production",
-      "Copywriting",
-      "Brand Assets",
-      "Creative Direction"
+      "Commercial Videos",
+      "Reels & Stories",
+      "UGC Content",
+      "Motion Graphics"
     ]
   },
   {
-    id: "linkedin",
-    number: "05",
-    title: "LinkedIn B2B Marketing",
-    description: "Profile optimisation, content strategy, and targeted outreach that builds real pipeline.",
-    link: "/services/linkedin-b2b-marketing",
-    icon: <Linkedin className="w-5 h-5" />,
-    features: [
-      "Profile Optimization",
-      "Targeted Outreach",
-      "B2B Lead Generation",
-      "Thought Leadership"
-    ]
-  },
-  {
-    id: "cro",
-    number: "06",
-    title: "CRO & Funnel Design",
-    description: "We fix what happens after the click. Landing pages, conversion flows, lead qualification.",
-    link: "/services/cro-and-funnel-design",
-    icon: <Filter className="w-5 h-5" />,
-    features: [
-      "Landing Page Optimization",
-      "A/B Testing",
-      "User Journey Mapping",
-      "Lead Qualification"
-    ]
-  },
-  {
-    id: "revenue",
-    number: "07",
-    title: "Revenue Attribution",
-    description: "Bundled into growth retainers. Every campaign tied to a business outcome.",
-    link: "/services/revenue-attribution-dashboard",
-    icon: <LineChart className="w-5 h-5" />,
-    features: [
-      "Custom Dashboards",
-      "ROI Tracking",
-      "Campaign Analysis",
-      "Data Integration"
-    ]
-  },
-  {
-    id: "brand",
-    number: "08",
-    title: "Brand & Identity",
-    description: "Visual identity, positioning, and brand architecture.",
-    link: "/services/brand-and-identity",
-    icon: <Palette className="w-5 h-5" />,
-    features: [
-      "Visual Identity",
-      "Brand Positioning",
-      "Logo Design",
-      "Brand Guidelines"
-    ]
-  },
-  {
-    id: "web",
-    number: "09",
-    title: "Web Design & Dev",
-    description: "Fast, conversion-optimised sites. A sales tool, not a brochure.",
-    link: "/services/website-design-and-development",
+    id: "web-dev",
+    number: "04",
+    title: "Web & App Development",
+    description: "Your Digital Storefront, Built to Convert. Custom E-commerce and corporate websites.",
+    link: "/services/website-and-app-development",
     icon: <Monitor className="w-5 h-5" />,
     features: [
-      "Responsive Design",
-      "UI/UX Design",
-      "Performance Optimization",
-      "CMS Integration"
+      "E-commerce Builds",
+      "Corporate Websites",
+      "Portfolio Sites",
+      "Mobile App Dev"
+    ]
+  },
+  {
+    id: "organic",
+    number: "05",
+    title: "Organic Marketing",
+    description: "Own the Search Results. Mastering traditional SEO alongside AI-driven search optimizations.",
+    link: "/services/organic-marketing",
+    icon: <Search className="w-5 h-5" />,
+    features: [
+      "SEO, AEO & GEO",
+      "Platform Setups",
+      "Bing Optimization",
+      "Google Business"
+    ]
+  },
+  {
+    id: "events",
+    number: "06",
+    title: "Event Management",
+    description: "Unforgettable Experiences, Flawlessly Executed. Full-scale event planning and sponsorships.",
+    link: "/services/event-management",
+    icon: <Palette className="w-5 h-5" />,
+    features: [
+      "Event Planning",
+      "End-to-End Management",
+      "Sponsorships",
+      "Event Branding"
     ]
   },
 ];

@@ -24,14 +24,14 @@ import FreeWebsites from "./pages/FreeWebsites";
 import FreeWeddingFilm from "./pages/FreeWeddingFilm";
 import WhatsappMarketing from "./pages/WhatsappMarketing";
 import PerformanceMarketing from "./pages/PerformanceMarketing";
-import AiEraSeo from "./pages/AiEraSeo";
+import OrganicMarketing from "./pages/OrganicMarketing";
 import SocialMediaManagement from "./pages/SocialMediaManagement";
-import ContentAndCreative from "./pages/ContentAndCreative";
-import LinkedInB2BMarketing from "./pages/LinkedInB2BMarketing";
-import CROAndFunnelDesign from "./pages/CROAndFunnelDesign";
-import RevenueAttributionDashboard from "./pages/RevenueAttributionDashboard";
-import BrandAndIdentity from "./pages/BrandAndIdentity";
-import WebsiteDesignAndDevelopment from "./pages/WebsiteDesignAndDevelopment";
+import AiAndVideoProduction from "./pages/AiAndVideoProduction";
+
+import WebsiteAndAppDevelopment from "./pages/WebsiteAndAppDevelopment";
+import EventManagement from "./pages/EventManagement";
+
+import SubService from "./pages/SubService";
 
 const AppRoutes = () => (
   <Routes>
@@ -40,16 +40,24 @@ const AppRoutes = () => (
     <Route path="/about" element={<About />} />
     <Route path="/careers" element={<Careers />} />
     <Route path="/services" element={<ServicesPage />} />
-    <Route path="/services/whatsapp-marketing" element={<WhatsappMarketing />} />
-    <Route path="/services/performance-marketing" element={<PerformanceMarketing />} />
-    <Route path="/services/ai-era-seo" element={<AiEraSeo />} />
+    {/* New 6 Core Services */}
     <Route path="/services/social-media-management" element={<SocialMediaManagement />} />
-    <Route path="/services/content-and-creative" element={<ContentAndCreative />} />
-    <Route path="/services/linkedin-b2b-marketing" element={<LinkedInB2BMarketing />} />
-    <Route path="/services/cro-and-funnel-design" element={<CROAndFunnelDesign />} />
-    <Route path="/services/revenue-attribution-dashboard" element={<RevenueAttributionDashboard />} />
-    <Route path="/services/brand-and-identity" element={<BrandAndIdentity />} />
-    <Route path="/services/website-design-and-development" element={<WebsiteDesignAndDevelopment />} />
+    <Route path="/services/performance-marketing" element={<PerformanceMarketing />} />
+    <Route path="/services/organic-marketing" element={<OrganicMarketing />} />
+    <Route path="/services/website-and-app-development" element={<WebsiteAndAppDevelopment />} />
+    <Route path="/services/ai-and-video-production" element={<AiAndVideoProduction />} />
+    <Route path="/services/event-management" element={<EventManagement />} />
+    <Route path="/services/:categorySlug/:subServiceSlug" element={<SubService />} />
+
+    {/* Obsolete Service Redirects */}
+    <Route path="/services/whatsapp-marketing" element={<Navigate to="/services/performance-marketing" replace />} />
+    <Route path="/services/ai-era-seo" element={<Navigate to="/services/organic-marketing" replace />} />
+    <Route path="/services/content-and-creative" element={<Navigate to="/services/ai-and-video-production" replace />} />
+    <Route path="/services/linkedin-b2b-marketing" element={<Navigate to="/services/social-media-management" replace />} />
+    <Route path="/services/cro-and-funnel-design" element={<Navigate to="/services/website-and-app-development" replace />} />
+    <Route path="/services/revenue-attribution-dashboard" element={<Navigate to="/services/performance-marketing" replace />} />
+    <Route path="/services/brand-and-identity" element={<Navigate to="/services/social-media-management" replace />} />
+    <Route path="/services/website-design-and-development" element={<Navigate to="/services/website-and-app-development" replace />} />
     {/* Portfolio now lives on its own standalone site. Send the old routes home. */}
     <Route path="/works" element={<Navigate to="/" replace />} />
     <Route path="/work" element={<Navigate to="/" replace />} />

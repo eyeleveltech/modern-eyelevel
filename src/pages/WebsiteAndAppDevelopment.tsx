@@ -11,21 +11,21 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { websiteDesignAndDevelopmentSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { websiteAndAppDevelopmentSchema, breadcrumbSchema } from "@/hooks/schemas";
 
-import { HeroSection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/HeroSection";
-import { IncludesSection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/IncludesSection";
-import { WhoIsItForSection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/WhoIsItForSection";
-import { QuoteSection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/QuoteSection";
-import { IndustriesSection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/IndustriesSection";
-import { CTASection } from "@/components/sections/services/WEBSITE DESIGN AND DEVELOPMENT/CTASection";
+import { HeroSection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/HeroSection";
+import { IncludesSection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/IncludesSection";
+import { WhoIsItForSection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/WhoIsItForSection";
+import { QuoteSection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/QuoteSection";
+import { IndustriesSection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/IndustriesSection";
+import { CTASection } from "@/components/sections/services/WEBSITE AND APP DEVELOPMENT/CTASection";
 
-const WebsiteDesignAndDevelopment = () => {
+const WebsiteAndAppDevelopment = () => {
   return (
     <div className="min-h-[65vh] lg:min-h-[95vh] bg-background overflow-clip">
       <SEO
-        title="Website Design Agency Chennai | Web Development | Eyelevel Growth Studio"
-        description="Fast, conversion-optimised websites built as sales tools, not brochures. Design, development, SEO, and copywriting from one studio. Chennai and India."
+        title="Website & App Development | High-Performance Sites | Eyelevel Growth Studio"
+        description="We craft high-performance websites and mobile apps tailored to your business goals. Clean, fast, and built for growth."
         keywords={[
           "website design agency Chennai",
           "web development agency Chennai",
@@ -35,15 +35,15 @@ const WebsiteDesignAndDevelopment = () => {
         ]}
         image="https://theeyelevelstudio.com/og/services-1200x630.png"
         schema={[
-          websiteDesignAndDevelopmentSchema,
+          websiteAndAppDevelopmentSchema,
           breadcrumbSchema([
             { name: "Home", url: "https://theeyelevelstudio.com/" },
             { name: "Services", url: "https://theeyelevelstudio.com/services" },
-            { name: "Website Design and Development", url: "https://theeyelevelstudio.com/services/website-design-and-development" },
+            { name: "Website & App Development", url: "https://theeyelevelstudio.com/services/website-and-app-development" },
           ]),
         ]}
-        canonical="https://theeyelevelstudio.com/services/website-design-and-development"
-        url="https://theeyelevelstudio.com/services/website-design-and-development"
+        canonical="https://theeyelevelstudio.com/services/website-and-app-development"
+        url="https://theeyelevelstudio.com/services/website-and-app-development"
       />
       <Header />
 
@@ -59,4 +59,4 @@ const WebsiteDesignAndDevelopment = () => {
   );
 };
 
-export default WebsiteDesignAndDevelopment;
+export default WebsiteAndAppDevelopment;

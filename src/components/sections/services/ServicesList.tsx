@@ -44,173 +44,124 @@ import linkedinb2b_3 from "@/assets/pages/services/linkedinb2b_3.webp";
 const services = [
   {
     id: 1,
-    title: "Performance Marketing",
-    description:
-      "Meta and Google Ads built for revenue, not reach. Full-funnel campaigns with flat fees and complete attribution from ad to close. No black-box reporting, no padded spend.",
+    title: "Social Media Marketing",
+    description: (
+      <>
+        <strong className="text-white">Your Brand, Everywhere That Matters</strong>
+        <br /><br />
+        We build and manage your brand's social presence from the ground up — strategy, content, and community. From scroll-stopping Reels to influencer campaigns, we handle every touchpoint so you stay consistent, relevant, and growing.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> Photography & Camera Crew / Videography / Content Creation / Podcast Studio Setup / Social Media Management / Influencer Marketing / Designing & Creative Services / Social Media Strategy / Celebrity & Brand Partnerships
+      </>
+    ),
     media: [
-      {
-        src: perf_mark_01,
-        type: "image" as const,
-      },
-      {
-        src: perf_mark_02,
-        type: "image" as const,
-      },
-      {
-        src: perf_mark_03,
-        type: "image" as const,
-      },
+      { src: influencerCelebrityImg, type: "image" as const },
+      { src: celebrityEvent, type: "image" as const },
+      { src: social, type: "image" as const },
     ],
     bgColor: "#1a2f28",
-    cta: { text: "Learn More →", link: "/services/performance-marketing", }
+    cta: { text: "Learn More →", link: "/services/social-media-management", }
   },
   {
     id: 2,
-    title: "AI-ERA SEO",
-    description:
-      " Traditional SEO is table stakes. We add AEO (AI Overviews, featured snippets) and GEO (ChatGPT, Gemini, Perplexity citations). Buyers get answers before they click. We make sure yours is the answer they get.",
+    title: "Paid & Performance Marketing",
+    description: (
+      <>
+        <strong className="text-white">Every Rupee, Working Harder</strong>
+        <br /><br />
+        We engineer data-driven ad campaigns that reach the right audience at the right moment — and convert. From setup to scale, we manage the full funnel with precision targeting, real-time optimization, and transparent reporting.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> Strategy & Budgeting / Audience Selection & Setup / Conversion Tracking / Marketing Automation / Website & Landing Page Development / Ad Campaign Setup / Performance Analysis & Reporting
+      </>
+    ),
     media: [
-      { src: aiseo_1, type: "image" as const }, {
-        src: social_1,
-        type: "image" as const,
-      },
-      {
-        src: aiseo_2,
-        type: "image" as const,
-      }
+      { src: perf_mark_01, type: "image" as const },
+      { src: perf_mark_02, type: "image" as const },
+      { src: perf_mark_03, type: "image" as const },
     ],
     bgColor: "#0D1F1A",
-    cta: { text: "Learn More →", link: "/services/ai-era-seo" },
+    cta: { text: "Learn More →", link: "/services/performance-marketing", }
   },
   {
     id: 3,
-    title: "SOCIAL MEDIA MANAGEMENT",
-    description:
-      "Content that builds the audience your sales team needs. Strategy, calendars, creative, and posting fully managed. Communities that convert, not just follower counts.",
-    media: [
-      { src: influencerCelebrityImg, type: "image" as const },
-      {
-        src: celebrityEvent,
-        type: "image" as const,
-      },
-      {
-        src: social,
-        type: "image" as const,
-      },
-    ],
-    bgColor: "#1a2f28",
-    cta: { text: "Learn More →", link: "/services/social-media-management" },
-  },
-  {
-    id: 4,
-    title: "CONTENT AND CREATIVE",
-    description:
-      " AI handles production speed. Humans handle strategy and voice. Video, design, copy, and brand assets built with your brief, delivered with your tone.",
+    title: "AI Video Production",
+    description: (
+      <>
+        <strong className="text-white">Stories That Stop the Scroll</strong>
+        <br /><br />
+        From cinematic TVCs to AI-assisted motion graphics, we produce video content that commands attention and drives action. Every frame is crafted with purpose — for screens big and small.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> TVC & Commercial Videos / Reels & Stories / Documentary Videos / UGC Content / Digital Advertisements / Logo Animation / Motion Graphics
+      </>
+    ),
     media: [
       { src: production_1, type: "image" as const },
       { src: production_2, type: "image" as const },
       { src: production_3, type: "image" as const },
-      { src: photoGallery1, type: "image" as const },
-      { src: photoGallery2, type: "image" as const },
-      { src: photoGallery3, type: "image" as const },
+    ],
+    bgColor: "#1a2f28",
+    cta: { text: "Learn More →", link: "/services/ai-and-video-production", }
+  },
+  {
+    id: 4,
+    title: "Web & App Development",
+    description: (
+      <>
+        <strong className="text-white">Designed to Convert. Built to Last.</strong>
+        <br /><br />
+        We craft high-performance websites and mobile apps tailored to your business goals — whether you're selling products, showcasing a portfolio, or building a brand platform. Every build is clean, fast, and built for growth.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> E-Commerce Websites (Shopify / WooCommerce / Custom) / Catalogue & Portfolio Websites / Brand & Corporate Websites / Mobile App Development
+      </>
+    ),
+    media: [
+      { src: web_1, type: "image" as const },
+      { src: web_2, type: "image" as const },
+      { src: web_3, type: "image" as const },
+      { src: web_4, type: "image" as const },
     ],
     bgColor: "#0D1F1A",
-    cta: { text: "Learn More →", link: "/services/content-and-creative" },
+    cta: { text: "Learn More →", link: "/services/website-and-app-development", }
   },
   {
     id: 5,
-    title: "LINKEDIN B2B MARKETING",
-    description:
-      "Profile optimisation, content strategy, and targeted outreach that builds real pipeline. For founders and companies that sell to other businesses.",
+    title: "Organic Marketing",
+    description: (
+      <>
+        <strong className="text-white">Get Found. Stay Found.</strong>
+        <br /><br />
+        We optimize your digital presence so customers discover you naturally — on search engines, AI platforms, and maps. No ads needed; just sustained, compounding visibility built the right way.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> Bing Optimization / SEO / AEO / GEO / Google Search Console / Google Business Profile (Google My Business)
+      </>
+    ),
     media: [
-      {
-        src: meeting,
-        type: "image" as const,
-      },
-      {
-        src: linkedinb2b_2,
-        type: "image" as const,
-      },
-      {
-        src: linkedinb2b_3,
-        type: "image" as const,
-      },
+      { src: aiseo_1, type: "image" as const },
+      { src: social_1, type: "image" as const },
+      { src: aiseo_2, type: "image" as const },
     ],
     bgColor: "#1a2f28",
-    cta: { text: "Learn More →", link: "/services/linkedin-b2b-marketing" },
+    cta: { text: "Learn More →", link: "/services/organic-marketing", }
   },
   {
     id: 6,
-    title: "CRO AND FUNNEL DESIGN",
-    description:
-      "We fix what happens after the click. Landing pages, conversion flows, lead qualification systems built to turn visitors into conversations.", media: [
-        {
-          src: crofunneldesign_3,
-          type: "image" as const,
-        },
-        {
-          src: crofunneldesign_1,
-          type: "image" as const,
-        },
-        {
-          src: crofunneldesign_2,
-          type: "image" as const,
-        },
-      ],
-    bgColor: "#0D1F1A",
-    cta: { text: "Learn More →", link: "/services/cro-and-funnel-design" },
-  },
-  {
-    id: 7,
-    title: "REVENUE ATTRIBUTION DASHBOARD",
-    description:
-      " Bundled into every growth retainer. Every channel tied to a business outcome. You will always know which activity is producing revenue and which one to cut.",
+    title: "Events",
+    description: (
+      <>
+        <strong className="text-white">Events That Leave an Impression</strong>
+        <br /><br />
+        We handle the full lifecycle of your event — from early planning through flawless execution. With end-to-end coordination, sponsorship strategy, and on-brand visuals, we make sure every event reflects your brand at its best.
+        <br /><br />
+        <span className="text-primary font-semibold">Services:</span> Event Planning & Organizing / End-to-End Event Management / Sponsorship Management / Event Branding
+      </>
+    ),
     media: [
-      { src: crm, type: "image" as const },
-      { src: revenueattribution_1, type: "image" as const },
-      { src: revenueattribution_2, type: "image" as const },
-    ],
-    bgColor: "#1a2f28",
-    cta: { text: "Learn More →", link: "/services/revenue-attribution-dashboard" },
-  },
-  {
-    id: 8,
-    title: "BRAND AND IDENTITY",
-    description:
-      "Visual identity, positioning, and brand architecture for companies that are growing and need their brand to do the work. Logo, guidelines, tone of voice, and the full system.",
-    media: [
-      { src: brandandidentity_1, type: "image" as const },
-      { src: brandandidentity_2, type: "image" as const },
-      { src: brandandidentity_3, type: "image" as const },
+      { src: meeting, type: "image" as const },
+      { src: photoGallery1, type: "image" as const },
+      { src: photoGallery2, type: "image" as const },
     ],
     bgColor: "#0D1F1A",
-    cta: { text: "Learn More →", link: "/services/brand-and-identity" },
-  },
-  {
-    id: 9,
-    title: "WEBSITE DESIGN AND DEVELOPMENT",
-    description:
-      "Fast, conversion-optimised sites built as sales tools, not brochures. Designed to do one thing: turn a visitor into a lead.",
-    media: [
-      {
-        src: web_1,
-        type: "image" as const,
-      },
-      {
-        src: web_2,
-        type: "image" as const,
-      },
-      {
-        src: web_3,
-        type: "image" as const,
-      },
-      {
-        src: web_4,
-        type: "image" as const,
-      },
-    ],
-    bgColor: "#1a2f28",
-    cta: { text: "Learn More →", link: "/services/website-design-and-development" },
+    cta: { text: "Learn More →", link: "/services/event-management", }
   },
 ];
 
@@ -265,7 +216,7 @@ const ServicesList = () => {
                   className="space-y-6"
                 >
                   <h2
-                    className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-dela leading-tight uppercase text-foreground"
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-dela leading-tight uppercase text-foreground"
                   >
                     {service.title}
                   </h2>

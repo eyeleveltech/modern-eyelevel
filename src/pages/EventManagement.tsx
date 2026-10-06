@@ -11,21 +11,21 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { brandAndIdentitySchema, breadcrumbSchema } from "@/hooks/schemas";
+import { eventManagementSchema, breadcrumbSchema } from "@/hooks/schemas";
 
-import { HeroSection } from "@/components/sections/services/BRAND AND IDENTITY/HeroSection";
-import { IncludesSection } from "@/components/sections/services/BRAND AND IDENTITY/IncludesSection";
-import { WhoIsItForSection } from "@/components/sections/services/BRAND AND IDENTITY/WhoIsItForSection";
-import { QuoteSection } from "@/components/sections/services/BRAND AND IDENTITY/QuoteSection";
-import { IndustriesSection } from "@/components/sections/services/BRAND AND IDENTITY/IndustriesSection";
-import { CTASection } from "@/components/sections/services/BRAND AND IDENTITY/CTASection";
+import { HeroSection } from "@/components/sections/services/EVENT MANAGEMENT/HeroSection";
+import { IncludesSection } from "@/components/sections/services/EVENT MANAGEMENT/IncludesSection";
+import { WhoIsItForSection } from "@/components/sections/services/EVENT MANAGEMENT/WhoIsItForSection";
+import { QuoteSection } from "@/components/sections/services/EVENT MANAGEMENT/QuoteSection";
+import { IndustriesSection } from "@/components/sections/services/EVENT MANAGEMENT/IndustriesSection";
+import { CTASection } from "@/components/sections/services/EVENT MANAGEMENT/CTASection";
 
-const BrandAndIdentity = () => {
+const EventManagement = () => {
   return (
     <div className="min-h-[65vh] lg:min-h-[95vh] bg-background overflow-clip">
       <SEO
-        title="Brand Identity Agency Chennai | Branding Services | Eyelevel Growth Studio"
-        description="Visual identity, positioning, and brand architecture for companies that are growing and need their brand to do the work. Logo, guidelines, tone of voice."
+        title="Event Management Agency | Events That Leave an Impression | Eyelevel"
+        description="End-to-end event planning, organizing, execution, and sponsorship management that reflects your brand at its best."
         keywords={[
           "brand identity agency Chennai",
           "branding agency Chennai",
@@ -35,15 +35,15 @@ const BrandAndIdentity = () => {
         ]}
         image="https://theeyelevelstudio.com/og/services-1200x630.png"
         schema={[
-          brandAndIdentitySchema,
+          eventManagementSchema,
           breadcrumbSchema([
             { name: "Home", url: "https://theeyelevelstudio.com/" },
             { name: "Services", url: "https://theeyelevelstudio.com/services" },
-            { name: "Brand and Identity", url: "https://theeyelevelstudio.com/services/brand-and-identity" },
+            { name: "Event Management", url: "https://theeyelevelstudio.com/services/event-management" },
           ]),
         ]}
-        canonical="https://theeyelevelstudio.com/services/brand-and-identity"
-        url="https://theeyelevelstudio.com/services/brand-and-identity"
+        canonical="https://theeyelevelstudio.com/services/event-management"
+        url="https://theeyelevelstudio.com/services/event-management"
       />
       <Header />
 
@@ -59,4 +59,4 @@ const BrandAndIdentity = () => {
   );
 };
 
-export default BrandAndIdentity;
+export default EventManagement;

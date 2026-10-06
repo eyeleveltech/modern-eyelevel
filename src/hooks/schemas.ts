@@ -80,17 +80,14 @@ export const servicesListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Eyelevel Growth Studio — Marketing Services",
-  description: "Nine digital marketing services from one AI-powered studio in Chennai.",
+  description: "Six core digital marketing and growth services from one AI-powered studio in Chennai.",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Performance Marketing", url: "https://theeyelevelstudio.com/services/performance-marketing" },
-    { "@type": "ListItem", position: 2, name: "AI-Era SEO", url: "https://theeyelevelstudio.com/services/ai-era-seo" },
-    { "@type": "ListItem", position: 3, name: "Social Media Management", url: "https://theeyelevelstudio.com/services/social-media-management" },
-    { "@type": "ListItem", position: 4, name: "Content and Creative", url: "https://theeyelevelstudio.com/services/content-and-creative" },
-    { "@type": "ListItem", position: 5, name: "LinkedIn B2B Marketing", url: "https://theeyelevelstudio.com/services/linkedin-b2b-marketing" },
-    { "@type": "ListItem", position: 6, name: "CRO and Funnel Design", url: "https://theeyelevelstudio.com/services/cro-and-funnel-design" },
-    { "@type": "ListItem", position: 7, name: "Revenue Attribution Dashboard", url: "https://theeyelevelstudio.com/services/revenue-attribution-dashboard" },
-    { "@type": "ListItem", position: 8, name: "Brand and Identity", url: "https://theeyelevelstudio.com/services/brand-and-identity" },
-    { "@type": "ListItem", position: 9, name: "Website Design and Development", url: "https://theeyelevelstudio.com/services/website-design-and-development" },
+    { "@type": "ListItem", position: 1, name: "Social Media Management", url: "https://theeyelevelstudio.com/services/social-media-management" },
+    { "@type": "ListItem", position: 2, name: "Paid & Performance Marketing", url: "https://theeyelevelstudio.com/services/performance-marketing" },
+    { "@type": "ListItem", position: 3, name: "AI & Video Production", url: "https://theeyelevelstudio.com/services/ai-and-video-production" },
+    { "@type": "ListItem", position: 4, name: "Web & App Development", url: "https://theeyelevelstudio.com/services/website-and-app-development" },
+    { "@type": "ListItem", position: 5, name: "Organic Marketing", url: "https://theeyelevelstudio.com/services/organic-marketing" },
+    { "@type": "ListItem", position: 6, name: "Event Management", url: "https://theeyelevelstudio.com/services/event-management" },
   ],
 };
 
@@ -355,7 +352,7 @@ export const serviceDetailSchema = (service: {
 export const performanceMarketingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Performance Marketing",
+  name: "Paid & Performance Marketing",
   description: "Meta and Google Ads built for revenue, not reach. Full-funnel campaigns with complete attribution from ad to close. No black-box reporting.",
   provider: {
     "@type": "Organization",
@@ -366,10 +363,10 @@ export const performanceMarketingSchema = {
   url: "https://theeyelevelstudio.com/services/performance-marketing",
 };
 
-export const aiEraSeoSchema = {
+export const organicMarketingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "AI-Era SEO",
+  name: "Organic Marketing",
   description: "Traditional SEO plus AEO (AI Overviews, featured snippets) and GEO (ChatGPT, Gemini, Perplexity). We optimise for where buyers find answers now.",
   provider: {
     "@type": "Organization",
@@ -377,7 +374,7 @@ export const aiEraSeoSchema = {
     url: "https://theeyelevelstudio.com",
   },
   areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/ai-era-seo",
+  url: "https://theeyelevelstudio.com/services/organic-marketing",
 };
 
 export const socialMediaManagementSchema = {
@@ -394,10 +391,10 @@ export const socialMediaManagementSchema = {
   url: "https://theeyelevelstudio.com/services/social-media-management",
 };
 
-export const contentAndCreativeSchema = {
+export const aiAndVideoProductionSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Content and Creative",
+  name: "AI & Video Production",
   description: "AI handles production speed. Humans handle strategy and voice. Video, design, copy, and brand assets built with your brief, delivered with your tone.",
   provider: {
     "@type": "Organization",
@@ -405,69 +402,13 @@ export const contentAndCreativeSchema = {
     url: "https://theeyelevelstudio.com",
   },
   areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/content-and-creative",
+  url: "https://theeyelevelstudio.com/services/ai-and-video-production",
 };
 
-export const linkedInB2BMarketingSchema = {
+export const websiteAndAppDevelopmentSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "LinkedIn B2B Marketing",
-  description: "Profile optimisation, content strategy, and targeted outreach that builds real pipeline. For founders and companies that sell to other businesses.",
-  provider: {
-    "@type": "Organization",
-    name: "Eyelevel Growth Studio",
-    url: "https://theeyelevelstudio.com",
-  },
-  areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/linkedin-b2b-marketing",
-};
-
-export const croAndFunnelDesignSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "CRO and Funnel Design",
-  description: "We fix what happens after the click. Landing pages, conversion flows, and lead qualification systems built to turn visitors into conversations.",
-  provider: {
-    "@type": "Organization",
-    name: "Eyelevel Growth Studio",
-    url: "https://theeyelevelstudio.com",
-  },
-  areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/cro-and-funnel-design",
-};
-
-export const revenueAttributionDashboardSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Revenue Attribution Dashboard",
-  description: "Every campaign tied to a business outcome you can show your board. Custom dashboard bundled into growth retainers. GA4, Meta Ads, Google Ads, and CRM unified.",
-  provider: {
-    "@type": "Organization",
-    name: "Eyelevel Growth Studio",
-    url: "https://theeyelevelstudio.com",
-  },
-  areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/revenue-attribution-dashboard",
-};
-
-export const brandAndIdentitySchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Brand and Identity",
-  description: "Visual identity, positioning, and brand architecture for companies that are growing and need their brand to do the work. Logo, guidelines, tone of voice.",
-  provider: {
-    "@type": "Organization",
-    name: "Eyelevel Growth Studio",
-    url: "https://theeyelevelstudio.com",
-  },
-  areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/brand-and-identity",
-};
-
-export const websiteDesignAndDevelopmentSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Website Design and Development",
+  name: "Web & App Development",
   description: "Fast, conversion-optimised websites built as sales tools, not brochures. Design, development, SEO, and copywriting from one studio. Chennai and India.",
   provider: {
     "@type": "Organization",
@@ -475,7 +416,21 @@ export const websiteDesignAndDevelopmentSchema = {
     url: "https://theeyelevelstudio.com",
   },
   areaServed: "India",
-  url: "https://theeyelevelstudio.com/services/website-design-and-development",
+  url: "https://theeyelevelstudio.com/services/website-and-app-development",
+};
+
+export const eventManagementSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Event Management",
+  description: "End-to-end event planning and sponsorship management. Memorable brand experiences that leave a lasting impact.",
+  provider: {
+    "@type": "Organization",
+    name: "Eyelevel Growth Studio",
+    url: "https://theeyelevelstudio.com",
+  },
+  areaServed: "India",
+  url: "https://theeyelevelstudio.com/services/event-management",
 };
 
 export const realEstateIndustrySchema = {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, UserCheck, Building2, FileText, UserPlus, Megaphone, LineChart } from "lucide-react";
+import { ArrowRight, Layers, FileText, Sparkles, RefreshCcw, PenTool } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
 import { AnimatedHeroHeading } from "@/components/shared/AnimatedHeroHeading";
 import GreenButton from "@/components/shared/GreenButton";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { linkedInB2BMarketingSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { brandAndIdentitySchema, breadcrumbSchema } from "@/hooks/schemas";
 
 export const HeroSection = () => {
   const heroRef = useRef(null);
@@ -27,8 +27,8 @@ export const HeroSection = () => {
     {/* Section 1 — Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[65vh] lg:min-h-[95vh]  flex items-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]">
-        {/* Rotating star background */}
+        className="relative min-h-[65vh] lg:min-h-[95vh]  flex items-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]"
+      >
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
@@ -37,7 +37,6 @@ export const HeroSection = () => {
           <Star18 className="w-full h-full" />
         </motion.div>
 
-        {/* Parallax background elements */}
         <motion.div
           style={{ y: backgroundY }}
           className="absolute inset-0 overflow-hidden pointer-events-none"
@@ -53,29 +52,36 @@ export const HeroSection = () => {
             transition={{ delay: 0.1 }}
             className="mb-0"
           >
-            <GreenButton>SERVICES / LINKEDIN B2B MARKETING</GreenButton>
+            <GreenButton>SERVICES / EVENT MANAGEMENT</GreenButton>
           </motion.div>
 
           <AnimatedHeroHeading
             words={[
-              "LINKEDIN", "IS", "WHERE", "B2B", "DECISIONS", "START.", "WE", "MAKE", "SURE", "YOU",
-              <WavyUnderline key="wavy">SHOW UP</WavyUnderline>
+              "CURATED",
+              "OFFLINE",
+              "EVENTS",
+              "FOR",
+              "B2B",
+              "TECH",
+              "AND",
+              "MARKETING",
+              <WavyUnderline key="wavy">FOUNDERS</WavyUnderline>,
             ]}
           />
-          <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
+           <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.3 }}
+            transition={{ delay: 1 }}
             className="font-bricolage text-lg max-w-3xl mx-auto mb-10 leading-relaxed text-foreground"
           >
-            Profile optimisation, content strategy, and targeted outreach that builds real pipeline — not just followers.
+            Curated offline events and meetups for B2B tech and marketing founders. We handle all logistics, marketing, and sales — so you can focus on building connections.
           </motion.p>
 
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.4 }}
+            transition={{ delay: 1.1 }}
             className="flex items-center rounded-full relative font-bricolage z-1000 justify-start gap-4"
           >
             <Link to="/booking">

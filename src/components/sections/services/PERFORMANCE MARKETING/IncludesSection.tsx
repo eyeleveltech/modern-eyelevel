@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Target, MousePointerClick, LineChart } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
@@ -21,7 +22,7 @@ export const IncludesSection = () => {
       </motion.h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
 
-        {/* Box 1 */}
+        {/* Box 1 (wide) */}
         <motion.div
           {...scrollAnimProps}
           className="lg:col-span-2 bg-secondary/30 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-white/5 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
@@ -30,14 +31,22 @@ export const IncludesSection = () => {
 
           <Search className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
           <h3 className="font-dela text-xl md:text-2xl lg:text-3xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-            META & GOOGLE ADS
+            STRATEGY & SETUP
           </h3>
-          <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 max-w-md">
-            Full campaign build, audience architecture, creative iteration across Search, Display, YouTube, and Performance Max.
-          </p>
+          <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+            <li>
+              <Link to="/services/performance-marketing/strategy-and-budgeting" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Strategy & Budgeting</Link>
+            </li>
+            <li>
+              <Link to="/services/performance-marketing/audience-selection-and-setup" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Audience Selection & Setup</Link>
+            </li>
+            <li>
+              <Link to="/services/performance-marketing/ad-campaign-setup" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Ad Campaign Setup</Link>
+            </li>
+          </ul>
         </motion.div>
 
-        {/* Box 2 */}
+        {/* Box 2 (square) */}
         <motion.div
           {...scrollAnimProps}
           transition={{ delay: 0.1 }}
@@ -47,45 +56,38 @@ export const IncludesSection = () => {
 
           <Target className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
           <h3 className="font-dela text-xl md:text-2xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-            CONVERSION TRACKING
+            WEB & LANDING
           </h3>
-          <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80">
-            GA4, Meta Pixel, and offline conversion integration.
-          </p>
+          <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+            <li>
+              <Link to="/services/performance-marketing/website-landing-page-development" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Website / Landing Page Development</Link>
+            </li>
+          </ul>
         </motion.div>
 
-        {/* Box 3 */}
+        {/* Box 3 (full width) */}
         <motion.div
           {...scrollAnimProps}
           transition={{ delay: 0.2 }}
-          className="lg:col-span-1 bg-secondary/30 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-white/5 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-          <MousePointerClick className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
-          <h3 className="font-dela text-xl md:text-2xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-            A/B TESTING
-          </h3>
-          <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80">
-            Creative, copy, landing page, and audience simultaneously.
-          </p>
-        </motion.div>
-
-        {/* Box 4 */}
-        <motion.div
-          {...scrollAnimProps}
-          transition={{ delay: 0.3 }}
-          className="lg:col-span-2 bg-primary/5 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
+          className="lg:col-span-3 bg-primary/5 backdrop-blur-md rounded-3xl p-6 md:p-8 lg:p-10 border border-primary/20 group relative overflow-hidden flex flex-col justify-start min-h-[280px] transition-all duration-300 hover:border-primary/30"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           <LineChart className="w-10 h-10 text-primary mb-6 transition-colors duration-300 group-hover:text-primary" />
           <h3 className="font-dela text-xl md:text-2xl lg:text-3xl text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
-            REVENUE ATTRIBUTION DASHBOARD
+            TRACKING & ANALYSIS
           </h3>
-          <p className="font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 max-w-xl">
-            Bundled into every retainer. Plus monthly performance reviews with a single P&L view.
-          </p>
+          <ul className="list-disc list-inside font-bricolage text-sm md:text-base lg:text-lg text-foreground/80 space-y-2 max-w-xl">
+            <li>
+              <Link to="/services/performance-marketing/conversion-tracking" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Conversion Tracking</Link>
+            </li>
+            <li>
+              <Link to="/services/performance-marketing/marketing-automation" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Marketing Automation</Link>
+            </li>
+            <li>
+              <Link to="/services/performance-marketing/performance-analysis-and-reporting" className="hover:text-primary hover:underline underline-offset-4 transition-colors">Performance Analysis & Reporting</Link>
+            </li>
+          </ul>
         </motion.div>
 
       </div>

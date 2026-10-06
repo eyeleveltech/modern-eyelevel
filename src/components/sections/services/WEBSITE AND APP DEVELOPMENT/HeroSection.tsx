@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import EnhancedFooter from "@/components/layout/EnhancedFooter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Eye, LayoutTemplate, Filter, GitMerge, Split, Mail } from "lucide-react";
+import { ArrowRight, Map, Palette, Code2, SearchCheck, PenLine, Wrench } from "lucide-react";
 import WavyUnderline from "@/components/shared/WavyUnderline";
 import { AnimatedHeroHeading } from "@/components/shared/AnimatedHeroHeading";
 import GreenButton from "@/components/shared/GreenButton";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Star18 } from "@/components/shared/Star18";
 import SEO from "@/components/utils/SEO";
 import { CardsParallax, type iCardItem } from "@/components/shared/CardsParallax";
-import { croAndFunnelDesignSchema, breadcrumbSchema } from "@/hooks/schemas";
+import { websiteDesignAndDevelopmentSchema, breadcrumbSchema } from "@/hooks/schemas";
 
 export const HeroSection = () => {
   const heroRef = useRef(null);
@@ -27,9 +27,8 @@ export const HeroSection = () => {
     {/* Section 1 — Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[65vh] lg:min-h-[95vh]  flex flex-col items-center justify-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]"
+        className="relative min-h-[65vh] lg:min-h-[95vh]  flex items-center px-4 overflow-hidden bg-secondary pt-40 pb-[100px]"
       >
-        {/* Rotating star background */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
@@ -38,7 +37,6 @@ export const HeroSection = () => {
           <Star18 className="w-full h-full" />
         </motion.div>
 
-        {/* Parallax background elements */}
         <motion.div
           style={{ y: backgroundY }}
           className="absolute inset-0 overflow-hidden pointer-events-none"
@@ -54,23 +52,29 @@ export const HeroSection = () => {
             transition={{ delay: 0.1 }}
             className="mb-0"
           >
-            <GreenButton>SERVICES / CRO AND FUNNEL DESIGN</GreenButton>
+            <GreenButton>SERVICES / WEBSITE & APP DEVELOPMENT</GreenButton>
           </motion.div>
 
           <AnimatedHeroHeading
             words={[
-              "MOST", "MARKETING", "PROBLEMS", "ARE", "ACTUALLY",
-              <WavyUnderline key="wavy">CONVERSION PROBLEMS</WavyUnderline>
+              "A",
+              "WEBSITE",
+              "BUILT",
+              "AS",
+              "A",
+              "SALES",
+              "TOOL,",
+              <WavyUnderline key="wavy">NOT A BROCHURE</WavyUnderline>,
             ]}
           />
-          <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
+            <div className="w-20 h-1 opacity-50 bg-primary my-8 rounded-full mx-auto"></div>
           <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1 }}
             className="font-bricolage text-lg max-w-3xl mx-auto mb-10 leading-relaxed text-foreground"
           >
-            We fix what happens after the click. Landing pages, conversion flows, lead qualification systems — built to turn visitors into conversations.
+            Fast, conversion-optimised, and ready to rank. Designed to do one thing: turn a visitor into a lead.
           </motion.p>
 
           <motion.div
