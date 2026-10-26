@@ -126,7 +126,7 @@ We're not your agency. We're your extended marketing team — one studio, full s
     ],
 
     requirements: [
-      "Basic knowledge of Photoshop, Illustrator, Canva, or Figma.",
+      "Intermediate knowledge of Illustrator, Photoshop, and Canva.",
       "Interest in AI-powered design.",
       "Creative portfolio is preferred.",
       "Basic typography and color knowledge.",
